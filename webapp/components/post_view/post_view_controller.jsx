@@ -218,12 +218,19 @@ export default class PostViewController extends React.Component {
         }
     }
 
-    onSetNewMessageIndicator() {
-        let lastViewed = Number.MAX_VALUE;
+    onSetNewMessageIndicator(lastViewed, tBool, tString) {
+        console.log(`onSetNewMessageIndicator lastViewed: ${lastViewed}, tBool: ${tBool}, tString: ${tString}`);
+        lastViewed = Number.MAX_VALUE;
         const member = ChannelStore.getMyMember(this.props.channel.id);
+        // DEBUG
+        console.log('onSetNewMessageIndicator member: ', member);
+        
         if (member != null) {
             lastViewed = member.last_viewed_at;
         }
+        // DEBUG
+        lastViewed = 1485994972;
+        console.log(`onSetNewMessageIndicator lastViewed: ${lastViewed}`);
         this.setState({lastViewed});
     }
 

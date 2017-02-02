@@ -65,7 +65,7 @@ export function setChannelAsRead(channelIdParam) {
     ChannelStore.resetCounts(channelId);
     ChannelStore.emitChange();
     if (channelId === ChannelStore.getCurrentId()) {
-        ChannelStore.emitLastViewed(Number.MAX_VALUE, false);
+        ChannelStore.emitLastViewed(Number.MAX_VALUE, false, 'test');
     }
 }
 
