@@ -18,6 +18,7 @@ func InitUser() {
 	BaseRoutes.Users.Handle("", ApiHandler(createUser)).Methods("POST")
 	BaseRoutes.Users.Handle("", ApiSessionRequired(getUsers)).Methods("GET")
 	BaseRoutes.Users.Handle("/ids", ApiSessionRequired(getUsersByIds)).Methods("POST")
+	BaseRoutes.Users.Handle("/autocomplete", ApiSessionRequired(getUsersByAutocomplete)).Methods("POST")
 
 	BaseRoutes.User.Handle("", ApiSessionRequired(getUser)).Methods("GET")
 	BaseRoutes.User.Handle("", ApiSessionRequired(updateUser)).Methods("PUT")
@@ -230,6 +231,58 @@ func getUsersByIds(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		w.Write([]byte(model.UserListToJson(users)))
+	}
+}
+
+func getUsersByAutocomplete(c *Context, w http.ResponseWriter, r *http.Request) {
+	inTeamId := r.URL.Query().Get("in_team")
+	inChannelId := r.URL.Query().Get("in_channel")
+
+	if len(inChannelId) > 0 && len(inTeamId) == 0 {
+		c.SetInvalidParam("team_id")
+		return
+	}
+
+	var profiles []*model.User
+	var err *model.AppError
+	etag := ""
+
+	if len(inTeamId) > 0 {
+		if !app.SessionHasPermissionToTeam(c.Session, inTeamId, model.PERMISSION_VIEW_TEAM) {
+			c.SetPermissionError(model.PERMISSION_VIEW_TEAM)
+			return
+		}
+
+		etag = app.GetUsersByAutocompleteInTeamEtag(inTeamId)
+		if HandleEtag(etag, "Get users autocomplete in team", w, r) {
+			return
+		}
+
+		profiles, err = app.GetUsersByAutocompleteInTeam(inTeamId, c.IsSystemAdmin())
+	} else if len(inChannelId) > 0 {
+		if !app.SessionHasPermissionToChannel(c.Session, inChannelId, model.PERMISSION_READ_CHANNEL) {
+			c.SetPermissionError(model.PERMISSION_READ_CHANNEL)
+			return
+		}
+
+		profiles, err = app.GetUsersByAutocompleteInChannel(inChannelId, c.IsSystemAdmin())
+	} else {
+		etag = app.GetUsersByAutocompleteEtag()
+		if HandleEtag(etag, "Get users autocomplete", w, r) {
+			return
+		}
+
+		profiles, err = app.GetUsersByAutocomplete(c.IsSystemAdmin())
+	}
+
+	if err != nil {
+		c.Err = err
+		return
+	} else {
+		if len(etag) > 0 {
+			w.Header().Set(model.HEADER_ETAG_SERVER, etag)
+		}
+		w.Write([]byte(model.UserListToJson(profiles)))
 	}
 }
 
@@ -481,51 +534,51 @@ func Logout(c *Context, w http.ResponseWriter, r *http.Request) {
 }
 
 func getSessions(c *Context, w http.ResponseWriter, r *http.Request) {
-    c.RequireUserId()
-    if c.Err != nil {
-        return
-    }
+	c.RequireUserId()
+	if c.Err != nil {
+		return
+	}
 
-    if !app.SessionHasPermissionToUser(c.Session, c.Params.UserId) {
-        c.SetPermissionError(model.PERMISSION_EDIT_OTHER_USERS)
-        return
-    }
+	if !app.SessionHasPermissionToUser(c.Session, c.Params.UserId) {
+		c.SetPermissionError(model.PERMISSION_EDIT_OTHER_USERS)
+		return
+	}
 
-    if sessions, err := app.GetSessions(c.Params.UserId); err != nil {
-        c.Err = err
-        return
-    } else {
-        for _, session := range sessions {
-            session.Sanitize()
-        }
+	if sessions, err := app.GetSessions(c.Params.UserId); err != nil {
+		c.Err = err
+		return
+	} else {
+		for _, session := range sessions {
+			session.Sanitize()
+		}
 
-        w.Write([]byte(model.SessionsToJson(sessions)))
-        return
-    }
+		w.Write([]byte(model.SessionsToJson(sessions)))
+		return
+	}
 }
 
 func revokeSession(c *Context, w http.ResponseWriter, r *http.Request) {
-    c.RequireUserId()
-    if c.Err != nil {
-        return
-    }
+	c.RequireUserId()
+	if c.Err != nil {
+		return
+	}
 
-    if !app.SessionHasPermissionToUser(c.Session, c.Params.UserId) {
-        c.SetPermissionError(model.PERMISSION_EDIT_OTHER_USERS)
-        return
-    }
+	if !app.SessionHasPermissionToUser(c.Session, c.Params.UserId) {
+		c.SetPermissionError(model.PERMISSION_EDIT_OTHER_USERS)
+		return
+	}
 
-    props := model.MapFromJson(r.Body)
-    sessionId := props["session_id"]
+	props := model.MapFromJson(r.Body)
+	sessionId := props["session_id"]
 
-    if sessionId == "" {
-        c.SetInvalidParam("session_id")
-    }
+	if sessionId == "" {
+		c.SetInvalidParam("session_id")
+	}
 
-    if err := app.RevokeSessionById(sessionId); err != nil {
-        c.Err = err
-        return
-    }
+	if err := app.RevokeSessionById(sessionId); err != nil {
+		c.Err = err
+		return
+	}
 
-    ReturnStatusOK(w)
+	ReturnStatusOK(w)
 }
