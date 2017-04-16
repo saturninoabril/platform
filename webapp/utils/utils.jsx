@@ -15,6 +15,7 @@ import * as UserAgent from 'utils/user_agent.jsx';
 
 import {browserHistory} from 'react-router/es6';
 import {FormattedMessage} from 'react-intl';
+import {Parser, ProcessNodeDefinitions} from 'html-to-react';
 
 import icon50 from 'images/icon50x50.png';
 import bing from 'images/bing.mp3';
@@ -1342,4 +1343,43 @@ export function isEmptyObject(object) {
 
 export function updateWindowDimensions(component) {
     component.setState({width: window.innerWidth, height: window.innerHeight});
+}
+
+export function postMessageHtmlToComponent(html, AtMentionComponent) {
+    const parser = new Parser();
+    const attrib = 'data-mention';
+    const processNodeDefinitions = new ProcessNodeDefinitions(React);
+    const processingInstructions = [
+        {
+            replaceChildren: true,
+            shouldProcessNode: (node) => node.attribs && node.attribs[attrib] && !isSpecialMention(node.attribs[attrib]),
+            processNode: (node) => {
+                const username = node.attribs[attrib];
+                const user = UserStore.getProfileByUsername(username);
+
+                return atMentionComponent(AtMentionComponent, user, username);
+            }
+        },
+        {
+            shouldProcessNode: () => true,
+            processNode: processNodeDefinitions.processDefaultNode
+        }
+    ];
+
+    return parser.parseWithInstructions(html, true, processingInstructions);
+}
+
+function isSpecialMention(username) {
+    return Constants.SPECIAL_MENTIONS.reduce((acc, val) => {
+        return acc || username === val;
+    }, false);
+}
+
+function atMentionComponent(AtMentionComponent, user, username) {
+    return (
+        <AtMentionComponent
+            user={user}
+            username={username}
+        />
+    );
 }

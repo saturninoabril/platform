@@ -4,6 +4,8 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
+import AtMentionProfile from 'components/profile_popover/atmention_profile_popover.jsx';
+
 import Constants from 'utils/constants.jsx';
 import * as PostUtils from 'utils/post_utils.jsx';
 import * as TextFormatting from 'utils/text_formatting.jsx';
@@ -111,14 +113,17 @@ export default class PostMessageView extends React.Component {
             return <div>{renderedSystemMessage}</div>;
         }
 
+        const htmlFormattedText = TextFormatting.formatText(this.props.post.message, options);
+        const postMessageComponent = Utils.postMessageHtmlToComponent(htmlFormattedText, AtMentionProfile);
+
         return (
             <div>
                 <span
                     id={this.props.isLastPost ? 'lastPostMessageText' : null}
                     className='post-message__text'
                     onClick={Utils.handleFormattedTextClick}
-                    dangerouslySetInnerHTML={{__html: TextFormatting.formatText(this.props.post.message, options)}}
                 />
+                {postMessageComponent}
                 {this.renderEditedIndicator()}
             </div>
         );
