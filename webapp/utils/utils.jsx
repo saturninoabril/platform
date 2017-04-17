@@ -1349,6 +1349,11 @@ export function postMessageHtmlToComponent(html, AtMentionComponent) {
     const parser = new Parser();
     const attrib = 'data-mention';
     const processNodeDefinitions = new ProcessNodeDefinitions(React);
+
+    function isValidNode() {
+        return true;
+    }
+
     const processingInstructions = [
         {
             replaceChildren: true,
@@ -1366,7 +1371,7 @@ export function postMessageHtmlToComponent(html, AtMentionComponent) {
         }
     ];
 
-    return parser.parseWithInstructions(html, true, processingInstructions);
+    return parser.parseWithInstructions(html, isValidNode, processingInstructions);
 }
 
 function isSpecialMention(username) {
