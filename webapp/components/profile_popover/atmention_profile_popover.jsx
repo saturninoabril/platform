@@ -73,11 +73,7 @@ export default class AtMentionProfile extends React.Component {
                     />
                 }
             >
-                <a
-                    className='mention-link'
-                >
-                    {'@' + this.props.username}
-                </a>
+                <a className='mention-link'>{'@' + this.props.username}</a>
             </OverlayTrigger>
         );
     }

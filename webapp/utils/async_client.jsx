@@ -284,7 +284,7 @@ export function getChannelMember(channelId, userId) {
             (err) => {
                 callTracker[`getChannelMember${channelId}${userId}`] = 0;
                 dispatchError(err, 'getChannelMember');
-                reject(new Error('Unable to getChannelMeber'));
+                reject(new Error('Unable to getChannelMember'));
             }
         );
     });
