@@ -2884,3211 +2884,3211 @@
     "translation": "Paramètre {{.Name}} invalide"
   },
   {
-    "id": "app.channel.create_channel.no_team_id.app_error",
+    "id": "i18n.server.app.channel.create_channel.no_team_id.app_error",
     "translation": "Veuillez spécifier l'identifiant d'équipe afin de créer un canal"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.post.error",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.post.error",
     "translation": "Impossible de publier le message de description du canal"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.removed",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.removed",
     "translation": "%s a supprimé la description du canal (précédemment : %s)"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.retrieve_user.error",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.retrieve_user.error",
     "translation": "Impossible de récupérer l'utilisateur lors de la mise à jour du message de description du canal %v"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.updated_from",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.updated_from",
     "translation": "%s a mis à jour le message de description du canal de : %s en : %s"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.updated_to",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.updated_to",
     "translation": "%s a mis à jour le message de description du canal en : %s"
   },
   {
-    "id": "app.import.bulk_import.file_scan.error",
+    "id": "i18n.server.app.import.bulk_import.file_scan.error",
     "translation": "Erreur lors de la lecture du fichier d'importation de données"
   },
   {
-    "id": "app.import.bulk_import.json_decode.error",
+    "id": "i18n.server.app.import.bulk_import.json_decode.error",
     "translation": "Le décodage d'une ligne du fichier JSON a échoué"
   },
   {
-    "id": "app.import.import_channel.team_not_found.error",
+    "id": "i18n.server.app.import.import_channel.team_not_found.error",
     "translation": "Erreur lors de l'importation du canal. L'équipe portant le nom \"{{.TeamName}}\" n'a pas pu être trouvée."
   },
   {
-    "id": "app.import.import_line.null_channel.error",
+    "id": "i18n.server.app.import.import_line.null_channel.error",
     "translation": "La ligne de données importée dispose d'un type \"channel\", mais l'objet channel est null."
   },
   {
-    "id": "app.import.import_line.null_post.error",
+    "id": "i18n.server.app.import.import_line.null_post.error",
     "translation": "La ligne de données importée dispose d'un type \"post\", mais l'objet post est null."
   },
   {
-    "id": "app.import.import_line.null_team.error",
+    "id": "i18n.server.app.import.import_line.null_team.error",
     "translation": "La ligne de données importée dispose d'un type \"team\", mais l'objet team est null."
   },
   {
-    "id": "app.import.import_line.null_user.error",
+    "id": "i18n.server.app.import.import_line.null_user.error",
     "translation": "La ligne de données importée dispose d'un type \"user\", mais l'objet user est null."
   },
   {
-    "id": "app.import.import_line.unknown_line_type.error",
+    "id": "i18n.server.app.import.import_line.unknown_line_type.error",
     "translation": "La ligne de données importée dispose d'un type inconnu \"{{.Type}}\"."
   },
   {
-    "id": "app.import.import_post.channel_not_found.error",
+    "id": "i18n.server.app.import.import_post.channel_not_found.error",
     "translation": "Erreur lors de l'importation du message. Le canal portant le nom \"{{.ChannelName}}\" n'a pas pu être trouvé."
   },
   {
-    "id": "app.import.import_post.team_not_found.error",
+    "id": "i18n.server.app.import.import_post.team_not_found.error",
     "translation": "Erreur lors de l'importation du message. L'équipe portant le nom \"{{.TeamName}}\" n'a pas pu être trouvée."
   },
   {
-    "id": "app.import.import_post.user_not_found.error",
+    "id": "i18n.server.app.import.import_post.user_not_found.error",
     "translation": "Erreur lors de l'importation du message. L'utilisateur portant le nom \"{{.Username}}\" n'a pas pu être trouvé."
   },
   {
-    "id": "app.import.validate_channel_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.create_at_zero.error",
     "translation": "La propriété de canal create_at ne doit pas être 0 si ce champ est fourni."
   },
   {
-    "id": "app.import.validate_channel_import_data.display_name_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.display_name_length.error",
     "translation": "La propriété de canal display_name ne respecte pas les contraintes de longueur autorisées."
   },
   {
-    "id": "app.import.validate_channel_import_data.display_name_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.display_name_missing.error",
     "translation": "La propriété de canal requise est manquante: display_name."
   },
   {
-    "id": "app.import.validate_channel_import_data.header_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.header_length.error",
     "translation": "L'entête du canal est trop long."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_characters.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_characters.error",
     "translation": "Le nom du canal contient des caractères invalides."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_length.error",
     "translation": "Le nom du canal est trop long."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_missing.error",
     "translation": "La propriété de canal requise est manquante: name"
   },
   {
-    "id": "app.import.validate_channel_import_data.purpose_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.purpose_length.error",
     "translation": "La description du canal est trop longue."
   },
   {
-    "id": "app.import.validate_channel_import_data.team_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.team_missing.error",
     "translation": "La propriété de canal requise est manquante: team"
   },
   {
-    "id": "app.import.validate_channel_import_data.type_invalid.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.type_invalid.error",
     "translation": "Type de canal invalide."
   },
   {
-    "id": "app.import.validate_channel_import_data.type_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.type_missing.error",
     "translation": "La propriété de canal requise est manquante: type."
   },
   {
-    "id": "app.import.validate_post_import_data.channel_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.channel_missing.error",
     "translation": "La propriété de message requise est manquante: Channel."
   },
   {
-    "id": "app.import.validate_post_import_data.create_at_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.create_at_missing.error",
     "translation": "La propriété de message requise est manquante: create_at."
   },
   {
-    "id": "app.import.validate_post_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_post_import_data.create_at_zero.error",
     "translation": "La propriété CreateAt du message ne peut pas être zéro si elle est spécifiée."
   },
   {
-    "id": "app.import.validate_post_import_data.message_length.error",
+    "id": "i18n.server.app.import.validate_post_import_data.message_length.error",
     "translation": "La propriété Message du message est plus longue que la longueur maximale autorisée."
   },
   {
-    "id": "app.import.validate_post_import_data.message_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.message_missing.error",
     "translation": "La propriété de message requise est manquante: Message."
   },
   {
-    "id": "app.import.validate_post_import_data.team_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.team_missing.error",
     "translation": "La propriété de message requise est manquante: Team."
   },
   {
-    "id": "app.import.validate_post_import_data.user_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.user_missing.error",
     "translation": "La propriété de message requise est manquante: User."
   },
   {
-    "id": "app.import.validate_team_import_data.allowed_domains_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.allowed_domains_length.error",
     "translation": "La propriété d'équipe allowed_domains is trop longue."
   },
   {
-    "id": "app.import.validate_team_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_team_import_data.create_at_zero.error",
     "translation": "La propriété d'équipe create_at ne doit pas être 0 si ce champ est fourni."
   },
   {
-    "id": "app.import.validate_team_import_data.description_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.description_length.error",
     "translation": "La description de l'équipe est trop longue."
   },
   {
-    "id": "app.import.validate_team_import_data.display_name_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.display_name_length.error",
     "translation": "La propriété d'équipe display_name ne respecte pas les contraintes de longueur autorisées."
   },
   {
-    "id": "app.import.validate_team_import_data.display_name_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.display_name_missing.error",
     "translation": "La propriété d'équipe requise est manquante: display_name."
   },
   {
-    "id": "app.import.validate_team_import_data.name_characters.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_characters.error",
     "translation": "Le nom de l'équipe contient des caractères invalides."
   },
   {
-    "id": "app.import.validate_team_import_data.name_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_length.error",
     "translation": "Le nom de l'équipe est trop long."
   },
   {
-    "id": "app.import.validate_team_import_data.name_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_missing.error",
     "translation": "La propriété d'équipe requise est manquante: name."
   },
   {
-    "id": "app.import.validate_team_import_data.name_reserved.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_reserved.error",
     "translation": "Le nom de l'équipe contient des words réservés."
   },
   {
-    "id": "app.import.validate_team_import_data.type_invalid.error",
+    "id": "i18n.server.app.import.validate_team_import_data.type_invalid.error",
     "translation": "Le type d'équipe est invalide."
   },
   {
-    "id": "app.import.validate_team_import_data.type_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.type_missing.error",
     "translation": "La propriété d'équipe requise est manquante: type."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.channel_name_missing.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.channel_name_missing.error",
     "translation": "Le nom du canal est manquant de la liste des canaux de l'utilisateur."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error",
     "translation": "La propriété Desktop NotifyProps de la liste des canaux de l'utilisateur est invalide."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error",
     "translation": "La propriété MarkUnread NotifyProps de la liste des canaux de l'utilisateur est invalide."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_roles.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_roles.error",
     "translation": "Rôles invalides pour la liste des canaux de l'utilisateur."
   },
   {
-    "id": "app.import.validate_user_import_data.auth_data_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.auth_data_length.error",
     "translation": "Les données d'authentification utilisateur sont trop longues."
   },
   {
-    "id": "app.import.validate_user_import_data.auth_service_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.auth_service_length.error",
     "translation": "La propriété User AuthService ne doit pas être vide si celle-ci est fournie."
   },
   {
-    "id": "app.import.validate_user_import_data.email_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.email_length.error",
     "translation": "L'adresse e-mail de l'utilisateur a une longueur invalide."
   },
   {
-    "id": "app.import.validate_user_import_data.email_missing.error",
+    "id": "i18n.server.app.import.validate_user_import_data.email_missing.error",
     "translation": "La propriété de message requise est manquante: email."
   },
   {
-    "id": "app.import.validate_user_import_data.first_name_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.first_name_length.error",
     "translation": "Le prénom de l'utilisateur est trop long."
   },
   {
-    "id": "app.import.validate_user_import_data.last_name_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.last_name_length.error",
     "translation": "Le nom de famille de l'utilisateur est trop long."
   },
   {
-    "id": "app.import.validate_user_import_data.nickname_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.nickname_length.error",
     "translation": "Le surnom de l'utilisateur est trop long."
   },
   {
-    "id": "app.import.validate_user_import_data.position_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.position_length.error",
     "translation": "Le rôle de l'utilisateur est trop long."
   },
   {
-    "id": "app.import.validate_user_import_data.roles_invalid.error",
+    "id": "i18n.server.app.import.validate_user_import_data.roles_invalid.error",
     "translation": "Les rôles de l'utilisateur sont invalides."
   },
   {
-    "id": "app.import.validate_user_import_data.username_invalid.error",
+    "id": "i18n.server.app.import.validate_user_import_data.username_invalid.error",
     "translation": "Le nom d’utilisateur est invalide."
   },
   {
-    "id": "app.import.validate_user_import_data.username_missing.error",
+    "id": "i18n.server.app.import.validate_user_import_data.username_missing.error",
     "translation": "La propriété d'utilisateur requise est manquante: username."
   },
   {
-    "id": "app.import.validate_user_teams_import_data.invalid_roles.error",
+    "id": "i18n.server.app.import.validate_user_teams_import_data.invalid_roles.error",
     "translation": "Rôles invalides pour la liste des canaux de l'utilisateur."
   },
   {
-    "id": "app.import.validate_user_teams_import_data.team_name_missing.error",
+    "id": "i18n.server.app.import.validate_user_teams_import_data.team_name_missing.error",
     "translation": "Le nom d'équipe est manquant de la liste des canaux de l'utilisateur."
   },
   {
-    "id": "authentication.permissions.create_group_channel.description",
+    "id": "i18n.server.authentication.permissions.create_group_channel.description",
     "translation": "Possibilité de créer de nouveaux canaux pour les messages de groupe."
   },
   {
-    "id": "authentication.permissions.create_group_channel.name",
+    "id": "i18n.server.authentication.permissions.create_group_channel.name",
     "translation": "Créer un message de groupe"
   },
   {
-    "id": "authentication.permissions.create_team_roles.description",
+    "id": "i18n.server.authentication.permissions.create_team_roles.description",
     "translation": "Possibilité de créer de nouvelles équipes"
   },
   {
-    "id": "authentication.permissions.create_team_roles.name",
+    "id": "i18n.server.authentication.permissions.create_team_roles.name",
     "translation": "Créer des équipes"
   },
   {
-    "id": "authentication.permissions.manage_team_roles.description",
+    "id": "i18n.server.authentication.permissions.manage_team_roles.description",
     "translation": "Possibilité de changer les rôles d'un membre d'une équipe"
   },
   {
-    "id": "authentication.permissions.manage_team_roles.name",
+    "id": "i18n.server.authentication.permissions.manage_team_roles.name",
     "translation": "Gérer les rôles d'équipe"
   },
   {
-    "id": "authentication.permissions.read_public_channel.description",
+    "id": "i18n.server.authentication.permissions.read_public_channel.description",
     "translation": "Possibilité de lire les canaux publics"
   },
   {
-    "id": "authentication.permissions.read_public_channel.name",
+    "id": "i18n.server.authentication.permissions.read_public_channel.name",
     "translation": "Lire les canaux publics"
   },
   {
-    "id": "authentication.permissions.team_invite_user.description",
+    "id": "i18n.server.authentication.permissions.team_invite_user.description",
     "translation": "Possibilité d'inviter des utilisateurs dans une équipe"
   },
   {
-    "id": "authentication.permissions.team_invite_user.name",
+    "id": "i18n.server.authentication.permissions.team_invite_user.name",
     "translation": "Inviter un utilisateur"
   },
   {
-    "id": "authentication.permissions.team_use_slash_commands.description",
+    "id": "i18n.server.authentication.permissions.team_use_slash_commands.description",
     "translation": "Possibilité d'utiliser des commandes slash"
   },
   {
-    "id": "authentication.permissions.team_use_slash_commands.name",
+    "id": "i18n.server.authentication.permissions.team_use_slash_commands.name",
     "translation": "Utiliser les commandes slash"
   },
   {
-    "id": "cli.license.critical",
+    "id": "i18n.server.cli.license.critical",
     "translation": "Fonctionnalité désactivée pour la licence courante. Veuillez contacter votre administrateur système concernant la mise à niveau de votre licence entreprise."
   },
   {
-    "id": "ent.brand.save_brand_image.decode.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.decode.app_error",
     "translation": "Impossible de décoder l'image."
   },
   {
-    "id": "ent.brand.save_brand_image.decode_config.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.decode_config.app_error",
     "translation": "Impossible de décoder la configuration de l'image."
   },
   {
-    "id": "ent.brand.save_brand_image.encode.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.encode.app_error",
     "translation": "Encodage de l'image en PNG impossible."
   },
   {
-    "id": "ent.brand.save_brand_image.open.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.open.app_error",
     "translation": "Impossible d'ouvrir cette image."
   },
   {
-    "id": "ent.brand.save_brand_image.save_image.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.save_image.app_error",
     "translation": "Impossible d'enregistrer l'image"
   },
   {
-    "id": "ent.brand.save_brand_image.too_large.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.too_large.app_error",
     "translation": "Impossible d'ouvrir l'image. L'image est trop grande."
   },
   {
-    "id": "ent.cluster.config_changed.info",
+    "id": "i18n.server.ent.cluster.config_changed.info",
     "translation": "La configuration de cluster a changé pour id=%v.  Tentative de redémarrage du service cluster.  Pour vous assurer que le cluster est correctement configuré, vous ne devriez pas vous fier à ce redémarrage, car un changement notable de configuration a été détecté."
   },
   {
-    "id": "ent.cluster.debug_fail.debug",
+    "id": "i18n.server.ent.cluster.debug_fail.debug",
     "translation": "Le cluster a renvoyé échec à `%v` detail=%v, extra=%v, retry number=%v"
   },
   {
-    "id": "ent.cluster.final_fail.error",
+    "id": "i18n.server.ent.cluster.final_fail.error",
     "translation": "Le cluster a renvoyé échec final à `%v` detail=%v, extra=%v, retry number=%v"
   },
   {
-    "id": "ent.cluster.incompatible.warn",
+    "id": "i18n.server.ent.cluster.incompatible.warn",
     "translation": "Version potentiellement incompatible détectée pour le cluster avec %v"
   },
   {
-    "id": "ent.cluster.incompatible_config.warn",
+    "id": "i18n.server.ent.cluster.incompatible_config.warn",
     "translation": "Configuration potentiellement incompatible détectée pour une mise en cluster avec %v"
   },
   {
-    "id": "ent.cluster.licence_disable.app_error",
+    "id": "i18n.server.ent.cluster.licence_disable.app_error",
     "translation": "La fonctionnalité de mise en clusters est désactivée par la licence actuellement utilisée. Veuillez contacter votre administrateur système à propos d'une mise à niveau vers la licence entreprise."
   },
   {
-    "id": "ent.cluster.ping_failed.info",
+    "id": "i18n.server.ent.cluster.ping_failed.info",
     "translation": "Le ping du cluster a échoué avec le nom d'hôte=%v sur=%v avec id=%v"
   },
   {
-    "id": "ent.cluster.ping_success.info",
+    "id": "i18n.server.ent.cluster.ping_success.info",
     "translation": "Le ping du cluster a réussi avec le nom d'hôte=%v sur=%v avec l'id=%v self=%v"
   },
   {
-    "id": "ent.cluster.save_config.error",
+    "id": "i18n.server.ent.cluster.save_config.error",
     "translation": "La Console Système est en lecture-seule lorsque le mode Haute Disponibilité est activé."
   },
   {
-    "id": "ent.cluster.starting.info",
+    "id": "i18n.server.ent.cluster.starting.info",
     "translation": "La communication entre noeuds de cluster écoute sur %v avec le nom d'hôte=%v id=%v"
   },
   {
-    "id": "ent.cluster.stopping.info",
+    "id": "i18n.server.ent.cluster.stopping.info",
     "translation": "La communication entre noeuds de cluster s'est arrêtée sur %v avec le nom d'hôte=%v id=%v"
   },
   {
-    "id": "ent.compliance.licence_disable.app_error",
+    "id": "i18n.server.ent.compliance.licence_disable.app_error",
     "translation": "Fonctionnalité de conformité désactivée par la licence courante. Veuillez contacter votre administrateur système concernant la mise à niveau de votre licence entreprise."
   },
   {
-    "id": "ent.compliance.run_failed.error",
+    "id": "i18n.server.ent.compliance.run_failed.error",
     "translation": "Échec de l'export du certificat de conformité pour le job  '{{.JobName}}' à '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_finished.info",
+    "id": "i18n.server.ent.compliance.run_finished.info",
     "translation": "Export du certificat de conformité terminé pour le job '{{.JobName}}' , {{.Count}} enregistrements exportés dans '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_limit.warning",
+    "id": "i18n.server.ent.compliance.run_limit.warning",
     "translation": "Compliance export warning for job '{{.JobName}}' too many rows returned truncating to 30,000 at '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_started.info",
+    "id": "i18n.server.ent.compliance.run_started.info",
     "translation": "L'export de compatibilité a démarré pour le job '{{.JobName}}' à '{{.FilePath}}'"
   },
   {
-    "id": "ent.emoji.licence_disable.app_error",
+    "id": "i18n.server.ent.emoji.licence_disable.app_error",
     "translation": "Les émoticônes personnalisées sont désactivées par la licence actuellement utilisée. Veuillez contacter votre administrateur système à propos d'une mise à niveau vers la licence entreprise."
   },
   {
-    "id": "ent.ldap.create_fail",
+    "id": "i18n.server.ent.ldap.create_fail",
     "translation": "Impossible de créer l'utilisateur LDAP."
   },
   {
-    "id": "ent.ldap.disabled.app_error",
+    "id": "i18n.server.ent.ldap.disabled.app_error",
     "translation": "AD/LDAP désactivé ou votre licence ne supporte pas AD/LDAP."
   },
   {
-    "id": "ent.ldap.do_login.bind_admin_user.app_error",
+    "id": "i18n.server.ent.ldap.do_login.bind_admin_user.app_error",
     "translation": "Impossible de se connecter au serveur LDAP. Vérifiez l'utilisateur et le mot de passe du compte utilisé pour se connecter au serveur LDAP."
   },
   {
-    "id": "ent.ldap.do_login.invalid_password.app_error",
+    "id": "i18n.server.ent.ldap.do_login.invalid_password.app_error",
     "translation": "Mot de passe invalide"
   },
   {
-    "id": "ent.ldap.do_login.licence_disable.app_error",
+    "id": "i18n.server.ent.ldap.do_login.licence_disable.app_error",
     "translation": "Fonctionnalité LDAP désactivée par la licence actuelle. Veuillez contacter votre administrateur système concernant la mise à niveau de votre licence entreprise."
   },
   {
-    "id": "ent.ldap.do_login.matched_to_many_users.app_error",
+    "id": "i18n.server.ent.ldap.do_login.matched_to_many_users.app_error",
     "translation": "Le nom d'utilisateur indiqué correspond à plusieurs utilisateurs"
   },
   {
-    "id": "ent.ldap.do_login.search_ldap_server.app_error",
+    "id": "i18n.server.ent.ldap.do_login.search_ldap_server.app_error",
     "translation": "Échec de la recherche du serveur LDAP"
   },
   {
-    "id": "ent.ldap.do_login.unable_to_connect.app_error",
+    "id": "i18n.server.ent.ldap.do_login.unable_to_connect.app_error",
     "translation": "Impossible de se connecter au serveur LDAP"
   },
   {
-    "id": "ent.ldap.do_login.unable_to_create_user.app_error",
+    "id": "i18n.server.ent.ldap.do_login.unable_to_create_user.app_error",
     "translation": "Identifiants corrects mais impossible de créer l'utilisateur."
   },
   {
-    "id": "ent.ldap.do_login.user_filtered.app_error",
+    "id": "i18n.server.ent.ldap.do_login.user_filtered.app_error",
     "translation": "Votre compte LDAP ne dispose pas des permissions pour utiliser ce serveur Mattermost. Veuillez demander à votre administrateur système de vérifier le filtre des utilisateurs LDAP."
   },
   {
-    "id": "ent.ldap.do_login.user_not_registered.app_error",
+    "id": "i18n.server.ent.ldap.do_login.user_not_registered.app_error",
     "translation": "Utilisateur non enregistré sur le serveur LDAP"
   },
   {
-    "id": "ent.ldap.mattermost_user_update",
+    "id": "i18n.server.ent.ldap.mattermost_user_update",
     "translation": "L'utilisateur Mattermost a été mis à jour par le serveur LDAP."
   },
   {
-    "id": "ent.ldap.syncdone.info",
+    "id": "i18n.server.ent.ldap.syncdone.info",
     "translation": "Synchronisation LDAP terminé"
   },
   {
-    "id": "ent.ldap.syncronize.get_all.app_error",
+    "id": "i18n.server.ent.ldap.syncronize.get_all.app_error",
     "translation": "Impossible d'obtenir tous les utilisateurs à l'aide de LDAP"
   },
   {
-    "id": "ent.ldap.validate_filter.app_error",
+    "id": "i18n.server.ent.ldap.validate_filter.app_error",
     "translation": "Filtre LDAP Invalide"
   },
   {
-    "id": "ent.metrics.starting.info",
+    "id": "i18n.server.ent.metrics.starting.info",
     "translation": "Le serveur de métriques et d'analyses d'exécution écoute sur %v"
   },
   {
-    "id": "ent.metrics.stopping.info",
+    "id": "i18n.server.ent.metrics.stopping.info",
     "translation": "Le serveur de métriques et d'analyses d'exécution est en cours d'arrêt sur %v"
   },
   {
-    "id": "ent.mfa.activate.authenticate.app_error",
+    "id": "i18n.server.ent.mfa.activate.authenticate.app_error",
     "translation": "Erreur tentative d'authentification MFA token"
   },
   {
-    "id": "ent.mfa.activate.bad_token.app_error",
+    "id": "i18n.server.ent.mfa.activate.bad_token.app_error",
     "translation": "MFA token invalide"
   },
   {
-    "id": "ent.mfa.activate.save_active.app_erro",
+    "id": "i18n.server.ent.mfa.activate.save_active.app_erro",
     "translation": "Impossible de mettre à jour le statut actif MFA pour l'utilisateur"
   },
   {
-    "id": "ent.mfa.deactivate.save_active.app_erro",
+    "id": "i18n.server.ent.mfa.deactivate.save_active.app_erro",
     "translation": "Impossible de mettre à jour le statut actif MFA pour l'utilisateur"
   },
   {
-    "id": "ent.mfa.deactivate.save_secret.app_error",
+    "id": "i18n.server.ent.mfa.deactivate.save_secret.app_error",
     "translation": "Erreur lors de la réinitialisation du secret MFA"
   },
   {
-    "id": "ent.mfa.generate_qr_code.create_code.app_error",
+    "id": "i18n.server.ent.mfa.generate_qr_code.create_code.app_error",
     "translation": "Erreur lors de la génération du QR code"
   },
   {
-    "id": "ent.mfa.generate_qr_code.save_secret.app_error",
+    "id": "i18n.server.ent.mfa.generate_qr_code.save_secret.app_error",
     "translation": "Erreur lors de la sauvegarde du secret MFA"
   },
   {
-    "id": "ent.mfa.license_disable.app_error",
+    "id": "i18n.server.ent.mfa.license_disable.app_error",
     "translation": "votre licence ne supporte pas l'authentification multi-facteurs"
   },
   {
-    "id": "ent.mfa.validate_token.authenticate.app_error",
+    "id": "i18n.server.ent.mfa.validate_token.authenticate.app_error",
     "translation": "Erreur tentative d'authentification MFA token"
   },
   {
-    "id": "ent.migration.migratetoldap.duplicate_field",
+    "id": "i18n.server.ent.migration.migratetoldap.duplicate_field",
     "translation": "Impossible de migrer les utilisateurs LDAP avec le champ en question. Doublon détecté. Veuillez supprimer tous les doublons et réessayer."
   },
   {
-    "id": "ent.migration.migratetoldap.user_not_found",
+    "id": "i18n.server.ent.migration.migratetoldap.user_not_found",
     "translation": "Impossible de trouver l'utilisateur sur le serveur LDAP : "
   },
   {
-    "id": "ent.saml.attribute.app_error",
+    "id": "i18n.server.ent.saml.attribute.app_error",
     "translation": "La connexion via SAML a échoué car un des attributs est incorrect. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.build_request.app_error",
+    "id": "i18n.server.ent.saml.build_request.app_error",
     "translation": "Erreur lors de la requête au fournisseur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.build_request.encoding.app_error",
+    "id": "i18n.server.ent.saml.build_request.encoding.app_error",
     "translation": "Erreur lors de l'encodage de la requête pour le fournisseur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.build_request.encoding_signed.app_error",
+    "id": "i18n.server.ent.saml.build_request.encoding_signed.app_error",
     "translation": "Erreur d'encodage de la requête signée vers le fournisseur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.configure.app_error",
+    "id": "i18n.server.ent.saml.configure.app_error",
     "translation": "Erreur lors de la configuration du fournisseur SAML, err=%v"
   },
   {
-    "id": "ent.saml.configure.encryption_not_enabled.app_error",
+    "id": "i18n.server.ent.saml.configure.encryption_not_enabled.app_error",
     "translation": "La connexion SAML a échoué car le chiffrement n'est pas activé. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.configure.load_idp_cert.app_error",
+    "id": "i18n.server.ent.saml.configure.load_idp_cert.app_error",
     "translation": "Le fichier de certificat de fournisseur d'identité est introuvable. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.configure.load_private_key.app_error",
+    "id": "i18n.server.ent.saml.configure.load_private_key.app_error",
     "translation": "La connexion SAML a échoué car la clé privée du fournisseur d'identité est introuvable. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.configure.load_public_cert.app_error",
+    "id": "i18n.server.ent.saml.configure.load_public_cert.app_error",
     "translation": "Le certificat public du fournisseur est introuvable. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.configure.not_encrypted_response.app_error",
+    "id": "i18n.server.ent.saml.configure.not_encrypted_response.app_error",
     "translation": "La connexion SAML a échoué car la réponse du fournisseur d'identité n'est pas chiffrée. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.do_login.decrypt.app_error",
+    "id": "i18n.server.ent.saml.do_login.decrypt.app_error",
     "translation": "Connexion SAML échouée car une erreur s'est produite lors du décryptage de la réponse du serveur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.do_login.empty_response.app_error",
+    "id": "i18n.server.ent.saml.do_login.empty_response.app_error",
     "translation": "Nous avons reçu une réponse vide du fournisseur d'identité."
   },
   {
-    "id": "ent.saml.do_login.parse.app_error",
+    "id": "i18n.server.ent.saml.do_login.parse.app_error",
     "translation": "Erreur lors de l'encodage de la requête pour le fournisseur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.do_login.validate.app_error",
+    "id": "i18n.server.ent.saml.do_login.validate.app_error",
     "translation": "Erreur lors de l'encodage de la requête pour le fournisseur d'identité. Veuillez contacter votre administrateur système."
   },
   {
-    "id": "ent.saml.license_disable.app_error",
+    "id": "i18n.server.ent.saml.license_disable.app_error",
     "translation": "Votre licence ne permet pas l'authentification SAML."
   },
   {
-    "id": "ent.saml.metadata.app_error",
+    "id": "i18n.server.ent.saml.metadata.app_error",
     "translation": "Une erreur s'est produite lors de la construction des métadonnées du fournisseur de services"
   },
   {
-    "id": "ent.saml.service_disable.app_error",
+    "id": "i18n.server.ent.saml.service_disable.app_error",
     "translation": "SAML n'est pas configuré ou supporté sur ce serveur"
   },
   {
-    "id": "ent.saml.update_saml_user.unable_error",
+    "id": "i18n.server.ent.saml.update_saml_user.unable_error",
     "translation": "Impossible de mettre à jour l'utilisateur SAML. Connexion autorisée malgré tout. err=%v"
   },
   {
-    "id": "error.generic.link_message",
+    "id": "i18n.server.error.generic.link_message",
     "translation": "Retourner sur Mattermost"
   },
   {
-    "id": "error.generic.message",
+    "id": "i18n.server.error.generic.message",
     "translation": "Une erreur s'est produite."
   },
   {
-    "id": "error.generic.title",
+    "id": "i18n.server.error.generic.title",
     "translation": "Erreur"
   },
   {
-    "id": "error.not_found.link_message",
+    "id": "i18n.server.error.not_found.link_message",
     "translation": "Retourner sur Mattermost"
   },
   {
-    "id": "error.not_found.message",
+    "id": "i18n.server.error.not_found.message",
     "translation": "La page que vous cherchez n'existe pas."
   },
   {
-    "id": "error.not_found.title",
+    "id": "i18n.server.error.not_found.title",
     "translation": "Page introuvable"
   },
   {
-    "id": "manaultesting.get_channel_id.no_found.debug",
+    "id": "i18n.server.manualtesting.get_channel_id.no_found.debug",
     "translation": "Impossible de trouver le canal : %v, %v possibilités recherchées"
   },
   {
-    "id": "manaultesting.get_channel_id.unable.debug",
+    "id": "i18n.server.manualtesting.get_channel_id.unable.debug",
     "translation": "Impossible d'obtenir les canaux"
   },
   {
-    "id": "manaultesting.manual_test.create.info",
+    "id": "i18n.server.manualtesting.manual_test.create.info",
     "translation": "Création de l'utilisateur et de l'équipe"
   },
   {
-    "id": "manaultesting.manual_test.parse.app_error",
+    "id": "i18n.server.manualtesting.manual_test.parse.app_error",
     "translation": "Impossible de décoder l'URL"
   },
   {
-    "id": "manaultesting.manual_test.setup.info",
+    "id": "i18n.server.manualtesting.manual_test.setup.info",
     "translation": "Configuration en cours pour tests manuels..."
   },
   {
-    "id": "manaultesting.manual_test.uid.debug",
+    "id": "i18n.server.manualtesting.manual_test.uid.debug",
     "translation": "Pas d'uid dans l'URL"
   },
   {
-    "id": "manaultesting.test_autolink.info",
+    "id": "i18n.server.manualtesting.test_autolink.info",
     "translation": "Test Manuel de Lien Automatique"
   },
   {
-    "id": "manaultesting.test_autolink.unable.app_error",
+    "id": "i18n.server.manualtesting.test_autolink.unable.app_error",
     "translation": "Impossible d'obtenir les canaux"
   },
   {
-    "id": "mattermost.bulletin.subject",
+    "id": "i18n.server.mattermost.bulletin.subject",
     "translation": "Bulletin de Sécurité Mattermost"
   },
   {
-    "id": "mattermost.config_file",
+    "id": "i18n.server.mattermost.config_file",
     "translation": "Fichier de configuration chargé depuis %v"
   },
   {
-    "id": "mattermost.current_version",
+    "id": "i18n.server.mattermost.current_version",
     "translation": "Version actuelle %v (%v/%v/%v/%v)"
   },
   {
-    "id": "mattermost.entreprise_enabled",
+    "id": "i18n.server.mattermost.entreprise_enabled",
     "translation": "Edition Entreprise Activé : %v"
   },
   {
-    "id": "mattermost.load_license.find.warn",
+    "id": "i18n.server.mattermost.load_license.find.warn",
     "translation": "Une clé de licence de https://mattermost.com est requise pour déverrouiller les fonctionnalités d'entreprise."
   },
   {
-    "id": "mattermost.security_bulletin.error",
+    "id": "i18n.server.mattermost.security_bulletin.error",
     "translation": "Échec du chargement des détails du bulletin de sécurité"
   },
   {
-    "id": "mattermost.security_bulletin_read.error",
+    "id": "i18n.server.mattermost.security_bulletin_read.error",
     "translation": "Échec de la lecture des détails du bulletin de sécurité"
   },
   {
-    "id": "mattermost.security_checks.debug",
+    "id": "i18n.server.mattermost.security_checks.debug",
     "translation": "Vérification des mises à jour de sécurité pour Mattermost"
   },
   {
-    "id": "mattermost.security_info.error",
+    "id": "i18n.server.mattermost.security_info.error",
     "translation": "Échec du chargement des informations de mise à jour de sécurité pour Mattermost."
   },
   {
-    "id": "mattermost.send_bulletin.info",
+    "id": "i18n.server.mattermost.send_bulletin.info",
     "translation": "Envoi du bulletin de sécurité pour %v vers %v"
   },
   {
-    "id": "mattermost.system_admins.error",
+    "id": "i18n.server.mattermost.system_admins.error",
     "translation": "Échec du chargement de la liste des administrateurs système pour les informer d'une mise à jour de sécurité de Mattermost."
   },
   {
-    "id": "mattermost.working_dir",
+    "id": "i18n.server.mattermost.working_dir",
     "translation": "Le dossier de travail actuel est %v"
   },
   {
-    "id": "model.access.is_valid.access_token.app_error",
+    "id": "i18n.server.model.access.is_valid.access_token.app_error",
     "translation": "Jeton d'accès invalide"
   },
   {
-    "id": "model.access.is_valid.client_id.app_error",
+    "id": "i18n.server.model.access.is_valid.client_id.app_error",
     "translation": "Id client invalide"
   },
   {
-    "id": "model.access.is_valid.redirect_uri.app_error",
+    "id": "i18n.server.model.access.is_valid.redirect_uri.app_error",
     "translation": "Uri de redirection invalide"
   },
   {
-    "id": "model.access.is_valid.refresh_token.app_error",
+    "id": "i18n.server.model.access.is_valid.refresh_token.app_error",
     "translation": "Jeton d'actualisation invalide"
   },
   {
-    "id": "model.access.is_valid.user_id.app_error",
+    "id": "i18n.server.model.access.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.authorize.is_valid.auth_code.app_error",
+    "id": "i18n.server.model.authorize.is_valid.auth_code.app_error",
     "translation": "Code d'autorisation invalide"
   },
   {
-    "id": "model.authorize.is_valid.client_id.app_error",
+    "id": "i18n.server.model.authorize.is_valid.client_id.app_error",
     "translation": "Id client invalide"
   },
   {
-    "id": "model.authorize.is_valid.create_at.app_error",
+    "id": "i18n.server.model.authorize.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.authorize.is_valid.expires.app_error",
+    "id": "i18n.server.model.authorize.is_valid.expires.app_error",
     "translation": "Expire dans doit être renseigné"
   },
   {
-    "id": "model.authorize.is_valid.redirect_uri.app_error",
+    "id": "i18n.server.model.authorize.is_valid.redirect_uri.app_error",
     "translation": "Uri de redirection invalide"
   },
   {
-    "id": "model.authorize.is_valid.scope.app_error",
+    "id": "i18n.server.model.authorize.is_valid.scope.app_error",
     "translation": "Portée invalide"
   },
   {
-    "id": "model.authorize.is_valid.state.app_error",
+    "id": "i18n.server.model.authorize.is_valid.state.app_error",
     "translation": "État invalide"
   },
   {
-    "id": "model.authorize.is_valid.user_id.app_error",
+    "id": "i18n.server.model.authorize.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.channel.is_valid.2_or_more.app_error",
+    "id": "i18n.server.model.channel.is_valid.2_or_more.app_error",
     "translation": "Le nom doit être composé d'au moins 2 caractères alphanumériques en minuscules."
   },
   {
-    "id": "model.channel.is_valid.create_at.app_error",
+    "id": "i18n.server.model.channel.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.channel.is_valid.creator_id.app_error",
+    "id": "i18n.server.model.channel.is_valid.creator_id.app_error",
     "translation": "Id créateur invalide"
   },
   {
-    "id": "model.channel.is_valid.display_name.app_error",
+    "id": "i18n.server.model.channel.is_valid.display_name.app_error",
     "translation": "Nom d'affichage invalide"
   },
   {
-    "id": "model.channel.is_valid.header.app_error",
+    "id": "i18n.server.model.channel.is_valid.header.app_error",
     "translation": "Entête invalide"
   },
   {
-    "id": "model.channel.is_valid.id.app_error",
+    "id": "i18n.server.model.channel.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.channel.is_valid.name.app_error",
+    "id": "i18n.server.model.channel.is_valid.name.app_error",
     "translation": "Nom invalide"
   },
   {
-    "id": "model.channel.is_valid.purpose.app_error",
+    "id": "i18n.server.model.channel.is_valid.purpose.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.channel.is_valid.type.app_error",
+    "id": "i18n.server.model.channel.is_valid.type.app_error",
     "translation": "Type invalide"
   },
   {
-    "id": "model.channel.is_valid.update_at.app_error",
+    "id": "i18n.server.model.channel.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.channel_member.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.channel_id.app_error",
     "translation": "Id canal invalide"
   },
   {
-    "id": "model.channel_member.is_valid.email_value.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.email_value.app_error",
     "translation": "Valeur de la notification e-mail invalide"
   },
   {
-    "id": "model.channel_member.is_valid.notify_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.notify_level.app_error",
     "translation": "Niveau de notification invalide"
   },
   {
-    "id": "model.channel_member.is_valid.push_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.push_level.app_error",
     "translation": "Niveau de notification push invalide"
   },
   {
-    "id": "model.channel_member.is_valid.role.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.role.app_error",
     "translation": "Rôle invalide"
   },
   {
-    "id": "model.channel_member.is_valid.unread_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.unread_level.app_error",
     "translation": "Niveau pour marquer comme non-lu invalide"
   },
   {
-    "id": "model.channel_member.is_valid.user_id.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.client.connecting.app_error",
+    "id": "i18n.server.model.client.connecting.app_error",
     "translation": "Une erreur est survenue durant la connexion au serveur"
   },
   {
-    "id": "model.client.create_emoji.emoji.app_error",
+    "id": "i18n.server.model.client.create_emoji.emoji.app_error",
     "translation": "Impossible d'attacher une émoticône à la requête"
   },
   {
-    "id": "model.client.create_emoji.image.app_error",
+    "id": "i18n.server.model.client.create_emoji.image.app_error",
     "translation": "Impossible de joindre l'image à la demande"
   },
   {
-    "id": "model.client.create_emoji.writer.app_error",
+    "id": "i18n.server.model.client.create_emoji.writer.app_error",
     "translation": "Impossible d'écrire la demande"
   },
   {
-    "id": "model.client.login.app_error",
+    "id": "i18n.server.model.client.login.app_error",
     "translation": "Les jetons d’authentification ne correspondent pas"
   },
   {
-    "id": "model.client.read_file.app_error",
+    "id": "i18n.server.model.client.read_file.app_error",
     "translation": "Une erreur s'est produite lors de la lecture du fichier"
   },
   {
-    "id": "model.client.set_profile_user.no_file.app_error",
+    "id": "i18n.server.model.client.set_profile_user.no_file.app_error",
     "translation": "Pas de fichier dans le paramètre \"image\" de la requête"
   },
   {
-    "id": "model.client.set_profile_user.writer.app_error",
+    "id": "i18n.server.model.client.set_profile_user.writer.app_error",
     "translation": "Impossible d'écrire la requête"
   },
   {
-    "id": "model.client.upload_post_attachment.channel_id.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.channel_id.app_error",
     "translation": "Une erreur est survenue lors de l'écriture de l'ID du channel dans le formulaire multiforme"
   },
   {
-    "id": "model.client.upload_post_attachment.file.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.file.app_error",
     "translation": "Une erreur est survenue lors de l'écriture du fichier dans le formulaire à contenu multiple"
   },
   {
-    "id": "model.client.upload_post_attachment.file_size.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.file_size.app_error",
     "translation": "Une erreur est survenue lors de l'écriture de la taille du fichier (fileSize) dans le formulaire à contenu multiple"
   },
   {
-    "id": "model.client.upload_post_attachment.import_from.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.import_from.app_error",
     "translation": "Une erreur est survenue lors de l'écriture de l'origine d'importation (importForm) dans le formulaire à contenu multiple"
   },
   {
-    "id": "model.client.upload_post_attachment.writer.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.writer.app_error",
     "translation": "Une erreur est survenue lors de la fermeture de l'outil d'écriture de contenu multiple"
   },
   {
-    "id": "model.client.upload_saml_cert.app_error",
+    "id": "i18n.server.model.client.upload_saml_cert.app_error",
     "translation": "Erreur lors de la création de la requête pour le formulaire multipart pour le certificat SAML"
   },
   {
-    "id": "model.command.is_valid.create_at.app_error",
+    "id": "i18n.server.model.command.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.command.is_valid.description.app_error",
+    "id": "i18n.server.model.command.is_valid.description.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.command.is_valid.display_name.app_error",
+    "id": "i18n.server.model.command.is_valid.display_name.app_error",
     "translation": "Nom d'affichage invalide"
   },
   {
-    "id": "model.command.is_valid.id.app_error",
+    "id": "i18n.server.model.command.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.command.is_valid.method.app_error",
+    "id": "i18n.server.model.command.is_valid.method.app_error",
     "translation": "Méthode invalide"
   },
   {
-    "id": "model.command.is_valid.team_id.app_error",
+    "id": "i18n.server.model.command.is_valid.team_id.app_error",
     "translation": "ID d'équipe invalide"
   },
   {
-    "id": "model.command.is_valid.token.app_error",
+    "id": "i18n.server.model.command.is_valid.token.app_error",
     "translation": "Jeton invalide"
   },
   {
-    "id": "model.command.is_valid.trigger.app_error",
+    "id": "i18n.server.model.command.is_valid.trigger.app_error",
     "translation": "Déclencheur invalide"
   },
   {
-    "id": "model.command.is_valid.update_at.app_error",
+    "id": "i18n.server.model.command.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.command.is_valid.url.app_error",
+    "id": "i18n.server.model.command.is_valid.url.app_error",
     "translation": "URL non valide"
   },
   {
-    "id": "model.command.is_valid.url_http.app_error",
+    "id": "i18n.server.model.command.is_valid.url_http.app_error",
     "translation": "URL invalide. L'URL doit être valide et commencer par http:// ou https://"
   },
   {
-    "id": "model.command.is_valid.user_id.app_error",
+    "id": "i18n.server.model.command.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.compliance.is_valid.create_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.compliance.is_valid.desc.app_error",
+    "id": "i18n.server.model.compliance.is_valid.desc.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.compliance.is_valid.end_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.end_at.app_error",
     "translation": "De doit être une date valide"
   },
   {
-    "id": "model.compliance.is_valid.id.app_error",
+    "id": "i18n.server.model.compliance.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.compliance.is_valid.start_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.start_at.app_error",
     "translation": "De doit être une date valide"
   },
   {
-    "id": "model.compliance.is_valid.start_end_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.start_end_at.app_error",
     "translation": "Jusqu'à doit être supérieur à De"
   },
   {
-    "id": "model.config.is_valid.cluster_email_batching.app_error",
+    "id": "i18n.server.model.config.is_valid.cluster_email_batching.app_error",
     "translation": "Impossible d'activer l'envoi d'e-mails par lot lorsque le clustering est activé"
   },
   {
-    "id": "model.config.is_valid.email_batching_buffer_size.app_error",
+    "id": "i18n.server.model.config.is_valid.email_batching_buffer_size.app_error",
     "translation": "Taille du buffer d'envoi d'e-mails par lot invalide. Doit être 0 ou un nombre positif."
   },
   {
-    "id": "model.config.is_valid.email_batching_interval.app_error",
+    "id": "i18n.server.model.config.is_valid.email_batching_interval.app_error",
     "translation": "Intervalle d'envoi d'e-mails par lot invalide pour les paramètres d'e-mail. Doit être égal ou supérieur à 30 secondes."
   },
   {
-    "id": "model.config.is_valid.email_reset_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.email_reset_salt.app_error",
     "translation": "Clé de salage de réinitialisation de mot de passe invalide dans les paramètres de messagerie. Doit être composée de 32 caractères ou plus."
   },
   {
-    "id": "model.config.is_valid.email_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.email_salt.app_error",
     "translation": "Clé de salage pour les invitations invalide dans les paramètres de messagerie. Doit être composée de 32 caractères ou plus."
   },
   {
-    "id": "model.config.is_valid.email_security.app_error",
+    "id": "i18n.server.model.config.is_valid.email_security.app_error",
     "translation": "Sécurité de connexion invalide pour les paramètres e-mail. Doit être '', 'TLS' ou 'STARTTLS'"
   },
   {
-    "id": "model.config.is_valid.encrypt_sql.app_error",
+    "id": "i18n.server.model.config.is_valid.encrypt_sql.app_error",
     "translation": "Clé de chiffrement rest invalide dans les paramètres SQL. Doit être composée de 32 caractères ou plus."
   },
   {
-    "id": "model.config.is_valid.file_driver.app_error",
+    "id": "i18n.server.model.config.is_valid.file_driver.app_error",
     "translation": "Nom de pilote invalide dans les paramètres de fichiers. Doit être 'local' ou 'amazons3'"
   },
   {
-    "id": "model.config.is_valid.file_preview_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_preview_height.app_error",
     "translation": "Hauteur des aperçus invalide dans les paramètres de fichiers. Doit être 0 ou un entier positif."
   },
   {
-    "id": "model.config.is_valid.file_preview_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_preview_width.app_error",
     "translation": "Largeur des aperçus invalide dans les paramètres de fichiers. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.file_profile_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_profile_height.app_error",
     "translation": "Hauteur du profil invalide dans les paramètres de fichiers. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.file_profile_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_profile_width.app_error",
     "translation": "Largeur du profil invalide dans les paramètres de fichiers. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.file_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.file_salt.app_error",
     "translation": "Clé de salage des liens publics invalide dans les paramètres de fichier. Doit être composée de 32 caractères ou plus."
   },
   {
-    "id": "model.config.is_valid.file_thumb_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_thumb_height.app_error",
     "translation": "Hauteur des miniatures invalide dans les paramètres de fichier. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.file_thumb_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_thumb_width.app_error",
     "translation": "Largeur des miniatures invalide dans les paramètres de fichiers. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.ldap_basedn",
+    "id": "i18n.server.model.config.is_valid.ldap_basedn",
     "translation": "Le champ LDAP \"BaseDN\" est requis."
   },
   {
-    "id": "model.config.is_valid.ldap_bind_password",
+    "id": "i18n.server.model.config.is_valid.ldap_bind_password",
     "translation": "Le champ LDAP \"Bind Password\" est requis."
   },
   {
-    "id": "model.config.is_valid.ldap_bind_username",
+    "id": "i18n.server.model.config.is_valid.ldap_bind_username",
     "translation": "Le champ LDAP \"Bind Username\" est requis."
   },
   {
-    "id": "model.config.is_valid.ldap_email",
+    "id": "i18n.server.model.config.is_valid.ldap_email",
     "translation": "Le champ LDAP \"Email Attribute\" est requis."
   },
   {
-    "id": "model.config.is_valid.ldap_firstname",
+    "id": "i18n.server.model.config.is_valid.ldap_firstname",
     "translation": "L'attribut LDAP \"Prénom\" est obligatoire."
   },
   {
-    "id": "model.config.is_valid.ldap_id",
+    "id": "i18n.server.model.config.is_valid.ldap_id",
     "translation": "L'attribut LDAP \"ID\" est obligatoire."
   },
   {
-    "id": "model.config.is_valid.ldap_lastname",
+    "id": "i18n.server.model.config.is_valid.ldap_lastname",
     "translation": "L'attribut LDAP \"nom\" est obligatoire."
   },
   {
-    "id": "model.config.is_valid.ldap_max_page_size.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_max_page_size.app_error",
     "translation": "Valeur de la taille maximale de page invalide."
   },
   {
-    "id": "model.config.is_valid.ldap_required.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_required.app_error",
     "translation": "Champ LDAP manquant."
   },
   {
-    "id": "model.config.is_valid.ldap_required.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_required.app_error",
     "translation": "Champ LDAP manquant."
   },
   {
-    "id": "model.config.is_valid.ldap_security.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_security.app_error",
     "translation": "Sécurité de connexion invalide pour les paramètres AD/LDAP. Doit être '', 'TLS' ou 'STARTTLS'"
   },
   {
-    "id": "model.config.is_valid.ldap_server",
+    "id": "i18n.server.model.config.is_valid.ldap_server",
     "translation": "Le champ \"serveur LDAP\" est obligatoire."
   },
   {
-    "id": "model.config.is_valid.ldap_sync_interval.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_sync_interval.app_error",
     "translation": "La synchronisation du temps d'interval est invalide. Doit être au moins d'une minute."
   },
   {
-    "id": "model.config.is_valid.ldap_username",
+    "id": "i18n.server.model.config.is_valid.ldap_username",
     "translation": "L'attribut LDAP \"Nom d'utilisateur\" est obligatoire."
   },
   {
-    "id": "model.config.is_valid.listen_address.app_error",
+    "id": "i18n.server.model.config.is_valid.listen_address.app_error",
     "translation": "Adresse d'écoute invalide dans les paramètres de service. Doit être renseignée."
   },
   {
-    "id": "model.config.is_valid.login_attempts.app_error",
+    "id": "i18n.server.model.config.is_valid.login_attempts.app_error",
     "translation": "Nombre maximum de tentatives de connexion invalide dans les paramètre de service. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.max_burst.app_error",
+    "id": "i18n.server.model.config.is_valid.max_burst.app_error",
     "translation": "La limite maximale de dépassement doit être plus grande que zéro."
   },
   {
-    "id": "model.config.is_valid.max_channels.app_error",
+    "id": "i18n.server.model.config.is_valid.max_channels.app_error",
     "translation": "Le nombre maximum de canaux par équipe défini dans les paramètres d'équipe est invalide. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.max_file_size.app_error",
+    "id": "i18n.server.model.config.is_valid.max_file_size.app_error",
     "translation": "Taille de fichier max invalide pour les paramètres du fichier. Doit être zéro ou un entier positif."
   },
   {
-    "id": "model.config.is_valid.max_notify_per_channel.app_error",
+    "id": "i18n.server.model.config.is_valid.max_notify_per_channel.app_error",
     "translation": "Le nombre maximum de notifications par canal pour les paramètres d'équipe.  Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.max_users.app_error",
+    "id": "i18n.server.model.config.is_valid.max_users.app_error",
     "translation": "Nombre maximum d'utilisateurs par équipe invalide dans les paramètres d'équipes. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.password_length.app_error",
+    "id": "i18n.server.model.config.is_valid.password_length.app_error",
     "translation": "La taille minimale du mot de passe doit être un nombre entier supérieur ou égal à {{.MinLength}} et inférieur ou égal à {{.MaxLength}}."
   },
   {
-    "id": "model.config.is_valid.password_length_max_min.app_error",
+    "id": "i18n.server.model.config.is_valid.password_length_max_min.app_error",
     "translation": "La taille maximale du mot de passe doit être supérieur ou égale à la taille minimale."
   },
   {
-    "id": "model.config.is_valid.rate_mem.app_error",
+    "id": "i18n.server.model.config.is_valid.rate_mem.app_error",
     "translation": "Taille du stockage mémoire invalide pour les paramètres de limite de fréquence. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.rate_sec.app_error",
+    "id": "i18n.server.model.config.is_valid.rate_sec.app_error",
     "translation": "Nombre par secondes invalide pour les paramètres de limite de fréquence. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.read_timeout.app_error",
+    "id": "i18n.server.model.config.is_valid.read_timeout.app_error",
     "translation": "Valeur invalide pour le délai d'attente de lecture."
   },
   {
-    "id": "model.config.is_valid.restrict_direct_message.app_error",
+    "id": "i18n.server.model.config.is_valid.restrict_direct_message.app_error",
     "translation": "La restriction du message direct est invalide. Doit être 'tout', ou 'équipe'"
   },
   {
-    "id": "model.config.is_valid.saml_assertion_consumer_service_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_assertion_consumer_service_url.app_error",
     "translation": "URL invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://"
   },
   {
-    "id": "model.config.is_valid.saml_email_attribute.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_email_attribute.app_error",
     "translation": "L'attribut \"Email\" est invalide. Il doit être renseigné."
   },
   {
-    "id": "model.config.is_valid.saml_idp_cert.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_cert.app_error",
     "translation": "Certificat public du fournisseur d'identité introuvable. Auriez-vous oublié de le télécharger ?"
   },
   {
-    "id": "model.config.is_valid.saml_idp_descriptor_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_descriptor_url.app_error",
     "translation": "URL invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.config.is_valid.saml_idp_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_url.app_error",
     "translation": "URL SSO SAML invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.config.is_valid.saml_private_key.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_private_key.app_error",
     "translation": "Clé privée du fournisseur d'identité introuvable. Auriez-vous oublié de la télécharger ?"
   },
   {
-    "id": "model.config.is_valid.saml_public_cert.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_public_cert.app_error",
     "translation": "Certificat public du fournisseur de service introuvable. Auriez-vous oublié de le télécharger ?"
   },
   {
-    "id": "model.config.is_valid.saml_username_attribute.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_username_attribute.app_error",
     "translation": "L'attribut \"Username\" est invalide. Il doit être renseigné."
   },
   {
-    "id": "model.config.is_valid.site_url.app_error",
+    "id": "i18n.server.model.config.is_valid.site_url.app_error",
     "translation": "URL du site invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.config.is_valid.site_url_email_batching.app_error",
+    "id": "i18n.server.model.config.is_valid.site_url_email_batching.app_error",
     "translation": "Impossible d'activer l'envoi d'e-mails par lot si SiteURL n'est pas défini."
   },
   {
-    "id": "model.config.is_valid.sitename_length.app_error",
+    "id": "i18n.server.model.config.is_valid.sitename_length.app_error",
     "translation": "Le nom du site doit contenir au maximum {{.MaxLength}} caractères."
   },
   {
-    "id": "model.config.is_valid.sql_data_src.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_data_src.app_error",
     "translation": "Source de données invalide pour les paramètres SQL. Doit être renseignée."
   },
   {
-    "id": "model.config.is_valid.sql_driver.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_driver.app_error",
     "translation": "Nom de driver invalide pour les paramètres SQL. Doit être 'mysql' ou 'postgres'"
   },
   {
-    "id": "model.config.is_valid.sql_idle.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_idle.app_error",
     "translation": "Nombre maximum de connexions inoccupées invalide dans les paramètres SQL. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.sql_max_conn.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_max_conn.app_error",
     "translation": "Nombre maximum de connexions ouvertes invalide dans les paramètres SQL. Doit être un entier positif."
   },
   {
-    "id": "model.config.is_valid.time_between_user_typing.app_error",
+    "id": "i18n.server.model.config.is_valid.time_between_user_typing.app_error",
     "translation": "Le temps entre chaque utilisateur tapant une mise à jour ne doit pas être inférieur à 1000 millisecondes."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_admin_secret.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_admin_secret.app_error",
     "translation": "La clé secrète de la passerelle administrateur WebRTC doit être définie."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_admin_url.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_admin_url.app_error",
     "translation": "L'URL de la passerelle administrateur WebRTC doit être une URL valide et doit commencer par http:// ou https://."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_ws_url.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_ws_url.app_error",
     "translation": "L'URL de la passerelle Websocket WebRTC doit être une URL valide et doit commencer par ws:// ou wss://."
   },
   {
-    "id": "model.config.is_valid.webrtc_stun_uri.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_stun_uri.app_error",
     "translation": "L'URI STUN WebRTC doit être un URI valide et doit commencer par stun:"
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_shared_key.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_shared_key.app_error",
     "translation": "La clé partagée TURN WebRTC ne peut pas être vide si l'URI TURN a été défini."
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_uri.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_uri.app_error",
     "translation": "L'URI TURN WebRTC doit être un URI valide et doit commencer par turn:"
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_username.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_username.app_error",
     "translation": "Le nom d'utilisateur TURN WebRTC ne peut pas être vide si un URI TURN a été défini."
   },
   {
-    "id": "model.config.is_valid.webserver_security.app_error",
+    "id": "i18n.server.model.config.is_valid.webserver_security.app_error",
     "translation": "Valeur invalide pour la sécurité de la connexion au serveur web."
   },
   {
-    "id": "model.config.is_valid.write_timeout.app_error",
+    "id": "i18n.server.model.config.is_valid.write_timeout.app_error",
     "translation": "Valeur invalide pour le délai d'attente d'écriture."
   },
   {
-    "id": "model.emoji.create_at.app_error",
+    "id": "i18n.server.model.emoji.create_at.app_error",
     "translation": "La date de création doit être une vraie date valide"
   },
   {
-    "id": "model.emoji.creator_id.app_error",
+    "id": "i18n.server.model.emoji.creator_id.app_error",
     "translation": "Id créateur invalide"
   },
   {
-    "id": "model.emoji.id.app_error",
+    "id": "i18n.server.model.emoji.id.app_error",
     "translation": "Id d'émoticône invalide"
   },
   {
-    "id": "model.emoji.name.app_error",
+    "id": "i18n.server.model.emoji.name.app_error",
     "translation": "Le nom doit être compris entre 1 et 64 caractères alphanumériques en minuscules."
   },
   {
-    "id": "model.emoji.update_at.app_error",
+    "id": "i18n.server.model.emoji.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.file_info.get.gif.app_error",
+    "id": "i18n.server.model.file_info.get.gif.app_error",
     "translation": "Impossible de décoder le gif."
   },
   {
-    "id": "model.incoming_hook.channel_id.app_error",
+    "id": "i18n.server.model.incoming_hook.channel_id.app_error",
     "translation": "Id canal invalide"
   },
   {
-    "id": "model.incoming_hook.create_at.app_error",
+    "id": "i18n.server.model.incoming_hook.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.incoming_hook.description.app_error",
+    "id": "i18n.server.model.incoming_hook.description.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.incoming_hook.display_name.app_error",
+    "id": "i18n.server.model.incoming_hook.display_name.app_error",
     "translation": "Nom d'affichage invalide"
   },
   {
-    "id": "model.incoming_hook.id.app_error",
+    "id": "i18n.server.model.incoming_hook.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.incoming_hook.team_id.app_error",
+    "id": "i18n.server.model.incoming_hook.team_id.app_error",
     "translation": "ID d'équipe invalide"
   },
   {
-    "id": "model.incoming_hook.update_at.app_error",
+    "id": "i18n.server.model.incoming_hook.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.incoming_hook.user_id.app_error",
+    "id": "i18n.server.model.incoming_hook.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.oauth.is_valid.app_id.app_error",
+    "id": "i18n.server.model.oauth.is_valid.app_id.app_error",
     "translation": "Id app invalide"
   },
   {
-    "id": "model.oauth.is_valid.callback.app_error",
+    "id": "i18n.server.model.oauth.is_valid.callback.app_error",
     "translation": "L'URL de callback doit être une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.oauth.is_valid.client_secret.app_error",
+    "id": "i18n.server.model.oauth.is_valid.client_secret.app_error",
     "translation": "Secret client invalide"
   },
   {
-    "id": "model.oauth.is_valid.create_at.app_error",
+    "id": "i18n.server.model.oauth.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.oauth.is_valid.creator_id.app_error",
+    "id": "i18n.server.model.oauth.is_valid.creator_id.app_error",
     "translation": "Id créateur invalide"
   },
   {
-    "id": "model.oauth.is_valid.description.app_error",
+    "id": "i18n.server.model.oauth.is_valid.description.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.oauth.is_valid.homepage.app_error",
+    "id": "i18n.server.model.oauth.is_valid.homepage.app_error",
     "translation": "URL du site invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.oauth.is_valid.icon_url.app_error",
+    "id": "i18n.server.model.oauth.is_valid.icon_url.app_error",
     "translation": "URL de l'icône invalide. Il doit s'agir d'une URL valide et commencer par http:// ou https://."
   },
   {
-    "id": "model.oauth.is_valid.name.app_error",
+    "id": "i18n.server.model.oauth.is_valid.name.app_error",
     "translation": "Nom invalide"
   },
   {
-    "id": "model.oauth.is_valid.update_at.app_error",
+    "id": "i18n.server.model.oauth.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.callback.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.callback.app_error",
     "translation": "URLs de callback invalides"
   },
   {
-    "id": "model.outgoing_hook.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.channel_id.app_error",
     "translation": "Id canal invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.create_at.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.description.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.description.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.display_name.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.display_name.app_error",
     "translation": "Nom d'affichage invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.team_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.team_id.app_error",
     "translation": "ID d'équipe invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.token.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.token.app_error",
     "translation": "jeton invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.trigger_words.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.trigger_words.app_error",
     "translation": "Mots déclencheurs invalides"
   },
   {
-    "id": "model.outgoing_hook.is_valid.update_at.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.url.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.url.app_error",
     "translation": "URLs de callback invalides. Elles doivent être des URL valides et commencer par http:// ou https://"
   },
   {
-    "id": "model.outgoing_hook.is_valid.user_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.outgoing_hook.is_valid.words.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.words.app_error",
     "translation": "Mots déclencheurs invalides"
   },
   {
-    "id": "model.post.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.post.is_valid.channel_id.app_error",
     "translation": "Id canal invalide"
   },
   {
-    "id": "model.post.is_valid.create_at.app_error",
+    "id": "i18n.server.model.post.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.post.is_valid.file_ids.app_error",
+    "id": "i18n.server.model.post.is_valid.file_ids.app_error",
     "translation": "Identifiants de fichier invalide"
   },
   {
-    "id": "model.post.is_valid.filenames.app_error",
+    "id": "i18n.server.model.post.is_valid.filenames.app_error",
     "translation": "Nom de fichiers invalides"
   },
   {
-    "id": "model.post.is_valid.hashtags.app_error",
+    "id": "i18n.server.model.post.is_valid.hashtags.app_error",
     "translation": "Hashtags invalides"
   },
   {
-    "id": "model.post.is_valid.id.app_error",
+    "id": "i18n.server.model.post.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.post.is_valid.msg.app_error",
+    "id": "i18n.server.model.post.is_valid.msg.app_error",
     "translation": "Message invalide"
   },
   {
-    "id": "model.post.is_valid.original_id.app_error",
+    "id": "i18n.server.model.post.is_valid.original_id.app_error",
     "translation": "Id d'origine invalide"
   },
   {
-    "id": "model.post.is_valid.parent_id.app_error",
+    "id": "i18n.server.model.post.is_valid.parent_id.app_error",
     "translation": "Id parent invalide"
   },
   {
-    "id": "model.post.is_valid.props.app_error",
+    "id": "i18n.server.model.post.is_valid.props.app_error",
     "translation": "Propriétés invalides"
   },
   {
-    "id": "model.post.is_valid.root_id.app_error",
+    "id": "i18n.server.model.post.is_valid.root_id.app_error",
     "translation": "Id racine invalide"
   },
   {
-    "id": "model.post.is_valid.root_parent.app_error",
+    "id": "i18n.server.model.post.is_valid.root_parent.app_error",
     "translation": "L'ID racine invalide doit être spécifié si un ID parent est défini"
   },
   {
-    "id": "model.post.is_valid.type.app_error",
+    "id": "i18n.server.model.post.is_valid.type.app_error",
     "translation": "Type invalide"
   },
   {
-    "id": "model.post.is_valid.update_at.app_error",
+    "id": "i18n.server.model.post.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.post.is_valid.user_id.app_error",
+    "id": "i18n.server.model.post.is_valid.user_id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.preference.is_valid.category.app_error",
+    "id": "i18n.server.model.preference.is_valid.category.app_error",
     "translation": "Catégorie invalide"
   },
   {
-    "id": "model.preference.is_valid.id.app_error",
+    "id": "i18n.server.model.preference.is_valid.id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.preference.is_valid.name.app_error",
+    "id": "i18n.server.model.preference.is_valid.name.app_error",
     "translation": "Nom invalide"
   },
   {
-    "id": "model.preference.is_valid.theme.app_error",
+    "id": "i18n.server.model.preference.is_valid.theme.app_error",
     "translation": "Thème invalide"
   },
   {
-    "id": "model.preference.is_valid.value.app_error",
+    "id": "i18n.server.model.preference.is_valid.value.app_error",
     "translation": "La valeur est trop longue"
   },
   {
-    "id": "model.reaction.is_valid.create_at.app_error",
+    "id": "i18n.server.model.reaction.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.reaction.is_valid.emoji_name.app_error",
+    "id": "i18n.server.model.reaction.is_valid.emoji_name.app_error",
     "translation": "Nom d'émoticône invalide"
   },
   {
-    "id": "model.reaction.is_valid.post_id.app_error",
+    "id": "i18n.server.model.reaction.is_valid.post_id.app_error",
     "translation": "ID de message invalide"
   },
   {
-    "id": "model.reaction.is_valid.user_id.app_error",
+    "id": "i18n.server.model.reaction.is_valid.user_id.app_error",
     "translation": "ID utilisateur invalide"
   },
   {
-    "id": "model.team.is_valid.characters.app_error",
+    "id": "i18n.server.model.team.is_valid.characters.app_error",
     "translation": "Le nom doit être composé d'au moins 2 caractères alphanumériques minuscules"
   },
   {
-    "id": "model.team.is_valid.company.app_error",
+    "id": "i18n.server.model.team.is_valid.company.app_error",
     "translation": "Nom de société invalide"
   },
   {
-    "id": "model.team.is_valid.create_at.app_error",
+    "id": "i18n.server.model.team.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.team.is_valid.description.app_error",
+    "id": "i18n.server.model.team.is_valid.description.app_error",
     "translation": "Description invalide"
   },
   {
-    "id": "model.team.is_valid.domains.app_error",
+    "id": "i18n.server.model.team.is_valid.domains.app_error",
     "translation": "Domaines autorisés invalides"
   },
   {
-    "id": "model.team.is_valid.email.app_error",
+    "id": "i18n.server.model.team.is_valid.email.app_error",
     "translation": "Adresse e-mail invalide"
   },
   {
-    "id": "model.team.is_valid.id.app_error",
+    "id": "i18n.server.model.team.is_valid.id.app_error",
     "translation": "Id invalide"
   },
   {
-    "id": "model.team.is_valid.name.app_error",
+    "id": "i18n.server.model.team.is_valid.name.app_error",
     "translation": "Nom invalide"
   },
   {
-    "id": "model.team.is_valid.reserved.app_error",
+    "id": "i18n.server.model.team.is_valid.reserved.app_error",
     "translation": "Cette URL n'est pas disponible. Veuillez en essayer une autre."
   },
   {
-    "id": "model.team.is_valid.type.app_error",
+    "id": "i18n.server.model.team.is_valid.type.app_error",
     "translation": "Type invalide"
   },
   {
-    "id": "model.team.is_valid.update_at.app_error",
+    "id": "i18n.server.model.team.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.team.is_valid.url.app_error",
+    "id": "i18n.server.model.team.is_valid.url.app_error",
     "translation": "Identifiant URL invalide"
   },
   {
-    "id": "model.team_member.is_valid.role.app_error",
+    "id": "i18n.server.model.team_member.is_valid.role.app_error",
     "translation": "Rôle invalide"
   },
   {
-    "id": "model.team_member.is_valid.team_id.app_error",
+    "id": "i18n.server.model.team_member.is_valid.team_id.app_error",
     "translation": "ID d'équipe invalide"
   },
   {
-    "id": "model.team_member.is_valid.user_id.app_error",
+    "id": "i18n.server.model.team_member.is_valid.user_id.app_error",
     "translation": "Id d'utilisateur invalide"
   },
   {
-    "id": "model.user.is_valid.auth_data.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data.app_error",
     "translation": "Données d'authentification invalides"
   },
   {
-    "id": "model.user.is_valid.auth_data_pwd.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data_pwd.app_error",
     "translation": "Utilisateur invalide, le mot de passe et les données de connexion ne peuvent pas être tous les deux renseignés"
   },
   {
-    "id": "model.user.is_valid.auth_data_type.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data_type.app_error",
     "translation": "Utilisateur invalide, les données de connexion doivent être renseignées avec un type de connexion"
   },
   {
-    "id": "model.user.is_valid.create_at.app_error",
+    "id": "i18n.server.model.user.is_valid.create_at.app_error",
     "translation": "La date de création doit être une date valide"
   },
   {
-    "id": "model.user.is_valid.email.app_error",
+    "id": "i18n.server.model.user.is_valid.email.app_error",
     "translation": "Adresse e-mail invalide"
   },
   {
-    "id": "model.user.is_valid.first_name.app_error",
+    "id": "i18n.server.model.user.is_valid.first_name.app_error",
     "translation": "Prénom invalide"
   },
   {
-    "id": "model.user.is_valid.id.app_error",
+    "id": "i18n.server.model.user.is_valid.id.app_error",
     "translation": "Id utilisateur invalide"
   },
   {
-    "id": "model.user.is_valid.last_name.app_error",
+    "id": "i18n.server.model.user.is_valid.last_name.app_error",
     "translation": "Nom invalide"
   },
   {
-    "id": "model.user.is_valid.nickname.app_error",
+    "id": "i18n.server.model.user.is_valid.nickname.app_error",
     "translation": "Pseudonyme invalide"
   },
   {
-    "id": "model.user.is_valid.position.app_error",
+    "id": "i18n.server.model.user.is_valid.position.app_error",
     "translation": "Rôle invalide : ne doit pas faire plus de 35 caractères."
   },
   {
-    "id": "model.user.is_valid.pwd.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères et une lettre minuscule."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_number.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule et un chiffre."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_number_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule, un chiffre et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule et une majuscule."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_number.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule, une majuscule et un chiffre."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_number_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule, une majuscule, un chiffre et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre minuscule, une majuscule et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_number.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, un chiffre."
   },
   {
-    "id": "model.user.is_valid.pwd_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_number_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, un chiffre et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre majuscule."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_number.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre majuscule et un chiffre."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_number_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre majuscule, un chiffre et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_symbol.app_error",
     "translation": "Votre mot de passe doit contenir au moins {{.Min}} caractères, une lettre majuscule et un symbole (parmi \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.team_id.app_error",
+    "id": "i18n.server.model.user.is_valid.team_id.app_error",
     "translation": "ID d'équipe invalide"
   },
   {
-    "id": "model.user.is_valid.update_at.app_error",
+    "id": "i18n.server.model.user.is_valid.update_at.app_error",
     "translation": "La date de mise à jour doit être une date valide"
   },
   {
-    "id": "model.user.is_valid.username.app_error",
+    "id": "i18n.server.model.user.is_valid.username.app_error",
     "translation": "Nom d'utilisateur invalide"
   },
   {
-    "id": "model.utils.decode_json.app_error",
+    "id": "i18n.server.model.utils.decode_json.app_error",
     "translation": "impossible de décoder"
   },
   {
-    "id": "store.sql.alter_column_type.critical",
+    "id": "i18n.server.store.sql.alter_column_type.critical",
     "translation": "Impossible de modifier le type de la colonne %v"
   },
   {
-    "id": "store.sql.check_index.critical",
+    "id": "i18n.server.store.sql.check_index.critical",
     "translation": "Échec de la vérification de l'index %v"
   },
   {
-    "id": "store.sql.closing.info",
+    "id": "i18n.server.store.sql.closing.info",
     "translation": "Fermeture de SqlStore"
   },
   {
-    "id": "store.sql.column_exists.critical",
+    "id": "i18n.server.store.sql.column_exists.critical",
     "translation": "Échec de la vérification de l'existence de la colonne %v"
   },
   {
-    "id": "store.sql.column_exists_missing_driver.critical",
+    "id": "i18n.server.store.sql.column_exists_missing_driver.critical",
     "translation": "Échec de la vérification de l'existence de la colonne en raison d'un driver manquant"
   },
   {
-    "id": "store.sql.convert_encrypt_string_map",
+    "id": "i18n.server.store.sql.convert_encrypt_string_map",
     "translation": "FromDb : Impossible de convertir EncryptStringMap en *string"
   },
   {
-    "id": "store.sql.convert_string_array",
+    "id": "i18n.server.store.sql.convert_string_array",
     "translation": "FromDb : Impossible de convertir StringArray en *string"
   },
   {
-    "id": "store.sql.convert_string_interface",
+    "id": "i18n.server.store.sql.convert_string_interface",
     "translation": "FromDb : Impossible de convertir StringInterface en *string"
   },
   {
-    "id": "store.sql.convert_string_map",
+    "id": "i18n.server.store.sql.convert_string_map",
     "translation": "FromDb : Impossible de convertir StringMap en *string"
   },
   {
-    "id": "store.sql.create_column.critical",
+    "id": "i18n.server.store.sql.create_column.critical",
     "translation": "Impossible de créer la colonne %v"
   },
   {
-    "id": "store.sql.create_column_missing_driver.critical",
+    "id": "i18n.server.store.sql.create_column_missing_driver.critical",
     "translation": "Impossible de créer la colonne en raison d'un driver manquant"
   },
   {
-    "id": "store.sql.create_index.critical",
+    "id": "i18n.server.store.sql.create_index.critical",
     "translation": "Impossible de créer l'index %v"
   },
   {
-    "id": "store.sql.create_index_missing_driver.critical",
+    "id": "i18n.server.store.sql.create_index_missing_driver.critical",
     "translation": "Impossible de créer l'index en raison d'un driver manquant"
   },
   {
-    "id": "store.sql.creating_tables.critical",
+    "id": "i18n.server.store.sql.creating_tables.critical",
     "translation": "Échec de création des tables de la base de données : %v"
   },
   {
-    "id": "store.sql.dialect_driver.critical",
+    "id": "i18n.server.store.sql.dialect_driver.critical",
     "translation": "Échec de création du driver spécifique au dialecte"
   },
   {
-    "id": "store.sql.dialect_driver.panic",
+    "id": "i18n.server.store.sql.dialect_driver.panic",
     "translation": "Échec de création du driver spécifique au dialecte %v"
   },
   {
-    "id": "store.sql.drop_column.critical",
+    "id": "i18n.server.store.sql.drop_column.critical",
     "translation": "Échec de suppression de la colonne %v"
   },
   {
-    "id": "store.sql.incorrect_mac",
+    "id": "i18n.server.store.sql.incorrect_mac",
     "translation": "MAC incorrect pour le ciphertext indiqué"
   },
   {
-    "id": "store.sql.maxlength_column.critical",
+    "id": "i18n.server.store.sql.maxlength_column.critical",
     "translation": "Échec de récupération de la taille maximale de la colonne %v"
   },
   {
-    "id": "store.sql.open_conn.critical",
+    "id": "i18n.server.store.sql.open_conn.critical",
     "translation": "Impossible d'ouvrir une connexion SQL vers err:%v"
   },
   {
-    "id": "store.sql.open_conn.panic",
+    "id": "i18n.server.store.sql.open_conn.panic",
     "translation": "Impossible d'ouvrir une connexion SQL %v"
   },
   {
-    "id": "store.sql.ping.critical",
+    "id": "i18n.server.store.sql.ping.critical",
     "translation": "Impossible de pinger base de données err:%v"
   },
   {
-    "id": "store.sql.pinging.info",
+    "id": "i18n.server.store.sql.pinging.info",
     "translation": "Ping de la base de données SQL %v"
   },
   {
-    "id": "store.sql.read_replicas_not_licensed.critical",
+    "id": "i18n.server.store.sql.read_replicas_not_licensed.critical",
     "translation": "Fonctionnalité pour plus d'un répliqua en lecture désactivée par la licence courante. Veuillez contacter votre administrateur système concernant la mise à niveau de votre licence entreprise."
   },
   {
-    "id": "store.sql.remove_index.critical",
+    "id": "i18n.server.store.sql.remove_index.critical",
     "translation": "Échec de la suppression de l'index %v"
   },
   {
-    "id": "store.sql.rename_column.critical",
+    "id": "i18n.server.store.sql.rename_column.critical",
     "translation": "Échec du renommage de la colonne %v"
   },
   {
-    "id": "store.sql.schema_out_of_date.warn",
+    "id": "i18n.server.store.sql.schema_out_of_date.warn",
     "translation": "La version du schéma de la base de données %v semble être dépassée"
   },
   {
-    "id": "store.sql.schema_set.info",
+    "id": "i18n.server.store.sql.schema_set.info",
     "translation": "Le schéma de la base de données a été migré en version %v"
   },
   {
-    "id": "store.sql.schema_upgrade_attempt.warn",
+    "id": "i18n.server.store.sql.schema_upgrade_attempt.warn",
     "translation": "Tentative de mise à niveau du schéma de la base de données vers la version %v"
   },
   {
-    "id": "store.sql.schema_version.critical",
+    "id": "i18n.server.store.sql.schema_version.critical",
     "translation": "Le schéma de la base de données en version %v ne peut être mis à jour. Vous ne devez pas sauter une version."
   },
   {
-    "id": "store.sql.short_ciphertext",
+    "id": "i18n.server.store.sql.short_ciphertext",
     "translation": "ciphertext court"
   },
   {
-    "id": "store.sql.table_column_type.critical",
+    "id": "i18n.server.store.sql.table_column_type.critical",
     "translation": "Échec du chargement du type de données pour la colonne %s de la table %s : %v"
   },
   {
-    "id": "store.sql.table_exists.critical",
+    "id": "i18n.server.store.sql.table_exists.critical",
     "translation": "Échec de la vérification de l'existence de la table %v"
   },
   {
-    "id": "store.sql.too_short_ciphertext",
+    "id": "i18n.server.store.sql.too_short_ciphertext",
     "translation": "ciphertext trop court"
   },
   {
-    "id": "store.sql.upgraded.warn",
+    "id": "i18n.server.store.sql.upgraded.warn",
     "translation": "Le schéma de la base de données a été mis à niveau vers la version %v"
   },
   {
-    "id": "store.sql_audit.get.finding.app_error",
+    "id": "i18n.server.store.sql_audit.get.finding.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche des audits"
   },
   {
-    "id": "store.sql_audit.get.limit.app_error",
+    "id": "i18n.server.store.sql_audit.get.limit.app_error",
     "translation": "Limite dépassée pour la pagination"
   },
   {
-    "id": "store.sql_audit.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_audit.permanent_delete_by_user.app_error",
     "translation": "Nous avons rencontré une erreur durant la suppression des audits"
   },
   {
-    "id": "store.sql_audit.save.saving.app_error",
+    "id": "i18n.server.store.sql_audit.save.saving.app_error",
     "translation": "Nous avons rencontré une erreur lors de l'enregistrement des audits"
   },
   {
-    "id": "store.sql_channel.analytics_deleted_type_count.app_error",
+    "id": "i18n.server.store.sql_channel.analytics_deleted_type_count.app_error",
     "translation": "Impossible de supprimer le nombre de type de canaux"
   },
   {
-    "id": "store.sql_channel.analytics_type_count.app_error",
+    "id": "i18n.server.store.sql_channel.analytics_type_count.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre de type de canaux"
   },
   {
-    "id": "store.sql_channel.check_open_channel_permissions.app_error",
+    "id": "i18n.server.store.sql_channel.check_open_channel_permissions.app_error",
     "translation": "Impossible de vérifier les permissions"
   },
   {
-    "id": "store.sql_channel.check_permissions.app_error",
+    "id": "i18n.server.store.sql_channel.check_permissions.app_error",
     "translation": "Impossible de vérifier les permissions"
   },
   {
-    "id": "store.sql_channel.check_permissions_by_name.app_error",
+    "id": "i18n.server.store.sql_channel.check_permissions_by_name.app_error",
     "translation": "Impossible de vérifier les permissions"
   },
   {
-    "id": "store.sql_channel.delete.channel.app_error",
+    "id": "i18n.server.store.sql_channel.delete.channel.app_error",
     "translation": "Nous n'avons pas pu supprimer le canal"
   },
   {
-    "id": "store.sql_channel.extra_updated.app_error",
+    "id": "i18n.server.store.sql_channel.extra_updated.app_error",
     "translation": "Problème de mise à jour de la date de dernière mise à jour des membres"
   },
   {
-    "id": "store.sql_channel.get.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get.existing.app_error",
     "translation": "Nous n'avons pas pu trouver le canal existant"
   },
   {
-    "id": "store.sql_channel.get.find.app_error",
+    "id": "i18n.server.store.sql_channel.get.find.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du canal"
   },
   {
-    "id": "store.sql_channel.get_all.app_error",
+    "id": "i18n.server.store.sql_channel.get_all.app_error",
     "translation": "Nous n'avons pas pu charger tous les canaux"
   },
   {
-    "id": "store.sql_channel.get_by_name.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get_by_name.existing.app_error",
     "translation": "Nous n'avons pas pu trouver le canal existant"
   },
   {
-    "id": "store.sql_channel.get_by_name.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_by_name.missing.app_error",
     "translation": "Le canal n'existe pas"
   },
   {
-    "id": "store.sql_channel.get_channel_counts.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channel_counts.get.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre de canaux"
   },
   {
-    "id": "store.sql_channel.get_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels.get.app_error",
     "translation": "Nous n'avons pas pu obtenir les canaux"
   },
   {
-    "id": "store.sql_channel.get_channels.not_found.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels.not_found.app_error",
     "translation": "Aucun canal n'a pu être trouvé"
   },
   {
-    "id": "store.sql_channel.get_channels_by_ids.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels_by_ids.get.app_error",
     "translation": "Impossible de récupérer les canaux"
   },
   {
-    "id": "store.sql_channel.get_channels_by_ids.not_found.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels_by_ids.not_found.app_error",
     "translation": "Aucun canal trouvé"
   },
   {
-    "id": "store.sql_channel.get_deleted_by_name.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get_deleted_by_name.existing.app_error",
     "translation": "Impossible de trouver le canal supprimé existant"
   },
   {
-    "id": "store.sql_channel.get_deleted_by_name.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_deleted_by_name.missing.app_error",
     "translation": "Aucun nom de canal supprimé portant ce nom existe"
   },
   {
-    "id": "store.sql_channel.get_extra_members.app_error",
+    "id": "i18n.server.store.sql_channel.get_extra_members.app_error",
     "translation": "Nous n'avons pas pu charger les informations supplémentaires sur les membres du canal"
   },
   {
-    "id": "store.sql_channel.get_for_post.app_error",
+    "id": "i18n.server.store.sql_channel.get_for_post.app_error",
     "translation": "Impossible de récupérer le canal pour le message spécifié"
   },
   {
-    "id": "store.sql_channel.get_member.app_error",
+    "id": "i18n.server.store.sql_channel.get_member.app_error",
     "translation": "Nous n'avons pas pu obtenir les membres du canal"
   },
   {
-    "id": "store.sql_channel.get_member.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_member.missing.app_error",
     "translation": "Aucun membre de canal trouvé pour cet ID utilisateur et cet ID de canal"
   },
   {
-    "id": "store.sql_channel.get_member_count.app_error",
+    "id": "i18n.server.store.sql_channel.get_member_count.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre de membres du canal"
   },
   {
-    "id": "store.sql_channel.get_member_for_post.app_error",
+    "id": "i18n.server.store.sql_channel.get_member_for_post.app_error",
     "translation": "Impossible de récupérer le membre du canal pour le message spécifié"
   },
   {
-    "id": "store.sql_channel.get_members.app_error",
+    "id": "i18n.server.store.sql_channel.get_members.app_error",
     "translation": "Nous n'avons pas pu obtenir les membres du canal"
   },
   {
-    "id": "store.sql_channel.get_members_by_ids.app_error",
+    "id": "i18n.server.store.sql_channel.get_members_by_ids.app_error",
     "translation": "Impossible de récupérer les membres du canal"
   },
   {
-    "id": "store.sql_channel.get_more_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_more_channels.get.app_error",
     "translation": "Nous n'avons pas pu obtenir les canaux"
   },
   {
-    "id": "store.sql_channel.get_public_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_public_channels.get.app_error",
     "translation": "Impossible de récupérer les canaux publics"
   },
   {
-    "id": "store.sql_channel.get_unread.app_error",
+    "id": "i18n.server.store.sql_channel.get_unread.app_error",
     "translation": "Impossible de récupérer les messages non lus du canal"
   },
   {
-    "id": "store.sql_channel.increment_mention_count.app_error",
+    "id": "i18n.server.store.sql_channel.increment_mention_count.app_error",
     "translation": "Nous n'avons pas pu incrémenter le nombre de mentions"
   },
   {
-    "id": "store.sql_channel.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete.app_error",
     "translation": "Impossible de supprimer le canal"
   },
   {
-    "id": "store.sql_channel.permanent_delete_by_team.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete_by_team.app_error",
     "translation": "Nous n'avons pas pu supprimer les canaux"
   },
   {
-    "id": "store.sql_channel.permanent_delete_members_by_user.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete_members_by_user.app_error",
     "translation": "Nous n'avons pas pu retirer le membre du canal"
   },
   {
-    "id": "store.sql_channel.pinned_posts.app_error",
+    "id": "i18n.server.store.sql_channel.pinned_posts.app_error",
     "translation": "Impossible de récupérer les messages épinglés"
   },
   {
-    "id": "store.sql_channel.remove_member.app_error",
+    "id": "i18n.server.store.sql_channel.remove_member.app_error",
     "translation": "Nous n'avons pas pu retirer le membre du canal"
   },
   {
-    "id": "store.sql_channel.save.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save.commit_transaction.app_error",
     "translation": "Impossible de valider la transaction"
   },
   {
-    "id": "store.sql_channel.save.direct_channel.app_error",
+    "id": "i18n.server.store.sql_channel.save.direct_channel.app_error",
     "translation": "Utilisez SaveDirectChannel pour créer un canal direct"
   },
   {
-    "id": "store.sql_channel.save.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save.open_transaction.app_error",
     "translation": "Impossible d'ouvrir la transaction"
   },
   {
-    "id": "store.sql_channel.save_channel.current_count.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.current_count.app_error",
     "translation": "Échec lors de l'obtention du nombre de canaux courants"
   },
   {
-    "id": "store.sql_channel.save_channel.existing.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.existing.app_error",
     "translation": "La mise à jour doit être appelée pour un canal existant"
   },
   {
-    "id": "store.sql_channel.save_channel.exists.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.exists.app_error",
     "translation": "Un canal portant ce nom existe déjà dans la même équipe"
   },
   {
-    "id": "store.sql_channel.save_channel.limit.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.limit.app_error",
     "translation": "Vous avez atteint la limite du nombre de canaux autorisés."
   },
   {
-    "id": "store.sql_channel.save_channel.previously.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.previously.app_error",
     "translation": "Un canal avec cette URL a déjà été créé"
   },
   {
-    "id": "store.sql_channel.save_channel.save.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer ce canal"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.add_members.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.add_members.app_error",
     "translation": "Impossible d'ajouter des membres au canal direct"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.commit.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.commit.app_error",
     "translation": "Impossible de valider la transaction"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.not_direct.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.not_direct.app_error",
     "translation": "Tentative de création d'un canal non direct via SaveDirectChannel"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.open_transaction.app_error",
     "translation": "Impossible d'ouvrir la transaction"
   },
   {
-    "id": "store.sql_channel.save_member.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.commit_transaction.app_error",
     "translation": "Impossible de valider la transaction"
   },
   {
-    "id": "store.sql_channel.save_member.exists.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.exists.app_error",
     "translation": "Un membre de canal avec cet ID existe déjà"
   },
   {
-    "id": "store.sql_channel.save_member.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.open_transaction.app_error",
     "translation": "Impossible d'ouvrir la transaction"
   },
   {
-    "id": "store.sql_channel.save_member.save.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer le membre du canal"
   },
   {
-    "id": "store.sql_channel.search.app_error",
+    "id": "i18n.server.store.sql_channel.search.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des canaux"
   },
   {
-    "id": "store.sql_channel.set_last_viewed_at.app_error",
+    "id": "i18n.server.store.sql_channel.set_last_viewed_at.app_error",
     "translation": "Nous n'avons pas pu mettre à jour la date de dernier affichage."
   },
   {
-    "id": "store.sql_channel.update.app_error",
+    "id": "i18n.server.store.sql_channel.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le canal"
   },
   {
-    "id": "store.sql_channel.update.exists.app_error",
+    "id": "i18n.server.store.sql_channel.update.exists.app_error",
     "translation": "Un canal avec ce pseudonyme existe déjà"
   },
   {
-    "id": "store.sql_channel.update.previously.app_error",
+    "id": "i18n.server.store.sql_channel.update.previously.app_error",
     "translation": "Un canal avec ce pseudonyme a déjà été créé"
   },
   {
-    "id": "store.sql_channel.update.updating.app_error",
+    "id": "i18n.server.store.sql_channel.update.updating.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour du canal"
   },
   {
-    "id": "store.sql_channel.update_last_viewed_at.app_error",
+    "id": "i18n.server.store.sql_channel.update_last_viewed_at.app_error",
     "translation": "Nous n'avons pas pu mettre à jour la date de dernier affichage."
   },
   {
-    "id": "store.sql_channel.update_member.app_error",
+    "id": "i18n.server.store.sql_channel.update_member.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour du membre du canal"
   },
   {
-    "id": "store.sql_command.analytics_command_count.app_error",
+    "id": "i18n.server.store.sql_command.analytics_command_count.app_error",
     "translation": "Nous n'avons pas pu compter les commandes"
   },
   {
-    "id": "store.sql_command.save.delete.app_error",
+    "id": "i18n.server.store.sql_command.save.delete.app_error",
     "translation": "Nous n'avons pas pu supprimer la commande"
   },
   {
-    "id": "store.sql_command.save.delete_perm.app_error",
+    "id": "i18n.server.store.sql_command.save.delete_perm.app_error",
     "translation": "Nous n'avons pas pu supprimer la commande"
   },
   {
-    "id": "store.sql_command.save.get.app_error",
+    "id": "i18n.server.store.sql_command.save.get.app_error",
     "translation": "Nous n'avons pas pu obtenir la commande"
   },
   {
-    "id": "store.sql_command.save.get_team.app_error",
+    "id": "i18n.server.store.sql_command.save.get_team.app_error",
     "translation": "Nous n'avons pas pu obtenir les commandes"
   },
   {
-    "id": "store.sql_command.save.saving.app_error",
+    "id": "i18n.server.store.sql_command.save.saving.app_error",
     "translation": "Nous n'avons pas pu enregistrer la commande"
   },
   {
-    "id": "store.sql_command.save.saving_overwrite.app_error",
+    "id": "i18n.server.store.sql_command.save.saving_overwrite.app_error",
     "translation": "Nous ne pouvez pas écraser une commande existante"
   },
   {
-    "id": "store.sql_command.save.update.app_error",
+    "id": "i18n.server.store.sql_command.save.update.app_error",
     "translation": "Nous n'avons as pu mettre à jour la commande"
   },
   {
-    "id": "store.sql_compliance.get.finding.app_error",
+    "id": "i18n.server.store.sql_compliance.get.finding.app_error",
     "translation": "Nous avons rencontré une erreur durant le chargement des rapports de conformité"
   },
   {
-    "id": "store.sql_compliance.save.saving.app_error",
+    "id": "i18n.server.store.sql_compliance.save.saving.app_error",
     "translation": "Nous avons rencontré une erreur durant l'enregistrement du rapport de conformité"
   },
   {
-    "id": "store.sql_emoji.delete.app_error",
+    "id": "i18n.server.store.sql_emoji.delete.app_error",
     "translation": "Nous n'avons pas pu supprimer votre emoji"
   },
   {
-    "id": "store.sql_emoji.delete.no_results",
+    "id": "i18n.server.store.sql_emoji.delete.no_results",
     "translation": "Nous n'avons pas trouvé l' emoji à supprimer"
   },
   {
-    "id": "store.sql_emoji.get.app_error",
+    "id": "i18n.server.store.sql_emoji.get.app_error",
     "translation": "Nous n'avons pas pu obtenir l'emoji"
   },
   {
-    "id": "store.sql_emoji.get_all.app_error",
+    "id": "i18n.server.store.sql_emoji.get_all.app_error",
     "translation": "Nous n'avons pas pu obtenir l'emoji"
   },
   {
-    "id": "store.sql_emoji.get_by_name.app_error",
+    "id": "i18n.server.store.sql_emoji.get_by_name.app_error",
     "translation": "Impossible de récupérer l'Emoji"
   },
   {
-    "id": "store.sql_emoji.save.app_error",
+    "id": "i18n.server.store.sql_emoji.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer l'Emoji"
   },
   {
-    "id": "store.sql_file_info.attach_to_post.app_error",
+    "id": "i18n.server.store.sql_file_info.attach_to_post.app_error",
     "translation": "Impossible de lier l'information du fichier au message"
   },
   {
-    "id": "store.sql_file_info.delete_for_post.app_error",
+    "id": "i18n.server.store.sql_file_info.delete_for_post.app_error",
     "translation": "Impossible de supprimer l'information du fichier du message"
   },
   {
-    "id": "store.sql_file_info.get.app_error",
+    "id": "i18n.server.store.sql_file_info.get.app_error",
     "translation": "Impossible de récupérer l'information du fichier"
   },
   {
-    "id": "store.sql_file_info.get_by_path.app_error",
+    "id": "i18n.server.store.sql_file_info.get_by_path.app_error",
     "translation": "Impossible de récupérer l'information du fichier par le chemin du fichier"
   },
   {
-    "id": "store.sql_file_info.get_for_post.app_error",
+    "id": "i18n.server.store.sql_file_info.get_for_post.app_error",
     "translation": "Impossible de récupérer l'information du fichier du message"
   },
   {
-    "id": "store.sql_file_info.save.app_error",
+    "id": "i18n.server.store.sql_file_info.save.app_error",
     "translation": "Impossible de sauvegarder l'information du fichier"
   },
   {
-    "id": "store.sql_license.get.app_error",
+    "id": "i18n.server.store.sql_license.get.app_error",
     "translation": "Nous avons rencontré une erreur durant le chargement de la licence"
   },
   {
-    "id": "store.sql_license.get.missing.app_error",
+    "id": "i18n.server.store.sql_license.get.missing.app_error",
     "translation": "Aucune licence avec cet ID n'a pu être trouvée"
   },
   {
-    "id": "store.sql_license.save.app_error",
+    "id": "i18n.server.store.sql_license.save.app_error",
     "translation": "Nous avons rencontré une erreur durant l'enregistrement de la licence"
   },
   {
-    "id": "store.sql_oauth.delete.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.commit_transaction.app_error",
     "translation": "Impossible de valider la transaction"
   },
   {
-    "id": "store.sql_oauth.delete.open_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.open_transaction.app_error",
     "translation": "Impossible d'ouvrir la transaction pour supprimer l'application OAuth 2"
   },
   {
-    "id": "store.sql_oauth.delete.rollback_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.rollback_transaction.app_error",
     "translation": "Impossible de restaurer la transaction pour supprimer l'application OAuth 2"
   },
   {
-    "id": "store.sql_oauth.delete_app.app_error",
+    "id": "i18n.server.store.sql_oauth.delete_app.app_error",
     "translation": "Une erreur a eu lieu pendant la suppression de l'application OAuth 2"
   },
   {
-    "id": "store.sql_oauth.get_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.get_access_data.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du jeton d'accès"
   },
   {
-    "id": "store.sql_oauth.get_access_data_by_user_for_app.app_error",
+    "id": "i18n.server.store.sql_oauth.get_access_data_by_user_for_app.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du jeton d'accès"
   },
   {
-    "id": "store.sql_oauth.get_app.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app.find.app_error",
     "translation": "Nous n'avons pas pu trouver l'application"
   },
   {
-    "id": "store.sql_oauth.get_app.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app.finding.app_error",
     "translation": "Nous n'avons pas pu trouver l'application"
   },
   {
-    "id": "store.sql_oauth.get_app_by_user.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app_by_user.find.app_error",
     "translation": "Nous n'avons pu trouver aucune application existante"
   },
   {
-    "id": "store.sql_oauth.get_apps.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_apps.find.app_error",
     "translation": "Une erreur a eu lieu pendant la recherche des applications OAuth 2"
   },
   {
-    "id": "store.sql_oauth.get_auth_data.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_auth_data.find.app_error",
     "translation": "Nous n'avons pas pu trouver le code d'autorisation existant"
   },
   {
-    "id": "store.sql_oauth.get_auth_data.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.get_auth_data.finding.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche du code d'autorisation"
   },
   {
-    "id": "store.sql_oauth.get_previous_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.get_previous_access_data.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du jeton d'accès"
   },
   {
-    "id": "store.sql_oauth.permanent_delete_auth_data_by_user.app_error",
+    "id": "i18n.server.store.sql_oauth.permanent_delete_auth_data_by_user.app_error",
     "translation": "Nous n'avons pas supprimer le code d'autorisation"
   },
   {
-    "id": "store.sql_oauth.remove_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.remove_access_data.app_error",
     "translation": "Nous n'avons pas pu retirer le jeton d'accès"
   },
   {
-    "id": "store.sql_oauth.remove_auth_data.app_error",
+    "id": "i18n.server.store.sql_oauth.remove_auth_data.app_error",
     "translation": "Nous n'avons pas pu retirer le code d'autorisation"
   },
   {
-    "id": "store.sql_oauth.save_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.save_access_data.app_error",
     "translation": "Nous n'avons pas pu enregistrer le jeton d'accès."
   },
   {
-    "id": "store.sql_oauth.save_app.existing.app_error",
+    "id": "i18n.server.store.sql_oauth.save_app.existing.app_error",
     "translation": "La mise à jour doit être appelée pour une application existante"
   },
   {
-    "id": "store.sql_oauth.save_app.save.app_error",
+    "id": "i18n.server.store.sql_oauth.save_app.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer l'application."
   },
   {
-    "id": "store.sql_oauth.save_auth_data.app_error",
+    "id": "i18n.server.store.sql_oauth.save_auth_data.app_error",
     "translation": "Nous n'avons pas pu enregistrer le code d'autorisation."
   },
   {
-    "id": "store.sql_oauth.update_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.update_access_data.app_error",
     "translation": "Nous avons rencontré une erreur lors de la mise à jour du jeton d'accès"
   },
   {
-    "id": "store.sql_oauth.update_app.find.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.find.app_error",
     "translation": "Nous n'avons pas pu trouver d'application existante à mettre à jour"
   },
   {
-    "id": "store.sql_oauth.update_app.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.finding.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche de l'application"
   },
   {
-    "id": "store.sql_oauth.update_app.update.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour l'application"
   },
   {
-    "id": "store.sql_oauth.update_app.updating.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.updating.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour de l'application"
   },
   {
-    "id": "store.sql_post.analytics_posts_count.app_error",
+    "id": "i18n.server.store.sql_post.analytics_posts_count.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre de messages"
   },
   {
-    "id": "store.sql_post.analytics_posts_count_by_day.app_error",
+    "id": "i18n.server.store.sql_post.analytics_posts_count_by_day.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre de messages par jour"
   },
   {
-    "id": "store.sql_post.analytics_user_counts_posts_by_day.app_error",
+    "id": "i18n.server.store.sql_post.analytics_user_counts_posts_by_day.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre d'utilisateur avec des messages"
   },
   {
-    "id": "store.sql_post.delete.app_error",
+    "id": "i18n.server.store.sql_post.delete.app_error",
     "translation": "Nous n'avons pas pu supprimer le message"
   },
   {
-    "id": "store.sql_post.get.app_error",
+    "id": "i18n.server.store.sql_post.get.app_error",
     "translation": "Nous n'avons pas pu obtenir le message"
   },
   {
-    "id": "store.sql_post.get_parents_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_parents_posts.app_error",
     "translation": "Nous n'avons pas pu obtenir le message parent pour le canal"
   },
   {
-    "id": "store.sql_post.get_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_posts.app_error",
     "translation": "Limite dépassée pour la pagination"
   },
   {
-    "id": "store.sql_post.get_posts_around.get.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_around.get.app_error",
     "translation": "Nous n'avons pas pu obtenir les messages pour le canal"
   },
   {
-    "id": "store.sql_post.get_posts_around.get_parent.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_around.get_parent.app_error",
     "translation": "Nous n'avons pas pu obtenir les messages parent pour le canal"
   },
   {
-    "id": "store.sql_post.get_posts_created_att.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_created_att.app_error",
     "translation": "Impossible de récupérer les messages du canal"
   },
   {
-    "id": "store.sql_post.get_posts_since.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_since.app_error",
     "translation": "Nous n'avons pas pu obtenir les messages pour le canal"
   },
   {
-    "id": "store.sql_post.get_root_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_root_posts.app_error",
     "translation": "Nous n'avons pas pu obtenir les messages pour le canal"
   },
   {
-    "id": "store.sql_post.overwrite.app_error",
+    "id": "i18n.server.store.sql_post.overwrite.app_error",
     "translation": "Impossible de remplacer le message"
   },
   {
-    "id": "store.sql_post.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete.app_error",
     "translation": "Nous n'avons pas pu supprimer le message"
   },
   {
-    "id": "store.sql_post.permanent_delete_all_comments_by_user.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_all_comments_by_user.app_error",
     "translation": "Nous n'avons pas supprimer les commentaires de l'utilisateur"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_channel.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_channel.app_error",
     "translation": "Impossible de supprimer les messages par canal"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_user.app_error",
     "translation": "Nous n'avons pas pu sélectionner les messages à supprimer pour l'utilisateur"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_user.too_many.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_user.too_many.app_error",
     "translation": "Nous n'avons pas pu sélectionner les messages à effacer pour l'utilisateur (trop nombreux), veuillez relancer"
   },
   {
-    "id": "store.sql_post.save.app_error",
+    "id": "i18n.server.store.sql_post.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer le message"
   },
   {
-    "id": "store.sql_post.save.existing.app_error",
+    "id": "i18n.server.store.sql_post.save.existing.app_error",
     "translation": "Vous ne pouvez pas mettre à jour un message existant"
   },
   {
-    "id": "store.sql_post.search.warn",
+    "id": "i18n.server.store.sql_post.search.warn",
     "translation": "Erreur de requête lors de la recherche de messages: %v"
   },
   {
-    "id": "store.sql_post.update.app_error",
+    "id": "i18n.server.store.sql_post.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le message"
   },
   {
-    "id": "store.sql_preference.delete.app_error",
+    "id": "i18n.server.store.sql_preference.delete.app_error",
     "translation": "Nous avons rencontré une erreur durant la suppression des préférences"
   },
   {
-    "id": "store.sql_preference.delete_unused_features.debug",
+    "id": "i18n.server.store.sql_preference.delete_unused_features.debug",
     "translation": "Suppression de toutes les fonctionnalités en accès anticipé non utilisées"
   },
   {
-    "id": "store.sql_preference.get.app_error",
+    "id": "i18n.server.store.sql_preference.get.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des préférences"
   },
   {
-    "id": "store.sql_preference.get_all.app_error",
+    "id": "i18n.server.store.sql_preference.get_all.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des préférences"
   },
   {
-    "id": "store.sql_preference.get_category.app_error",
+    "id": "i18n.server.store.sql_preference.get_category.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des préférences"
   },
   {
-    "id": "store.sql_preference.insert.exists.app_error",
+    "id": "i18n.server.store.sql_preference.insert.exists.app_error",
     "translation": "Une préférence avec cet id utilisateur, catégorie et nom existe déjà"
   },
   {
-    "id": "store.sql_preference.insert.save.app_error",
+    "id": "i18n.server.store.sql_preference.insert.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer les préférences"
   },
   {
-    "id": "store.sql_preference.is_feature_enabled.app_error",
+    "id": "i18n.server.store.sql_preference.is_feature_enabled.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des préférences pour une fonctionnalité en accès anticipé"
   },
   {
-    "id": "store.sql_preference.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_preference.permanent_delete_by_user.app_error",
     "translation": "Nous avons rencontré une erreur durant la suppression des préférences"
   },
   {
-    "id": "store.sql_preference.save.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.commit_transaction.app_error",
     "translation": "Impossible de valider la transaction d'enregistrement des préférences"
   },
   {
-    "id": "store.sql_preference.save.missing_driver.app_error",
+    "id": "i18n.server.store.sql_preference.save.missing_driver.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour des préférences"
   },
   {
-    "id": "store.sql_preference.save.open_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.open_transaction.app_error",
     "translation": "Impossible d'ouvrir une transaction pour enregistrer les préférences"
   },
   {
-    "id": "store.sql_preference.save.rollback_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.rollback_transaction.app_error",
     "translation": "Impossible d'annuler la transaction d'enregistrement des préférences"
   },
   {
-    "id": "store.sql_preference.save.updating.app_error",
+    "id": "i18n.server.store.sql_preference.save.updating.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour des préférences"
   },
   {
-    "id": "store.sql_preference.update.app_error",
+    "id": "i18n.server.store.sql_preference.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour les préférences"
   },
   {
-    "id": "store.sql_reaction.delete.begin.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.begin.app_error",
     "translation": "Impossible d'ouvrir une transaction pendant qu'une réaction est en cours de suppression"
   },
   {
-    "id": "store.sql_reaction.delete.commit.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.commit.app_error",
     "translation": "Impossible de valider la transaction pendant qu'une réaction est en cours de suppression"
   },
   {
-    "id": "store.sql_reaction.delete.save.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.save.app_error",
     "translation": "Impossible de supprimer la réaction"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoj_name.delete_reactions.app_error",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoj_name.delete_reactions.app_error",
     "translation": "Impossible de supprimer la réaction avec le nom d'émoticône donné"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoj_name.get_reactions.app_error",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoj_name.get_reactions.app_error",
     "translation": "Impossible de récupérer les réactions avec le nom d'émoticône donné"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoji_name.update_post.warn",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoji_name.update_post.warn",
     "translation": "Impossible de mettre à jour Post.HasReactions pendant que des réactions sont en cours de suppression post_id=%v, error=%v"
   },
   {
-    "id": "store.sql_reaction.get_for_post.app_error",
+    "id": "i18n.server.store.sql_reaction.get_for_post.app_error",
     "translation": "Impossible de récupérer les réactions du message"
   },
   {
-    "id": "store.sql_reaction.save.begin.app_error",
+    "id": "i18n.server.store.sql_reaction.save.begin.app_error",
     "translation": "Impossible d'ouvrir une transaction pendant qu'une réaction est en cours de sauvegarde"
   },
   {
-    "id": "store.sql_reaction.save.commit.app_error",
+    "id": "i18n.server.store.sql_reaction.save.commit.app_error",
     "translation": "Impossible de valider une transaction pendant qu'une réaction est en cours de sauvegarde"
   },
   {
-    "id": "store.sql_reaction.save.save.app_error",
+    "id": "i18n.server.store.sql_reaction.save.save.app_error",
     "translation": "Impossible de sauvegarder cette réaction"
   },
   {
-    "id": "store.sql_session.analytics_session_count.app_error",
+    "id": "i18n.server.store.sql_session.analytics_session_count.app_error",
     "translation": "Nous n'avons pas pu compter les sessions"
   },
   {
-    "id": "store.sql_session.cleanup_expired_sessions.app_error",
+    "id": "i18n.server.store.sql_session.cleanup_expired_sessions.app_error",
     "translation": "Nous avons rencontré une erreur durant la suppression des sessions utilisateurs expirées"
   },
   {
-    "id": "store.sql_session.get.app_error",
+    "id": "i18n.server.store.sql_session.get.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche de la session"
   },
   {
-    "id": "store.sql_session.get_sessions.app_error",
+    "id": "i18n.server.store.sql_session.get_sessions.app_error",
     "translation": "Nous avons rencontré une erreur durant la recherche des sessions utilisateurs"
   },
   {
-    "id": "store.sql_session.get_sessions.error",
+    "id": "i18n.server.store.sql_session.get_sessions.error",
     "translation": "Échec du nettoyage des sessions dans getSessions err=%v"
   },
   {
-    "id": "store.sql_session.permanent_delete_sessions_by_user.app_error",
+    "id": "i18n.server.store.sql_session.permanent_delete_sessions_by_user.app_error",
     "translation": "Nous n'avons pas pu supprimer toutes les sessions de l'utilisateur"
   },
   {
-    "id": "store.sql_session.remove.app_error",
+    "id": "i18n.server.store.sql_session.remove.app_error",
     "translation": "Nous n'avons pas pu supprimer la session"
   },
   {
-    "id": "store.sql_session.remove_all_sessions_for_team.app_error",
+    "id": "i18n.server.store.sql_session.remove_all_sessions_for_team.app_error",
     "translation": "Nous n'avons pas pu supprimer toutes les sessions de l'équipe"
   },
   {
-    "id": "store.sql_session.save.app_error",
+    "id": "i18n.server.store.sql_session.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer la session"
   },
   {
-    "id": "store.sql_session.save.cleanup.error",
+    "id": "i18n.server.store.sql_session.save.cleanup.error",
     "translation": "Échec du nettoyage des sessions dans Save err=%v"
   },
   {
-    "id": "store.sql_session.save.existing.app_error",
+    "id": "i18n.server.store.sql_session.save.existing.app_error",
     "translation": "Impossible de mettre à jour la session existante"
   },
   {
-    "id": "store.sql_session.update_device_id.app_error",
+    "id": "i18n.server.store.sql_session.update_device_id.app_error",
     "translation": "Nous n'avons pas pu mettre à jour l'id de l'appareil"
   },
   {
-    "id": "store.sql_session.update_last_activity.app_error",
+    "id": "i18n.server.store.sql_session.update_last_activity.app_error",
     "translation": "Nous n'avons pas pu mettre à jour last_activity_at"
   },
   {
-    "id": "store.sql_session.update_roles.app_error",
+    "id": "i18n.server.store.sql_session.update_roles.app_error",
     "translation": "Nous n'avons pas pu mettre à jour les rôles"
   },
   {
-    "id": "store.sql_status.get.app_error",
+    "id": "i18n.server.store.sql_status.get.app_error",
     "translation": "Erreur lors de la récupération du status"
   },
   {
-    "id": "store.sql_status.get.missing.app_error",
+    "id": "i18n.server.store.sql_status.get.missing.app_error",
     "translation": "Aucune entrée pour ce statut."
   },
   {
-    "id": "store.sql_status.get_online.app_error",
+    "id": "i18n.server.store.sql_status.get_online.app_error",
     "translation": "Erreur lors de la récupération de tous les status en-ligne"
   },
   {
-    "id": "store.sql_status.get_online_away.app_error",
+    "id": "i18n.server.store.sql_status.get_online_away.app_error",
     "translation": "Nous avons rencontré une erreur durant l'enregistrement du statut enligne/absent"
   },
   {
-    "id": "store.sql_status.get_team_statuses.app_error",
+    "id": "i18n.server.store.sql_status.get_team_statuses.app_error",
     "translation": "Une erreur est survenue lors de la récupération de tous les statuts des membres de l'équipe"
   },
   {
-    "id": "store.sql_status.get_total_active_users_count.app_error",
+    "id": "i18n.server.store.sql_status.get_total_active_users_count.app_error",
     "translation": "Nous n'avons pas pu compter les utilisateurs"
   },
   {
-    "id": "store.sql_status.reset_all.app_error",
+    "id": "i18n.server.store.sql_status.reset_all.app_error",
     "translation": "Nous avons rencontré une erreur durant la réinitialisation des statuts"
   },
   {
-    "id": "store.sql_status.save.app_error",
+    "id": "i18n.server.store.sql_status.save.app_error",
     "translation": "Nous avons rencontré une erreur durant l'enregistrement des statuts"
   },
   {
-    "id": "store.sql_status.update.app_error",
+    "id": "i18n.server.store.sql_status.update.app_error",
     "translation": "Nous avons rencontré une erreur lors de la mise à jour des statuts"
   },
   {
-    "id": "store.sql_system.get.app_error",
+    "id": "i18n.server.store.sql_system.get.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche des propriétés système"
   },
   {
-    "id": "store.sql_system.get_by_name.app_error",
+    "id": "i18n.server.store.sql_system.get_by_name.app_error",
     "translation": "Nous ne trouvons pas la variable système."
   },
   {
-    "id": "store.sql_system.get_version.app_error",
+    "id": "i18n.server.store.sql_system.get_version.app_error",
     "translation": "Impossible de déterminer la version de la base de donnée"
   },
   {
-    "id": "store.sql_system.save.app_error",
+    "id": "i18n.server.store.sql_system.save.app_error",
     "translation": "Nous avons rencontré une erreur lors de l'enregistrement de la propriété système"
   },
   {
-    "id": "store.sql_system.update.app_error",
+    "id": "i18n.server.store.sql_system.update.app_error",
     "translation": "Nous avons rencontré une erreur lors de la mise à jour de la propriété système"
   },
   {
-    "id": "store.sql_team.analytics_team_count.app_error",
+    "id": "i18n.server.store.sql_team.analytics_team_count.app_error",
     "translation": "Nous n'avons pas pu compter les équipes"
   },
   {
-    "id": "store.sql_team.get.find.app_error",
+    "id": "i18n.server.store.sql_team.get.find.app_error",
     "translation": "Nous n'avons pas pu trouver d'équipe existante"
   },
   {
-    "id": "store.sql_team.get.finding.app_error",
+    "id": "i18n.server.store.sql_team.get.finding.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche de l'équipe"
   },
   {
-    "id": "store.sql_team.get_all.app_error",
+    "id": "i18n.server.store.sql_team.get_all.app_error",
     "translation": "Nous n'avons pas pu obtenir toutes les équipes"
   },
   {
-    "id": "store.sql_team.get_all_team_listing.app_error",
+    "id": "i18n.server.store.sql_team.get_all_team_listing.app_error",
     "translation": "Nous n'avons pas pu obtenir toutes les équipes"
   },
   {
-    "id": "store.sql_team.get_by_invite_id.find.app_error",
+    "id": "i18n.server.store.sql_team.get_by_invite_id.find.app_error",
     "translation": "Nous n'avons pas pu trouver d'équipe existante"
   },
   {
-    "id": "store.sql_team.get_by_invite_id.finding.app_error",
+    "id": "i18n.server.store.sql_team.get_by_invite_id.finding.app_error",
     "translation": "Nous n'avons pas pu trouver d'équipe existante"
   },
   {
-    "id": "store.sql_team.get_by_name.app_error",
+    "id": "i18n.server.store.sql_team.get_by_name.app_error",
     "translation": "Nous n'avons pas pu trouver d'équipe existante"
   },
   {
-    "id": "store.sql_team.get_member.app_error",
+    "id": "i18n.server.store.sql_team.get_member.app_error",
     "translation": "Nous ne pouvons pas obtenir les membres de l'équipe"
   },
   {
-    "id": "store.sql_team.get_member.missing.app_error",
+    "id": "i18n.server.store.sql_team.get_member.missing.app_error",
     "translation": "Aucun membre d'équipe trouvé pour cet ID utilisateur et cet ID d'équipe"
   },
   {
-    "id": "store.sql_team.get_member_count.app_error",
+    "id": "i18n.server.store.sql_team.get_member_count.app_error",
     "translation": "Impossible de récupérer le nombre de membres de l'équipe"
   },
   {
-    "id": "store.sql_team.get_members.app_error",
+    "id": "i18n.server.store.sql_team.get_members.app_error",
     "translation": "Nous ne pouvons pas obtenir les membres de l'équipe"
   },
   {
-    "id": "store.sql_team.get_members_by_ids.app_error",
+    "id": "i18n.server.store.sql_team.get_members_by_ids.app_error",
     "translation": "Impossible de récupérer les membres de l'équipe"
   },
   {
-    "id": "store.sql_team.get_teams_for_email.app_error",
+    "id": "i18n.server.store.sql_team.get_teams_for_email.app_error",
     "translation": "Nous avons rencontré un problème durant la recherche des équipes"
   },
   {
-    "id": "store.sql_team.get_unread.app_error",
+    "id": "i18n.server.store.sql_team.get_unread.app_error",
     "translation": "Impossible de récupérer la liste des messages non lus des équipes"
   },
   {
-    "id": "store.sql_team.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_team.permanent_delete.app_error",
     "translation": "Nous n'avons pas pu supprimer l'équipe existante"
   },
   {
-    "id": "store.sql_team.remove_member.app_error",
+    "id": "i18n.server.store.sql_team.remove_member.app_error",
     "translation": "Nous n'avons pas pu retirer le membre de l'équipe"
   },
   {
-    "id": "store.sql_team.save.app_error",
+    "id": "i18n.server.store.sql_team.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer l'équipe"
   },
   {
-    "id": "store.sql_team.save.domain_exists.app_error",
+    "id": "i18n.server.store.sql_team.save.domain_exists.app_error",
     "translation": "Une équipe portant le même nom existe déjà"
   },
   {
-    "id": "store.sql_team.save.existing.app_error",
+    "id": "i18n.server.store.sql_team.save.existing.app_error",
     "translation": "La mise à jour doit être appelée pour une équipe existante"
   },
   {
-    "id": "store.sql_team.save_member.exists.app_error",
+    "id": "i18n.server.store.sql_team.save_member.exists.app_error",
     "translation": "Un membre d'équipe existe déjà avec cet ID"
   },
   {
-    "id": "store.sql_team.save_member.save.app_error",
+    "id": "i18n.server.store.sql_team.save_member.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer le membre du canal"
   },
   {
-    "id": "store.sql_team.search_all_team.app_error",
+    "id": "i18n.server.store.sql_team.search_all_team.app_error",
     "translation": "Une erreur s'est produite lors de la recherche des équipes"
   },
   {
-    "id": "store.sql_team.search_open_team.app_error",
+    "id": "i18n.server.store.sql_team.search_open_team.app_error",
     "translation": "Une erreur s'est produite lors de la recherche des équipes ouvertes"
   },
   {
-    "id": "store.sql_team.update.app_error",
+    "id": "i18n.server.store.sql_team.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour l'équipe"
   },
   {
-    "id": "store.sql_team.update.find.app_error",
+    "id": "i18n.server.store.sql_team.update.find.app_error",
     "translation": "Nous n'avons pas pu trouver d'équipe existante à mettre à jour"
   },
   {
-    "id": "store.sql_team.update.finding.app_error",
+    "id": "i18n.server.store.sql_team.update.finding.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche de l'équipe"
   },
   {
-    "id": "store.sql_team.update.updating.app_error",
+    "id": "i18n.server.store.sql_team.update.updating.app_error",
     "translation": "Nous avons rencontré une erreur lors de la mise à jour de l'équipe"
   },
   {
-    "id": "store.sql_team.update_display_name.app_error",
+    "id": "i18n.server.store.sql_team.update_display_name.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le nom de l'équipe"
   },
   {
-    "id": "store.sql_user.analytics_get_inactive_users_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_get_inactive_users_count.app_error",
     "translation": "Impossible de compter les utilisateurs inactifs"
   },
   {
-    "id": "store.sql_user.analytics_get_system_admin_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_get_system_admin_count.app_error",
     "translation": "Impossible de récupérer le nombre d'administrateurs systèmes"
   },
   {
-    "id": "store.sql_user.analytics_unique_user_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_unique_user_count.app_error",
     "translation": "Nous n'avons pas pu obtenir le nombre d'utilisateurs uniques"
   },
   {
-    "id": "store.sql_user.get.app_error",
+    "id": "i18n.server.store.sql_user.get.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du compte"
   },
   {
-    "id": "store.sql_user.get_all_using_auth_service.other.app_error",
+    "id": "i18n.server.store.sql_user.get_all_using_auth_service.other.app_error",
     "translation": "Nous avons rencontré une erreur en essayant de trouver tous les comptes utilisant un type d'authentification spécifique."
   },
   {
-    "id": "store.sql_user.get_by_auth.missing_account.app_error",
+    "id": "i18n.server.store.sql_user.get_by_auth.missing_account.app_error",
     "translation": "Nous n'avons pas pu trouver un compte existant correspondant à votre type d'authentification pour cette équipe. Cette équipe nécessite peut-être une invitation de la part du propriétaire pour pouvoir la rejoindre."
   },
   {
-    "id": "store.sql_user.get_by_auth.other.app_error",
+    "id": "i18n.server.store.sql_user.get_by_auth.other.app_error",
     "translation": "Nous avons rencontré une erreur en essayer de trouver le compte par type d'authentification."
   },
   {
-    "id": "store.sql_user.get_by_username.app_error",
+    "id": "i18n.server.store.sql_user.get_by_username.app_error",
     "translation": "Nous n'avons pas pu trouver un compte existant correspondant à votre nom d'utilisateur pour cette équipe. Cette équipe nécessite peut-être une invitation de la part du propriétaire pour pouvoir la rejoindre."
   },
   {
-    "id": "store.sql_user.get_for_login.app_error",
+    "id": "i18n.server.store.sql_user.get_for_login.app_error",
     "translation": "Nous n'avons pas pu trouver un compte existant correspondant à votre nom d'utilisateur pour cette équipe. Cette équipe nécessite peut-être une invitation de la part du propriétaire pour pouvoir la rejoindre."
   },
   {
-    "id": "store.sql_user.get_for_login.multiple_users",
+    "id": "i18n.server.store.sql_user.get_for_login.multiple_users",
     "translation": "Nous avons trouvé plusieurs utilisateurs correspondant à vos informations d'identification et nous avons été incapables de vous connecter. Veuillez contacter un administrateur."
   },
   {
-    "id": "store.sql_user.get_profiles.app_error",
+    "id": "i18n.server.store.sql_user.get_profiles.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche des profils utilisateurs"
   },
   {
-    "id": "store.sql_user.get_recently_active_users.app_error",
+    "id": "i18n.server.store.sql_user.get_recently_active_users.app_error",
     "translation": "Une erreur s'est produite lors de la recherche des utilisateurs récemment actifs"
   },
   {
-    "id": "store.sql_user.get_sysadmin_profiles.app_error",
+    "id": "i18n.server.store.sql_user.get_sysadmin_profiles.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche des profils utilisateurs"
   },
   {
-    "id": "store.sql_user.get_total_users_count.app_error",
+    "id": "i18n.server.store.sql_user.get_total_users_count.app_error",
     "translation": "Nous n'avons pas pu compter les utilisateurs"
   },
   {
-    "id": "store.sql_user.get_unread_count.app_error",
+    "id": "i18n.server.store.sql_user.get_unread_count.app_error",
     "translation": "Nous n'avons pas pu compter le nombre de messages non lus pour l'utilisateur"
   },
   {
-    "id": "store.sql_user.get_unread_count_for_channel.app_error",
+    "id": "i18n.server.store.sql_user.get_unread_count_for_channel.app_error",
     "translation": "Nous n'avons pas pu compter le nombre de messages non lus pour l'utilisateur"
   },
   {
-    "id": "store.sql_user.migrate_theme.critical",
+    "id": "i18n.server.store.sql_user.migrate_theme.critical",
     "translation": "Impossible de migrer User.ThemeProps vers la table de préférences %v"
   },
   {
-    "id": "store.sql_user.missing_account.const",
+    "id": "i18n.server.store.sql_user.missing_account.const",
     "translation": "Utilisateur introuvable"
   },
   {
-    "id": "store.sql_user.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_user.permanent_delete.app_error",
     "translation": "Nous n'avons pas pu supprimer le compte existant"
   },
   {
-    "id": "store.sql_user.save.app_error",
+    "id": "i18n.server.store.sql_user.save.app_error",
     "translation": "Nous n'avons pas pu enregistrer le compte."
   },
   {
-    "id": "store.sql_user.save.email_exists.app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.app_error",
     "translation": "Un compte avec cette adresse e-mail existe déjà."
   },
   {
-    "id": "store.sql_user.save.email_exists.ldap_app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.ldap_app_error",
     "translation": "Ce compte n'utilise pas l'authentification LDAP. Veuillez vous connecter avec votre adresse e-mail et votre mot de passe."
   },
   {
-    "id": "store.sql_user.save.email_exists.saml_app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.saml_app_error",
     "translation": "Ce compte n'utilise pas l'authentification SAML. Veuillez vous connecter avec votre adresse e-mail et votre mot de passe."
   },
   {
-    "id": "store.sql_user.save.existing.app_error",
+    "id": "i18n.server.store.sql_user.save.existing.app_error",
     "translation": "La mise à jour doit être appelée pour un utilisateur existant"
   },
   {
-    "id": "store.sql_user.save.max_accounts.app_error",
+    "id": "i18n.server.store.sql_user.save.max_accounts.app_error",
     "translation": "Cette équipe a atteint la limite du nombre maximum de comptes autorisés. Contactez votre administrateur système pour augmenter cette limite."
   },
   {
-    "id": "store.sql_user.save.member_count.app_error",
+    "id": "i18n.server.store.sql_user.save.member_count.app_error",
     "translation": "Impossible de récupérer le nombre de membres de l'équipe actuelle"
   },
   {
-    "id": "store.sql_user.save.username_exists.app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.app_error",
     "translation": "Un compte avec ce nom d'utilisateur existe déjà."
   },
   {
-    "id": "store.sql_user.save.username_exists.ldap_app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.ldap_app_error",
     "translation": "Un compte avec ce nom d'utilisateur existe déjà. Veuillez contacter votre administrateur."
   },
   {
-    "id": "store.sql_user.save.username_exists.saml_app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.saml_app_error",
     "translation": "Un compte avec ce nom d'utilisateur existe déjà. Veuillez contacter votre administrateur."
   },
   {
-    "id": "store.sql_user.update.app_error",
+    "id": "i18n.server.store.sql_user.update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le compte"
   },
   {
-    "id": "store.sql_user.update.can_not_change_ldap.app_error",
+    "id": "i18n.server.store.sql_user.update.can_not_change_ldap.app_error",
     "translation": "Vous ne pouvez pas modifier les champs définis par LDAP"
   },
   {
-    "id": "store.sql_user.update.email_taken.app_error",
+    "id": "i18n.server.store.sql_user.update.email_taken.app_error",
     "translation": "Cette adresse e-mail est déjà utilisée. Veuillez en choisir une autre."
   },
   {
-    "id": "store.sql_user.update.find.app_error",
+    "id": "i18n.server.store.sql_user.update.find.app_error",
     "translation": "Nous n'avons pas pu trouver de compte existant à mettre à jour"
   },
   {
-    "id": "store.sql_user.update.finding.app_error",
+    "id": "i18n.server.store.sql_user.update.finding.app_error",
     "translation": "Nous avons rencontré une erreur lors de la recherche du compte"
   },
   {
-    "id": "store.sql_user.update.updating.app_error",
+    "id": "i18n.server.store.sql_user.update.updating.app_error",
     "translation": "Nous avons rencontré une erreur durant la mise à jour du compte"
   },
   {
-    "id": "store.sql_user.update.username_taken.app_error",
+    "id": "i18n.server.store.sql_user.update.username_taken.app_error",
     "translation": "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre."
   },
   {
-    "id": "store.sql_user.update_auth_data.app_error",
+    "id": "i18n.server.store.sql_user.update_auth_data.app_error",
     "translation": "Nous n'avons pas pu mettre à jour les données d'authentification"
   },
   {
-    "id": "store.sql_user.update_auth_data.email_exists.app_error",
+    "id": "i18n.server.store.sql_user.update_auth_data.email_exists.app_error",
     "translation": "Impossible de convertir le compte à {{.Service}}. Un compte utilisant cette adresse e-mail {{.Email}} existe déjà."
   },
   {
-    "id": "store.sql_user.update_failed_pwd_attempts.app_error",
+    "id": "i18n.server.store.sql_user.update_failed_pwd_attempts.app_error",
     "translation": "Nous n'avons pas pu mettre à jour failed_attempts"
   },
   {
-    "id": "store.sql_user.update_last_activity.app_error",
+    "id": "i18n.server.store.sql_user.update_last_activity.app_error",
     "translation": "Nous n'avons pas pu mettre à jour last_activity_at"
   },
   {
-    "id": "store.sql_user.update_last_picture_update.app_error",
+    "id": "i18n.server.store.sql_user.update_last_picture_update.app_error",
     "translation": "Nous n'avons pas pu mettre à jour update_at"
   },
   {
-    "id": "store.sql_user.update_last_ping.app_error",
+    "id": "i18n.server.store.sql_user.update_last_ping.app_error",
     "translation": "Nous n'avons pas pu mettre à jour last_ping_at"
   },
   {
-    "id": "store.sql_user.update_mfa_active.app_error",
+    "id": "i18n.server.store.sql_user.update_mfa_active.app_error",
     "translation": "Nous avons rencontré une erreur de mise à jour de l'état ​​actif MFA de l'utilisateur"
   },
   {
-    "id": "store.sql_user.update_mfa_secret.app_error",
+    "id": "i18n.server.store.sql_user.update_mfa_secret.app_error",
     "translation": "Nous avons rencontré une erreur de mise à jour du secret MFA d'utilisateur"
   },
   {
-    "id": "store.sql_user.update_password.app_error",
+    "id": "i18n.server.store.sql_user.update_password.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le mot de passe de l'utilisateur"
   },
   {
-    "id": "store.sql_user.verify_email.app_error",
+    "id": "i18n.server.store.sql_user.verify_email.app_error",
     "translation": "Impossible de mettre à jour le champ de vérification de l'adresse e-mail"
   },
   {
-    "id": "store.sql_webhooks.analytics_incoming_count.app_error",
+    "id": "i18n.server.store.sql_webhooks.analytics_incoming_count.app_error",
     "translation": "Nous n'avons pas pu compter les webhooks entrants"
   },
   {
-    "id": "store.sql_webhooks.analytics_outgoing_count.app_error",
+    "id": "i18n.server.store.sql_webhooks.analytics_outgoing_count.app_error",
     "translation": "Nous n'avons pas pu compter les webhooks sortants"
   },
   {
-    "id": "store.sql_webhooks.delete_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.delete_incoming.app_error",
     "translation": "Nous n'avons pas pu supprimer le webhook"
   },
   {
-    "id": "store.sql_webhooks.delete_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.delete_outgoing.app_error",
     "translation": "Nous n'avons pas pu supprimer le webhook"
   },
   {
-    "id": "store.sql_webhooks.get_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming.app_error",
     "translation": "Nous n'avons pas pu obtenir le webhook"
   },
   {
-    "id": "store.sql_webhooks.get_incoming_by_channel.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming_by_channel.app_error",
     "translation": "Nous n'avons pas pu obtenir les webhooks"
   },
   {
-    "id": "store.sql_webhooks.get_incoming_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming_by_user.app_error",
     "translation": "Nous n'avons pas pu obtenir le webhook"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing.app_error",
     "translation": "Nous n'avons pas pu obtenir le webhook"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing_by_channel.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing_by_channel.app_error",
     "translation": "Nous n'avons pas pu obtenir les webhooks"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing_by_team.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing_by_team.app_error",
     "translation": "Nous n'avons pas pu obtenir les webhooks"
   },
   {
-    "id": "store.sql_webhooks.permanent_delete_incoming_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.permanent_delete_incoming_by_user.app_error",
     "translation": "Nous n'avons pas pu supprimer le webhook"
   },
   {
-    "id": "store.sql_webhooks.permanent_delete_outgoing_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.permanent_delete_outgoing_by_user.app_error",
     "translation": "Nous n'avons pas pu supprimer le webhook"
   },
   {
-    "id": "store.sql_webhooks.save_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_incoming.app_error",
     "translation": "Nous n'avons pas pu enregistrer le IncomongWebhook"
   },
   {
-    "id": "store.sql_webhooks.save_incoming.existing.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_incoming.existing.app_error",
     "translation": "Vous ne pouvez pas écraser un Webhook entrant existant"
   },
   {
-    "id": "store.sql_webhooks.save_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_outgoing.app_error",
     "translation": "Nous n'avons pas pu enregistrer le OutgoingWebhook"
   },
   {
-    "id": "store.sql_webhooks.save_outgoing.override.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_outgoing.override.app_error",
     "translation": "Vous ne pouvez pas écraser un OutgoingWebhook existant"
   },
   {
-    "id": "store.sql_webhooks.update_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.update_incoming.app_error",
     "translation": "Impossible de mettre à jour le Webhook entrant"
   },
   {
-    "id": "store.sql_webhooks.update_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.update_outgoing.app_error",
     "translation": "Nous n'avons pas pu mettre à jour le webhook"
   },
   {
-    "id": "system.message.name",
+    "id": "i18n.server.system.message.name",
     "translation": "Système"
   },
   {
-    "id": "utils.config.load_config.decoding.panic",
+    "id": "i18n.server.utils.config.load_config.decoding.panic",
     "translation": "Erreur de décodage de la configuration fichier={{.Filename}}, err={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.getting.panic",
+    "id": "i18n.server.utils.config.load_config.getting.panic",
     "translation": "Erreur de chargement des informations de configuration fichier={{.Filename}}, err={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.opening.panic",
+    "id": "i18n.server.utils.config.load_config.opening.panic",
     "translation": "Erreur d'ouverture du fichier de configuration fichier={{.Filename}}, err={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.validating.panic",
+    "id": "i18n.server.utils.config.load_config.validating.panic",
     "translation": "Erreur de validation de la configuration fichier={{.Filename}}, err={{.Error}}"
   },
   {
-    "id": "utils.config.save_config.saving.app_error",
+    "id": "i18n.server.utils.config.save_config.saving.app_error",
     "translation": "Une erreur s'est produite lors de l'enregistrement du fichier {{.Filename}}"
   },
   {
-    "id": "utils.config.supported_client_locale.app_error",
+    "id": "i18n.server.utils.config.supported_client_locale.app_error",
     "translation": "Impossible de charger le fichier de configuration de Mattermost: DefaultClientLocale doit être l'un des paramètres régionaux pris en charge"
   },
   {
-    "id": "utils.config.supported_server_locale.app_error",
+    "id": "i18n.server.utils.config.supported_server_locale.app_error",
     "translation": "Impossible de charger le fichier de configuration de Mattermost: DefaultServerLocale doit être l'un des paramètres régionaux pris en charge"
   },
   {
-    "id": "utils.config.validate_locale.app_error",
+    "id": "i18n.server.utils.config.validate_locale.app_error",
     "translation": "Impossible de charger le fichier de configuration de Mattermost: AvailableLocales doit inclure DefaultClientLocale"
   },
   {
-    "id": "utils.diagnostic.analytics_not_found.app_error",
+    "id": "i18n.server.utils.diagnostic.analytics_not_found.app_error",
     "translation": "Analytics non initialisé"
   },
   {
-    "id": "utils.i18n.loaded",
+    "id": "i18n.server.utils.i18n.loaded",
     "translation": "Traduction chargées de '%v' vers '%v'"
   },
   {
-    "id": "utils.iru.with_evict",
+    "id": "i18n.server.utils.iru.with_evict",
     "translation": "Veuillez indiquer une taille positive"
   },
   {
-    "id": "utils.license.load_license.invalid.warn",
+    "id": "i18n.server.utils.license.load_license.invalid.warn",
     "translation": "Aucune licence entreprise disponible"
   },
   {
-    "id": "utils.license.remove_license.unable.error",
+    "id": "i18n.server.utils.license.remove_license.unable.error",
     "translation": "Impossible de supprimer le fichier de licence, err=%v"
   },
   {
-    "id": "utils.license.validate_license.decode.error",
+    "id": "i18n.server.utils.license.validate_license.decode.error",
     "translation": "Erreur lors du décodage de la licence, err=%v"
   },
   {
-    "id": "utils.license.validate_license.invalid.error",
+    "id": "i18n.server.utils.license.validate_license.invalid.error",
     "translation": "Signature invalide, err=%v"
   },
   {
-    "id": "utils.license.validate_license.not_long.error",
+    "id": "i18n.server.utils.license.validate_license.not_long.error",
     "translation": "Licence signée trop courte"
   },
   {
-    "id": "utils.license.validate_license.signing.error",
+    "id": "i18n.server.utils.license.validate_license.signing.error",
     "translation": "Erreur lors de la signature de la licence, err=%v"
   },
   {
-    "id": "utils.mail.connect_smtp.open.app_error",
+    "id": "i18n.server.utils.mail.connect_smtp.open.app_error",
     "translation": "Échec de l'ouverture de la connexion sql"
   },
   {
-    "id": "utils.mail.connect_smtp.open_tls.app_error",
+    "id": "i18n.server.utils.mail.connect_smtp.open_tls.app_error",
     "translation": "Échec de l'ouverture de la connexion TLS"
   },
   {
-    "id": "utils.mail.new_client.auth.app_error",
+    "id": "i18n.server.utils.mail.new_client.auth.app_error",
     "translation": "Échec de l'authentification auprès du serveur SMTP"
   },
   {
-    "id": "utils.mail.new_client.open.error",
+    "id": "i18n.server.utils.mail.new_client.open.error",
     "translation": "Échec de l'ouverture de connexion auprès du serveur SMTP %v"
   },
   {
-    "id": "utils.mail.send_mail.close.app_error",
+    "id": "i18n.server.utils.mail.send_mail.close.app_error",
     "translation": "Échec de fermeture de connexion auprès du serveur SMTP"
   },
   {
-    "id": "utils.mail.send_mail.from_address.app_error",
+    "id": "i18n.server.utils.mail.send_mail.from_address.app_error",
     "translation": "Échec d'ajout de l'adresse e-mail de l'expéditeur"
   },
   {
-    "id": "utils.mail.send_mail.msg.app_error",
+    "id": "i18n.server.utils.mail.send_mail.msg.app_error",
     "translation": "Échec d'écriture de l'e-mail"
   },
   {
-    "id": "utils.mail.send_mail.msg_data.app_error",
+    "id": "i18n.server.utils.mail.send_mail.msg_data.app_error",
     "translation": "Impossible d'ajouter les données du message à l'e-mail"
   },
   {
-    "id": "utils.mail.send_mail.sending.debug",
+    "id": "i18n.server.utils.mail.send_mail.sending.debug",
     "translation": "Envoi de l'e-mail à %v avec comme sujet '%v'"
   },
   {
-    "id": "utils.mail.send_mail.to_address.app_error",
+    "id": "i18n.server.utils.mail.send_mail.to_address.app_error",
     "translation": "Échec de l'ajout de l'adresse e-mail"
   },
   {
-    "id": "utils.mail.test.configured.error",
+    "id": "i18n.server.utils.mail.test.configured.error",
     "translation": "Les paramètres de serveur SMTP ne semblent pas avoir été configurés correctement err=%v détails=%v"
   },
   {
-    "id": "utils.mail.test.configured.error",
+    "id": "i18n.server.utils.mail.test.configured.error",
     "translation": "Les paramètres de serveur SMTP ne semblent pas avoir été configurés correctement err=%v détails=%v"
   },
   {
-    "id": "web.admin_console.title",
+    "id": "i18n.server.web.admin_console.title",
     "translation": "Console Administration"
   },
   {
-    "id": "web.authorize_oauth.title",
+    "id": "i18n.server.web.authorize_oauth.title",
     "translation": "Autoriser une application"
   },
   {
-    "id": "web.check_browser_compatibility.app_error",
+    "id": "i18n.server.web.check_browser_compatibility.app_error",
     "translation": "Votre navigateur actuel n'est pas supporté, veuillez vous mettre à niveau vers l'un des navigateurs suivants : Google Chrome 21 ou supérieur, Internet Explorer 11 ou supérieur, Firefox 14 ou supérieur, Safari 9 ou supérieur"
   },
   {
-    "id": "web.claim_account.team.error",
+    "id": "i18n.server.web.claim_account.team.error",
     "translation": "Impossible de trouver l'équipe nom=%v, err=%v"
   },
   {
-    "id": "web.claim_account.title",
+    "id": "i18n.server.web.claim_account.title",
     "translation": "Réclamer un compte"
   },
   {
-    "id": "web.claim_account.user.error",
+    "id": "i18n.server.web.claim_account.user.error",
     "translation": "Impossible de trouver l'utilisateur teamid=%v, email=%v, err=%v"
   },
   {
-    "id": "web.create_dir.error",
+    "id": "i18n.server.web.create_dir.error",
     "translation": "Échec de la création de l'observateur de dossier %v"
   },
   {
-    "id": "web.dir_fail.error",
+    "id": "i18n.server.web.dir_fail.error",
     "translation": "Échec de l'observateur de dossier %v"
   },
   {
-    "id": "web.do_load_channel.error",
+    "id": "i18n.server.web.do_load_channel.error",
     "translation": "Erreur lors de la récupération du profil pour id=%v déconnexion forcée"
   },
   {
-    "id": "web.doc.title",
+    "id": "i18n.server.web.doc.title",
     "translation": "Documentation"
   },
   {
-    "id": "web.email_verified.title",
+    "id": "i18n.server.web.email_verified.title",
     "translation": "Email vérifié"
   },
   {
-    "id": "web.find_team.title",
+    "id": "i18n.server.web.find_team.title",
     "translation": "Recherche d'équipe"
   },
   {
-    "id": "web.header.back",
+    "id": "i18n.server.web.header.back",
     "translation": "Précédent"
   },
   {
-    "id": "web.incoming_webhook.attachment.app_error",
+    "id": "i18n.server.web.incoming_webhook.attachment.app_error",
     "translation": "La longueur maximale des pièces jointes est de {{.Max}} caractères, la taille reçue est de {{.Actual}}"
   },
   {
-    "id": "web.incoming_webhook.channel.app_error",
+    "id": "i18n.server.web.incoming_webhook.channel.app_error",
     "translation": "Nous n'avons pas pu trouver le canal"
   },
   {
-    "id": "web.incoming_webhook.disabled.app_error",
+    "id": "i18n.server.web.incoming_webhook.disabled.app_error",
     "translation": "Les webhooks entrants ont été désactivées par l'administrateur système."
   },
   {
-    "id": "web.incoming_webhook.invalid.app_error",
+    "id": "i18n.server.web.incoming_webhook.invalid.app_error",
     "translation": "Webhook invalide"
   },
   {
-    "id": "web.incoming_webhook.parse.app_error",
+    "id": "i18n.server.web.incoming_webhook.parse.app_error",
     "translation": "Impossible d'analyser les données entrantes"
   },
   {
-    "id": "web.incoming_webhook.permissions.app_error",
+    "id": "i18n.server.web.incoming_webhook.permissions.app_error",
     "translation": "Permissions insuffisantes pour ce canal"
   },
   {
-    "id": "web.incoming_webhook.text.app_error",
+    "id": "i18n.server.web.incoming_webhook.text.app_error",
     "translation": "Aucun texte indiqué"
   },
   {
-    "id": "web.incoming_webhook.text.length.app_error",
+    "id": "i18n.server.web.incoming_webhook.text.length.app_error",
     "translation": "La longueur maximale du texte est de {{.Max}} caractères, la taille reçue est de {{.Actual}}"
   },
   {
-    "id": "web.incoming_webhook.user.app_error",
+    "id": "i18n.server.web.incoming_webhook.user.app_error",
     "translation": "Utilisateur introuvable"
   },
   {
-    "id": "web.init.debug",
+    "id": "i18n.server.web.init.debug",
     "translation": "Initialisation des routes web"
   },
   {
-    "id": "web.login.error",
+    "id": "i18n.server.web.login.error",
     "translation": "Équipe introuvable nom=%v, err=%v"
   },
   {
-    "id": "web.login.login_title",
+    "id": "i18n.server.web.login.login_title",
     "translation": "Connexion"
   },
   {
-    "id": "web.login_with_oauth.invalid_team.app_error",
+    "id": "i18n.server.web.login_with_oauth.invalid_team.app_error",
     "translation": "Nom d'équipe incorrect"
   },
   {
-    "id": "web.parsing_templates.debug",
+    "id": "i18n.server.web.parsing_templates.debug",
     "translation": "Analyse des gabarits sur %v"
   },
   {
-    "id": "web.parsing_templates.error",
+    "id": "i18n.server.web.parsing_templates.error",
     "translation": "Impossible d'analyser les gabarits %v"
   },
   {
-    "id": "web.post_permalink.app_error",
+    "id": "i18n.server.web.post_permalink.app_error",
     "translation": "ID Message Invalide"
   },
   {
-    "id": "web.reparse_templates.info",
+    "id": "i18n.server.web.reparse_templates.info",
     "translation": "Re-examen des gabarits en raison de la modification du fichier %v"
   },
   {
-    "id": "web.reset_password.expired_link.app_error",
+    "id": "i18n.server.web.reset_password.expired_link.app_error",
     "translation": "Le lien de réinitialisation du mot de passe a expiré"
   },
   {
-    "id": "web.reset_password.invalid_link.app_error",
+    "id": "i18n.server.web.reset_password.invalid_link.app_error",
     "translation": "Le lien de réinitialisation ne semble pas être valide"
   },
   {
-    "id": "web.root.home_title",
+    "id": "i18n.server.web.root.home_title",
     "translation": "Accueil"
   },
   {
-    "id": "web.root.singup_title",
+    "id": "i18n.server.web.root.singup_title",
     "translation": "Inscription"
   },
   {
-    "id": "web.signup_team_complete.invalid_link.app_error",
+    "id": "i18n.server.web.signup_team_complete.invalid_link.app_error",
     "translation": "Le lien d'inscription ne semble pas être valide"
   },
   {
-    "id": "web.signup_team_complete.link_expired.app_error",
+    "id": "i18n.server.web.signup_team_complete.link_expired.app_error",
     "translation": "Le lien d'inscription a expiré"
   },
   {
-    "id": "web.signup_team_complete.title",
+    "id": "i18n.server.web.signup_team_complete.title",
     "translation": "Terminer l'inscription de l'équipe"
   },
   {
-    "id": "web.signup_team_confirm.title",
+    "id": "i18n.server.web.signup_team_confirm.title",
     "translation": "E-mail d'inscription envoyé"
   },
   {
-    "id": "web.signup_user_complete.link_expired.app_error",
+    "id": "i18n.server.web.signup_user_complete.link_expired.app_error",
     "translation": "Le lien d'inscription a expiré"
   },
   {
-    "id": "web.signup_user_complete.link_invalid.app_error",
+    "id": "i18n.server.web.signup_user_complete.link_invalid.app_error",
     "translation": "Le lien d'inscription ne semble pas être valide"
   },
   {
-    "id": "web.signup_user_complete.no_invites.app_error",
+    "id": "i18n.server.web.signup_user_complete.no_invites.app_error",
     "translation": "Le type d'équipe ne permet pas les invitations ouvertes"
   },
   {
-    "id": "web.signup_user_complete.title",
+    "id": "i18n.server.web.signup_user_complete.title",
     "translation": "Terminer l'inscription utilisateur"
   },
   {
-    "id": "web.singup_with_oauth.invalid_team.app_error",
+    "id": "i18n.server.web.singup_with_oauth.invalid_team.app_error",
     "translation": "Nom d'équipe incorrect"
   },
   {
-    "id": "web.watcher_fail.error",
+    "id": "i18n.server.web.watcher_fail.error",
     "translation": "Échec de l'ajout du dossier à l'observateur %v"
   },
   {
-    "id": "wsapi.status.init.debug",
+    "id": "i18n.server.wsapi.status.init.debug",
     "translation": "Initialisation des routes de l'API des statuts"
   },
   {
-    "id": "wsapi.system.init.debug",
+    "id": "i18n.server.wsapi.system.init.debug",
     "translation": "Initialisation des routes systèmes de l'API WebSocket"
   },
   {
-    "id": "wsapi.user.init.debug",
+    "id": "i18n.server.wsapi.user.init.debug",
     "translation": "Initialisation des routes utilisateurs de l'API WebSocket"
   },
   {
-    "id": "wsapi.webrtc.init.debug",
+    "id": "i18n.server.wsapi.webrtc.init.debug",
     "translation": "Initialisation des routes de l'API WebSocket webrtc"
   }
 ]

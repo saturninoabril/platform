@@ -14,7 +14,7 @@ import (
 )
 
 func InitStatus() {
-	l4g.Debug(utils.T("api.status.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.status.init.debug"))
 
 	BaseRoutes.User.Handle("/status", ApiHandler(getUserStatus)).Methods("GET")
 	BaseRoutes.Users.Handle("/status/ids", ApiHandler(getUserStatusesByIds)).Methods("POST")
@@ -34,7 +34,7 @@ func getUserStatus(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		if len(statusMap) == 0 {
-			c.Err = model.NewAppError("UserStatus", "api.status.user_not_found.app_error", nil, "", http.StatusNotFound)
+			c.Err = model.NewAppError("UserStatus", "i18n.server.api.status.user_not_found.app_error", nil, "", http.StatusNotFound)
 			return
 		} else {
 			w.Write([]byte(statusMap[0].ToJson()))

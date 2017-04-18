@@ -19,7 +19,7 @@ const OPEN_GRAPH_METADATA_CACHE_SIZE = 10000
 var openGraphDataCache = utils.NewLru(OPEN_GRAPH_METADATA_CACHE_SIZE)
 
 func InitPost() {
-	l4g.Debug(utils.T("api.post.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.post.init.debug"))
 
 	BaseRoutes.ApiRoot.Handle("/get_opengraph_metadata", ApiUserRequired(getOpenGraphMetadata)).Methods("POST")
 
@@ -272,7 +272,7 @@ func getPost(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		if !list.IsChannelId(channelId) {
-			c.Err = model.NewLocAppError("getPost", "api.post.get_post.permissions.app_error", nil, "")
+			c.Err = model.NewLocAppError("getPost", "i18n.server.api.post.get_post.permissions.app_error", nil, "")
 			c.Err.StatusCode = http.StatusForbidden
 			return
 		}
@@ -296,7 +296,7 @@ func getPostById(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		if len(list.Order) != 1 {
-			c.Err = model.NewLocAppError("getPostById", "api.post_get_post_by_id.get.app_error", nil, "")
+			c.Err = model.NewLocAppError("getPostById", "i18n.server.api.post_get_post_by_id.get.app_error", nil, "")
 			return
 		}
 		post := list.Posts[list.Order[0]]
@@ -385,7 +385,7 @@ func deletePost(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		if post.ChannelId != channelId {
-			c.Err = model.NewLocAppError("deletePost", "api.post.delete_post.permissions.app_error", nil, "")
+			c.Err = model.NewLocAppError("deletePost", "i18n.server.api.post.delete_post.permissions.app_error", nil, "")
 			c.Err.StatusCode = http.StatusForbidden
 			return
 		}
@@ -513,7 +513,7 @@ func getFileInfosForPost(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func getOpenGraphMetadata(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !*utils.Cfg.ServiceSettings.EnableLinkPreviews {
-		c.Err = model.NewAppError("getOpenGraphMetadata", "api.post.link_preview_disabled.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("getOpenGraphMetadata", "i18n.server.api.post.link_preview_disabled.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 

@@ -53,7 +53,7 @@ func CreatePostAsUser(post *model.Post) (*model.Post, *model.AppError) {
 	// Check that channel has not been deleted
 	var channel *model.Channel
 	if result := <-Srv.Store.Channel().Get(post.ChannelId, true); result.Err != nil {
-		err := model.NewLocAppError("CreatePostAsUser", "api.context.invalid_param.app_error", map[string]interface{}{"Name": "post.channel_id"}, result.Err.Error())
+		err := model.NewLocAppError("CreatePostAsUser", "i18n.server.api.context.invalid_param.app_error", map[string]interface{}{"Name": "post.channel_id"}, result.Err.Error())
 		err.StatusCode = http.StatusBadRequest
 		return nil, err
 	} else {
@@ -61,15 +61,15 @@ func CreatePostAsUser(post *model.Post) (*model.Post, *model.AppError) {
 	}
 
 	if channel.DeleteAt != 0 {
-		err := model.NewLocAppError("createPost", "api.post.create_post.can_not_post_to_deleted.error", nil, "")
+		err := model.NewLocAppError("createPost", "i18n.server.api.post.create_post.can_not_post_to_deleted.error", nil, "")
 		err.StatusCode = http.StatusBadRequest
 		return nil, err
 	}
 
 	if rp, err := CreatePost(post, channel.TeamId, true); err != nil {
-		if err.Id == "api.post.create_post.root_id.app_error" ||
-			err.Id == "api.post.create_post.channel_root_id.app_error" ||
-			err.Id == "api.post.create_post.parent_id.app_error" {
+		if err.Id == "i18n.server.api.post.create_post.root_id.app_error" ||
+			err.Id == "i18n.server.api.post.create_post.channel_root_id.app_error" ||
+			err.Id == "i18n.server.api.post.create_post.parent_id.app_error" {
 			err.StatusCode = http.StatusBadRequest
 		}
 
@@ -78,7 +78,7 @@ func CreatePostAsUser(post *model.Post) (*model.Post, *model.AppError) {
 		// Update the LastViewAt only if the post does not have from_webhook prop set (eg. Zapier app)
 		if _, ok := post.Props["from_webhook"]; !ok {
 			if result := <-Srv.Store.Channel().UpdateLastViewedAt([]string{post.ChannelId}, post.UserId); result.Err != nil {
-				l4g.Error(utils.T("api.post.create_post.last_viewed.error"), post.ChannelId, post.UserId, result.Err)
+				l4g.Error(utils.T("i18n.server.api.post.create_post.last_viewed.error"), post.ChannelId, post.UserId, result.Err)
 			}
 		}
 
@@ -96,11 +96,11 @@ func CreatePost(post *model.Post, teamId string, triggerWebhooks bool) (*model.P
 	// Verify the parent/child relationships are correct
 	if pchan != nil {
 		if presult := <-pchan; presult.Err != nil {
-			return nil, model.NewLocAppError("createPost", "api.post.create_post.root_id.app_error", nil, "")
+			return nil, model.NewLocAppError("createPost", "i18n.server.api.post.create_post.root_id.app_error", nil, "")
 		} else {
 			list := presult.Data.(*model.PostList)
 			if len(list.Posts) == 0 || !list.IsChannelId(post.ChannelId) {
-				return nil, model.NewLocAppError("createPost", "api.post.create_post.channel_root_id.app_error", nil, "")
+				return nil, model.NewLocAppError("createPost", "i18n.server.api.post.create_post.channel_root_id.app_error", nil, "")
 			}
 
 			if post.ParentId == "" {
@@ -110,7 +110,7 @@ func CreatePost(post *model.Post, teamId string, triggerWebhooks bool) (*model.P
 			if post.RootId != post.ParentId {
 				parent := list.Posts[post.ParentId]
 				if parent == nil {
-					return nil, model.NewLocAppError("createPost", "api.post.create_post.parent_id.app_error", nil, "")
+					return nil, model.NewLocAppError("createPost", "i18n.server.api.post.create_post.parent_id.app_error", nil, "")
 				}
 			}
 		}
@@ -135,7 +135,7 @@ func CreatePost(post *model.Post, teamId string, triggerWebhooks bool) (*model.P
 
 		for _, fileId := range post.FileIds {
 			if result := <-Srv.Store.FileInfo().AttachToPost(fileId, post.Id); result.Err != nil {
-				l4g.Error(utils.T("api.post.create_post.attach_files.error"), post.Id, post.FileIds, post.UserId, result.Err)
+				l4g.Error(utils.T("i18n.server.api.post.create_post.attach_files.error"), post.Id, post.FileIds, post.UserId, result.Err)
 			}
 		}
 
@@ -250,7 +250,7 @@ func SendEphemeralPost(teamId, userId string, post *model.Post) *model.Post {
 func UpdatePost(post *model.Post, safeUpdate bool) (*model.Post, *model.AppError) {
 	if utils.IsLicensed {
 		if *utils.Cfg.ServiceSettings.AllowEditPost == model.ALLOW_EDIT_POST_NEVER {
-			err := model.NewAppError("UpdatePost", "api.post.update_post.permissions_denied.app_error", nil, "", http.StatusForbidden)
+			err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.permissions_denied.app_error", nil, "", http.StatusForbidden)
 			return nil, err
 		}
 	}
@@ -262,28 +262,28 @@ func UpdatePost(post *model.Post, safeUpdate bool) (*model.Post, *model.AppError
 		oldPost = result.Data.(*model.PostList).Posts[post.Id]
 
 		if oldPost == nil {
-			err := model.NewAppError("UpdatePost", "api.post.update_post.find.app_error", nil, "id="+post.Id, http.StatusBadRequest)
+			err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.find.app_error", nil, "id="+post.Id, http.StatusBadRequest)
 			return nil, err
 		}
 
 		if oldPost.UserId != post.UserId {
-			err := model.NewAppError("UpdatePost", "api.post.update_post.permissions.app_error", nil, "oldUserId="+oldPost.UserId, http.StatusBadRequest)
+			err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.permissions.app_error", nil, "oldUserId="+oldPost.UserId, http.StatusBadRequest)
 			return nil, err
 		}
 
 		if oldPost.DeleteAt != 0 {
-			err := model.NewAppError("UpdatePost", "api.post.update_post.permissions_details.app_error", map[string]interface{}{"PostId": post.Id}, "", http.StatusBadRequest)
+			err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.permissions_details.app_error", map[string]interface{}{"PostId": post.Id}, "", http.StatusBadRequest)
 			return nil, err
 		}
 
 		if oldPost.IsSystemMessage() {
-			err := model.NewAppError("UpdatePost", "api.post.update_post.system_message.app_error", nil, "id="+post.Id, http.StatusBadRequest)
+			err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.system_message.app_error", nil, "id="+post.Id, http.StatusBadRequest)
 			return nil, err
 		}
 
 		if utils.IsLicensed {
 			if *utils.Cfg.ServiceSettings.AllowEditPost == model.ALLOW_EDIT_POST_TIME_LIMIT && model.GetMillis() > oldPost.CreateAt+int64(*utils.Cfg.ServiceSettings.PostEditTimeLimit*1000) {
-				err := model.NewAppError("UpdatePost", "api.post.update_post.permissions_time_limit.app_error", map[string]interface{}{"timeLimit": *utils.Cfg.ServiceSettings.PostEditTimeLimit}, "", http.StatusBadRequest)
+				err := model.NewAppError("UpdatePost", "i18n.server.api.post.update_post.permissions_time_limit.app_error", map[string]interface{}{"timeLimit": *utils.Cfg.ServiceSettings.PostEditTimeLimit}, "", http.StatusBadRequest)
 				return nil, err
 			}
 		}
@@ -417,7 +417,7 @@ func GetPermalinkPost(postId string, userId string) (*model.PostList, *model.App
 		list := result.Data.(*model.PostList)
 
 		if len(list.Order) != 1 {
-			return nil, model.NewLocAppError("getPermalinkTmp", "api.post_get_post_by_id.get.app_error", nil, "")
+			return nil, model.NewLocAppError("getPermalinkTmp", "i18n.server.api.post_get_post_by_id.get.app_error", nil, "")
 		}
 		post := list.Posts[list.Order[0]]
 
@@ -492,7 +492,7 @@ func DeletePost(postId string) (*model.Post, *model.AppError) {
 
 func DeleteFlaggedPosts(postId string) {
 	if result := <-Srv.Store.Preference().DeleteCategoryAndName(model.PREFERENCE_CATEGORY_FLAGGED_POST, postId); result.Err != nil {
-		l4g.Warn(utils.T("api.post.delete_flagged_post.app_error.warn"), result.Err)
+		l4g.Warn(utils.T("i18n.server.api.post.delete_flagged_post.app_error.warn"), result.Err)
 		return
 	}
 }
@@ -503,7 +503,7 @@ func DeletePostFiles(post *model.Post) {
 	}
 
 	if result := <-Srv.Store.FileInfo().DeleteForPost(post.Id); result.Err != nil {
-		l4g.Warn(utils.T("api.post.delete_post_files.app_error.warn"), post.Id, result.Err)
+		l4g.Warn(utils.T("i18n.server.api.post.delete_post_files.app_error.warn"), post.Id, result.Err)
 	}
 }
 

@@ -16,7 +16,7 @@ import (
 )
 
 func InitWebhook() {
-	l4g.Debug(utils.T("api.webhook.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.webhook.init.debug"))
 
 	BaseRoutes.Hooks.Handle("/incoming/create", ApiUserRequired(createIncomingHook)).Methods("POST")
 	BaseRoutes.Hooks.Handle("/incoming/update", ApiUserRequired(updateIncomingHook)).Methods("POST")
@@ -89,7 +89,7 @@ func updateIncomingHook(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.TeamId != oldHook.TeamId {
-		c.Err = model.NewAppError("updateIncomingHook", "api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("updateIncomingHook", "i18n.server.api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 
@@ -236,7 +236,7 @@ func updateOutgoingHook(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.TeamId != oldHook.TeamId {
-		c.Err = model.NewAppError("updateOutgoingHook", "api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
+		c.Err = model.NewAppError("updateOutgoingHook", "i18n.server.api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
 		return
 	}
 
@@ -318,7 +318,7 @@ func regenOutgoingHookToken(c *Context, w http.ResponseWriter, r *http.Request) 
 	c.LogAudit("attempt")
 
 	if c.TeamId != hook.TeamId {
-		c.Err = model.NewAppError("regenOutgoingHookToken", "api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
+		c.Err = model.NewAppError("regenOutgoingHookToken", "i18n.server.api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
 		return
 	}
 
@@ -359,12 +359,12 @@ func incomingWebhook(c *Context, w http.ResponseWriter, r *http.Request) {
 		var err error
 		payload, err = utils.DebugReader(
 			payload,
-			utils.T("api.webhook.incoming.debug"),
+			utils.T("i18n.server.api.webhook.incoming.debug"),
 		)
 		if err != nil {
 			c.Err = model.NewLocAppError(
 				"incomingWebhook",
-				"api.webhook.incoming.debug.error",
+				"i18n.server.api.webhook.incoming.debug.error",
 				nil,
 				err.Error(),
 			)

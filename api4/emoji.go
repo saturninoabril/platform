@@ -16,7 +16,7 @@ import (
 )
 
 func InitEmoji() {
-	l4g.Debug(utils.T("api.emoji.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.emoji.init.debug"))
 
 	BaseRoutes.Emojis.Handle("", ApiSessionRequired(createEmoji)).Methods("POST")
 	BaseRoutes.Emojis.Handle("", ApiSessionRequired(getEmojiList)).Methods("GET")
@@ -26,28 +26,28 @@ func InitEmoji() {
 
 func createEmoji(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !*utils.Cfg.ServiceSettings.EnableCustomEmoji {
-		c.Err = model.NewAppError("createEmoji", "api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("createEmoji", "i18n.server.api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 
 	if emojiInterface := einterfaces.GetEmojiInterface(); emojiInterface != nil &&
 		!emojiInterface.CanUserCreateEmoji(c.Session.Roles, c.Session.TeamMembers) {
-		c.Err = model.NewAppError("getEmoji", "api.emoji.disabled.app_error", nil, "user_id="+c.Session.UserId, http.StatusUnauthorized)
+		c.Err = model.NewAppError("getEmoji", "i18n.server.api.emoji.disabled.app_error", nil, "user_id="+c.Session.UserId, http.StatusUnauthorized)
 		return
 	}
 
 	if len(utils.Cfg.FileSettings.DriverName) == 0 {
-		c.Err = model.NewAppError("createEmoji", "api.emoji.storage.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("createEmoji", "i18n.server.api.emoji.storage.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 
 	if r.ContentLength > app.MaxEmojiFileSize {
-		c.Err = model.NewAppError("createEmoji", "api.emoji.create.too_large.app_error", nil, "", http.StatusRequestEntityTooLarge)
+		c.Err = model.NewAppError("createEmoji", "i18n.server.api.emoji.create.too_large.app_error", nil, "", http.StatusRequestEntityTooLarge)
 		return
 	}
 
 	if err := r.ParseMultipartForm(app.MaxEmojiFileSize); err != nil {
-		c.Err = model.NewAppError("createEmoji", "api.emoji.create.parse.app_error", nil, err.Error(), http.StatusBadRequest)
+		c.Err = model.NewAppError("createEmoji", "i18n.server.api.emoji.create.parse.app_error", nil, err.Error(), http.StatusBadRequest)
 		return
 	}
 
@@ -71,7 +71,7 @@ func createEmoji(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func getEmojiList(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !*utils.Cfg.ServiceSettings.EnableCustomEmoji {
-		c.Err = model.NewAppError("getEmoji", "api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("getEmoji", "i18n.server.api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 
@@ -97,7 +97,7 @@ func deleteEmoji(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.Session.UserId != emoji.CreatorId && !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_SYSTEM) {
-		c.Err = model.NewAppError("deleteImage", "api.emoji.delete.permissions.app_error", nil, "user_id="+c.Session.UserId, http.StatusUnauthorized)
+		c.Err = model.NewAppError("deleteImage", "i18n.server.api.emoji.delete.permissions.app_error", nil, "user_id="+c.Session.UserId, http.StatusUnauthorized)
 		return
 	}
 
@@ -117,7 +117,7 @@ func getEmoji(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !*utils.Cfg.ServiceSettings.EnableCustomEmoji {
-		c.Err = model.NewAppError("getEmoji", "api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("getEmoji", "i18n.server.api.emoji.disabled.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 

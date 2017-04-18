@@ -11,5 +11,5 @@ import (
 // ONLY FOR APIs SCHEDULED TO BE DEPRECATED
 
 func InitDeprecated() {
-	l4g.Debug(utils.T("api.deprecated.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.deprecated.init.debug"))
 }

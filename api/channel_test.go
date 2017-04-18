@@ -55,7 +55,7 @@ func TestCreateChannel(t *testing.T) {
 
 	rchannel.Data.(*model.Channel).Id = ""
 	if _, err := Client.CreateChannel(rchannel.Data.(*model.Channel)); err != nil {
-		if err.Id != "store.sql_channel.save_channel.exists.app_error" {
+		if err.Id != "i18n.server.store.sql_channel.save_channel.exists.app_error" {
 			t.Fatal(err)
 		}
 	}
@@ -1191,7 +1191,7 @@ func TestJoinChannelByNameDisabledUser(t *testing.T) {
 	if _, err := app.AddUserToChannel(th.BasicUser, channel1); err == nil {
 		t.Fatal("shoudn't be able to join channel")
 	} else {
-		if err.Id != "api.channel.add_user.to.channel.failed.deleted.app_error" {
+		if err.Id != "i18n.server.api.channel.add_user.to.channel.failed.deleted.app_error" {
 			t.Fatal("wrong error")
 		}
 	}

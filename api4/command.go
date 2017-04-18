@@ -14,7 +14,7 @@ import (
 )
 
 func InitCommand() {
-	l4g.Debug(utils.T("api.command.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.command.init.debug"))
 
 	BaseRoutes.Commands.Handle("", ApiSessionRequired(createCommand)).Methods("POST")
 	BaseRoutes.Commands.Handle("", ApiSessionRequired(listCommands)).Methods("GET")
@@ -74,7 +74,7 @@ func updateCommand(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if cmd.TeamId != oldCmd.TeamId {
-		c.Err = model.NewAppError("updateCommand", "api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("updateCommand", "i18n.server.api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 

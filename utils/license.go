@@ -45,7 +45,7 @@ func LoadLicense(licenseBytes []byte) {
 		return
 	}
 
-	l4g.Warn(T("utils.license.load_license.invalid.warn"))
+	l4g.Warn(T("i18n.server.utils.license.load_license.invalid.warn"))
 }
 
 func SetLicense(license *model.License) bool {
@@ -74,12 +74,12 @@ func ValidateLicense(signed []byte) (bool, string) {
 
 	_, err := base64.StdEncoding.Decode(decoded, signed)
 	if err != nil {
-		l4g.Error(T("utils.license.validate_license.decode.error"), err.Error())
+		l4g.Error(T("i18n.server.utils.license.validate_license.decode.error"), err.Error())
 		return false, ""
 	}
 
 	if len(decoded) <= 256 {
-		l4g.Error(T("utils.license.validate_license.not_long.error"))
+		l4g.Error(T("i18n.server.utils.license.validate_license.not_long.error"))
 		return false, ""
 	}
 
@@ -95,7 +95,7 @@ func ValidateLicense(signed []byte) (bool, string) {
 
 	public, err := x509.ParsePKIXPublicKey(block.Bytes)
 	if err != nil {
-		l4g.Error(T("utils.license.validate_license.signing.error"), err.Error())
+		l4g.Error(T("i18n.server.utils.license.validate_license.signing.error"), err.Error())
 		return false, ""
 	}
 
@@ -107,7 +107,7 @@ func ValidateLicense(signed []byte) (bool, string) {
 
 	err = rsa.VerifyPKCS1v15(rsaPublic, crypto.SHA512, d, signature)
 	if err != nil {
-		l4g.Error(T("utils.license.validate_license.invalid.error"), err.Error())
+		l4g.Error(T("i18n.server.utils.license.validate_license.invalid.error"), err.Error())
 		return false, ""
 	}
 
@@ -133,7 +133,7 @@ func GetLicenseFileFromDisk(fileName string) []byte {
 
 func GetLicenseFileLocation(fileLocation string) string {
 	if fileLocation == "" {
-		return FindDir("config") + "mattermost.mattermost-license"
+		return FindDir("config") + "i18n.server.mattermost.mattermost-license"
 	} else {
 		return fileLocation
 	}

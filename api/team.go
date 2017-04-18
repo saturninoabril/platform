@@ -19,7 +19,7 @@ import (
 )
 
 func InitTeam() {
-	l4g.Debug(utils.T("api.team.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.team.init.debug"))
 
 	BaseRoutes.Teams.Handle("/create", ApiUserRequired(createTeam)).Methods("POST")
 	BaseRoutes.Teams.Handle("/all", ApiAppHandler(getAll)).Methods("GET")
@@ -57,7 +57,7 @@ func createTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !app.SessionHasPermissionTo(c.Session, model.PERMISSION_CREATE_TEAM) {
-		c.Err = model.NewLocAppError("createTeam", "api.team.is_team_creation_allowed.disabled.app_error", nil, "")
+		c.Err = model.NewLocAppError("createTeam", "i18n.server.api.team.is_team_creation_allowed.disabled.app_error", nil, "")
 		return
 	}
 
@@ -121,9 +121,9 @@ func inviteMembers(c *Context, w http.ResponseWriter, r *http.Request) {
 	if utils.IsLicensed && !app.SessionHasPermissionToTeam(c.Session, c.TeamId, model.PERMISSION_INVITE_USER) {
 		errorId := ""
 		if *utils.Cfg.TeamSettings.RestrictTeamInvite == model.PERMISSIONS_SYSTEM_ADMIN {
-			errorId = "api.team.invite_members.restricted_system_admin.app_error"
+			errorId = "i18n.server.api.team.invite_members.restricted_system_admin.app_error"
 		} else if *utils.Cfg.TeamSettings.RestrictTeamInvite == model.PERMISSIONS_TEAM_ADMIN {
-			errorId = "api.team.invite_members.restricted_team_admin.app_error"
+			errorId = "i18n.server.api.team.invite_members.restricted_team_admin.app_error"
 		}
 
 		c.Err = model.NewLocAppError("inviteMembers", errorId, nil, "")
@@ -199,7 +199,7 @@ func addUserToTeamFromInvite(c *Context, w http.ResponseWriter, r *http.Request)
 	} else if len(inviteId) > 0 {
 		team, err = app.AddUserToTeamByInviteId(inviteId, c.Session.UserId)
 	} else {
-		c.Err = model.NewLocAppError("addUserToTeamFromInvite", "api.user.create_user.signup_link_invalid.app_error", nil, "")
+		c.Err = model.NewLocAppError("addUserToTeamFromInvite", "i18n.server.api.user.create_user.signup_link_invalid.app_error", nil, "")
 		return
 	}
 
@@ -372,7 +372,7 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := r.ParseMultipartForm(10000000); err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.parse.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.parse.app_error", nil, err.Error())
 		return
 	}
 
@@ -381,27 +381,27 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	fileSizeStr, ok := r.MultipartForm.Value["filesize"]
 	if !ok {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.unavailable.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.unavailable.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	fileSize, err := strconv.ParseInt(fileSizeStr[0], 10, 64)
 	if err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.integer.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.integer.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	fileInfoArray, ok := r.MultipartForm.File["file"]
 	if !ok {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.no_file.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.no_file.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if len(fileInfoArray) <= 0 {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.array.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.array.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -411,7 +411,7 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	fileData, err := fileInfo.Open()
 	defer fileData.Close()
 	if err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.open.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.open.app_error", nil, err.Error())
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -444,7 +444,7 @@ func getInviteInfo(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		if !(team.Type == model.TEAM_OPEN) {
-			c.Err = model.NewLocAppError("getInviteInfo", "api.team.get_invite_info.not_open_team", nil, "id="+inviteId)
+			c.Err = model.NewLocAppError("getInviteInfo", "i18n.server.api.team.get_invite_info.not_open_team", nil, "id="+inviteId)
 			return
 		}
 

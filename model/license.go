@@ -175,15 +175,15 @@ func LicenseFromJson(data io.Reader) *License {
 
 func (lr *LicenseRecord) IsValid() *AppError {
 	if len(lr.Id) != 26 {
-		return NewLocAppError("LicenseRecord.IsValid", "model.license_record.is_valid.id.app_error", nil, "")
+		return NewLocAppError("LicenseRecord.IsValid", "i18n.server.model.license_record.is_valid.id.app_error", nil, "")
 	}
 
 	if lr.CreateAt == 0 {
-		return NewLocAppError("LicenseRecord.IsValid", "model.license_record.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("LicenseRecord.IsValid", "i18n.server.model.license_record.is_valid.create_at.app_error", nil, "")
 	}
 
 	if len(lr.Bytes) == 0 || len(lr.Bytes) > 10000 {
-		return NewLocAppError("LicenseRecord.IsValid", "model.license_record.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("LicenseRecord.IsValid", "i18n.server.model.license_record.is_valid.create_at.app_error", nil, "")
 	}
 
 	return nil

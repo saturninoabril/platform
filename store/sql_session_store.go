@@ -45,7 +45,7 @@ func (me SqlSessionStore) Save(session *model.Session) StoreChannel {
 		result := StoreResult{}
 
 		if len(session.Id) > 0 {
-			result.Err = model.NewLocAppError("SqlSessionStore.Save", "store.sql_session.save.existing.app_error", nil, "id="+session.Id)
+			result.Err = model.NewLocAppError("SqlSessionStore.Save", "i18n.server.store.sql_session.save.existing.app_error", nil, "id="+session.Id)
 			storeChannel <- result
 			close(storeChannel)
 			return
@@ -54,20 +54,20 @@ func (me SqlSessionStore) Save(session *model.Session) StoreChannel {
 		session.PreSave()
 
 		if cur := <-me.CleanUpExpiredSessions(session.UserId); cur.Err != nil {
-			l4g.Error(utils.T("store.sql_session.save.cleanup.error"), cur.Err)
+			l4g.Error(utils.T("i18n.server.store.sql_session.save.cleanup.error"), cur.Err)
 		}
 
 		tcs := me.Team().GetTeamsForUser(session.UserId)
 
 		if err := me.GetMaster().Insert(session); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.Save", "store.sql_session.save.app_error", nil, "id="+session.Id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.Save", "i18n.server.store.sql_session.save.app_error", nil, "id="+session.Id+", "+err.Error())
 			return
 		} else {
 			result.Data = session
 		}
 
 		if rtcs := <-tcs; rtcs.Err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.Save", "store.sql_session.save.app_error", nil, "id="+session.Id+", "+rtcs.Err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.Save", "i18n.server.store.sql_session.save.app_error", nil, "id="+session.Id+", "+rtcs.Err.Error())
 			return
 		} else {
 			tempMembers := rtcs.Data.([]*model.TeamMember)
@@ -96,15 +96,15 @@ func (me SqlSessionStore) Get(sessionIdOrToken string) StoreChannel {
 		var sessions []*model.Session
 
 		if _, err := me.GetReplica().Select(&sessions, "SELECT * FROM Sessions WHERE Token = :Token OR Id = :Id LIMIT 1", map[string]interface{}{"Token": sessionIdOrToken, "Id": sessionIdOrToken}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.Get", "store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.Get", "i18n.server.store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken+", "+err.Error())
 		} else if sessions == nil || len(sessions) == 0 {
-			result.Err = model.NewLocAppError("SqlSessionStore.Get", "store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken)
+			result.Err = model.NewLocAppError("SqlSessionStore.Get", "i18n.server.store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken)
 		} else {
 			result.Data = sessions[0]
 
 			tcs := me.Team().GetTeamsForUser(sessions[0].UserId)
 			if rtcs := <-tcs; rtcs.Err != nil {
-				result.Err = model.NewLocAppError("SqlSessionStore.Get", "store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken+", "+rtcs.Err.Error())
+				result.Err = model.NewLocAppError("SqlSessionStore.Get", "i18n.server.store.sql_session.get.app_error", nil, "sessionIdOrToken="+sessionIdOrToken+", "+rtcs.Err.Error())
 				return
 			} else {
 				tempMembers := rtcs.Data.([]*model.TeamMember)
@@ -131,7 +131,7 @@ func (me SqlSessionStore) GetSessions(userId string) StoreChannel {
 	go func() {
 
 		if cur := <-me.CleanUpExpiredSessions(userId); cur.Err != nil {
-			l4g.Error(utils.T("store.sql_session.get_sessions.error"), cur.Err)
+			l4g.Error(utils.T("i18n.server.store.sql_session.get_sessions.error"), cur.Err)
 		}
 
 		result := StoreResult{}
@@ -140,14 +140,14 @@ func (me SqlSessionStore) GetSessions(userId string) StoreChannel {
 		tcs := me.Team().GetTeamsForUser(userId)
 
 		if _, err := me.GetReplica().Select(&sessions, "SELECT * FROM Sessions WHERE UserId = :UserId ORDER BY LastActivityAt DESC", map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.GetSessions", "store.sql_session.get_sessions.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.GetSessions", "i18n.server.store.sql_session.get_sessions.app_error", nil, err.Error())
 		} else {
 
 			result.Data = sessions
 		}
 
 		if rtcs := <-tcs; rtcs.Err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.GetSessions", "store.sql_session.get_sessions.app_error", nil, rtcs.Err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.GetSessions", "i18n.server.store.sql_session.get_sessions.app_error", nil, rtcs.Err.Error())
 			return
 		} else {
 			for _, session := range sessions {
@@ -177,7 +177,7 @@ func (me SqlSessionStore) GetSessionsWithActiveDeviceIds(userId string) StoreCha
 		var sessions []*model.Session
 
 		if _, err := me.GetReplica().Select(&sessions, "SELECT * FROM Sessions WHERE UserId = :UserId AND ExpiresAt != 0 AND :ExpiresAt <= ExpiresAt AND DeviceId != ''", map[string]interface{}{"UserId": userId, "ExpiresAt": model.GetMillis()}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.GetActiveSessionsWithDeviceIds", "store.sql_session.get_sessions.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.GetActiveSessionsWithDeviceIds", "i18n.server.store.sql_session.get_sessions.app_error", nil, err.Error())
 		} else {
 
 			result.Data = sessions
@@ -198,7 +198,7 @@ func (me SqlSessionStore) Remove(sessionIdOrToken string) StoreChannel {
 
 		_, err := me.GetMaster().Exec("DELETE FROM Sessions WHERE Id = :Id Or Token = :Token", map[string]interface{}{"Id": sessionIdOrToken, "Token": sessionIdOrToken})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.RemoveSession", "store.sql_session.remove.app_error", nil, "id="+sessionIdOrToken+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.RemoveSession", "i18n.server.store.sql_session.remove.app_error", nil, "id="+sessionIdOrToken+", err="+err.Error())
 		}
 
 		storeChannel <- result
@@ -216,7 +216,7 @@ func (me SqlSessionStore) RemoveAllSessions() StoreChannel {
 
 		_, err := me.GetMaster().Exec("DELETE FROM Sessions")
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.RemoveAllSessions", "store.sql_session.remove_all_sessions_for_team.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.RemoveAllSessions", "i18n.server.store.sql_session.remove_all_sessions_for_team.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result
@@ -234,7 +234,7 @@ func (me SqlSessionStore) PermanentDeleteSessionsByUser(userId string) StoreChan
 
 		_, err := me.GetMaster().Exec("DELETE FROM Sessions WHERE UserId = :UserId", map[string]interface{}{"UserId": userId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.RemoveAllSessionsForUser", "store.sql_session.permanent_delete_sessions_by_user.app_error", nil, "id="+userId+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.RemoveAllSessionsForUser", "i18n.server.store.sql_session.permanent_delete_sessions_by_user.app_error", nil, "id="+userId+", err="+err.Error())
 		}
 
 		storeChannel <- result
@@ -251,7 +251,7 @@ func (me SqlSessionStore) CleanUpExpiredSessions(userId string) StoreChannel {
 		result := StoreResult{}
 
 		if _, err := me.GetMaster().Exec("DELETE FROM Sessions WHERE UserId = :UserId AND ExpiresAt != 0 AND :ExpiresAt > ExpiresAt", map[string]interface{}{"UserId": userId, "ExpiresAt": model.GetMillis()}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.CleanUpExpiredSessions", "store.sql_session.cleanup_expired_sessions.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.CleanUpExpiredSessions", "i18n.server.store.sql_session.cleanup_expired_sessions.app_error", nil, err.Error())
 		} else {
 			result.Data = userId
 		}
@@ -270,7 +270,7 @@ func (me SqlSessionStore) UpdateLastActivityAt(sessionId string, time int64) Sto
 		result := StoreResult{}
 
 		if _, err := me.GetMaster().Exec("UPDATE Sessions SET LastActivityAt = :LastActivityAt WHERE Id = :Id", map[string]interface{}{"LastActivityAt": time, "Id": sessionId}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.UpdateLastActivityAt", "store.sql_session.update_last_activity.app_error", nil, "sessionId="+sessionId)
+			result.Err = model.NewLocAppError("SqlSessionStore.UpdateLastActivityAt", "i18n.server.store.sql_session.update_last_activity.app_error", nil, "sessionId="+sessionId)
 		} else {
 			result.Data = sessionId
 		}
@@ -288,7 +288,7 @@ func (me SqlSessionStore) UpdateRoles(userId, roles string) StoreChannel {
 	go func() {
 		result := StoreResult{}
 		if _, err := me.GetMaster().Exec("UPDATE Sessions SET Roles = :Roles WHERE UserId = :UserId", map[string]interface{}{"Roles": roles, "UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.UpdateRoles", "store.sql_session.update_roles.app_error", nil, "userId="+userId)
+			result.Err = model.NewLocAppError("SqlSessionStore.UpdateRoles", "i18n.server.store.sql_session.update_roles.app_error", nil, "userId="+userId)
 		} else {
 			result.Data = userId
 		}
@@ -306,7 +306,7 @@ func (me SqlSessionStore) UpdateDeviceId(id string, deviceId string, expiresAt i
 	go func() {
 		result := StoreResult{}
 		if _, err := me.GetMaster().Exec("UPDATE Sessions SET DeviceId = :DeviceId, ExpiresAt = :ExpiresAt WHERE Id = :Id", map[string]interface{}{"DeviceId": deviceId, "Id": id, "ExpiresAt": expiresAt}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.UpdateDeviceId", "store.sql_session.update_device_id.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.UpdateDeviceId", "i18n.server.store.sql_session.update_device_id.app_error", nil, err.Error())
 		} else {
 			result.Data = deviceId
 		}
@@ -332,7 +332,7 @@ func (me SqlSessionStore) AnalyticsSessionCount() StoreChannel {
             WHERE ExpiresAt > :Time`
 
 		if c, err := me.GetReplica().SelectInt(query, map[string]interface{}{"Time": model.GetMillis()}); err != nil {
-			result.Err = model.NewLocAppError("SqlSessionStore.AnalyticsSessionCount", "store.sql_session.analytics_session_count.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSessionStore.AnalyticsSessionCount", "i18n.server.store.sql_session.analytics_session_count.app_error", nil, err.Error())
 		} else {
 			result.Data = c
 		}

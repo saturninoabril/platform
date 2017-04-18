@@ -12,7 +12,7 @@ import (
 )
 
 func InitWebrtc() {
-	l4g.Debug(utils.T("api.webrtc.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.webrtc.init.debug"))
 
 	BaseRoutes.Webrtc.Handle("/token", ApiUserRequired(webrtcToken)).Methods("POST")
 }

@@ -13,7 +13,7 @@ import (
 )
 
 func InitSystem() {
-	l4g.Debug(utils.T("api.system.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.system.init.debug"))
 
 	BaseRoutes.System.Handle("/ping", ApiHandler(getSystemPing)).Methods("GET")
 	BaseRoutes.ApiRoot.Handle("/config", ApiSessionRequired(getConfig)).Methods("GET")
@@ -164,7 +164,7 @@ func getClientConfig(c *Context, w http.ResponseWriter, r *http.Request) {
 	format := r.URL.Query().Get("format")
 
 	if format == "" {
-		c.Err = model.NewAppError("getClientConfig", "api.config.client.old_format.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("getClientConfig", "i18n.server.api.config.client.old_format.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 
@@ -180,7 +180,7 @@ func getClientLicense(c *Context, w http.ResponseWriter, r *http.Request) {
 	format := r.URL.Query().Get("format")
 
 	if format == "" {
-		c.Err = model.NewAppError("getClientLicense", "api.license.client.old_format.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("getClientLicense", "i18n.server.api.license.client.old_format.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 

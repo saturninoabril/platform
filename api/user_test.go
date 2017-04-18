@@ -1934,7 +1934,7 @@ func TestUserTyping(t *testing.T) {
 
 	WebSocketClient.UserTyping("", "")
 	time.Sleep(300 * time.Millisecond)
-	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "api.websocket_handler.invalid_param.app_error" {
+	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "i18n.server.api.websocket_handler.invalid_param.app_error" {
 		t.Fatal("should have been invalid param response")
 	}
 

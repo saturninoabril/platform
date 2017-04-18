@@ -18,7 +18,7 @@ func SyncLdap() {
 			if ldapI := einterfaces.GetLdapInterface(); ldapI != nil {
 				ldapI.SyncNow()
 			} else {
-				l4g.Error("%v", model.NewLocAppError("SyncLdap", "ent.ldap.disabled.app_error", nil, "").Error())
+				l4g.Error("%v", model.NewLocAppError("SyncLdap", "i18n.server.ent.ldap.disabled.app_error", nil, "").Error())
 			}
 		}
 	}()
@@ -31,7 +31,7 @@ func TestLdap() *model.AppError {
 			return err
 		}
 	} else {
-		err := model.NewLocAppError("TestLdap", "ent.ldap.disabled.app_error", nil, "")
+		err := model.NewLocAppError("TestLdap", "i18n.server.ent.ldap.disabled.app_error", nil, "")
 		err.StatusCode = http.StatusNotImplemented
 		return err
 	}
@@ -55,7 +55,7 @@ func SwitchEmailToLdap(email, password, code, ldapId, ldapPassword string) (stri
 
 	ldapInterface := einterfaces.GetLdapInterface()
 	if ldapInterface == nil {
-		return "", model.NewAppError("SwitchEmailToLdap", "api.user.email_to_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
+		return "", model.NewAppError("SwitchEmailToLdap", "i18n.server.api.user.email_to_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if err := ldapInterface.SwitchToLdap(user.Id, ldapId, ldapPassword); err != nil {
@@ -78,12 +78,12 @@ func SwitchLdapToEmail(ldapPassword, code, email, newPassword string) (string, *
 	}
 
 	if user.AuthService != model.USER_AUTH_SERVICE_LDAP {
-		return "", model.NewAppError("SwitchLdapToEmail", "api.user.ldap_to_email.not_ldap_account.app_error", nil, "", http.StatusBadRequest)
+		return "", model.NewAppError("SwitchLdapToEmail", "i18n.server.api.user.ldap_to_email.not_ldap_account.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	ldapInterface := einterfaces.GetLdapInterface()
 	if ldapInterface == nil || user.AuthData == nil {
-		return "", model.NewAppError("SwitchLdapToEmail", "api.user.ldap_to_email.not_available.app_error", nil, "", http.StatusNotImplemented)
+		return "", model.NewAppError("SwitchLdapToEmail", "i18n.server.api.user.ldap_to_email.not_available.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if err := ldapInterface.CheckPassword(*user.AuthData, ldapPassword); err != nil {
@@ -105,7 +105,7 @@ func SwitchLdapToEmail(ldapPassword, code, email, newPassword string) (string, *
 	T := utils.GetUserTranslations(user.Locale)
 
 	go func() {
-		if err := SendSignInChangeEmail(user.Email, T("api.templates.signin_change_email.body.method_email"), user.Locale, utils.GetSiteURL()); err != nil {
+		if err := SendSignInChangeEmail(user.Email, T("i18n.server.api.templates.signin_change_email.body.method_email"), user.Locale, utils.GetSiteURL()); err != nil {
 			l4g.Error(err.Error())
 		}
 	}()

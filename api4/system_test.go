@@ -244,7 +244,7 @@ func TestEmailTest(t *testing.T) {
 	CheckForbiddenStatus(t, resp)
 
 	_, resp = th.SystemAdminClient.TestEmail()
-	CheckErrorMessage(t, resp, "api.admin.test_email.missing_server")
+	CheckErrorMessage(t, resp, "i18n.server.api.admin.test_email.missing_server")
 	CheckInternalErrorStatus(t, resp)
 }
 

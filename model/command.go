@@ -79,51 +79,51 @@ func CommandListFromJson(data io.Reader) []*Command {
 func (o *Command) IsValid() *AppError {
 
 	if len(o.Id) != 26 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.id.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.id.app_error", nil, "")
 	}
 
 	if len(o.Token) != 26 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.token.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.token.app_error", nil, "")
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.create_at.app_error", nil, "")
 	}
 
 	if o.UpdateAt == 0 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.update_at.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.update_at.app_error", nil, "")
 	}
 
 	if len(o.CreatorId) != 26 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(o.TeamId) != 26 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.team_id.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.team_id.app_error", nil, "")
 	}
 
 	if len(o.Trigger) < MIN_TRIGGER_LENGTH || len(o.Trigger) > MAX_TRIGGER_LENGTH || strings.Index(o.Trigger, "/") == 0 || strings.Contains(o.Trigger, " ") {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.trigger.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.trigger.app_error", nil, "")
 	}
 
 	if len(o.URL) == 0 || len(o.URL) > 1024 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.url.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.url.app_error", nil, "")
 	}
 
 	if !IsValidHttpUrl(o.URL) {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.url_http.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.url_http.app_error", nil, "")
 	}
 
 	if !(o.Method == COMMAND_METHOD_GET || o.Method == COMMAND_METHOD_POST) {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.method.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.method.app_error", nil, "")
 	}
 
 	if len(o.DisplayName) > 64 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.display_name.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.display_name.app_error", nil, "")
 	}
 
 	if len(o.Description) > 128 {
-		return NewLocAppError("Command.IsValid", "model.command.is_valid.description.app_error", nil, "")
+		return NewLocAppError("Command.IsValid", "i18n.server.model.command.is_valid.description.app_error", nil, "")
 	}
 
 	return nil

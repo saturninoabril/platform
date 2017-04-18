@@ -27,9 +27,9 @@ func (me *ShrugProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_SHRUG,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_shrug.desc"),
-		AutoCompleteHint: T("api.command_shrug.hint"),
-		DisplayName:      T("api.command_shrug.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_shrug.desc"),
+		AutoCompleteHint: T("i18n.server.api.command_shrug.hint"),
+		DisplayName:      T("i18n.server.api.command_shrug.name"),
 	}
 }
 

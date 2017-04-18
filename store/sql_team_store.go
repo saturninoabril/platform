@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	TEAM_MEMBER_EXISTS_ERROR = "store.sql_team.save_member.exists.app_error"
+	TEAM_MEMBER_EXISTS_ERROR = "i18n.server.store.sql_team.save_member.exists.app_error"
 )
 
 type SqlTeamStore struct {
@@ -64,7 +64,7 @@ func (s SqlTeamStore) Save(team *model.Team) StoreChannel {
 
 		if len(team.Id) > 0 {
 			result.Err = model.NewAppError("SqlTeamStore.Save",
-				"store.sql_team.save.existing.app_error", nil, "id="+team.Id, http.StatusBadRequest)
+				"i18n.server.store.sql_team.save.existing.app_error", nil, "id="+team.Id, http.StatusBadRequest)
 			storeChannel <- result
 			close(storeChannel)
 			return
@@ -80,9 +80,9 @@ func (s SqlTeamStore) Save(team *model.Team) StoreChannel {
 
 		if err := s.GetMaster().Insert(team); err != nil {
 			if IsUniqueConstraintError(err.Error(), []string{"Name", "teams_name_key"}) {
-				result.Err = model.NewAppError("SqlTeamStore.Save", "store.sql_team.save.domain_exists.app_error", nil, "id="+team.Id+", "+err.Error(), http.StatusBadRequest)
+				result.Err = model.NewAppError("SqlTeamStore.Save", "i18n.server.store.sql_team.save.domain_exists.app_error", nil, "id="+team.Id+", "+err.Error(), http.StatusBadRequest)
 			} else {
-				result.Err = model.NewLocAppError("SqlTeamStore.Save", "store.sql_team.save.app_error", nil, "id="+team.Id+", "+err.Error())
+				result.Err = model.NewLocAppError("SqlTeamStore.Save", "i18n.server.store.sql_team.save.app_error", nil, "id="+team.Id+", "+err.Error())
 			}
 		} else {
 			result.Data = team
@@ -111,9 +111,9 @@ func (s SqlTeamStore) Update(team *model.Team) StoreChannel {
 		}
 
 		if oldResult, err := s.GetMaster().Get(model.Team{}, team.Id); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.Update", "store.sql_team.update.finding.app_error", nil, "id="+team.Id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.Update", "i18n.server.store.sql_team.update.finding.app_error", nil, "id="+team.Id+", "+err.Error())
 		} else if oldResult == nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.Update", "store.sql_team.update.find.app_error", nil, "id="+team.Id)
+			result.Err = model.NewLocAppError("SqlTeamStore.Update", "i18n.server.store.sql_team.update.find.app_error", nil, "id="+team.Id)
 		} else {
 			oldTeam := oldResult.(*model.Team)
 			team.CreateAt = oldTeam.CreateAt
@@ -121,9 +121,9 @@ func (s SqlTeamStore) Update(team *model.Team) StoreChannel {
 			team.Name = oldTeam.Name
 
 			if count, err := s.GetMaster().Update(team); err != nil {
-				result.Err = model.NewLocAppError("SqlTeamStore.Update", "store.sql_team.update.updating.app_error", nil, "id="+team.Id+", "+err.Error())
+				result.Err = model.NewLocAppError("SqlTeamStore.Update", "i18n.server.store.sql_team.update.updating.app_error", nil, "id="+team.Id+", "+err.Error())
 			} else if count != 1 {
-				result.Err = model.NewLocAppError("SqlTeamStore.Update", "store.sql_team.update.app_error", nil, "id="+team.Id)
+				result.Err = model.NewLocAppError("SqlTeamStore.Update", "i18n.server.store.sql_team.update.app_error", nil, "id="+team.Id)
 			} else {
 				result.Data = team
 			}
@@ -144,7 +144,7 @@ func (s SqlTeamStore) UpdateDisplayName(name string, teamId string) StoreChannel
 		result := StoreResult{}
 
 		if _, err := s.GetMaster().Exec("UPDATE Teams SET DisplayName = :Name WHERE Id = :Id", map[string]interface{}{"Name": name, "Id": teamId}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.UpdateName", "store.sql_team.update_display_name.app_error", nil, "team_id="+teamId)
+			result.Err = model.NewLocAppError("SqlTeamStore.UpdateName", "i18n.server.store.sql_team.update_display_name.app_error", nil, "team_id="+teamId)
 		} else {
 			result.Data = teamId
 		}
@@ -163,9 +163,9 @@ func (s SqlTeamStore) Get(id string) StoreChannel {
 		result := StoreResult{}
 
 		if obj, err := s.GetReplica().Get(model.Team{}, id); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.Get", "store.sql_team.get.finding.app_error", nil, "id="+id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.Get", "i18n.server.store.sql_team.get.finding.app_error", nil, "id="+id+", "+err.Error())
 		} else if obj == nil {
-			result.Err = model.NewAppError("SqlTeamStore.Get", "store.sql_team.get.find.app_error", nil, "id="+id, http.StatusNotFound)
+			result.Err = model.NewAppError("SqlTeamStore.Get", "i18n.server.store.sql_team.get.find.app_error", nil, "id="+id, http.StatusNotFound)
 		} else {
 			team := obj.(*model.Team)
 			if len(team.InviteId) == 0 {
@@ -191,7 +191,7 @@ func (s SqlTeamStore) GetByInviteId(inviteId string) StoreChannel {
 		team := model.Team{}
 
 		if err := s.GetReplica().SelectOne(&team, "SELECT * FROM Teams WHERE Id = :InviteId OR InviteId = :InviteId", map[string]interface{}{"InviteId": inviteId}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetByInviteId", "store.sql_team.get_by_invite_id.finding.app_error", nil, "inviteId="+inviteId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetByInviteId", "i18n.server.store.sql_team.get_by_invite_id.finding.app_error", nil, "inviteId="+inviteId+", "+err.Error())
 		}
 
 		if len(team.InviteId) == 0 {
@@ -199,7 +199,7 @@ func (s SqlTeamStore) GetByInviteId(inviteId string) StoreChannel {
 		}
 
 		if len(inviteId) == 0 || team.InviteId != inviteId {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetByInviteId", "store.sql_team.get_by_invite_id.find.app_error", nil, "inviteId="+inviteId)
+			result.Err = model.NewLocAppError("SqlTeamStore.GetByInviteId", "i18n.server.store.sql_team.get_by_invite_id.find.app_error", nil, "inviteId="+inviteId)
 		}
 
 		result.Data = &team
@@ -220,7 +220,7 @@ func (s SqlTeamStore) GetByName(name string) StoreChannel {
 		team := model.Team{}
 
 		if err := s.GetReplica().SelectOne(&team, "SELECT * FROM Teams WHERE Name = :Name", map[string]interface{}{"Name": name}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetByName", "store.sql_team.get_by_name.app_error", nil, "name="+name+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetByName", "i18n.server.store.sql_team.get_by_name.app_error", nil, "name="+name+", "+err.Error())
 		}
 
 		if len(team.InviteId) == 0 {
@@ -245,7 +245,7 @@ func (s SqlTeamStore) SearchByName(name string) StoreChannel {
 		var teams []*model.Team
 
 		if _, err := s.GetReplica().Select(&teams, "SELECT * FROM Teams WHERE Name LIKE :Name", map[string]interface{}{"Name": name + "%"}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.SearchByName", "store.sql_team.get_by_name.app_error", nil, "name="+name+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.SearchByName", "i18n.server.store.sql_team.get_by_name.app_error", nil, "name="+name+", "+err.Error())
 		}
 
 		result.Data = teams
@@ -266,7 +266,7 @@ func (s SqlTeamStore) SearchAll(term string) StoreChannel {
 		var teams []*model.Team
 
 		if _, err := s.GetReplica().Select(&teams, "SELECT * FROM Teams WHERE Name LIKE :Term OR DisplayName LIKE :Term", map[string]interface{}{"Term": term + "%"}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.SearchAll", "store.sql_team.search_all_team.app_error", nil, "term="+term+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.SearchAll", "i18n.server.store.sql_team.search_all_team.app_error", nil, "term="+term+", "+err.Error())
 		}
 
 		result.Data = teams
@@ -287,7 +287,7 @@ func (s SqlTeamStore) SearchOpen(term string) StoreChannel {
 		var teams []*model.Team
 
 		if _, err := s.GetReplica().Select(&teams, "SELECT * FROM Teams WHERE Type = 'O' AND (Name LIKE :Term OR DisplayName LIKE :Term)", map[string]interface{}{"Term": term + "%"}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.SearchOpen", "store.sql_team.search_open_team.app_error", nil, "term="+term+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.SearchOpen", "i18n.server.store.sql_team.search_open_team.app_error", nil, "term="+term+", "+err.Error())
 		}
 
 		result.Data = teams
@@ -307,7 +307,7 @@ func (s SqlTeamStore) GetAll() StoreChannel {
 
 		var data []*model.Team
 		if _, err := s.GetReplica().Select(&data, "SELECT * FROM Teams"); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeams", "store.sql_team.get_all.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeams", "i18n.server.store.sql_team.get_all.app_error", nil, err.Error())
 		}
 
 		for _, team := range data {
@@ -333,7 +333,7 @@ func (s SqlTeamStore) GetAllPage(offset int, limit int) StoreChannel {
 
 		var data []*model.Team
 		if _, err := s.GetReplica().Select(&data, "SELECT * FROM Teams LIMIT :Limit OFFSET :Offset", map[string]interface{}{"Offset": offset, "Limit": limit}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeams", "store.sql_team.get_all.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeams", "i18n.server.store.sql_team.get_all.app_error", nil, err.Error())
 		}
 
 		for _, team := range data {
@@ -359,7 +359,7 @@ func (s SqlTeamStore) GetTeamsByUserId(userId string) StoreChannel {
 
 		var data []*model.Team
 		if _, err := s.GetReplica().Select(&data, "SELECT Teams.* FROM Teams, TeamMembers WHERE TeamMembers.TeamId = Teams.Id AND TeamMembers.UserId = :UserId AND TeamMembers.DeleteAt = 0 AND Teams.DeleteAt = 0", map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetTeamsByUserId", "store.sql_team.get_all.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetTeamsByUserId", "i18n.server.store.sql_team.get_all.app_error", nil, err.Error())
 		}
 
 		for _, team := range data {
@@ -391,7 +391,7 @@ func (s SqlTeamStore) GetAllTeamListing() StoreChannel {
 
 		var data []*model.Team
 		if _, err := s.GetReplica().Select(&data, query); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeamListing", "store.sql_team.get_all_team_listing.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeamListing", "i18n.server.store.sql_team.get_all_team_listing.app_error", nil, err.Error())
 		}
 
 		for _, team := range data {
@@ -423,7 +423,7 @@ func (s SqlTeamStore) GetAllTeamPageListing(offset int, limit int) StoreChannel 
 
 		var data []*model.Team
 		if _, err := s.GetReplica().Select(&data, query, map[string]interface{}{"Offset": offset, "Limit": limit}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeamListing", "store.sql_team.get_all_team_listing.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetAllTeamListing", "i18n.server.store.sql_team.get_all_team_listing.app_error", nil, err.Error())
 		}
 
 		for _, team := range data {
@@ -448,7 +448,7 @@ func (s SqlTeamStore) PermanentDelete(teamId string) StoreChannel {
 		result := StoreResult{}
 
 		if _, err := s.GetMaster().Exec("DELETE FROM Teams WHERE Id = :TeamId", map[string]interface{}{"TeamId": teamId}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.Delete", "store.sql_team.permanent_delete.app_error", nil, "teamId="+teamId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.Delete", "i18n.server.store.sql_team.permanent_delete.app_error", nil, "teamId="+teamId+", "+err.Error())
 		}
 
 		storeChannel <- result
@@ -465,7 +465,7 @@ func (s SqlTeamStore) AnalyticsTeamCount() StoreChannel {
 		result := StoreResult{}
 
 		if c, err := s.GetReplica().SelectInt("SELECT COUNT(*) FROM Teams WHERE DeleteAt = 0", map[string]interface{}{}); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.AnalyticsTeamCount", "store.sql_team.analytics_team_count.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.AnalyticsTeamCount", "i18n.server.store.sql_team.analytics_team_count.app_error", nil, err.Error())
 		} else {
 			result.Data = c
 		}
@@ -490,12 +490,12 @@ func (s SqlTeamStore) SaveMember(member *model.TeamMember) StoreChannel {
 		}
 
 		if count, err := s.GetMaster().SelectInt("SELECT COUNT(0) FROM TeamMembers WHERE TeamId = :TeamId", map[string]interface{}{"TeamId": member.TeamId}); err != nil {
-			result.Err = model.NewLocAppError("SqlUserStore.Save", "store.sql_user.save.member_count.app_error", nil, "teamId="+member.TeamId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlUserStore.Save", "i18n.server.store.sql_user.save.member_count.app_error", nil, "teamId="+member.TeamId+", "+err.Error())
 			storeChannel <- result
 			close(storeChannel)
 			return
 		} else if int(count) > utils.Cfg.TeamSettings.MaxUsersPerTeam {
-			result.Err = model.NewLocAppError("SqlUserStore.Save", "store.sql_user.save.max_accounts.app_error", nil, "teamId="+member.TeamId)
+			result.Err = model.NewLocAppError("SqlUserStore.Save", "i18n.server.store.sql_user.save.max_accounts.app_error", nil, "teamId="+member.TeamId)
 			storeChannel <- result
 			close(storeChannel)
 			return
@@ -505,7 +505,7 @@ func (s SqlTeamStore) SaveMember(member *model.TeamMember) StoreChannel {
 			if IsUniqueConstraintError(err.Error(), []string{"TeamId", "teammembers_pkey", "PRIMARY"}) {
 				result.Err = model.NewLocAppError("SqlTeamStore.SaveMember", TEAM_MEMBER_EXISTS_ERROR, nil, "team_id="+member.TeamId+", user_id="+member.UserId+", "+err.Error())
 			} else {
-				result.Err = model.NewLocAppError("SqlTeamStore.SaveMember", "store.sql_team.save_member.save.app_error", nil, "team_id="+member.TeamId+", user_id="+member.UserId+", "+err.Error())
+				result.Err = model.NewLocAppError("SqlTeamStore.SaveMember", "i18n.server.store.sql_team.save_member.save.app_error", nil, "team_id="+member.TeamId+", user_id="+member.UserId+", "+err.Error())
 			}
 		} else {
 			result.Data = member
@@ -533,7 +533,7 @@ func (s SqlTeamStore) UpdateMember(member *model.TeamMember) StoreChannel {
 		}
 
 		if _, err := s.GetMaster().Update(member); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.UpdateMember", "store.sql_team.save_member.save.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.UpdateMember", "i18n.server.store.sql_team.save_member.save.app_error", nil, err.Error())
 		} else {
 			result.Data = member
 		}
@@ -555,9 +555,9 @@ func (s SqlTeamStore) GetMember(teamId string, userId string) StoreChannel {
 		err := s.GetReplica().SelectOne(&member, "SELECT * FROM TeamMembers WHERE TeamId = :TeamId AND UserId = :UserId", map[string]interface{}{"TeamId": teamId, "UserId": userId})
 		if err != nil {
 			if err == sql.ErrNoRows {
-				result.Err = model.NewAppError("SqlTeamStore.GetMember", "store.sql_team.get_member.missing.app_error", nil, "teamId="+teamId+" userId="+userId+" "+err.Error(), http.StatusNotFound)
+				result.Err = model.NewAppError("SqlTeamStore.GetMember", "i18n.server.store.sql_team.get_member.missing.app_error", nil, "teamId="+teamId+" userId="+userId+" "+err.Error(), http.StatusNotFound)
 			} else {
-				result.Err = model.NewLocAppError("SqlTeamStore.GetMember", "store.sql_team.get_member.app_error", nil, "teamId="+teamId+" userId="+userId+" "+err.Error())
+				result.Err = model.NewLocAppError("SqlTeamStore.GetMember", "i18n.server.store.sql_team.get_member.app_error", nil, "teamId="+teamId+" userId="+userId+" "+err.Error())
 			}
 		} else {
 			result.Data = &member
@@ -579,7 +579,7 @@ func (s SqlTeamStore) GetMembers(teamId string, offset int, limit int) StoreChan
 		var members []*model.TeamMember
 		_, err := s.GetReplica().Select(&members, "SELECT * FROM TeamMembers WHERE TeamId = :TeamId AND DeleteAt = 0 LIMIT :Limit OFFSET :Offset", map[string]interface{}{"TeamId": teamId, "Offset": offset, "Limit": limit})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetMembers", "store.sql_team.get_members.app_error", nil, "teamId="+teamId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetMembers", "i18n.server.store.sql_team.get_members.app_error", nil, "teamId="+teamId+" "+err.Error())
 		} else {
 			result.Data = members
 		}
@@ -608,7 +608,7 @@ func (s SqlTeamStore) GetTotalMemberCount(teamId string) StoreChannel {
 				AND TeamMembers.TeamId = :TeamId
 				AND TeamMembers.DeleteAt = 0`, map[string]interface{}{"TeamId": teamId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetTotalMemberCount", "store.sql_team.get_member_count.app_error", nil, "teamId="+teamId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetTotalMemberCount", "i18n.server.store.sql_team.get_member_count.app_error", nil, "teamId="+teamId+" "+err.Error())
 		} else {
 			result.Data = count
 		}
@@ -638,7 +638,7 @@ func (s SqlTeamStore) GetActiveMemberCount(teamId string) StoreChannel {
 				AND TeamMembers.DeleteAt = 0
 				AND Users.DeleteAt = 0`, map[string]interface{}{"TeamId": teamId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetActiveMemberCount", "store.sql_team.get_member_count.app_error", nil, "teamId="+teamId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetActiveMemberCount", "i18n.server.store.sql_team.get_member_count.app_error", nil, "teamId="+teamId+" "+err.Error())
 		} else {
 			result.Data = count
 		}
@@ -672,7 +672,7 @@ func (s SqlTeamStore) GetMembersByIds(teamId string, userIds []string) StoreChan
 		props["TeamId"] = teamId
 
 		if _, err := s.GetReplica().Select(&members, "SELECT * FROM TeamMembers WHERE TeamId = :TeamId AND UserId IN ("+idQuery+") AND DeleteAt = 0", props); err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetMembersByIds", "store.sql_team.get_members_by_ids.app_error", nil, "teamId="+teamId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetMembersByIds", "i18n.server.store.sql_team.get_members_by_ids.app_error", nil, "teamId="+teamId+" "+err.Error())
 		} else {
 			result.Data = members
 		}
@@ -693,7 +693,7 @@ func (s SqlTeamStore) GetTeamsForUser(userId string) StoreChannel {
 		var members []*model.TeamMember
 		_, err := s.GetReplica().Select(&members, "SELECT * FROM TeamMembers WHERE UserId = :UserId", map[string]interface{}{"UserId": userId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetMembers", "store.sql_team.get_members.app_error", nil, "userId="+userId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetMembers", "i18n.server.store.sql_team.get_members.app_error", nil, "userId="+userId+" "+err.Error())
 		} else {
 			result.Data = members
 		}
@@ -725,7 +725,7 @@ func (s SqlTeamStore) GetChannelUnreadsForAllTeams(excludeTeamId, userId string)
 			map[string]interface{}{"UserId": userId, "TeamId": excludeTeamId})
 
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetChannelUnreadsForAllTeams", "store.sql_team.get_unread.app_error", nil, "userId="+userId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetChannelUnreadsForAllTeams", "i18n.server.store.sql_team.get_unread.app_error", nil, "userId="+userId+" "+err.Error())
 		} else {
 			result.Data = data
 		}
@@ -757,7 +757,7 @@ func (s SqlTeamStore) GetChannelUnreadsForTeam(teamId, userId string) StoreChann
 			map[string]interface{}{"TeamId": teamId, "UserId": userId})
 
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlTeamStore.GetChannelUnreadsForTeam", "store.sql_team.get_unread.app_error", nil, "teamId="+teamId+" "+err.Error())
+			result.Err = model.NewLocAppError("SqlTeamStore.GetChannelUnreadsForTeam", "i18n.server.store.sql_team.get_unread.app_error", nil, "teamId="+teamId+" "+err.Error())
 		} else {
 			result.Data = data
 		}
@@ -777,7 +777,7 @@ func (s SqlTeamStore) RemoveMember(teamId string, userId string) StoreChannel {
 
 		_, err := s.GetMaster().Exec("DELETE FROM TeamMembers WHERE TeamId = :TeamId AND UserId = :UserId", map[string]interface{}{"TeamId": teamId, "UserId": userId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "store.sql_team.remove_member.app_error", nil, "team_id="+teamId+", user_id="+userId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "i18n.server.store.sql_team.remove_member.app_error", nil, "team_id="+teamId+", user_id="+userId+", "+err.Error())
 		}
 
 		storeChannel <- result
@@ -795,7 +795,7 @@ func (s SqlTeamStore) RemoveAllMembersByTeam(teamId string) StoreChannel {
 
 		_, err := s.GetMaster().Exec("DELETE FROM TeamMembers WHERE TeamId = :TeamId", map[string]interface{}{"TeamId": teamId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "store.sql_team.remove_member.app_error", nil, "team_id="+teamId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "i18n.server.store.sql_team.remove_member.app_error", nil, "team_id="+teamId+", "+err.Error())
 		}
 
 		storeChannel <- result
@@ -813,7 +813,7 @@ func (s SqlTeamStore) RemoveAllMembersByUser(userId string) StoreChannel {
 
 		_, err := s.GetMaster().Exec("DELETE FROM TeamMembers WHERE UserId = :UserId", map[string]interface{}{"UserId": userId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "store.sql_team.remove_member.app_error", nil, "user_id="+userId+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlChannelStore.RemoveMember", "i18n.server.store.sql_team.remove_member.app_error", nil, "user_id="+userId+", "+err.Error())
 		}
 
 		storeChannel <- result

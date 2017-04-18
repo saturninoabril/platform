@@ -49,7 +49,7 @@ func (s SqlComplianceStore) Save(compliance *model.Compliance) StoreChannel {
 		}
 
 		if err := s.GetMaster().Insert(compliance); err != nil {
-			result.Err = model.NewLocAppError("SqlComplianceStore.Save", "store.sql_compliance.save.saving.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlComplianceStore.Save", "i18n.server.store.sql_compliance.save.saving.app_error", nil, err.Error())
 		} else {
 			result.Data = compliance
 		}
@@ -75,7 +75,7 @@ func (us SqlComplianceStore) Update(compliance *model.Compliance) StoreChannel {
 		}
 
 		if _, err := us.GetMaster().Update(compliance); err != nil {
-			result.Err = model.NewLocAppError("SqlComplianceStore.Update", "store.sql_compliance.save.saving.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlComplianceStore.Update", "i18n.server.store.sql_compliance.save.saving.app_error", nil, err.Error())
 		} else {
 			result.Data = compliance
 		}
@@ -98,7 +98,7 @@ func (s SqlComplianceStore) GetAll(offset, limit int) StoreChannel {
 
 		var compliances model.Compliances
 		if _, err := s.GetReplica().Select(&compliances, query, map[string]interface{}{"Offset": offset, "Limit": limit}); err != nil {
-			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "store.sql_compliance.get.finding.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "i18n.server.store.sql_compliance.get.finding.app_error", nil, err.Error())
 		} else {
 			result.Data = compliances
 		}
@@ -118,9 +118,9 @@ func (us SqlComplianceStore) Get(id string) StoreChannel {
 		result := StoreResult{}
 
 		if obj, err := us.GetReplica().Get(model.Compliance{}, id); err != nil {
-			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "store.sql_compliance.get.finding.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "i18n.server.store.sql_compliance.get.finding.app_error", nil, err.Error())
 		} else if obj == nil {
-			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "store.sql_compliance.get.finding.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlComplianceStore.Get", "i18n.server.store.sql_compliance.get.finding.app_error", nil, err.Error())
 		} else {
 			result.Data = obj.(*model.Compliance)
 		}
@@ -219,7 +219,7 @@ func (s SqlComplianceStore) ComplianceExport(job *model.Compliance) StoreChannel
 		var cposts []*model.CompliancePost
 
 		if _, err := s.GetReplica().Select(&cposts, query, props); err != nil {
-			result.Err = model.NewLocAppError("SqlPostStore.ComplianceExport", "store.sql_post.compliance_export.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPostStore.ComplianceExport", "i18n.server.store.sql_post.compliance_export.app_error", nil, err.Error())
 		} else {
 			result.Data = cposts
 		}

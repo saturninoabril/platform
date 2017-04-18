@@ -94,7 +94,7 @@ func ListAutocompleteCommands(teamId string, T goi18n.TranslateFunc) ([]*model.C
 
 func ListTeamCommands(teamId string) ([]*model.Command, *model.AppError) {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return nil, model.NewAppError("ListTeamCommands", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("ListTeamCommands", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if result := <-Srv.Store.Command().GetByTeam(teamId); result.Err != nil {
@@ -146,7 +146,7 @@ func ExecuteCommand(args *model.CommandArgs) (*model.CommandResponse, *model.App
 		return HandleCommandResponse(provider.GetCommand(args.T), args, response, true)
 	} else {
 		if !*utils.Cfg.ServiceSettings.EnableCommands {
-			return nil, model.NewAppError("ExecuteCommand", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+			return nil, model.NewAppError("ExecuteCommand", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 		}
 
 		chanChan := Srv.Store.Channel().Get(args.ChannelId, true)
@@ -181,7 +181,7 @@ func ExecuteCommand(args *model.CommandArgs) (*model.CommandResponse, *model.App
 			teamCmds := result.Data.([]*model.Command)
 			for _, cmd := range teamCmds {
 				if trigger == cmd.Trigger {
-					l4g.Debug(fmt.Sprintf(utils.T("api.command.execute_command.debug"), trigger, args.UserId))
+					l4g.Debug(fmt.Sprintf(utils.T("i18n.server.api.command.execute_command.debug"), trigger, args.UserId))
 
 					p := url.Values{}
 					p.Set("token", cmd.Token)
@@ -216,19 +216,19 @@ func ExecuteCommand(args *model.CommandArgs) (*model.CommandResponse, *model.App
 					}
 
 					if resp, err := client.Do(req); err != nil {
-						return nil, model.NewAppError("command", "api.command.execute_command.failed.app_error", map[string]interface{}{"Trigger": trigger}, err.Error(), http.StatusInternalServerError)
+						return nil, model.NewAppError("command", "i18n.server.api.command.execute_command.failed.app_error", map[string]interface{}{"Trigger": trigger}, err.Error(), http.StatusInternalServerError)
 					} else {
 						if resp.StatusCode == http.StatusOK {
 							response := model.CommandResponseFromJson(resp.Body)
 							if response == nil {
-								return nil, model.NewAppError("command", "api.command.execute_command.failed_empty.app_error", map[string]interface{}{"Trigger": trigger}, "", http.StatusInternalServerError)
+								return nil, model.NewAppError("command", "i18n.server.api.command.execute_command.failed_empty.app_error", map[string]interface{}{"Trigger": trigger}, "", http.StatusInternalServerError)
 							} else {
 								return HandleCommandResponse(cmd, args, response, false)
 							}
 						} else {
 							defer resp.Body.Close()
 							body, _ := ioutil.ReadAll(resp.Body)
-							return nil, model.NewAppError("command", "api.command.execute_command.failed_resp.app_error", map[string]interface{}{"Trigger": trigger, "Status": resp.Status}, string(body), http.StatusInternalServerError)
+							return nil, model.NewAppError("command", "i18n.server.api.command.execute_command.failed_resp.app_error", map[string]interface{}{"Trigger": trigger, "Status": resp.Status}, string(body), http.StatusInternalServerError)
 						}
 					}
 				}
@@ -236,7 +236,7 @@ func ExecuteCommand(args *model.CommandArgs) (*model.CommandResponse, *model.App
 		}
 	}
 
-	return nil, model.NewAppError("command", "api.command.execute_command.not_found.app_error", map[string]interface{}{"Trigger": trigger}, "", http.StatusNotFound)
+	return nil, model.NewAppError("command", "i18n.server.api.command.execute_command.not_found.app_error", map[string]interface{}{"Trigger": trigger}, "", http.StatusNotFound)
 }
 
 func HandleCommandResponse(command *model.Command, args *model.CommandArgs, response *model.CommandResponse, builtIn bool) (*model.CommandResponse, *model.AppError) {
@@ -277,7 +277,7 @@ func HandleCommandResponse(command *model.Command, args *model.CommandArgs, resp
 
 func CreateCommand(cmd *model.Command) (*model.Command, *model.AppError) {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return nil, model.NewAppError("CreateCommand", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("CreateCommand", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	cmd.Trigger = strings.ToLower(cmd.Trigger)
@@ -288,13 +288,13 @@ func CreateCommand(cmd *model.Command) (*model.Command, *model.AppError) {
 		teamCmds := result.Data.([]*model.Command)
 		for _, existingCommand := range teamCmds {
 			if cmd.Trigger == existingCommand.Trigger {
-				return nil, model.NewAppError("CreateCommand", "api.command.duplicate_trigger.app_error", nil, "", http.StatusBadRequest)
+				return nil, model.NewAppError("CreateCommand", "i18n.server.api.command.duplicate_trigger.app_error", nil, "", http.StatusBadRequest)
 			}
 		}
 		for _, builtInProvider := range commandProviders {
 			builtInCommand := *builtInProvider.GetCommand(utils.T)
 			if cmd.Trigger == builtInCommand.Trigger {
-				return nil, model.NewAppError("CreateCommand", "api.command.duplicate_trigger.app_error", nil, "", http.StatusBadRequest)
+				return nil, model.NewAppError("CreateCommand", "i18n.server.api.command.duplicate_trigger.app_error", nil, "", http.StatusBadRequest)
 			}
 		}
 	}
@@ -308,7 +308,7 @@ func CreateCommand(cmd *model.Command) (*model.Command, *model.AppError) {
 
 func GetCommand(commandId string) (*model.Command, *model.AppError) {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return nil, model.NewAppError("GetCommand", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("GetCommand", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if result := <-Srv.Store.Command().Get(commandId); result.Err != nil {
@@ -321,7 +321,7 @@ func GetCommand(commandId string) (*model.Command, *model.AppError) {
 
 func UpdateCommand(oldCmd, updatedCmd *model.Command) (*model.Command, *model.AppError) {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return nil, model.NewAppError("UpdateCommand", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("UpdateCommand", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	updatedCmd.Trigger = strings.ToLower(updatedCmd.Trigger)
@@ -342,7 +342,7 @@ func UpdateCommand(oldCmd, updatedCmd *model.Command) (*model.Command, *model.Ap
 
 func RegenCommandToken(cmd *model.Command) (*model.Command, *model.AppError) {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return nil, model.NewAppError("RegenCommandToken", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("RegenCommandToken", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	cmd.Token = model.NewId()
@@ -356,7 +356,7 @@ func RegenCommandToken(cmd *model.Command) (*model.Command, *model.AppError) {
 
 func DeleteCommand(commandId string) *model.AppError {
 	if !*utils.Cfg.ServiceSettings.EnableCommands {
-		return model.NewAppError("DeleteCommand", "api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return model.NewAppError("DeleteCommand", "i18n.server.api.command.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if err := (<-Srv.Store.Command().Delete(commandId, model.GetMillis())).Err; err != nil {

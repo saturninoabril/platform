@@ -57,12 +57,12 @@ func TestCreateChannel(t *testing.T) {
 	}
 
 	_, resp = Client.CreateChannel(channel)
-	CheckErrorMessage(t, resp, "store.sql_channel.save_channel.exists.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.store.sql_channel.save_channel.exists.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	direct := &model.Channel{DisplayName: "Test API Name", Name: GenerateTestChannelName(), Type: model.CHANNEL_DIRECT, TeamId: team.Id}
 	_, resp = Client.CreateChannel(direct)
-	CheckErrorMessage(t, resp, "api.channel.create_channel.direct_channel.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.channel.create_channel.direct_channel.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	Client.Logout()

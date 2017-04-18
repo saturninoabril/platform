@@ -37,23 +37,23 @@ type AccessResponse struct {
 func (ad *AccessData) IsValid() *AppError {
 
 	if len(ad.ClientId) == 0 || len(ad.ClientId) > 26 {
-		return NewLocAppError("AccessData.IsValid", "model.access.is_valid.client_id.app_error", nil, "")
+		return NewLocAppError("AccessData.IsValid", "i18n.server.model.access.is_valid.client_id.app_error", nil, "")
 	}
 
 	if len(ad.UserId) == 0 || len(ad.UserId) > 26 {
-		return NewLocAppError("AccessData.IsValid", "model.access.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("AccessData.IsValid", "i18n.server.model.access.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(ad.Token) != 26 {
-		return NewLocAppError("AccessData.IsValid", "model.access.is_valid.access_token.app_error", nil, "")
+		return NewLocAppError("AccessData.IsValid", "i18n.server.model.access.is_valid.access_token.app_error", nil, "")
 	}
 
 	if len(ad.RefreshToken) > 26 {
-		return NewLocAppError("AccessData.IsValid", "model.access.is_valid.refresh_token.app_error", nil, "")
+		return NewLocAppError("AccessData.IsValid", "i18n.server.model.access.is_valid.refresh_token.app_error", nil, "")
 	}
 
 	if len(ad.RedirectUri) == 0 || len(ad.RedirectUri) > 256 || !IsValidHttpUrl(ad.RedirectUri) {
-		return NewLocAppError("AccessData.IsValid", "model.access.is_valid.redirect_uri.app_error", nil, "")
+		return NewLocAppError("AccessData.IsValid", "i18n.server.model.access.is_valid.redirect_uri.app_error", nil, "")
 	}
 
 	return nil

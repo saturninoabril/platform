@@ -43,7 +43,7 @@ func InitHTMLWithDir(dir string) {
 	// Watch the templates folder for changes.
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
-		l4g.Error(T("web.create_dir.error"), err)
+		l4g.Error(T("i18n.server.web.create_dir.error"), err)
 	}
 
 	go func() {
@@ -51,20 +51,20 @@ func InitHTMLWithDir(dir string) {
 			select {
 			case event := <-watcher.Events:
 				if event.Op&fsnotify.Write == fsnotify.Write {
-					l4g.Info(T("web.reparse_templates.info"), event.Name)
+					l4g.Info(T("i18n.server.web.reparse_templates.info"), event.Name)
 					if htmlTemplates, err = template.ParseGlob(templatesDir + "*.html"); err != nil {
-						l4g.Error(T("web.parsing_templates.error"), err)
+						l4g.Error(T("i18n.server.web.parsing_templates.error"), err)
 					}
 				}
 			case err := <-watcher.Errors:
-				l4g.Error(T("web.dir_fail.error"), err)
+				l4g.Error(T("i18n.server.web.dir_fail.error"), err)
 			}
 		}
 	}()
 
 	err = watcher.Add(templatesDir)
 	if err != nil {
-		l4g.Error(T("web.watcher_fail.error"), err)
+		l4g.Error(T("i18n.server.web.watcher_fail.error"), err)
 	}
 }
 

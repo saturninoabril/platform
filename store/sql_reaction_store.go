@@ -56,7 +56,7 @@ func (s SqlReactionStore) Save(reaction *model.Reaction) StoreChannel {
 		}
 
 		if transaction, err := s.GetMaster().Begin(); err != nil {
-			result.Err = model.NewLocAppError("SqlReactionStore.Save", "store.sql_reaction.save.begin.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlReactionStore.Save", "i18n.server.store.sql_reaction.save.begin.app_error", nil, err.Error())
 		} else {
 			err := saveReactionAndUpdatePost(transaction, reaction)
 
@@ -65,12 +65,12 @@ func (s SqlReactionStore) Save(reaction *model.Reaction) StoreChannel {
 
 				// We don't consider duplicated save calls as an error
 				if !IsUniqueConstraintError(err.Error(), []string{"reactions_pkey", "PRIMARY"}) {
-					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "store.sql_reaction.save.save.app_error", nil, err.Error())
+					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "i18n.server.store.sql_reaction.save.save.app_error", nil, err.Error())
 				}
 			} else {
 				if err := transaction.Commit(); err != nil {
 					// don't need to rollback here since the transaction is already closed
-					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "store.sql_reaction.save.commit.app_error", nil, err.Error())
+					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "i18n.server.store.sql_reaction.save.commit.app_error", nil, err.Error())
 				}
 			}
 
@@ -93,17 +93,17 @@ func (s SqlReactionStore) Delete(reaction *model.Reaction) StoreChannel {
 		result := StoreResult{}
 
 		if transaction, err := s.GetMaster().Begin(); err != nil {
-			result.Err = model.NewLocAppError("SqlReactionStore.Delete", "store.sql_reaction.delete.begin.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlReactionStore.Delete", "i18n.server.store.sql_reaction.delete.begin.app_error", nil, err.Error())
 		} else {
 			err := deleteReactionAndUpdatePost(transaction, reaction)
 
 			if err != nil {
 				transaction.Rollback()
 
-				result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "store.sql_reaction.delete.app_error", nil, err.Error())
+				result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "i18n.server.store.sql_reaction.delete.app_error", nil, err.Error())
 			} else if err := transaction.Commit(); err != nil {
 				// don't need to rollback here since the transaction is already closed
-				result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "store.sql_reaction.delete.commit.app_error", nil, err.Error())
+				result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "i18n.server.store.sql_reaction.delete.commit.app_error", nil, err.Error())
 			} else {
 				result.Data = reaction
 			}
@@ -205,7 +205,7 @@ func (s SqlReactionStore) GetForPost(postId string, allowFromCache bool) StoreCh
 				PostId = :PostId
 			ORDER BY
 				CreateAt`, map[string]interface{}{"PostId": postId}); err != nil {
-			result.Err = model.NewLocAppError("SqlReactionStore.GetForPost", "store.sql_reaction.get_for_post.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlReactionStore.GetForPost", "i18n.server.store.sql_reaction.get_for_post.app_error", nil, "")
 		} else {
 			result.Data = reactions
 
@@ -236,7 +236,7 @@ func (s SqlReactionStore) DeleteAllWithEmojiName(emojiName string) StoreChannel 
 			WHERE
 				EmojiName = :EmojiName`, map[string]interface{}{"EmojiName": emojiName}); err != nil {
 			result.Err = model.NewLocAppError("SqlReactionStore.DeleteAllWithEmojiName",
-				"store.sql_reaction.delete_all_with_emoji_name.get_reactions.app_error", nil,
+				"i18n.server.store.sql_reaction.delete_all_with_emoji_name.get_reactions.app_error", nil,
 				"emoji_name="+emojiName+", error="+err.Error())
 			storeChannel <- result
 			close(storeChannel)
@@ -249,7 +249,7 @@ func (s SqlReactionStore) DeleteAllWithEmojiName(emojiName string) StoreChannel 
 			WHERE
 				EmojiName = :EmojiName`, map[string]interface{}{"EmojiName": emojiName}); err != nil {
 			result.Err = model.NewLocAppError("SqlReactionStore.DeleteAllWithEmojiName",
-				"store.sql_reaction.delete_all_with_emoji_name.delete_reactions.app_error", nil,
+				"i18n.server.store.sql_reaction.delete_all_with_emoji_name.delete_reactions.app_error", nil,
 				"emoji_name="+emojiName+", error="+err.Error())
 			storeChannel <- result
 			close(storeChannel)
@@ -259,7 +259,7 @@ func (s SqlReactionStore) DeleteAllWithEmojiName(emojiName string) StoreChannel 
 		for _, reaction := range reactions {
 			if _, err := s.GetMaster().Exec(UPDATE_POST_HAS_REACTIONS_QUERY,
 				map[string]interface{}{"PostId": reaction.PostId, "UpdateAt": model.GetMillis()}); err != nil {
-				l4g.Warn(utils.T("store.sql_reaction.delete_all_with_emoji_name.update_post.warn"), reaction.PostId, err.Error())
+				l4g.Warn(utils.T("i18n.server.store.sql_reaction.delete_all_with_emoji_name.update_post.warn"), reaction.PostId, err.Error())
 			}
 		}
 

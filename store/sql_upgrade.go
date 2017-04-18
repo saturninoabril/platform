@@ -56,12 +56,12 @@ func UpgradeDatabase(sqlStore *SqlStore) {
 		}
 
 		sqlStore.SchemaVersion = model.CurrentVersion
-		l4g.Info(utils.T("store.sql.schema_set.info"), model.CurrentVersion)
+		l4g.Info(utils.T("i18n.server.store.sql.schema_set.info"), model.CurrentVersion)
 	}
 
 	// If we're not on the current version then it's too old to be upgraded
 	if sqlStore.SchemaVersion != model.CurrentVersion {
-		l4g.Critical(utils.T("store.sql.schema_version.critical"), sqlStore.SchemaVersion)
+		l4g.Critical(utils.T("i18n.server.store.sql.schema_version.critical"), sqlStore.SchemaVersion)
 		time.Sleep(time.Second)
 		os.Exit(EXIT_TOO_OLD)
 	}
@@ -75,13 +75,13 @@ func saveSchemaVersion(sqlStore *SqlStore, version string) {
 	}
 
 	sqlStore.SchemaVersion = version
-	l4g.Warn(utils.T("store.sql.upgraded.warn"), version)
+	l4g.Warn(utils.T("i18n.server.store.sql.upgraded.warn"), version)
 }
 
 func shouldPerformUpgrade(sqlStore *SqlStore, currentSchemaVersion string, expectedSchemaVersion string) bool {
 	if sqlStore.SchemaVersion == currentSchemaVersion {
-		l4g.Warn(utils.T("store.sql.schema_out_of_date.warn"), currentSchemaVersion)
-		l4g.Warn(utils.T("store.sql.schema_upgrade_attempt.warn"), expectedSchemaVersion)
+		l4g.Warn(utils.T("i18n.server.store.sql.schema_out_of_date.warn"), currentSchemaVersion)
+		l4g.Warn(utils.T("i18n.server.store.sql.schema_upgrade_attempt.warn"), expectedSchemaVersion)
 
 		return true
 	}
@@ -105,7 +105,7 @@ func UpgradeDatabaseToVersion32(sqlStore *SqlStore) {
 }
 
 func themeMigrationFailed(err error) {
-	l4g.Critical(utils.T("store.sql_user.migrate_theme.critical"), err)
+	l4g.Critical(utils.T("i18n.server.store.sql_user.migrate_theme.critical"), err)
 	time.Sleep(time.Second)
 	os.Exit(EXIT_THEME_MIGRATION)
 }

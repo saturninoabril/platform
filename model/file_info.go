@@ -86,27 +86,27 @@ func (o *FileInfo) PreSave() {
 
 func (o *FileInfo) IsValid() *AppError {
 	if len(o.Id) != 26 {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.id.app_error", nil, "")
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.id.app_error", nil, "")
 	}
 
 	if len(o.CreatorId) != 26 {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.user_id.app_error", nil, "id="+o.Id)
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.user_id.app_error", nil, "id="+o.Id)
 	}
 
 	if len(o.PostId) != 0 && len(o.PostId) != 26 {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.post_id.app_error", nil, "id="+o.Id)
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.post_id.app_error", nil, "id="+o.Id)
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.create_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.create_at.app_error", nil, "id="+o.Id)
 	}
 
 	if o.UpdateAt == 0 {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.update_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.update_at.app_error", nil, "id="+o.Id)
 	}
 
 	if o.Path == "" {
-		return NewLocAppError("FileInfo.IsValid", "model.file_info.is_valid.path.app_error", nil, "id="+o.Id)
+		return NewLocAppError("FileInfo.IsValid", "i18n.server.model.file_info.is_valid.path.app_error", nil, "id="+o.Id)
 	}
 
 	return nil
@@ -144,7 +144,7 @@ func GetInfoForBytes(name string, data []byte) (*FileInfo, *AppError) {
 				if gifConfig, err := gif.DecodeAll(bytes.NewReader(data)); err != nil {
 					// Still return the rest of the info even though it doesn't appear to be an actual gif
 					info.HasPreviewImage = true
-					err = NewLocAppError("GetInfoForBytes", "model.file_info.get.gif.app_error", nil, "name="+name)
+					err = NewLocAppError("GetInfoForBytes", "i18n.server.model.file_info.get.gif.app_error", nil, "name="+name)
 				} else {
 					info.HasPreviewImage = len(gifConfig.Image) == 1
 				}

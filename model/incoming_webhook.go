@@ -81,35 +81,35 @@ func IncomingWebhookListFromJson(data io.Reader) []*IncomingWebhook {
 func (o *IncomingWebhook) IsValid() *AppError {
 
 	if len(o.Id) != 26 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.id.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.id.app_error", nil, "")
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.create_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.create_at.app_error", nil, "id="+o.Id)
 	}
 
 	if o.UpdateAt == 0 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.update_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.update_at.app_error", nil, "id="+o.Id)
 	}
 
 	if len(o.UserId) != 26 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.user_id.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.user_id.app_error", nil, "")
 	}
 
 	if len(o.ChannelId) != 26 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.channel_id.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.channel_id.app_error", nil, "")
 	}
 
 	if len(o.TeamId) != 26 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.team_id.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.team_id.app_error", nil, "")
 	}
 
 	if len(o.DisplayName) > 64 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.display_name.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.display_name.app_error", nil, "")
 	}
 
 	if len(o.Description) > 128 {
-		return NewLocAppError("IncomingWebhook.IsValid", "model.incoming_hook.description.app_error", nil, "")
+		return NewLocAppError("IncomingWebhook.IsValid", "i18n.server.model.incoming_hook.description.app_error", nil, "")
 	}
 
 	return nil

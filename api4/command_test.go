@@ -44,20 +44,20 @@ func TestCreateCommand(t *testing.T) {
 
 	_, resp = th.SystemAdminClient.CreateCommand(newCmd)
 	CheckBadRequestStatus(t, resp)
-	CheckErrorMessage(t, resp, "api.command.duplicate_trigger.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.command.duplicate_trigger.app_error")
 
 	newCmd.Method = "Wrong"
 	newCmd.Trigger = "test"
 	_, resp = th.SystemAdminClient.CreateCommand(newCmd)
 	CheckInternalErrorStatus(t, resp)
-	CheckErrorMessage(t, resp, "model.command.is_valid.method.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.model.command.is_valid.method.app_error")
 
 	*utils.Cfg.ServiceSettings.EnableCommands = false
 	newCmd.Method = "P"
 	newCmd.Trigger = "test"
 	_, resp = th.SystemAdminClient.CreateCommand(newCmd)
 	CheckNotImplementedStatus(t, resp)
-	CheckErrorMessage(t, resp, "api.command.disabled.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.command.disabled.app_error")
 }
 
 func TestUpdateCommand(t *testing.T) {

@@ -55,7 +55,7 @@ func GetTranslationsBySystemLocale() i18n.TranslateFunc {
 		panic("Failed to load system translations")
 	}
 
-	l4g.Info(translations("utils.i18n.loaded"), locale, locales[locale])
+	l4g.Info(translations("i18n.server.utils.i18n.loaded"), locale, locales[locale])
 	return translations
 }
 

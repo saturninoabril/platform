@@ -42,13 +42,13 @@ func TestWebSocket(t *testing.T) {
 
 	WebSocketClient.SendMessage("", nil)
 	time.Sleep(300 * time.Millisecond)
-	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "api.web_socket_router.no_action.app_error" {
+	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "i18n.server.api.web_socket_router.no_action.app_error" {
 		t.Fatal("should have been no action response")
 	}
 
 	WebSocketClient.SendMessage("junk", nil)
 	time.Sleep(300 * time.Millisecond)
-	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "api.web_socket_router.bad_action.app_error" {
+	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "i18n.server.api.web_socket_router.bad_action.app_error" {
 		t.Fatal("should have been bad action response")
 	}
 
@@ -57,13 +57,13 @@ func TestWebSocket(t *testing.T) {
 	req.Action = "ping"
 	WebSocketClient.Conn.WriteJSON(req)
 	time.Sleep(300 * time.Millisecond)
-	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "api.web_socket_router.bad_seq.app_error" {
+	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "i18n.server.api.web_socket_router.bad_seq.app_error" {
 		t.Fatal("should have been bad action response")
 	}
 
 	WebSocketClient.UserTyping("", "")
 	time.Sleep(300 * time.Millisecond)
-	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "api.websocket_handler.invalid_param.app_error" {
+	if resp := <-WebSocketClient.ResponseChannel; resp.Error.Id != "i18n.server.api.websocket_handler.invalid_param.app_error" {
 		t.Fatal("should have been invalid param response")
 	} else {
 		if resp.Error.DetailedError != "" {

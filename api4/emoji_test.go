@@ -45,7 +45,7 @@ func TestCreateEmoji(t *testing.T) {
 	}
 	_, resp = Client.CreateEmoji(emoji2, utils.CreateTestGif(t, 10, 10), "image.gif")
 	CheckBadRequestStatus(t, resp)
-	CheckErrorMessage(t, resp, "api.emoji.create.duplicate.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.emoji.create.duplicate.app_error")
 
 	// try to create a valid animated gif emoji
 	emoji = &model.Emoji{
@@ -126,7 +126,7 @@ func TestCreateEmoji(t *testing.T) {
 
 	_, resp = Client.CreateEmoji(emoji, make([]byte, 100, 100), "image.gif")
 	CheckBadRequestStatus(t, resp)
-	CheckErrorMessage(t, resp, "api.emoji.upload.image.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.emoji.upload.image.app_error")
 
 	// try to create an emoji as another user
 	emoji = &model.Emoji{

@@ -54,7 +54,7 @@ func TotalWebsocketConnections() int {
 }
 
 func HubStart() {
-	l4g.Info(utils.T("api.web_hub.start.starting.debug"), runtime.NumCPU()*2)
+	l4g.Info(utils.T("i18n.server.api.web_hub.start.starting.debug"), runtime.NumCPU()*2)
 
 	// Total number of hubs is twice the number of CPUs.
 	hubs = make([]*Hub, runtime.NumCPU()*2)
@@ -66,7 +66,7 @@ func HubStart() {
 }
 
 func HubStop() {
-	l4g.Info(utils.T("api.web_hub.start.stopping.debug"))
+	l4g.Info(utils.T("i18n.server.api.web_hub.start.stopping.debug"))
 
 	for _, hub := range hubs {
 		hub.Stop()

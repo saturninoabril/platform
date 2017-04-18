@@ -64,27 +64,27 @@ func ReadFile(path string) ([]byte, *model.AppError) {
 		secure := *utils.Cfg.FileSettings.AmazonS3SSL
 		s3Clnt, err := s3.New(endpoint, accessKey, secretKey, secure)
 		if err != nil {
-			return nil, model.NewLocAppError("ReadFile", "api.file.read_file.s3.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("ReadFile", "i18n.server.api.file.read_file.s3.app_error", nil, err.Error())
 		}
 		bucket := utils.Cfg.FileSettings.AmazonS3Bucket
 		minioObject, err := s3Clnt.GetObject(bucket, path)
 		defer minioObject.Close()
 		if err != nil {
-			return nil, model.NewLocAppError("ReadFile", "api.file.read_file.s3.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("ReadFile", "i18n.server.api.file.read_file.s3.app_error", nil, err.Error())
 		}
 		if f, err := ioutil.ReadAll(minioObject); err != nil {
-			return nil, model.NewLocAppError("ReadFile", "api.file.read_file.s3.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("ReadFile", "i18n.server.api.file.read_file.s3.app_error", nil, err.Error())
 		} else {
 			return f, nil
 		}
 	} else if utils.Cfg.FileSettings.DriverName == model.IMAGE_DRIVER_LOCAL {
 		if f, err := ioutil.ReadFile(utils.Cfg.FileSettings.Directory + path); err != nil {
-			return nil, model.NewLocAppError("ReadFile", "api.file.read_file.reading_local.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("ReadFile", "i18n.server.api.file.read_file.reading_local.app_error", nil, err.Error())
 		} else {
 			return f, nil
 		}
 	} else {
-		return nil, model.NewLocAppError("ReadFile", "api.file.read_file.configured.app_error", nil, "")
+		return nil, model.NewLocAppError("ReadFile", "i18n.server.api.file.read_file.configured.app_error", nil, "")
 	}
 }
 
@@ -96,27 +96,27 @@ func MoveFile(oldPath, newPath string) *model.AppError {
 		secure := *utils.Cfg.FileSettings.AmazonS3SSL
 		s3Clnt, err := s3.New(endpoint, accessKey, secretKey, secure)
 		if err != nil {
-			return model.NewLocAppError("moveFile", "api.file.write_file.s3.app_error", nil, err.Error())
+			return model.NewLocAppError("moveFile", "i18n.server.api.file.write_file.s3.app_error", nil, err.Error())
 		}
 		bucket := utils.Cfg.FileSettings.AmazonS3Bucket
 
 		var copyConds = s3.NewCopyConditions()
 		if err = s3Clnt.CopyObject(bucket, newPath, "/"+path.Join(bucket, oldPath), copyConds); err != nil {
-			return model.NewLocAppError("moveFile", "api.file.move_file.delete_from_s3.app_error", nil, err.Error())
+			return model.NewLocAppError("moveFile", "i18n.server.api.file.move_file.delete_from_s3.app_error", nil, err.Error())
 		}
 		if err = s3Clnt.RemoveObject(bucket, oldPath); err != nil {
-			return model.NewLocAppError("moveFile", "api.file.move_file.delete_from_s3.app_error", nil, err.Error())
+			return model.NewLocAppError("moveFile", "i18n.server.api.file.move_file.delete_from_s3.app_error", nil, err.Error())
 		}
 	} else if utils.Cfg.FileSettings.DriverName == model.IMAGE_DRIVER_LOCAL {
 		if err := os.MkdirAll(filepath.Dir(utils.Cfg.FileSettings.Directory+newPath), 0774); err != nil {
-			return model.NewLocAppError("moveFile", "api.file.move_file.rename.app_error", nil, err.Error())
+			return model.NewLocAppError("moveFile", "i18n.server.api.file.move_file.rename.app_error", nil, err.Error())
 		}
 
 		if err := os.Rename(utils.Cfg.FileSettings.Directory+oldPath, utils.Cfg.FileSettings.Directory+newPath); err != nil {
-			return model.NewLocAppError("moveFile", "api.file.move_file.rename.app_error", nil, err.Error())
+			return model.NewLocAppError("moveFile", "i18n.server.api.file.move_file.rename.app_error", nil, err.Error())
 		}
 	} else {
-		return model.NewLocAppError("moveFile", "api.file.move_file.configured.app_error", nil, "")
+		return model.NewLocAppError("moveFile", "i18n.server.api.file.move_file.configured.app_error", nil, "")
 	}
 
 	return nil
@@ -130,7 +130,7 @@ func WriteFile(f []byte, path string) *model.AppError {
 		secure := *utils.Cfg.FileSettings.AmazonS3SSL
 		s3Clnt, err := s3.New(endpoint, accessKey, secretKey, secure)
 		if err != nil {
-			return model.NewLocAppError("WriteFile", "api.file.write_file.s3.app_error", nil, err.Error())
+			return model.NewLocAppError("WriteFile", "i18n.server.api.file.write_file.s3.app_error", nil, err.Error())
 		}
 		bucket := utils.Cfg.FileSettings.AmazonS3Bucket
 		ext := filepath.Ext(path)
@@ -141,14 +141,14 @@ func WriteFile(f []byte, path string) *model.AppError {
 			_, err = s3Clnt.PutObject(bucket, path, bytes.NewReader(f), "binary/octet-stream")
 		}
 		if err != nil {
-			return model.NewLocAppError("WriteFile", "api.file.write_file.s3.app_error", nil, err.Error())
+			return model.NewLocAppError("WriteFile", "i18n.server.api.file.write_file.s3.app_error", nil, err.Error())
 		}
 	} else if utils.Cfg.FileSettings.DriverName == model.IMAGE_DRIVER_LOCAL {
 		if err := writeFileLocally(f, utils.Cfg.FileSettings.Directory+path); err != nil {
 			return err
 		}
 	} else {
-		return model.NewLocAppError("WriteFile", "api.file.write_file.configured.app_error", nil, "")
+		return model.NewLocAppError("WriteFile", "i18n.server.api.file.write_file.configured.app_error", nil, "")
 	}
 
 	return nil
@@ -157,11 +157,11 @@ func WriteFile(f []byte, path string) *model.AppError {
 func writeFileLocally(f []byte, path string) *model.AppError {
 	if err := os.MkdirAll(filepath.Dir(path), 0774); err != nil {
 		directory, _ := filepath.Abs(filepath.Dir(path))
-		return model.NewLocAppError("WriteFile", "api.file.write_file_locally.create_dir.app_error", nil, "directory="+directory+", err="+err.Error())
+		return model.NewLocAppError("WriteFile", "i18n.server.api.file.write_file_locally.create_dir.app_error", nil, "directory="+directory+", err="+err.Error())
 	}
 
 	if err := ioutil.WriteFile(path, f, 0644); err != nil {
-		return model.NewLocAppError("WriteFile", "api.file.write_file_locally.writing.app_error", nil, err.Error())
+		return model.NewLocAppError("WriteFile", "i18n.server.api.file.write_file_locally.writing.app_error", nil, err.Error())
 	}
 
 	return nil
@@ -169,21 +169,21 @@ func writeFileLocally(f []byte, path string) *model.AppError {
 
 func openFileWriteStream(path string) (io.Writer, *model.AppError) {
 	if utils.Cfg.FileSettings.DriverName == model.IMAGE_DRIVER_S3 {
-		return nil, model.NewLocAppError("openFileWriteStream", "api.file.open_file_write_stream.s3.app_error", nil, "")
+		return nil, model.NewLocAppError("openFileWriteStream", "i18n.server.api.file.open_file_write_stream.s3.app_error", nil, "")
 	} else if utils.Cfg.FileSettings.DriverName == model.IMAGE_DRIVER_LOCAL {
 		if err := os.MkdirAll(filepath.Dir(utils.Cfg.FileSettings.Directory+path), 0774); err != nil {
-			return nil, model.NewLocAppError("openFileWriteStream", "api.file.open_file_write_stream.creating_dir.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("openFileWriteStream", "i18n.server.api.file.open_file_write_stream.creating_dir.app_error", nil, err.Error())
 		}
 
 		if fileHandle, err := os.Create(utils.Cfg.FileSettings.Directory + path); err != nil {
-			return nil, model.NewLocAppError("openFileWriteStream", "api.file.open_file_write_stream.local_server.app_error", nil, err.Error())
+			return nil, model.NewLocAppError("openFileWriteStream", "i18n.server.api.file.open_file_write_stream.local_server.app_error", nil, err.Error())
 		} else {
 			fileHandle.Chmod(0644)
 			return fileHandle, nil
 		}
 	}
 
-	return nil, model.NewLocAppError("openFileWriteStream", "api.file.open_file_write_stream.configured.app_error", nil, "")
+	return nil, model.NewLocAppError("openFileWriteStream", "i18n.server.api.file.open_file_write_stream.configured.app_error", nil, "")
 }
 
 func closeFileWriteStream(file io.Writer) {
@@ -194,7 +194,7 @@ func GetInfoForFilename(post *model.Post, teamId string, filename string) *model
 	// Find the path from the Filename of the form /{channelId}/{userId}/{uid}/{nameWithExtension}
 	split := strings.SplitN(filename, "/", 5)
 	if len(split) < 5 {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.unexpected_filename.error"), post.Id, filename)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.unexpected_filename.error"), post.Id, filename)
 		return nil
 	}
 
@@ -204,7 +204,7 @@ func GetInfoForFilename(post *model.Post, teamId string, filename string) *model
 	name, _ := url.QueryUnescape(split[4])
 
 	if split[0] != "" || split[1] != post.ChannelId || split[2] != post.UserId || strings.Contains(split[4], "/") {
-		l4g.Warn(utils.T("api.file.migrate_filenames_to_file_infos.mismatched_filename.warn"), post.Id, post.ChannelId, post.UserId, filename)
+		l4g.Warn(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.mismatched_filename.warn"), post.Id, post.ChannelId, post.UserId, filename)
 	}
 
 	pathPrefix := fmt.Sprintf("teams/%s/channels/%s/users/%s/%s/", teamId, channelId, userId, oldId)
@@ -213,13 +213,13 @@ func GetInfoForFilename(post *model.Post, teamId string, filename string) *model
 	// Open the file and populate the fields of the FileInfo
 	var info *model.FileInfo
 	if data, err := ReadFile(path); err != nil {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.file_not_found.error"), post.Id, filename, path, err)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.file_not_found.error"), post.Id, filename, path, err)
 		return nil
 	} else {
 		var err *model.AppError
 		info, err = model.GetInfoForBytes(name, data)
 		if err != nil {
-			l4g.Warn(utils.T("api.file.migrate_filenames_to_file_infos.info.app_error"), post.Id, filename, err)
+			l4g.Warn(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.info.app_error"), post.Id, filename, err)
 		}
 	}
 
@@ -247,7 +247,7 @@ func FindTeamIdForFilename(post *model.Post, filename string) string {
 
 	// This post is in a direct channel so we need to figure out what team the files are stored under.
 	if result := <-Srv.Store.Team().GetTeamsByUserId(post.UserId); result.Err != nil {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.teams.app_error"), post.Id, result.Err)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.teams.app_error"), post.Id, result.Err)
 	} else if teams := result.Data.([]*model.Team); len(teams) == 1 {
 		// The user has only one team so the post must've been sent from it
 		return teams[0].Id
@@ -269,7 +269,7 @@ var fileMigrationLock sync.Mutex
 // Creates and stores FileInfos for a post created before the FileInfos table existed.
 func MigrateFilenamesToFileInfos(post *model.Post) []*model.FileInfo {
 	if len(post.Filenames) == 0 {
-		l4g.Warn(utils.T("api.file.migrate_filenames_to_file_infos.no_filenames.warn"), post.Id)
+		l4g.Warn(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.no_filenames.warn"), post.Id)
 		return []*model.FileInfo{}
 	}
 
@@ -280,7 +280,7 @@ func MigrateFilenamesToFileInfos(post *model.Post) []*model.FileInfo {
 
 	var channel *model.Channel
 	if result := <-cchan; result.Err != nil {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.channel.app_error"), post.Id, post.ChannelId, result.Err)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.channel.app_error"), post.Id, post.ChannelId, result.Err)
 		return []*model.FileInfo{}
 	} else {
 		channel = result.Data.(*model.Channel)
@@ -298,7 +298,7 @@ func MigrateFilenamesToFileInfos(post *model.Post) []*model.FileInfo {
 	// Create FileInfo objects for this post
 	infos := make([]*model.FileInfo, 0, len(filenames))
 	if teamId == "" {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.team_id.error"), post.Id, filenames)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.team_id.error"), post.Id, filenames)
 	} else {
 		for _, filename := range filenames {
 			info := GetInfoForFilename(post, teamId, filename)
@@ -315,26 +315,26 @@ func MigrateFilenamesToFileInfos(post *model.Post) []*model.FileInfo {
 	defer fileMigrationLock.Unlock()
 
 	if result := <-Srv.Store.Post().Get(post.Id); result.Err != nil {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.get_post_again.app_error"), post.Id, result.Err)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.get_post_again.app_error"), post.Id, result.Err)
 		return []*model.FileInfo{}
 	} else if newPost := result.Data.(*model.PostList).Posts[post.Id]; len(newPost.Filenames) != len(post.Filenames) {
 		// Another thread has already created FileInfos for this post, so just return those
 		if result := <-Srv.Store.FileInfo().GetForPost(post.Id, true, false); result.Err != nil {
-			l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.get_post_file_infos_again.app_error"), post.Id, result.Err)
+			l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.get_post_file_infos_again.app_error"), post.Id, result.Err)
 			return []*model.FileInfo{}
 		} else {
-			l4g.Debug(utils.T("api.file.migrate_filenames_to_file_infos.not_migrating_post.debug"), post.Id)
+			l4g.Debug(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.not_migrating_post.debug"), post.Id)
 			return result.Data.([]*model.FileInfo)
 		}
 	}
 
-	l4g.Debug(utils.T("api.file.migrate_filenames_to_file_infos.migrating_post.debug"), post.Id)
+	l4g.Debug(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.migrating_post.debug"), post.Id)
 
 	savedInfos := make([]*model.FileInfo, 0, len(infos))
 	fileIds := make([]string, 0, len(filenames))
 	for _, info := range infos {
 		if result := <-Srv.Store.FileInfo().Save(info); result.Err != nil {
-			l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.save_file_info.app_error"), post.Id, info.Id, info.Path, result.Err)
+			l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.save_file_info.app_error"), post.Id, info.Id, info.Path, result.Err)
 			continue
 		}
 
@@ -351,7 +351,7 @@ func MigrateFilenamesToFileInfos(post *model.Post) []*model.FileInfo {
 
 	// Update Posts to clear Filenames and set FileIds
 	if result := <-Srv.Store.Post().Update(newPost, post); result.Err != nil {
-		l4g.Error(utils.T("api.file.migrate_filenames_to_file_infos.save_post.app_error"), post.Id, newPost.FileIds, post.Filenames, result.Err)
+		l4g.Error(utils.T("i18n.server.api.file.migrate_filenames_to_file_infos.save_post.app_error"), post.Id, newPost.FileIds, post.Filenames, result.Err)
 		return []*model.FileInfo{}
 	} else {
 		return savedInfos
@@ -378,7 +378,7 @@ func GeneratePublicLinkHash(fileId, salt string) string {
 
 func UploadFiles(teamId string, channelId string, userId string, fileHeaders []*multipart.FileHeader, clientIds []string) (*model.FileUploadResponse, *model.AppError) {
 	if len(utils.Cfg.FileSettings.DriverName) == 0 {
-		return nil, model.NewAppError("uploadFile", "api.file.upload_file.storage.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("uploadFile", "i18n.server.api.file.upload_file.storage.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	resStruct := &model.FileUploadResponse{
@@ -394,7 +394,7 @@ func UploadFiles(teamId string, channelId string, userId string, fileHeaders []*
 		file, fileErr := fileHeader.Open()
 		defer file.Close()
 		if fileErr != nil {
-			return nil, model.NewAppError("UploadFiles", "api.file.upload_file.bad_parse.app_error", nil, fileErr.Error(), http.StatusBadRequest)
+			return nil, model.NewAppError("UploadFiles", "i18n.server.api.file.upload_file.bad_parse.app_error", nil, fileErr.Error(), http.StatusBadRequest)
 		}
 
 		buf := bytes.NewBuffer(nil)
@@ -442,7 +442,7 @@ func DoUploadFile(teamId string, channelId string, userId string, rawFilename st
 	if info.IsImage() {
 		// Check dimensions before loading the whole thing into memory later on
 		if info.Width*info.Height > MaxImageSize {
-			err := model.NewLocAppError("uploadFile", "api.file.upload_file.large_image.app_error", map[string]interface{}{"Filename": filename}, "")
+			err := model.NewLocAppError("uploadFile", "i18n.server.api.file.upload_file.large_image.app_error", map[string]interface{}{"Filename": filename}, "")
 			err.StatusCode = http.StatusBadRequest
 			return nil, err
 		}
@@ -479,7 +479,7 @@ func prepareImage(fileData []byte) (*image.Image, int, int) {
 	// Decode image bytes into Image object
 	img, imgType, err := image.Decode(bytes.NewReader(fileData))
 	if err != nil {
-		l4g.Error(utils.T("api.file.handle_images_forget.decode.error"), err)
+		l4g.Error(utils.T("i18n.server.api.file.handle_images_forget.decode.error"), err)
 		return nil, 0, 0
 	}
 
@@ -551,12 +551,12 @@ func generateThumbnailImage(img image.Image, thumbnailPath string, width int, he
 
 	buf := new(bytes.Buffer)
 	if err := jpeg.Encode(buf, thumbnail, &jpeg.Options{Quality: 90}); err != nil {
-		l4g.Error(utils.T("api.file.handle_images_forget.encode_jpeg.error"), thumbnailPath, err)
+		l4g.Error(utils.T("i18n.server.api.file.handle_images_forget.encode_jpeg.error"), thumbnailPath, err)
 		return
 	}
 
 	if err := WriteFile(buf.Bytes(), thumbnailPath); err != nil {
-		l4g.Error(utils.T("api.file.handle_images_forget.upload_thumb.error"), thumbnailPath, err)
+		l4g.Error(utils.T("i18n.server.api.file.handle_images_forget.upload_thumb.error"), thumbnailPath, err)
 		return
 	}
 }
@@ -572,12 +572,12 @@ func generatePreviewImage(img image.Image, previewPath string, width int) {
 	buf := new(bytes.Buffer)
 
 	if err := jpeg.Encode(buf, preview, &jpeg.Options{Quality: 90}); err != nil {
-		l4g.Error(utils.T("api.file.handle_images_forget.encode_preview.error"), previewPath, err)
+		l4g.Error(utils.T("i18n.server.api.file.handle_images_forget.encode_preview.error"), previewPath, err)
 		return
 	}
 
 	if err := WriteFile(buf.Bytes(), previewPath); err != nil {
-		l4g.Error(utils.T("api.file.handle_images_forget.upload_preview.error"), previewPath, err)
+		l4g.Error(utils.T("i18n.server.api.file.handle_images_forget.upload_preview.error"), previewPath, err)
 		return
 	}
 }

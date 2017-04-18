@@ -11,7 +11,7 @@ import (
 )
 
 func InitUser() {
-	l4g.Debug(utils.T("wsapi.user.init.debug"))
+	l4g.Debug(utils.T("i18n.server.wsapi.user.init.debug"))
 
 	app.Srv.WebSocketRouter.Handle("user_typing", ApiWebSocketHandler(userTyping))
 }

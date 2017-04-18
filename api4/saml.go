@@ -14,7 +14,7 @@ import (
 )
 
 func InitSaml() {
-	l4g.Debug(utils.T("api.saml.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.saml.init.debug"))
 
 	BaseRoutes.SAML.Handle("/metadata", ApiHandler(getSamlMetadata)).Methods("GET")
 
@@ -44,18 +44,18 @@ func getSamlMetadata(c *Context, w http.ResponseWriter, r *http.Request) {
 func parseSamlCertificateRequest(r *http.Request) (*multipart.FileHeader, *model.AppError) {
 	err := r.ParseMultipartForm(*utils.Cfg.FileSettings.MaxFileSize)
 	if err != nil {
-		return nil, model.NewAppError("addSamlCertificate", "api.admin.add_certificate.no_file.app_error", nil, err.Error(), http.StatusBadRequest)
+		return nil, model.NewAppError("addSamlCertificate", "i18n.server.api.admin.add_certificate.no_file.app_error", nil, err.Error(), http.StatusBadRequest)
 	}
 
 	m := r.MultipartForm
 
 	fileArray, ok := m.File["certificate"]
 	if !ok {
-		return nil, model.NewAppError("addSamlCertificate", "api.admin.add_certificate.no_file.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("addSamlCertificate", "i18n.server.api.admin.add_certificate.no_file.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	if len(fileArray) <= 0 {
-		return nil, model.NewAppError("addSamlCertificate", "api.admin.add_certificate.array.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("addSamlCertificate", "i18n.server.api.admin.add_certificate.array.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	return fileArray[0], nil

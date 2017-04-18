@@ -15,7 +15,7 @@ import (
 )
 
 func InitChannel() {
-	l4g.Debug(utils.T("api.channel.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.channel.init.debug"))
 
 	BaseRoutes.Channels.Handle("/", ApiUserRequired(getChannels)).Methods("GET")
 	BaseRoutes.Channels.Handle("/more/{offset:[0-9]+}/{limit:[0-9]+}", ApiUserRequired(getMoreChannelsPage)).Methods("GET")
@@ -172,14 +172,14 @@ func updateChannel(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if oldChannel.DeleteAt > 0 {
-		c.Err = model.NewLocAppError("updateChannel", "api.channel.update_channel.deleted.app_error", nil, "")
+		c.Err = model.NewLocAppError("updateChannel", "i18n.server.api.channel.update_channel.deleted.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if oldChannel.Name == model.DEFAULT_CHANNEL {
 		if (len(channel.Name) > 0 && channel.Name != oldChannel.Name) || (len(channel.Type) > 0 && channel.Type != oldChannel.Type) {
-			c.Err = model.NewLocAppError("updateChannel", "api.channel.update_channel.tried.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
+			c.Err = model.NewLocAppError("updateChannel", "i18n.server.api.channel.update_channel.tried.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
 			c.Err.StatusCode = http.StatusBadRequest
 			return
 		}
@@ -311,7 +311,7 @@ func updateChannelPurpose(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func getChannels(c *Context, w http.ResponseWriter, r *http.Request) {
 	if c.TeamId == "" {
-		c.Err = model.NewLocAppError("", "api.context.missing_teamid.app_error", nil, "TeamIdRequired")
+		c.Err = model.NewLocAppError("", "i18n.server.api.context.missing_teamid.app_error", nil, "TeamIdRequired")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -319,12 +319,12 @@ func getChannels(c *Context, w http.ResponseWriter, r *http.Request) {
 	// Get's all channels the user is a member of
 
 	if channels, err := app.GetChannelsForUser(c.TeamId, c.Session.UserId); err != nil {
-		if err.Id == "store.sql_channel.get_channels.not_found.app_error" {
+		if err.Id == "i18n.server.store.sql_channel.get_channels.not_found.app_error" {
 			// lets make sure the user is valid
 			if _, err := app.GetUser(c.Session.UserId); err != nil {
 				c.Err = err
 				c.RemoveSessionCookie(w, r)
-				l4g.Error(utils.T("api.channel.get_channels.error"), c.Session.UserId)
+				l4g.Error(utils.T("i18n.server.api.channel.get_channels.error"), c.Session.UserId)
 				return
 			}
 		}
@@ -373,7 +373,7 @@ func getChannelCounts(c *Context, w http.ResponseWriter, r *http.Request) {
 	// user is already in the team
 
 	if counts, err := app.GetChannelCounts(c.TeamId, c.Session.UserId); err != nil {
-		c.Err = model.NewLocAppError("getChannelCounts", "api.channel.get_channel_counts.app_error", nil, err.Message)
+		c.Err = model.NewLocAppError("getChannelCounts", "i18n.server.api.channel.get_channel_counts.app_error", nil, err.Message)
 		return
 	} else if HandleEtag(counts.Etag(), "Get Channel Counts", w, r) {
 		return
@@ -492,7 +492,7 @@ func getChannel(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if channel.TeamId != c.TeamId && !channel.IsGroupOrDirect() {
-		c.Err = model.NewLocAppError("getChannel", "api.channel.get_channel.wrong_team.app_error", map[string]interface{}{"ChannelId": id, "TeamId": c.TeamId}, "")
+		c.Err = model.NewLocAppError("getChannel", "i18n.server.api.channel.get_channel.wrong_team.app_error", map[string]interface{}{"ChannelId": id, "TeamId": c.TeamId}, "")
 		return
 	}
 
@@ -528,7 +528,7 @@ func getChannelByName(c *Context, w http.ResponseWriter, r *http.Request) {
 		}
 
 		if channel.TeamId != c.TeamId && !channel.IsGroupOrDirect() {
-			c.Err = model.NewLocAppError("getChannel", "api.channel.get_channel.wrong_team.app_error", map[string]interface{}{"ChannelName": channelName, "TeamId": c.TeamId}, "")
+			c.Err = model.NewLocAppError("getChannel", "i18n.server.api.channel.get_channel.wrong_team.app_error", map[string]interface{}{"ChannelName": channelName, "TeamId": c.TeamId}, "")
 			return
 		}
 
@@ -553,7 +553,7 @@ func getChannelStats(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if channel.DeleteAt > 0 {
-		c.Err = model.NewLocAppError("getChannelStats", "api.channel.get_channel_extra_info.deleted.app_error", nil, "")
+		c.Err = model.NewLocAppError("getChannelStats", "i18n.server.api.channel.get_channel_extra_info.deleted.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -645,7 +645,7 @@ func addMember(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	var nUser *model.User
 	if nUser, err = app.GetUser(userId); err != nil {
-		c.Err = model.NewLocAppError("addMember", "api.channel.add_member.find_user.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("addMember", "i18n.server.api.channel.add_member.find_user.app_error", nil, err.Error())
 		return
 	}
 
@@ -659,7 +659,7 @@ func addMember(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	var oUser *model.User
 	if oUser, err = app.GetUser(c.Session.UserId); err != nil {
-		c.Err = model.NewLocAppError("addMember", "api.channel.add_member.user_adding.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("addMember", "i18n.server.api.channel.add_member.user_adding.app_error", nil, err.Error())
 		return
 	}
 

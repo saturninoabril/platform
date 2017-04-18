@@ -36,50 +36,50 @@ type OAuthApp struct {
 func (a *OAuthApp) IsValid() *AppError {
 
 	if len(a.Id) != 26 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.app_id.app_error", nil, "")
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.app_id.app_error", nil, "")
 	}
 
 	if a.CreateAt == 0 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.create_at.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.create_at.app_error", nil, "app_id="+a.Id)
 	}
 
 	if a.UpdateAt == 0 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.update_at.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.update_at.app_error", nil, "app_id="+a.Id)
 	}
 
 	if len(a.CreatorId) != 26 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.creator_id.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.creator_id.app_error", nil, "app_id="+a.Id)
 	}
 
 	if len(a.ClientSecret) == 0 || len(a.ClientSecret) > 128 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.client_secret.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.client_secret.app_error", nil, "app_id="+a.Id)
 	}
 
 	if len(a.Name) == 0 || len(a.Name) > 64 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.name.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.name.app_error", nil, "app_id="+a.Id)
 	}
 
 	if len(a.CallbackUrls) == 0 || len(fmt.Sprintf("%s", a.CallbackUrls)) > 1024 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.callback.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.callback.app_error", nil, "app_id="+a.Id)
 	}
 
 	for _, callback := range a.CallbackUrls {
 		if !IsValidHttpUrl(callback) {
-			return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.callback.app_error", nil, "")
+			return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.callback.app_error", nil, "")
 		}
 	}
 
 	if len(a.Homepage) == 0 || len(a.Homepage) > 256 || !IsValidHttpUrl(a.Homepage) {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.homepage.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.homepage.app_error", nil, "app_id="+a.Id)
 	}
 
 	if utf8.RuneCountInString(a.Description) > 512 {
-		return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.description.app_error", nil, "app_id="+a.Id)
+		return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.description.app_error", nil, "app_id="+a.Id)
 	}
 
 	if len(a.IconURL) > 0 {
 		if len(a.IconURL) > 512 || !IsValidHttpUrl(a.IconURL) {
-			return NewLocAppError("OAuthApp.IsValid", "model.oauth.is_valid.icon_url.app_error", nil, "app_id="+a.Id)
+			return NewLocAppError("OAuthApp.IsValid", "i18n.server.model.oauth.is_valid.icon_url.app_error", nil, "app_id="+a.Id)
 		}
 	}
 

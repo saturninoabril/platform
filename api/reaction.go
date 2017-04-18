@@ -14,7 +14,7 @@ import (
 )
 
 func InitReaction() {
-	l4g.Debug(utils.T("api.reaction.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.reaction.init.debug"))
 
 	BaseRoutes.NeedPost.Handle("/reactions/save", ApiUserRequired(saveReaction)).Methods("POST")
 	BaseRoutes.NeedPost.Handle("/reactions/delete", ApiUserRequired(deleteReaction)).Methods("POST")
@@ -29,7 +29,7 @@ func saveReaction(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if reaction.UserId != c.Session.UserId {
-		c.Err = model.NewLocAppError("saveReaction", "api.reaction.save_reaction.user_id.app_error", nil, "")
+		c.Err = model.NewLocAppError("saveReaction", "i18n.server.api.reaction.save_reaction.user_id.app_error", nil, "")
 		c.Err.StatusCode = http.StatusForbidden
 		return
 	}
@@ -59,7 +59,7 @@ func saveReaction(c *Context, w http.ResponseWriter, r *http.Request) {
 		c.Err = result.Err
 		return
 	} else if post = result.Data.(*model.PostList).Posts[postId]; post.ChannelId != channelId {
-		c.Err = model.NewLocAppError("saveReaction", "api.reaction.save_reaction.mismatched_channel_id.app_error",
+		c.Err = model.NewLocAppError("saveReaction", "i18n.server.api.reaction.save_reaction.mismatched_channel_id.app_error",
 			nil, "channelId="+channelId+", post.ChannelId="+post.ChannelId+", postId="+postId)
 		c.Err.StatusCode = http.StatusBadRequest
 		return
@@ -87,7 +87,7 @@ func deleteReaction(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if reaction.UserId != c.Session.UserId {
-		c.Err = model.NewLocAppError("deleteReaction", "api.reaction.delete_reaction.user_id.app_error", nil, "")
+		c.Err = model.NewLocAppError("deleteReaction", "i18n.server.api.reaction.delete_reaction.user_id.app_error", nil, "")
 		c.Err.StatusCode = http.StatusForbidden
 		return
 	}
@@ -117,7 +117,7 @@ func deleteReaction(c *Context, w http.ResponseWriter, r *http.Request) {
 		c.Err = result.Err
 		return
 	} else if post = result.Data.(*model.PostList).Posts[postId]; post.ChannelId != channelId {
-		c.Err = model.NewLocAppError("deleteReaction", "api.reaction.delete_reaction.mismatched_channel_id.app_error",
+		c.Err = model.NewLocAppError("deleteReaction", "i18n.server.api.reaction.delete_reaction.mismatched_channel_id.app_error",
 			nil, "channelId="+channelId+", post.ChannelId="+post.ChannelId+", postId="+postId)
 		c.Err.StatusCode = http.StatusBadRequest
 		return
@@ -178,7 +178,7 @@ func listReactions(c *Context, w http.ResponseWriter, r *http.Request) {
 		c.Err = result.Err
 		return
 	} else if post := result.Data.(*model.PostList).Posts[postId]; post.ChannelId != channelId {
-		c.Err = model.NewLocAppError("listReactions", "api.reaction.list_reactions.mismatched_channel_id.app_error",
+		c.Err = model.NewLocAppError("listReactions", "i18n.server.api.reaction.list_reactions.mismatched_channel_id.app_error",
 			nil, "channelId="+channelId+", post.ChannelId="+post.ChannelId+", postId="+postId)
 		c.Err.StatusCode = http.StatusBadRequest
 		return

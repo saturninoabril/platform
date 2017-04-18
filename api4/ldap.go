@@ -13,7 +13,7 @@ import (
 )
 
 func InitLdap() {
-	l4g.Debug(utils.T("api.ldap.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.ldap.init.debug"))
 
 	BaseRoutes.LDAP.Handle("/sync", ApiSessionRequired(syncLdap)).Methods("POST")
 	BaseRoutes.LDAP.Handle("/test", ApiSessionRequired(testLdap)).Methods("POST")

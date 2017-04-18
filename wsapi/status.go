@@ -11,7 +11,7 @@ import (
 )
 
 func InitStatus() {
-	l4g.Debug(utils.T("wsapi.status.init.debug"))
+	l4g.Debug(utils.T("i18n.server.wsapi.status.init.debug"))
 
 	app.Srv.WebSocketRouter.Handle("get_statuses", ApiWebSocketHandler(getStatuses))
 	app.Srv.WebSocketRouter.Handle("get_statuses_by_ids", ApiWebSocketHandler(getStatusesByIds))

@@ -30,35 +30,35 @@ type AuthData struct {
 func (ad *AuthData) IsValid() *AppError {
 
 	if len(ad.ClientId) != 26 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.client_id.app_error", nil, "")
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.client_id.app_error", nil, "")
 	}
 
 	if len(ad.UserId) != 26 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(ad.Code) == 0 || len(ad.Code) > 128 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.auth_code.app_error", nil, "client_id="+ad.ClientId)
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.auth_code.app_error", nil, "client_id="+ad.ClientId)
 	}
 
 	if ad.ExpiresIn == 0 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.expires.app_error", nil, "")
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.expires.app_error", nil, "")
 	}
 
 	if ad.CreateAt <= 0 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.create_at.app_error", nil, "client_id="+ad.ClientId)
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.create_at.app_error", nil, "client_id="+ad.ClientId)
 	}
 
 	if len(ad.RedirectUri) == 0 || len(ad.RedirectUri) > 256 || !IsValidHttpUrl(ad.RedirectUri) {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.redirect_uri.app_error", nil, "client_id="+ad.ClientId)
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.redirect_uri.app_error", nil, "client_id="+ad.ClientId)
 	}
 
 	if len(ad.State) > 128 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.state.app_error", nil, "client_id="+ad.ClientId)
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.state.app_error", nil, "client_id="+ad.ClientId)
 	}
 
 	if len(ad.Scope) > 128 {
-		return NewLocAppError("AuthData.IsValid", "model.authorize.is_valid.scope.app_error", nil, "client_id="+ad.ClientId)
+		return NewLocAppError("AuthData.IsValid", "i18n.server.model.authorize.is_valid.scope.app_error", nil, "client_id="+ad.ClientId)
 	}
 
 	return nil

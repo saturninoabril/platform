@@ -46,11 +46,11 @@ func (s SqlPasswordRecoveryStore) SaveOrUpdate(recovery *model.PasswordRecovery)
 
 		if err := s.GetReplica().SelectOne(&model.PasswordRecovery{}, "SELECT * FROM PasswordRecovery WHERE UserId = :UserId", map[string]interface{}{"UserId": recovery.UserId}); err == nil {
 			if _, err := s.GetMaster().Update(recovery); err != nil {
-				result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.SaveOrUpdate", "store.sql_recover.update.app_error", nil, "")
+				result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.SaveOrUpdate", "i18n.server.store.sql_recover.update.app_error", nil, "")
 			}
 		} else {
 			if err := s.GetMaster().Insert(recovery); err != nil {
-				result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.SaveOrUpdate", "store.sql_recover.save.app_error", nil, "")
+				result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.SaveOrUpdate", "i18n.server.store.sql_recover.save.app_error", nil, "")
 			}
 		}
 
@@ -69,7 +69,7 @@ func (s SqlPasswordRecoveryStore) Delete(userId string) StoreChannel {
 		result := StoreResult{}
 
 		if _, err := s.GetMaster().Exec("DELETE FROM PasswordRecovery WHERE UserId = :UserId", map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.Delete", "store.sql_recover.delete.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.Delete", "i18n.server.store.sql_recover.delete.app_error", nil, "")
 		}
 
 		storeChannel <- result
@@ -89,7 +89,7 @@ func (s SqlPasswordRecoveryStore) Get(userId string) StoreChannel {
 		recovery := model.PasswordRecovery{}
 
 		if err := s.GetReplica().SelectOne(&recovery, "SELECT * FROM PasswordRecovery WHERE UserId = :UserId", map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.Get", "store.sql_recover.get.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlPasswordRecoveryStore.Get", "i18n.server.store.sql_recover.get.app_error", nil, "")
 		}
 
 		result.Data = &recovery
@@ -112,9 +112,9 @@ func (s SqlPasswordRecoveryStore) GetByCode(code string) StoreChannel {
 
 		if err := s.GetReplica().SelectOne(&recovery, "SELECT * FROM PasswordRecovery WHERE Code = :Code", map[string]interface{}{"Code": code}); err != nil {
 			if err == sql.ErrNoRows {
-				result.Err = model.NewAppError("SqlPasswordRecoveryStore.GetByCode", "store.sql_recover.get_by_code.app_error", nil, "", http.StatusBadRequest)
+				result.Err = model.NewAppError("SqlPasswordRecoveryStore.GetByCode", "i18n.server.store.sql_recover.get_by_code.app_error", nil, "", http.StatusBadRequest)
 			} else {
-				result.Err = model.NewAppError("SqlPasswordRecoveryStore.GetByCode", "store.sql_recover.get_by_code.app_error", nil, "", http.StatusInternalServerError)
+				result.Err = model.NewAppError("SqlPasswordRecoveryStore.GetByCode", "i18n.server.store.sql_recover.get_by_code.app_error", nil, "", http.StatusInternalServerError)
 			}
 		}
 

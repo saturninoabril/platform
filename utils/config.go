@@ -27,7 +27,7 @@ const (
 	MODE_BETA       = "beta"
 	MODE_PROD       = "prod"
 	LOG_ROTATE_SIZE = 10000
-	LOG_FILENAME    = "mattermost.log"
+	LOG_FILENAME    = "i18n.server.mattermost.log"
 )
 
 var cfgMutex = &sync.Mutex{}
@@ -157,13 +157,13 @@ func SaveConfig(fileName string, config *model.Config) *model.AppError {
 
 	b, err := json.MarshalIndent(config, "", "    ")
 	if err != nil {
-		return model.NewLocAppError("SaveConfig", "utils.config.save_config.saving.app_error",
+		return model.NewLocAppError("SaveConfig", "i18n.server.utils.config.save_config.saving.app_error",
 			map[string]interface{}{"Filename": fileName}, err.Error())
 	}
 
 	err = ioutil.WriteFile(fileName, b, 0644)
 	if err != nil {
-		return model.NewLocAppError("SaveConfig", "utils.config.save_config.saving.app_error",
+		return model.NewLocAppError("SaveConfig", "i18n.server.utils.config.save_config.saving.app_error",
 			map[string]interface{}{"Filename": fileName}, err.Error())
 	}
 
@@ -272,7 +272,7 @@ func LoadConfig(fileName string) {
 
 	configReadErr := viper.ReadInConfig()
 	if configReadErr != nil {
-		errMsg := T("utils.config.load_config.opening.panic", map[string]interface{}{"Filename": fileName, "Error": configReadErr.Error()})
+		errMsg := T("i18n.server.utils.config.load_config.opening.panic", map[string]interface{}{"Filename": fileName, "Error": configReadErr.Error()})
 		fmt.Fprintln(os.Stderr, errMsg)
 		os.Exit(1)
 	}
@@ -280,7 +280,7 @@ func LoadConfig(fileName string) {
 	var config model.Config
 	unmarshalErr := viper.Unmarshal(&config)
 	if unmarshalErr != nil {
-		errMsg := T("utils.config.load_config.decoding.panic", map[string]interface{}{"Filename": fileName, "Error": unmarshalErr.Error()})
+		errMsg := T("i18n.server.utils.config.load_config.decoding.panic", map[string]interface{}{"Filename": fileName, "Error": unmarshalErr.Error()})
 		fmt.Fprintln(os.Stderr, errMsg)
 		os.Exit(1)
 	}
@@ -506,11 +506,11 @@ func ValidateLdapFilter(cfg *model.Config) *model.AppError {
 func ValidateLocales(cfg *model.Config) *model.AppError {
 	locales := GetSupportedLocales()
 	if _, ok := locales[*cfg.LocalizationSettings.DefaultServerLocale]; !ok {
-		return model.NewLocAppError("ValidateLocales", "utils.config.supported_server_locale.app_error", nil, "")
+		return model.NewLocAppError("ValidateLocales", "i18n.server.utils.config.supported_server_locale.app_error", nil, "")
 	}
 
 	if _, ok := locales[*cfg.LocalizationSettings.DefaultClientLocale]; !ok {
-		return model.NewLocAppError("ValidateLocales", "utils.config.supported_client_locale.app_error", nil, "")
+		return model.NewLocAppError("ValidateLocales", "i18n.server.utils.config.supported_client_locale.app_error", nil, "")
 	}
 
 	if len(*cfg.LocalizationSettings.AvailableLocales) > 0 {
@@ -520,7 +520,7 @@ func ValidateLocales(cfg *model.Config) *model.AppError {
 			}
 		}
 
-		return model.NewLocAppError("ValidateLocales", "utils.config.validate_locale.app_error", nil, "")
+		return model.NewLocAppError("ValidateLocales", "i18n.server.utils.config.validate_locale.app_error", nil, "")
 	}
 
 	return nil

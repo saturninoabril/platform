@@ -13,7 +13,7 @@ import (
 )
 
 func InitPreference() {
-	l4g.Debug(utils.T("api.preference.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.preference.init.debug"))
 
 	BaseRoutes.Preferences.Handle("", ApiSessionRequired(getPreferences)).Methods("GET")
 	BaseRoutes.Preferences.Handle("", ApiSessionRequired(updatePreferences)).Methods("PUT")
@@ -101,8 +101,8 @@ func updatePreferences(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	for _, preference := range preferences {
 		if c.Params.UserId != preference.UserId {
-			c.Err = model.NewAppError("savePreferences", "api.preference.update_preferences.set.app_error", nil,
-				c.T("api.preference.update_preferences.set_details.app_error",
+			c.Err = model.NewAppError("savePreferences", "i18n.server.api.preference.update_preferences.set.app_error", nil,
+				c.T("i18n.server.api.preference.update_preferences.set_details.app_error",
 					map[string]interface{}{"SessionUserId": c.Params.UserId, "PreferenceUserId": preference.UserId}),
 				http.StatusForbidden)
 			return
@@ -136,8 +136,8 @@ func deletePreferences(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	for _, preference := range preferences {
 		if c.Params.UserId != preference.UserId {
-			c.Err = model.NewAppError("deletePreferences", "api.preference.delete_preferences.delete.app_error", nil,
-				c.T("api.preference.delete_preferences.delete.app_error",
+			c.Err = model.NewAppError("deletePreferences", "i18n.server.api.preference.delete_preferences.delete.app_error", nil,
+				c.T("i18n.server.api.preference.delete_preferences.delete.app_error",
 					map[string]interface{}{"SessionUserId": c.Params.UserId, "PreferenceUserId": preference.UserId}),
 				http.StatusForbidden)
 			return

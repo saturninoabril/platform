@@ -46,7 +46,7 @@ func GetWebrtcInfoForSession(sessionId string) (*model.WebrtcInfoResponse, *mode
 
 func GetWebrtcToken(sessionId string) (string, *model.AppError) {
 	if !*utils.Cfg.WebrtcSettings.Enable {
-		return "", model.NewAppError("WebRTC.getWebrtcToken", "api.webrtc.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return "", model.NewAppError("WebRTC.getWebrtcToken", "i18n.server.api.webrtc.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	token := base64.StdEncoding.EncodeToString([]byte(sessionId))
@@ -65,14 +65,14 @@ func GetWebrtcToken(sessionId string) (string, *model.AppError) {
 	}
 	httpClient := &http.Client{Transport: tr}
 	if rp, err := httpClient.Do(rq); err != nil {
-		return "", model.NewAppError("WebRTC.Token", "model.client.connecting.app_error", nil, err.Error(), http.StatusInternalServerError)
+		return "", model.NewAppError("WebRTC.Token", "i18n.server.model.client.connecting.app_error", nil, err.Error(), http.StatusInternalServerError)
 	} else if rp.StatusCode >= 300 {
 		defer CloseBody(rp)
 		return "", model.AppErrorFromJson(rp.Body)
 	} else {
 		janusResponse := model.GatewayResponseFromJson(rp.Body)
 		if janusResponse.Status != "success" {
-			return "", model.NewAppError("getWebrtcToken", "api.webrtc.register_token.app_error", nil, "", http.StatusInternalServerError)
+			return "", model.NewAppError("getWebrtcToken", "i18n.server.api.webrtc.register_token.app_error", nil, "", http.StatusInternalServerError)
 		}
 	}
 

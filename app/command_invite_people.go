@@ -31,15 +31,15 @@ func (me *InvitePeopleProvider) GetCommand(T goi18n.TranslateFunc) *model.Comman
 	return &model.Command{
 		Trigger:          CMD_INVITE_PEOPLE,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command.invite_people.desc"),
-		AutoCompleteHint: T("api.command.invite_people.hint"),
-		DisplayName:      T("api.command.invite_people.name"),
+		AutoCompleteDesc: T("i18n.server.api.command.invite_people.desc"),
+		AutoCompleteHint: T("i18n.server.api.command.invite_people.hint"),
+		DisplayName:      T("i18n.server.api.command.invite_people.name"),
 	}
 }
 
 func (me *InvitePeopleProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
 	if !utils.Cfg.EmailSettings.SendEmailNotifications {
-		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command.invite_people.email_off")}
+		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command.invite_people.email_off")}
 	}
 
 	emailList := strings.Fields(message)
@@ -52,13 +52,13 @@ func (me *InvitePeopleProvider) DoCommand(args *model.CommandArgs, message strin
 	}
 
 	if len(emailList) == 0 {
-		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command.invite_people.no_email")}
+		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command.invite_people.no_email")}
 	}
 
 	if err := InviteNewUsersToTeam(emailList, args.TeamId, args.UserId); err != nil {
 		l4g.Error(err.Error())
-		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command.invite_people.fail")}
+		return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command.invite_people.fail")}
 	}
 
-	return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command.invite_people.sent")}
+	return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command.invite_people.sent")}
 }

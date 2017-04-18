@@ -27,13 +27,13 @@ func (me *OnlineProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_ONLINE,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_online.desc"),
-		DisplayName:      T("api.command_online.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_online.desc"),
+		DisplayName:      T("i18n.server.api.command_online.name"),
 	}
 }
 
 func (me *OnlineProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
-	rmsg := args.T("api.command_online.success")
+	rmsg := args.T("i18n.server.api.command_online.success")
 	if len(message) > 0 {
 		rmsg = message + " " + rmsg
 	}

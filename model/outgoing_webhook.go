@@ -112,69 +112,69 @@ func OutgoingWebhookListFromJson(data io.Reader) []*OutgoingWebhook {
 func (o *OutgoingWebhook) IsValid() *AppError {
 
 	if len(o.Id) != 26 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.id.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.id.app_error", nil, "")
 	}
 
 	if len(o.Token) != 26 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.token.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.token.app_error", nil, "")
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.create_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.create_at.app_error", nil, "id="+o.Id)
 	}
 
 	if o.UpdateAt == 0 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.update_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.update_at.app_error", nil, "id="+o.Id)
 	}
 
 	if len(o.CreatorId) != 26 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(o.ChannelId) != 0 && len(o.ChannelId) != 26 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.channel_id.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.channel_id.app_error", nil, "")
 	}
 
 	if len(o.TeamId) != 26 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.team_id.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.team_id.app_error", nil, "")
 	}
 
 	if len(fmt.Sprintf("%s", o.TriggerWords)) > 1024 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.words.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.words.app_error", nil, "")
 	}
 
 	if len(o.TriggerWords) != 0 {
 		for _, triggerWord := range o.TriggerWords {
 			if len(triggerWord) == 0 {
-				return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.trigger_words.app_error", nil, "")
+				return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.trigger_words.app_error", nil, "")
 			}
 		}
 	}
 
 	if len(o.CallbackURLs) == 0 || len(fmt.Sprintf("%s", o.CallbackURLs)) > 1024 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.callback.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.callback.app_error", nil, "")
 	}
 
 	for _, callback := range o.CallbackURLs {
 		if !IsValidHttpUrl(callback) {
-			return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.url.app_error", nil, "")
+			return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.url.app_error", nil, "")
 		}
 	}
 
 	if len(o.DisplayName) > 64 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.display_name.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.display_name.app_error", nil, "")
 	}
 
 	if len(o.Description) > 128 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.description.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.description.app_error", nil, "")
 	}
 
 	if len(o.ContentType) > 128 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.content_type.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.content_type.app_error", nil, "")
 	}
 
 	if o.TriggerWhen > 1 {
-		return NewLocAppError("OutgoingWebhook.IsValid", "model.outgoing_hook.is_valid.content_type.app_error", nil, "")
+		return NewLocAppError("OutgoingWebhook.IsValid", "i18n.server.model.outgoing_hook.is_valid.content_type.app_error", nil, "")
 	}
 
 	return nil

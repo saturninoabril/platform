@@ -39,7 +39,7 @@ func (s SqlPreferenceStore) CreateIndexesIfNotExists() {
 }
 
 func (s SqlPreferenceStore) DeleteUnusedFeatures() {
-	l4g.Debug(utils.T("store.sql_preference.delete_unused_features.debug"))
+	l4g.Debug(utils.T("i18n.server.store.sql_preference.delete_unused_features.debug"))
 
 	sql := `DELETE
 		FROM Preferences
@@ -64,7 +64,7 @@ func (s SqlPreferenceStore) Save(preferences *model.Preferences) StoreChannel {
 		// wrap in a transaction so that if one fails, everything fails
 		transaction, err := s.GetMaster().Begin()
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "store.sql_preference.save.open_transaction.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "i18n.server.store.sql_preference.save.open_transaction.app_error", nil, err.Error())
 		} else {
 			for _, preference := range *preferences {
 				if upsertResult := s.save(transaction, &preference); upsertResult.Err != nil {
@@ -76,13 +76,13 @@ func (s SqlPreferenceStore) Save(preferences *model.Preferences) StoreChannel {
 			if result.Err == nil {
 				if err := transaction.Commit(); err != nil {
 					// don't need to rollback here since the transaction is already closed
-					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "store.sql_preference.save.commit_transaction.app_error", nil, err.Error())
+					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "i18n.server.store.sql_preference.save.commit_transaction.app_error", nil, err.Error())
 				} else {
 					result.Data = len(*preferences)
 				}
 			} else {
 				if err := transaction.Rollback(); err != nil {
-					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "store.sql_preference.save.rollback_transaction.app_error", nil, err.Error())
+					result.Err = model.NewLocAppError("SqlPreferenceStore.Save", "i18n.server.store.sql_preference.save.rollback_transaction.app_error", nil, err.Error())
 				}
 			}
 		}
@@ -119,7 +119,7 @@ func (s SqlPreferenceStore) save(transaction *gorp.Transaction, preference *mode
 				(:UserId, :Category, :Name, :Value)
 			ON DUPLICATE KEY UPDATE
 				Value = :Value`, params); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.save", "store.sql_preference.save.updating.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.save", "i18n.server.store.sql_preference.save.updating.app_error", nil, err.Error())
 		}
 	} else if utils.Cfg.SqlSettings.DriverName == model.DATABASE_DRIVER_POSTGRES {
 		// postgres has no way to upsert values until version 9.5 and trying inserting and then updating causes transactions to abort
@@ -133,7 +133,7 @@ func (s SqlPreferenceStore) save(transaction *gorp.Transaction, preference *mode
 				AND Category = :Category
 				AND Name = :Name`, params)
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.save", "store.sql_preference.save.updating.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.save", "i18n.server.store.sql_preference.save.updating.app_error", nil, err.Error())
 			return result
 		}
 
@@ -143,7 +143,7 @@ func (s SqlPreferenceStore) save(transaction *gorp.Transaction, preference *mode
 			s.insert(transaction, preference)
 		}
 	} else {
-		result.Err = model.NewLocAppError("SqlPreferenceStore.save", "store.sql_preference.save.missing_driver.app_error", nil,
+		result.Err = model.NewLocAppError("SqlPreferenceStore.save", "i18n.server.store.sql_preference.save.missing_driver.app_error", nil,
 			"Failed to update preference because of missing driver")
 	}
 
@@ -155,10 +155,10 @@ func (s SqlPreferenceStore) insert(transaction *gorp.Transaction, preference *mo
 
 	if err := transaction.Insert(preference); err != nil {
 		if IsUniqueConstraintError(err.Error(), []string{"UserId", "preferences_pkey"}) {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.insert", "store.sql_preference.insert.exists.app_error", nil,
+			result.Err = model.NewLocAppError("SqlPreferenceStore.insert", "i18n.server.store.sql_preference.insert.exists.app_error", nil,
 				"user_id="+preference.UserId+", category="+preference.Category+", name="+preference.Name+", "+err.Error())
 		} else {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.insert", "store.sql_preference.insert.save.app_error", nil,
+			result.Err = model.NewLocAppError("SqlPreferenceStore.insert", "i18n.server.store.sql_preference.insert.save.app_error", nil,
 				"user_id="+preference.UserId+", category="+preference.Category+", name="+preference.Name+", "+err.Error())
 		}
 	}
@@ -170,7 +170,7 @@ func (s SqlPreferenceStore) update(transaction *gorp.Transaction, preference *mo
 	result := StoreResult{}
 
 	if _, err := transaction.Update(preference); err != nil {
-		result.Err = model.NewLocAppError("SqlPreferenceStore.update", "store.sql_preference.update.app_error", nil,
+		result.Err = model.NewLocAppError("SqlPreferenceStore.update", "i18n.server.store.sql_preference.update.app_error", nil,
 			"user_id="+preference.UserId+", category="+preference.Category+", name="+preference.Name+", "+err.Error())
 	}
 
@@ -194,7 +194,7 @@ func (s SqlPreferenceStore) Get(userId string, category string, name string) Sto
 				UserId = :UserId
 				AND Category = :Category
 				AND Name = :Name`, map[string]interface{}{"UserId": userId, "Category": category, "Name": name}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.Get", "store.sql_preference.get.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.Get", "i18n.server.store.sql_preference.get.app_error", nil, err.Error())
 		} else {
 			result.Data = preference
 		}
@@ -222,7 +222,7 @@ func (s SqlPreferenceStore) GetCategory(userId string, category string) StoreCha
 			WHERE
 				UserId = :UserId
 				AND Category = :Category`, map[string]interface{}{"UserId": userId, "Category": category}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.GetCategory", "store.sql_preference.get_category.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.GetCategory", "i18n.server.store.sql_preference.get_category.app_error", nil, err.Error())
 		} else {
 			result.Data = preferences
 		}
@@ -249,7 +249,7 @@ func (s SqlPreferenceStore) GetAll(userId string) StoreChannel {
 				Preferences
 			WHERE
 				UserId = :UserId`, map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.GetAll", "store.sql_preference.get_all.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.GetAll", "i18n.server.store.sql_preference.get_all.app_error", nil, err.Error())
 		} else {
 			result.Data = preferences
 		}
@@ -269,7 +269,7 @@ func (s SqlPreferenceStore) PermanentDeleteByUser(userId string) StoreChannel {
 
 		if _, err := s.GetMaster().Exec(
 			`DELETE FROM Preferences WHERE UserId = :UserId`, map[string]interface{}{"UserId": userId}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "store.sql_preference.permanent_delete_by_user.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "i18n.server.store.sql_preference.permanent_delete_by_user.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result
@@ -292,7 +292,7 @@ func (s SqlPreferenceStore) IsFeatureEnabled(feature, userId string) StoreChanne
 				UserId = :UserId
 				AND Category = :Category
 				AND Name = :Name`, map[string]interface{}{"UserId": userId, "Category": model.PREFERENCE_CATEGORY_ADVANCED_SETTINGS, "Name": FEATURE_TOGGLE_PREFIX + feature}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.IsFeatureEnabled", "store.sql_preference.is_feature_enabled.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.IsFeatureEnabled", "i18n.server.store.sql_preference.is_feature_enabled.app_error", nil, err.Error())
 		} else {
 			result.Data = value == "true"
 		}
@@ -317,7 +317,7 @@ func (s SqlPreferenceStore) Delete(userId, category, name string) StoreChannel {
 				UserId = :UserId
 				AND Category = :Category
 				AND Name = :Name`, map[string]interface{}{"UserId": userId, "Category": category, "Name": name}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "store.sql_preference.delete.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.Delete", "i18n.server.store.sql_preference.delete.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result
@@ -339,7 +339,7 @@ func (s SqlPreferenceStore) DeleteCategory(userId string, category string) Store
 			WHERE
 				UserId = :UserId
 				AND Category = :Category`, map[string]interface{}{"UserId": userId, "Category": category}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.DeleteCategory", "store.sql_preference.delete.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.DeleteCategory", "i18n.server.store.sql_preference.delete.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result
@@ -361,7 +361,7 @@ func (s SqlPreferenceStore) DeleteCategoryAndName(category string, name string) 
 			WHERE
 				Name = :Name
 				AND Category = :Category`, map[string]interface{}{"Name": name, "Category": category}); err != nil {
-			result.Err = model.NewLocAppError("SqlPreferenceStore.DeleteCategoryAndName", "store.sql_preference.delete.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlPreferenceStore.DeleteCategoryAndName", "i18n.server.store.sql_preference.delete.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result

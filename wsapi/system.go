@@ -11,7 +11,7 @@ import (
 )
 
 func InitSystem() {
-	l4g.Debug(utils.T("wsapi.system.init.debug"))
+	l4g.Debug(utils.T("i18n.server.wsapi.system.init.debug"))
 
 	app.Srv.WebSocketRouter.Handle("ping", ApiWebSocketHandler(ping))
 }

@@ -27,9 +27,9 @@ func (me *MeProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_ME,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_me.desc"),
-		AutoCompleteHint: T("api.command_me.hint"),
-		DisplayName:      T("api.command_me.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_me.desc"),
+		AutoCompleteHint: T("i18n.server.api.command_me.hint"),
+		DisplayName:      T("i18n.server.api.command_me.name"),
 	}
 }
 

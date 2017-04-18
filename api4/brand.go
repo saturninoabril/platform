@@ -13,7 +13,7 @@ import (
 )
 
 func InitBrand() {
-	l4g.Debug(utils.T("api.brand.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.brand.init.debug"))
 
 	BaseRoutes.Brand.Handle("/image", ApiHandlerTrustRequester(getBrandImage)).Methods("GET")
 	BaseRoutes.Brand.Handle("/image", ApiSessionRequired(uploadBrandImage)).Methods("POST")
@@ -32,12 +32,12 @@ func getBrandImage(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func uploadBrandImage(c *Context, w http.ResponseWriter, r *http.Request) {
 	if r.ContentLength > *utils.Cfg.FileSettings.MaxFileSize {
-		c.Err = model.NewAppError("uploadBrandImage", "api.admin.upload_brand_image.too_large.app_error", nil, "", http.StatusRequestEntityTooLarge)
+		c.Err = model.NewAppError("uploadBrandImage", "i18n.server.api.admin.upload_brand_image.too_large.app_error", nil, "", http.StatusRequestEntityTooLarge)
 		return
 	}
 
 	if err := r.ParseMultipartForm(*utils.Cfg.FileSettings.MaxFileSize); err != nil {
-		c.Err = model.NewAppError("uploadBrandImage", "api.admin.upload_brand_image.parse.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("uploadBrandImage", "i18n.server.api.admin.upload_brand_image.parse.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
@@ -45,12 +45,12 @@ func uploadBrandImage(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	imageArray, ok := m.File["image"]
 	if !ok {
-		c.Err = model.NewAppError("uploadBrandImage", "api.admin.upload_brand_image.no_file.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("uploadBrandImage", "i18n.server.api.admin.upload_brand_image.no_file.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
 	if len(imageArray) <= 0 {
-		c.Err = model.NewAppError("uploadBrandImage", "api.admin.upload_brand_image.array.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("uploadBrandImage", "i18n.server.api.admin.upload_brand_image.array.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 

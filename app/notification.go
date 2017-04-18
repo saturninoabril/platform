@@ -120,7 +120,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 	senderName := ""
 	channelName := ""
 	if post.IsSystemMessage() {
-		senderName = utils.T("system.message.name")
+		senderName = utils.T("i18n.server.system.message.name")
 	} else {
 		if value, ok := post.Props["override_username"]; ok && post.Props["from_webhook"] == "true" {
 			senderName = value.(string)
@@ -186,7 +186,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 			post.UserId,
 			&model.Post{
 				ChannelId: post.ChannelId,
-				Message:   T("api.post.disabled_here", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
+				Message:   T("i18n.server.api.post.disabled_here", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
 				CreateAt:  post.CreateAt + 1,
 			},
 		)
@@ -199,7 +199,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 			post.UserId,
 			&model.Post{
 				ChannelId: post.ChannelId,
-				Message:   T("api.post.disabled_channel", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
+				Message:   T("i18n.server.api.post.disabled_channel", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
 				CreateAt:  post.CreateAt + 1,
 			},
 		)
@@ -212,7 +212,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 			post.UserId,
 			&model.Post{
 				ChannelId: post.ChannelId,
-				Message:   T("api.post.disabled_all", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
+				Message:   T("i18n.server.api.post.disabled_all", map[string]interface{}{"Users": *utils.Cfg.TeamSettings.MaxNotificationsPerChannel}),
 				CreateAt:  post.CreateAt + 1,
 			},
 		)
@@ -240,7 +240,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 	// MUST be completed before push notifications send
 	for _, uchan := range updateMentionChans {
 		if result := <-uchan; result.Err != nil {
-			l4g.Warn(utils.T("api.post.update_mention_count_and_forget.update_error"), post.Id, post.ChannelId, result.Err)
+			l4g.Warn(utils.T("i18n.server.api.post.update_mention_count_and_forget.update_error"), post.Id, post.ChannelId, result.Err)
 		}
 	}
 
@@ -248,7 +248,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 	if *utils.Cfg.EmailSettings.SendPushNotifications {
 		pushServer := *utils.Cfg.EmailSettings.PushNotificationServer
 		if pushServer == model.MHPNS && (!utils.IsLicensed || !*utils.License.Features.MHPNS) {
-			l4g.Warn(utils.T("api.post.send_notifications_and_forget.push_notification.mhpnsWarn"))
+			l4g.Warn(utils.T("i18n.server.api.post.send_notifications_and_forget.push_notification.mhpnsWarn"))
 			sendPushNotifications = false
 		} else {
 			sendPushNotifications = true
@@ -296,7 +296,7 @@ func SendNotifications(post *model.Post, team *model.Team, channel *model.Channe
 
 		var infos []*model.FileInfo
 		if result := <-fchan; result.Err != nil {
-			l4g.Warn(utils.T("api.post.send_notifications.files.error"), post.Id, result.Err)
+			l4g.Warn(utils.T("i18n.server.api.post.send_notifications.files.error"), post.Id, result.Err)
 		} else {
 			infos = result.Data.([]*model.FileInfo)
 		}
@@ -377,27 +377,27 @@ func sendNotificationEmail(post *model.Post, user *model.User, channel *model.Ch
 	zone, _ := tm.Zone()
 
 	if channel.Type == model.CHANNEL_DIRECT {
-		bodyText = userLocale("api.post.send_notifications_and_forget.message_body")
-		subjectText = userLocale("api.post.send_notifications_and_forget.message_subject")
+		bodyText = userLocale("i18n.server.api.post.send_notifications_and_forget.message_body")
+		subjectText = userLocale("i18n.server.api.post.send_notifications_and_forget.message_subject")
 
 		senderDisplayName := senderName
 
-		mailTemplate = "api.templates.post_subject_in_direct_message"
+		mailTemplate = "i18n.server.api.templates.post_subject_in_direct_message"
 		mailParameters = map[string]interface{}{"SubjectText": subjectText,
 			"SenderDisplayName": senderDisplayName, "Month": month, "Day": day, "Year": year}
 	} else if channel.Type == model.CHANNEL_GROUP {
-		bodyText = userLocale("api.post.send_notifications_and_forget.mention_body")
+		bodyText = userLocale("i18n.server.api.post.send_notifications_and_forget.mention_body")
 
 		senderDisplayName := senderName
 
-		mailTemplate = "api.templates.post_subject_in_group_message"
+		mailTemplate = "i18n.server.api.templates.post_subject_in_group_message"
 		mailParameters = map[string]interface{}{"SenderDisplayName": senderDisplayName, "Month": month, "Day": day, "Year": year}
-		channelName = userLocale("api.templates.channel_name.group")
+		channelName = userLocale("i18n.server.api.templates.channel_name.group")
 	} else {
-		bodyText = userLocale("api.post.send_notifications_and_forget.mention_body")
-		subjectText = userLocale("api.post.send_notifications_and_forget.mention_subject")
+		bodyText = userLocale("i18n.server.api.post.send_notifications_and_forget.mention_body")
+		subjectText = userLocale("i18n.server.api.post.send_notifications_and_forget.mention_subject")
 		channelName = channel.DisplayName
-		mailTemplate = "api.templates.post_subject_in_channel"
+		mailTemplate = "i18n.server.api.templates.post_subject_in_channel"
 		mailParameters = map[string]interface{}{"SubjectText": subjectText, "TeamDisplayName": team.DisplayName,
 			"ChannelName": channelName, "Month": month, "Day": day, "Year": year}
 	}
@@ -414,15 +414,15 @@ func sendNotificationEmail(post *model.Post, user *model.User, channel *model.Ch
 	}
 
 	bodyPage.Props["BodyText"] = bodyText
-	bodyPage.Props["Button"] = userLocale("api.templates.post_body.button")
-	bodyPage.Html["Info"] = template.HTML(userLocale("api.templates.post_body.info",
+	bodyPage.Props["Button"] = userLocale("i18n.server.api.templates.post_body.button")
+	bodyPage.Html["Info"] = template.HTML(userLocale("i18n.server.api.templates.post_body.info",
 		map[string]interface{}{"ChannelName": channelName, "SenderName": senderName,
 			"Hour": fmt.Sprintf("%02d", tm.Hour()), "Minute": fmt.Sprintf("%02d", tm.Minute()),
 			"TimeZone": zone, "Month": month, "Day": day}))
 
 	go func() {
 		if err := utils.SendMail(user.Email, html.UnescapeString(subject), bodyPage.Render()); err != nil {
-			l4g.Error(utils.T("api.post.send_notifications_and_forget.send.error"), user.Email, err)
+			l4g.Error(utils.T("i18n.server.api.post.send_notifications_and_forget.send.error"), user.Email, err)
 		}
 	}()
 
@@ -441,7 +441,7 @@ func GetMessageForNotification(post *model.Post, translateFunc i18n.TranslateFun
 	// extract the filenames from their paths and determine what type of files are attached
 	var infos []*model.FileInfo
 	if result := <-Srv.Store.FileInfo().GetForPost(post.Id, true, true); result.Err != nil {
-		l4g.Warn(utils.T("api.post.get_message_for_notification.get_files.error"), post.Id, result.Err)
+		l4g.Warn(utils.T("i18n.server.api.post.get_message_for_notification.get_files.error"), post.Id, result.Err)
 	} else {
 		infos = result.Data.([]*model.FileInfo)
 	}
@@ -462,9 +462,9 @@ func GetMessageForNotification(post *model.Post, translateFunc i18n.TranslateFun
 	props := map[string]interface{}{"Filenames": strings.Join(filenames, ", ")}
 
 	if onlyImages {
-		return translateFunc("api.post.get_message_for_notification.images_sent", len(filenames), props)
+		return translateFunc("i18n.server.api.post.get_message_for_notification.images_sent", len(filenames), props)
 	} else {
-		return translateFunc("api.post.get_message_for_notification.files_sent", len(filenames), props)
+		return translateFunc("i18n.server.api.post.get_message_for_notification.files_sent", len(filenames), props)
 	}
 }
 
@@ -483,7 +483,7 @@ func sendPushNotification(post *model.Post, user *model.User, channel *model.Cha
 	msg := model.PushNotification{}
 	if badge := <-Srv.Store.User().GetUnreadCount(user.Id); badge.Err != nil {
 		msg.Badge = 1
-		l4g.Error(utils.T("store.sql_user.get_unread_count.app_error"), user.Id, badge.Err)
+		l4g.Error(utils.T("i18n.server.store.sql_user.get_unread_count.app_error"), user.Id, badge.Err)
 	} else {
 		msg.Badge = int(badge.Data.(int64))
 	}
@@ -497,20 +497,20 @@ func sendPushNotification(post *model.Post, user *model.User, channel *model.Cha
 			msg.Category = model.CATEGORY_DM
 			msg.Message = senderName + ": " + model.ClearMentionTags(post.Message)
 		} else {
-			msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_in") + channelName + ": " + model.ClearMentionTags(post.Message)
+			msg.Message = senderName + userLocale("i18n.server.api.post.send_notifications_and_forget.push_in") + channelName + ": " + model.ClearMentionTags(post.Message)
 		}
 	} else {
 		if channel.Type == model.CHANNEL_DIRECT {
 			msg.Category = model.CATEGORY_DM
-			msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_message")
+			msg.Message = senderName + userLocale("i18n.server.api.post.send_notifications_and_forget.push_message")
 		} else if wasMentioned || channel.Type == model.CHANNEL_GROUP {
-			msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_mention") + channelName
+			msg.Message = senderName + userLocale("i18n.server.api.post.send_notifications_and_forget.push_mention") + channelName
 		} else {
-			msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_non_mention") + channelName
+			msg.Message = senderName + userLocale("i18n.server.api.post.send_notifications_and_forget.push_non_mention") + channelName
 		}
 	}
 
-	l4g.Debug(utils.T("api.post.send_notifications_and_forget.push_notification.debug"), msg.DeviceId, msg.Message)
+	l4g.Debug(utils.T("i18n.server.api.post.send_notifications_and_forget.push_notification.debug"), msg.DeviceId, msg.Message)
 
 	for _, session := range sessions {
 		tmpMessage := *model.PushNotificationFromJson(strings.NewReader(msg.ToJson()))
@@ -537,12 +537,12 @@ func ClearPushNotification(userId string, channelId string) *model.AppError {
 	msg.ContentAvailable = 0
 	if badge := <-Srv.Store.User().GetUnreadCount(userId); badge.Err != nil {
 		msg.Badge = 0
-		l4g.Error(utils.T("store.sql_user.get_unread_count.app_error"), userId, badge.Err)
+		l4g.Error(utils.T("i18n.server.store.sql_user.get_unread_count.app_error"), userId, badge.Err)
 	} else {
 		msg.Badge = int(badge.Data.(int64))
 	}
 
-	l4g.Debug(utils.T("api.post.send_notifications_and_forget.clear_push_notification.debug"), msg.DeviceId, msg.ChannelId)
+	l4g.Debug(utils.T("i18n.server.api.post.send_notifications_and_forget.clear_push_notification.debug"), msg.DeviceId, msg.ChannelId)
 
 	for _, session := range sessions {
 		tmpMessage := *model.PushNotificationFromJson(strings.NewReader(msg.ToJson()))
@@ -607,11 +607,11 @@ func sendOutOfChannelMentions(sender *model.User, post *model.Post, teamId strin
 
 	var message string
 	if len(usernames) == 1 {
-		message = T("api.post.check_for_out_of_channel_mentions.message.one", map[string]interface{}{
+		message = T("i18n.server.api.post.check_for_out_of_channel_mentions.message.one", map[string]interface{}{
 			"Username": usernames[0],
 		})
 	} else {
-		message = T("api.post.check_for_out_of_channel_mentions.message.multiple", map[string]interface{}{
+		message = T("i18n.server.api.post.check_for_out_of_channel_mentions.message.multiple", map[string]interface{}{
 			"Usernames":    strings.Join(usernames[:len(usernames)-1], ", "),
 			"LastUsername": usernames[len(usernames)-1],
 		})

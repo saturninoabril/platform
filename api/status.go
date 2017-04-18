@@ -14,7 +14,7 @@ import (
 )
 
 func InitStatus() {
-	l4g.Debug(utils.T("api.status.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.status.init.debug"))
 
 	BaseRoutes.Users.Handle("/status", ApiUserRequired(getStatusesHttp)).Methods("GET")
 	BaseRoutes.Users.Handle("/status/ids", ApiUserRequired(getStatusesByIdsHttp)).Methods("POST")

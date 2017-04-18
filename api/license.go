@@ -15,7 +15,7 @@ import (
 )
 
 func InitLicense() {
-	l4g.Debug(utils.T("api.license.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.license.init.debug"))
 
 	BaseRoutes.License.Handle("/add", ApiAdminSystemRequired(addLicense)).Methods("POST")
 	BaseRoutes.License.Handle("/remove", ApiAdminSystemRequired(removeLicense)).Methods("POST")
@@ -34,13 +34,13 @@ func addLicense(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	fileArray, ok := m.File["license"]
 	if !ok {
-		c.Err = model.NewLocAppError("addLicense", "api.license.add_license.no_file.app_error", nil, "")
+		c.Err = model.NewLocAppError("addLicense", "i18n.server.api.license.add_license.no_file.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if len(fileArray) <= 0 {
-		c.Err = model.NewLocAppError("addLicense", "api.license.add_license.array.app_error", nil, "")
+		c.Err = model.NewLocAppError("addLicense", "i18n.server.api.license.add_license.array.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -50,7 +50,7 @@ func addLicense(c *Context, w http.ResponseWriter, r *http.Request) {
 	file, err := fileData.Open()
 	defer file.Close()
 	if err != nil {
-		c.Err = model.NewLocAppError("addLicense", "api.license.add_license.open.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("addLicense", "i18n.server.api.license.add_license.open.app_error", nil, err.Error())
 		return
 	}
 

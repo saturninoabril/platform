@@ -46,24 +46,24 @@ func TestCreateUser(t *testing.T) {
 	ruser.Username = GenerateTestUsername()
 	ruser.Password = "passwd1"
 	_, resp = Client.CreateUser(ruser)
-	CheckErrorMessage(t, resp, "store.sql_user.save.email_exists.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.store.sql_user.save.email_exists.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	ruser.Email = GenerateTestEmail()
 	ruser.Username = user.Username
 	_, resp = Client.CreateUser(ruser)
-	CheckErrorMessage(t, resp, "store.sql_user.save.username_exists.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.store.sql_user.save.username_exists.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	ruser.Email = ""
 	_, resp = Client.CreateUser(ruser)
-	CheckErrorMessage(t, resp, "model.user.is_valid.email.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.model.user.is_valid.email.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	ruser.Email = GenerateTestEmail()
 	ruser.Username = "1" + user.Username
 	_, resp = Client.CreateUser(ruser)
-	CheckErrorMessage(t, resp, "model.user.is_valid.username.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.model.user.is_valid.username.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	openServer := *utils.Cfg.TeamSettings.EnableOpenServer
@@ -1195,7 +1195,7 @@ func TestGetUsersNotInChannel(t *testing.T) {
 	CheckBadRequestStatus(t, resp)
 
 	_, resp = Client.UpdateUserMfa(ruser.Id, "", true)
-	CheckErrorMessage(t, resp, "api.context.invalid_body_param.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.context.invalid_body_param.app_error")
 
 	*utils.Cfg.ServiceSettings.EnableMultifactorAuthentication = true
 
@@ -1339,7 +1339,7 @@ func TestUpdateUserPassword(t *testing.T) {
 
 	// Should fail because account is locked out
 	_, resp = Client.UpdateUserPassword(th.BasicUser.Id, th.BasicUser.Password, "newpwd")
-	CheckErrorMessage(t, resp, "api.user.check_user_login_attempts.too_many.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.api.user.check_user_login_attempts.too_many.app_error")
 	CheckUnauthorizedStatus(t, resp)
 
 	// System admin can update another user's password

@@ -103,11 +103,11 @@ func TeamsUnreadFromJson(data io.Reader) []*TeamUnread {
 func (o *TeamMember) IsValid() *AppError {
 
 	if len(o.TeamId) != 26 {
-		return NewLocAppError("TeamMember.IsValid", "model.team_member.is_valid.team_id.app_error", nil, "")
+		return NewLocAppError("TeamMember.IsValid", "i18n.server.model.team_member.is_valid.team_id.app_error", nil, "")
 	}
 
 	if len(o.UserId) != 26 {
-		return NewLocAppError("TeamMember.IsValid", "model.team_member.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("TeamMember.IsValid", "i18n.server.model.team_member.is_valid.user_id.app_error", nil, "")
 	}
 
 	return nil

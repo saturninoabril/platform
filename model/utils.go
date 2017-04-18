@@ -89,7 +89,7 @@ func AppErrorFromJson(data io.Reader) *AppError {
 	if err == nil {
 		return &er
 	} else {
-		return NewLocAppError("AppErrorFromJson", "model.utils.decode_json.app_error", nil, "body: "+str)
+		return NewLocAppError("AppErrorFromJson", "i18n.server.model.utils.decode_json.app_error", nil, "body: "+str)
 	}
 }
 

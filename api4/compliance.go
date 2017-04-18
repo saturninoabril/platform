@@ -15,7 +15,7 @@ import (
 )
 
 func InitCompliance() {
-	l4g.Debug(utils.T("api.compliance.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.compliance.init.debug"))
 
 	BaseRoutes.Compliance.Handle("/reports", ApiSessionRequired(createComplianceReport)).Methods("POST")
 	BaseRoutes.Compliance.Handle("/reports", ApiSessionRequired(getComplianceReports)).Methods("GET")

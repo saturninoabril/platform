@@ -17,15 +17,15 @@ type PasswordRecovery struct {
 func (p *PasswordRecovery) IsValid() *AppError {
 
 	if len(p.UserId) != 26 {
-		return NewLocAppError("User.IsValid", "model.password_recovery.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("User.IsValid", "i18n.server.model.password_recovery.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(p.Code) != PASSWORD_RECOVERY_CODE_SIZE {
-		return NewLocAppError("User.IsValid", "model.password_recovery.is_valid.code.app_error", nil, "")
+		return NewLocAppError("User.IsValid", "i18n.server.model.password_recovery.is_valid.code.app_error", nil, "")
 	}
 
 	if p.CreateAt == 0 {
-		return NewLocAppError("User.IsValid", "model.password_recovery.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("User.IsValid", "i18n.server.model.password_recovery.is_valid.create_at.app_error", nil, "")
 	}
 
 	return nil

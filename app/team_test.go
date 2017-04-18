@@ -67,7 +67,7 @@ func TestCreateTeamWithUser(t *testing.T) {
 		t.Log(err.Message)
 		t.Fatal("Should not create a team with user when user has set email without domain")
 	} else {
-		if err.Message != "model.team.is_valid.email.app_error" {
+		if err.Message != "i18n.server.model.team.is_valid.email.app_error" {
 			t.Log(err)
 			t.Fatal("Invalid error message")
 		}

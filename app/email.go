@@ -16,18 +16,18 @@ import (
 func SendChangeUsernameEmail(oldUsername, newUsername, email, locale, siteURL string) *model.AppError {
 	T := utils.GetUserTranslations(locale)
 
-	subject := T("api.templates.username_change_subject",
+	subject := T("i18n.server.api.templates.username_change_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"],
 			"TeamDisplayName": utils.Cfg.TeamSettings.SiteName})
 
 	bodyPage := utils.NewHTMLTemplate("email_change_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.username_change_body.title")
-	bodyPage.Html["Info"] = template.HTML(T("api.templates.username_change_body.info",
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.username_change_body.title")
+	bodyPage.Html["Info"] = template.HTML(T("i18n.server.api.templates.username_change_body.info",
 		map[string]interface{}{"TeamDisplayName": utils.Cfg.TeamSettings.SiteName, "NewUsername": newUsername}))
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendChangeUsernameEmail", "api.user.send_email_change_username_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("SendChangeUsernameEmail", "i18n.server.api.user.send_email_change_username_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -38,20 +38,20 @@ func SendEmailChangeVerifyEmail(userId, newUserEmail, locale, siteURL string) *m
 
 	link := fmt.Sprintf("%s/do_verify_email?uid=%s&hid=%s&email=%s", siteURL, userId, model.HashPassword(userId+utils.Cfg.EmailSettings.InviteSalt), url.QueryEscape(newUserEmail))
 
-	subject := T("api.templates.email_change_verify_subject",
+	subject := T("i18n.server.api.templates.email_change_verify_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"],
 			"TeamDisplayName": utils.Cfg.TeamSettings.SiteName})
 
 	bodyPage := utils.NewHTMLTemplate("email_change_verify_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.email_change_verify_body.title")
-	bodyPage.Props["Info"] = T("api.templates.email_change_verify_body.info",
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.email_change_verify_body.title")
+	bodyPage.Props["Info"] = T("i18n.server.api.templates.email_change_verify_body.info",
 		map[string]interface{}{"TeamDisplayName": utils.Cfg.TeamSettings.SiteName})
 	bodyPage.Props["VerifyUrl"] = link
-	bodyPage.Props["VerifyButton"] = T("api.templates.email_change_verify_body.button")
+	bodyPage.Props["VerifyButton"] = T("i18n.server.api.templates.email_change_verify_body.button")
 
 	if err := utils.SendMail(newUserEmail, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendEmailChangeVerifyEmail", "api.user.send_email_change_verify_email_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("SendEmailChangeVerifyEmail", "i18n.server.api.user.send_email_change_verify_email_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -60,18 +60,18 @@ func SendEmailChangeVerifyEmail(userId, newUserEmail, locale, siteURL string) *m
 func SendEmailChangeEmail(oldEmail, newEmail, locale, siteURL string) *model.AppError {
 	T := utils.GetUserTranslations(locale)
 
-	subject := T("api.templates.email_change_subject",
+	subject := T("i18n.server.api.templates.email_change_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"],
 			"TeamDisplayName": utils.Cfg.TeamSettings.SiteName})
 
 	bodyPage := utils.NewHTMLTemplate("email_change_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.email_change_body.title")
-	bodyPage.Html["Info"] = template.HTML(T("api.templates.email_change_body.info",
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.email_change_body.title")
+	bodyPage.Html["Info"] = template.HTML(T("i18n.server.api.templates.email_change_body.info",
 		map[string]interface{}{"TeamDisplayName": utils.Cfg.TeamSettings.SiteName, "NewEmail": newEmail}))
 
 	if err := utils.SendMail(oldEmail, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendEmailChangeEmail", "api.user.send_email_change_email_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("SendEmailChangeEmail", "i18n.server.api.user.send_email_change_email_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -84,18 +84,18 @@ func SendVerifyEmail(userId, userEmail, locale, siteURL string) *model.AppError 
 
 	url, _ := url.Parse(siteURL)
 
-	subject := T("api.templates.verify_subject",
+	subject := T("i18n.server.api.templates.verify_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"]})
 
 	bodyPage := utils.NewHTMLTemplate("verify_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.verify_body.title", map[string]interface{}{"ServerURL": url.Host})
-	bodyPage.Props["Info"] = T("api.templates.verify_body.info")
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.verify_body.title", map[string]interface{}{"ServerURL": url.Host})
+	bodyPage.Props["Info"] = T("i18n.server.api.templates.verify_body.info")
 	bodyPage.Props["VerifyUrl"] = link
-	bodyPage.Props["Button"] = T("api.templates.verify_body.button")
+	bodyPage.Props["Button"] = T("i18n.server.api.templates.verify_body.button")
 
 	if err := utils.SendMail(userEmail, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendVerifyEmail", "api.user.send_verify_email_and_forget.failed.error", nil, err.Error())
+		return model.NewLocAppError("SendVerifyEmail", "i18n.server.api.user.send_verify_email_and_forget.failed.error", nil, err.Error())
 	}
 
 	return nil
@@ -104,17 +104,17 @@ func SendVerifyEmail(userId, userEmail, locale, siteURL string) *model.AppError 
 func SendSignInChangeEmail(email, method, locale, siteURL string) *model.AppError {
 	T := utils.GetUserTranslations(locale)
 
-	subject := T("api.templates.signin_change_email.subject",
+	subject := T("i18n.server.api.templates.signin_change_email.subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"]})
 
 	bodyPage := utils.NewHTMLTemplate("signin_change_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.signin_change_email.body.title")
-	bodyPage.Html["Info"] = template.HTML(T("api.templates.signin_change_email.body.info",
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.signin_change_email.body.title")
+	bodyPage.Html["Info"] = template.HTML(T("i18n.server.api.templates.signin_change_email.body.info",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"], "Method": method}))
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendSignInChangeEmail", "api.user.send_sign_in_change_email_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("SendSignInChangeEmail", "i18n.server.api.user.send_sign_in_change_email_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -125,21 +125,21 @@ func SendWelcomeEmail(userId string, email string, verified bool, locale, siteUR
 
 	rawUrl, _ := url.Parse(siteURL)
 
-	subject := T("api.templates.welcome_subject",
+	subject := T("i18n.server.api.templates.welcome_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"],
 			"ServerURL": rawUrl.Host})
 
 	bodyPage := utils.NewHTMLTemplate("welcome_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.welcome_body.title", map[string]interface{}{"ServerURL": rawUrl.Host})
-	bodyPage.Props["Info"] = T("api.templates.welcome_body.info")
-	bodyPage.Props["Button"] = T("api.templates.welcome_body.button")
-	bodyPage.Props["Info2"] = T("api.templates.welcome_body.info2")
-	bodyPage.Props["Info3"] = T("api.templates.welcome_body.info3")
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.welcome_body.title", map[string]interface{}{"ServerURL": rawUrl.Host})
+	bodyPage.Props["Info"] = T("i18n.server.api.templates.welcome_body.info")
+	bodyPage.Props["Button"] = T("i18n.server.api.templates.welcome_body.button")
+	bodyPage.Props["Info2"] = T("i18n.server.api.templates.welcome_body.info2")
+	bodyPage.Props["Info3"] = T("i18n.server.api.templates.welcome_body.info3")
 	bodyPage.Props["SiteURL"] = siteURL
 
 	if *utils.Cfg.NativeAppSettings.AppDownloadLink != "" {
-		bodyPage.Props["AppDownloadInfo"] = T("api.templates.welcome_body.app_download_info")
+		bodyPage.Props["AppDownloadInfo"] = T("i18n.server.api.templates.welcome_body.app_download_info")
 		bodyPage.Props["AppDownloadLink"] = *utils.Cfg.NativeAppSettings.AppDownloadLink
 	}
 
@@ -149,7 +149,7 @@ func SendWelcomeEmail(userId string, email string, verified bool, locale, siteUR
 	}
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendWelcomeEmail", "api.user.send_welcome_email_and_forget.failed.error", nil, err.Error())
+		return model.NewLocAppError("SendWelcomeEmail", "i18n.server.api.user.send_welcome_email_and_forget.failed.error", nil, err.Error())
 	}
 
 	return nil
@@ -158,18 +158,18 @@ func SendWelcomeEmail(userId string, email string, verified bool, locale, siteUR
 func SendPasswordChangeEmail(email, method, locale, siteURL string) *model.AppError {
 	T := utils.GetUserTranslations(locale)
 
-	subject := T("api.templates.password_change_subject",
+	subject := T("i18n.server.api.templates.password_change_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"],
 			"TeamDisplayName": utils.Cfg.TeamSettings.SiteName})
 
 	bodyPage := utils.NewHTMLTemplate("password_change_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.password_change_body.title")
-	bodyPage.Html["Info"] = template.HTML(T("api.templates.password_change_body.info",
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.password_change_body.title")
+	bodyPage.Html["Info"] = template.HTML(T("i18n.server.api.templates.password_change_body.info",
 		map[string]interface{}{"TeamDisplayName": utils.Cfg.TeamSettings.SiteName, "TeamURL": siteURL, "Method": method}))
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendPasswordChangeEmail", "api.user.send_password_change_email_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("SendPasswordChangeEmail", "i18n.server.api.user.send_password_change_email_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -181,18 +181,18 @@ func SendPasswordResetEmail(email string, recovery *model.PasswordRecovery, loca
 
 	link := fmt.Sprintf("%s/reset_password_complete?code=%s", siteURL, url.QueryEscape(recovery.Code))
 
-	subject := T("api.templates.reset_subject",
+	subject := T("i18n.server.api.templates.reset_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"]})
 
 	bodyPage := utils.NewHTMLTemplate("reset_body", locale)
 	bodyPage.Props["SiteURL"] = siteURL
-	bodyPage.Props["Title"] = T("api.templates.reset_body.title")
-	bodyPage.Html["Info"] = template.HTML(T("api.templates.reset_body.info"))
+	bodyPage.Props["Title"] = T("i18n.server.api.templates.reset_body.title")
+	bodyPage.Html["Info"] = template.HTML(T("i18n.server.api.templates.reset_body.info"))
 	bodyPage.Props["ResetUrl"] = link
-	bodyPage.Props["Button"] = T("api.templates.reset_body.button")
+	bodyPage.Props["Button"] = T("i18n.server.api.templates.reset_body.button")
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return false, model.NewLocAppError("SendPasswordReset", "api.user.send_password_reset.send.app_error", nil, "err="+err.Message)
+		return false, model.NewLocAppError("SendPasswordReset", "i18n.server.api.user.send_password_reset.send.app_error", nil, "err="+err.Message)
 	}
 
 	return true, nil
@@ -201,7 +201,7 @@ func SendPasswordResetEmail(email string, recovery *model.PasswordRecovery, loca
 func SendMfaChangeEmail(email string, activated bool, locale, siteURL string) *model.AppError {
 	T := utils.GetUserTranslations(locale)
 
-	subject := T("api.templates.mfa_change_subject",
+	subject := T("i18n.server.api.templates.mfa_change_subject",
 		map[string]interface{}{"SiteName": utils.ClientCfg["SiteName"]})
 
 	bodyPage := utils.NewHTMLTemplate("mfa_change_body", locale)
@@ -209,18 +209,18 @@ func SendMfaChangeEmail(email string, activated bool, locale, siteURL string) *m
 
 	bodyText := ""
 	if activated {
-		bodyText = "api.templates.mfa_activated_body.info"
-		bodyPage.Props["Title"] = T("api.templates.mfa_activated_body.title")
+		bodyText = "i18n.server.api.templates.mfa_activated_body.info"
+		bodyPage.Props["Title"] = T("i18n.server.api.templates.mfa_activated_body.title")
 	} else {
-		bodyText = "api.templates.mfa_deactivated_body.info"
-		bodyPage.Props["Title"] = T("api.templates.mfa_deactivated_body.title")
+		bodyText = "i18n.server.api.templates.mfa_deactivated_body.info"
+		bodyPage.Props["Title"] = T("i18n.server.api.templates.mfa_deactivated_body.title")
 	}
 
 	bodyPage.Html["Info"] = template.HTML(T(bodyText,
 		map[string]interface{}{"SiteURL": siteURL}))
 
 	if err := utils.SendMail(email, subject, bodyPage.Render()); err != nil {
-		return model.NewLocAppError("SendMfaChangeEmail", "api.user.send_mfa_change_email.error", nil, err.Error())
+		return model.NewLocAppError("SendMfaChangeEmail", "i18n.server.api.user.send_mfa_change_email.error", nil, err.Error())
 	}
 
 	return nil
@@ -229,20 +229,20 @@ func SendMfaChangeEmail(email string, activated bool, locale, siteURL string) *m
 func SendInviteEmails(team *model.Team, senderName string, invites []string, siteURL string) {
 	for _, invite := range invites {
 		if len(invite) > 0 {
-			senderRole := utils.T("api.team.invite_members.member")
+			senderRole := utils.T("i18n.server.api.team.invite_members.member")
 
-			subject := utils.T("api.templates.invite_subject",
+			subject := utils.T("i18n.server.api.templates.invite_subject",
 				map[string]interface{}{"SenderName": senderName,
 					"TeamDisplayName": team.DisplayName,
 					"SiteName":        utils.ClientCfg["SiteName"]})
 
 			bodyPage := utils.NewHTMLTemplate("invite_body", model.DEFAULT_LOCALE)
 			bodyPage.Props["SiteURL"] = siteURL
-			bodyPage.Props["Title"] = utils.T("api.templates.invite_body.title")
-			bodyPage.Html["Info"] = template.HTML(utils.T("api.templates.invite_body.info",
+			bodyPage.Props["Title"] = utils.T("i18n.server.api.templates.invite_body.title")
+			bodyPage.Html["Info"] = template.HTML(utils.T("i18n.server.api.templates.invite_body.info",
 				map[string]interface{}{"SenderStatus": senderRole, "SenderName": senderName, "TeamDisplayName": team.DisplayName}))
-			bodyPage.Props["Button"] = utils.T("api.templates.invite_body.button")
-			bodyPage.Html["ExtraInfo"] = template.HTML(utils.T("api.templates.invite_body.extra_info",
+			bodyPage.Props["Button"] = utils.T("i18n.server.api.templates.invite_body.button")
+			bodyPage.Html["ExtraInfo"] = template.HTML(utils.T("i18n.server.api.templates.invite_body.extra_info",
 				map[string]interface{}{"TeamDisplayName": team.DisplayName, "TeamURL": siteURL + "/" + team.Name}))
 
 			props := make(map[string]string)
@@ -256,11 +256,11 @@ func SendInviteEmails(team *model.Team, senderName string, invites []string, sit
 			bodyPage.Props["Link"] = fmt.Sprintf("%s/signup_user_complete/?d=%s&h=%s", siteURL, url.QueryEscape(data), url.QueryEscape(hash))
 
 			if !utils.Cfg.EmailSettings.SendEmailNotifications {
-				l4g.Info(utils.T("api.team.invite_members.sending.info"), invite, bodyPage.Props["Link"])
+				l4g.Info(utils.T("i18n.server.api.team.invite_members.sending.info"), invite, bodyPage.Props["Link"])
 			}
 
 			if err := utils.SendMail(invite, subject, bodyPage.Render()); err != nil {
-				l4g.Error(utils.T("api.team.invite_members.send.error"), err)
+				l4g.Error(utils.T("i18n.server.api.team.invite_members.send.error"), err)
 			}
 		}
 	}

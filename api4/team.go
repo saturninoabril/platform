@@ -20,7 +20,7 @@ const (
 )
 
 func InitTeam() {
-	l4g.Debug(utils.T("api.team.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.team.init.debug"))
 
 	BaseRoutes.Teams.Handle("", ApiSessionRequired(createTeam)).Methods("POST")
 	BaseRoutes.Teams.Handle("", ApiSessionRequired(getAllTeams)).Methods("GET")
@@ -59,7 +59,7 @@ func createTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !app.SessionHasPermissionTo(c.Session, model.PERMISSION_CREATE_TEAM) {
-		c.Err = model.NewAppError("createTeam", "api.team.is_team_creation_allowed.disabled.app_error", nil, "", http.StatusForbidden)
+		c.Err = model.NewAppError("createTeam", "i18n.server.api.team.is_team_creation_allowed.disabled.app_error", nil, "", http.StatusForbidden)
 		return
 	}
 
@@ -353,15 +353,15 @@ func addTeamMember(c *Context, w http.ResponseWriter, r *http.Request) {
 	} else if len(hash) > 0 && len(data) > 0 {
 		member, err = app.AddTeamMemberByHash(c.Session.UserId, hash, data)
 		if err != nil {
-			err = model.NewAppError("addTeamMember", "api.team.add_user_to_team.invalid_data.app_error", nil, "", http.StatusNotFound)
+			err = model.NewAppError("addTeamMember", "i18n.server.api.team.add_user_to_team.invalid_data.app_error", nil, "", http.StatusNotFound)
 		}
 	} else if len(inviteId) > 0 {
 		member, err = app.AddTeamMemberByInviteId(inviteId, c.Session.UserId)
 		if err != nil {
-			err = model.NewAppError("addTeamMember", "api.team.add_user_to_team.invalid_invite_id.app_error", nil, "", http.StatusNotFound)
+			err = model.NewAppError("addTeamMember", "i18n.server.api.team.add_user_to_team.invalid_invite_id.app_error", nil, "", http.StatusNotFound)
 		}
 	} else {
-		err = model.NewAppError("addTeamMember", "api.team.add_user_to_team.missing_parameter.app_error", nil, "", http.StatusBadRequest)
+		err = model.NewAppError("addTeamMember", "i18n.server.api.team.add_user_to_team.missing_parameter.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	if err != nil {
@@ -588,7 +588,7 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := r.ParseMultipartForm(10000000); err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.parse.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.parse.app_error", nil, err.Error())
 		return
 	}
 
@@ -597,27 +597,27 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	fileSizeStr, ok := r.MultipartForm.Value["filesize"]
 	if !ok {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.unavailable.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.unavailable.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	fileSize, err := strconv.ParseInt(fileSizeStr[0], 10, 64)
 	if err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.integer.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.integer.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	fileInfoArray, ok := r.MultipartForm.File["file"]
 	if !ok {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.no_file.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.no_file.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if len(fileInfoArray) <= 0 {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.array.app_error", nil, "")
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.array.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -627,7 +627,7 @@ func importTeam(c *Context, w http.ResponseWriter, r *http.Request) {
 	fileData, err := fileInfo.Open()
 	defer fileData.Close()
 	if err != nil {
-		c.Err = model.NewLocAppError("importTeam", "api.team.import_team.open.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("importTeam", "i18n.server.api.team.import_team.open.app_error", nil, err.Error())
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}

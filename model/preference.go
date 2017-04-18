@@ -69,25 +69,25 @@ func PreferenceFromJson(data io.Reader) *Preference {
 
 func (o *Preference) IsValid() *AppError {
 	if len(o.UserId) != 26 {
-		return NewLocAppError("Preference.IsValid", "model.preference.is_valid.id.app_error", nil, "user_id="+o.UserId)
+		return NewLocAppError("Preference.IsValid", "i18n.server.model.preference.is_valid.id.app_error", nil, "user_id="+o.UserId)
 	}
 
 	if len(o.Category) == 0 || len(o.Category) > 32 {
-		return NewLocAppError("Preference.IsValid", "model.preference.is_valid.category.app_error", nil, "category="+o.Category)
+		return NewLocAppError("Preference.IsValid", "i18n.server.model.preference.is_valid.category.app_error", nil, "category="+o.Category)
 	}
 
 	if len(o.Name) > 32 {
-		return NewLocAppError("Preference.IsValid", "model.preference.is_valid.name.app_error", nil, "name="+o.Name)
+		return NewLocAppError("Preference.IsValid", "i18n.server.model.preference.is_valid.name.app_error", nil, "name="+o.Name)
 	}
 
 	if utf8.RuneCountInString(o.Value) > 2000 {
-		return NewLocAppError("Preference.IsValid", "model.preference.is_valid.value.app_error", nil, "value="+o.Value)
+		return NewLocAppError("Preference.IsValid", "i18n.server.model.preference.is_valid.value.app_error", nil, "value="+o.Value)
 	}
 
 	if o.Category == PREFERENCE_CATEGORY_THEME {
 		var unused map[string]string
 		if err := json.NewDecoder(strings.NewReader(o.Value)).Decode(&unused); err != nil {
-			return NewLocAppError("Preference.IsValid", "model.preference.is_valid.theme.app_error", nil, "value="+o.Value)
+			return NewLocAppError("Preference.IsValid", "i18n.server.model.preference.is_valid.theme.app_error", nil, "value="+o.Value)
 		}
 	}
 

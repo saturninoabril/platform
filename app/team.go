@@ -40,7 +40,7 @@ func CreateTeamWithUser(team *model.Team, userId string) (*model.Team, *model.Ap
 	}
 
 	if !isTeamEmailAllowed(user) {
-		return nil, model.NewLocAppError("isTeamEmailAllowed", "api.team.is_team_creation_allowed.domain.app_error", nil, "")
+		return nil, model.NewLocAppError("isTeamEmailAllowed", "i18n.server.api.team.is_team_creation_allowed.domain.app_error", nil, "")
 	}
 
 	var rteam *model.Team
@@ -146,7 +146,7 @@ func UpdateTeamMemberRoles(teamId string, userId string, newRoles string) (*mode
 	}
 
 	if member == nil {
-		err := model.NewLocAppError("UpdateTeamMemberRoles", "api.team.update_member_roles.not_a_member", nil, "userId="+userId+" teamId="+teamId)
+		err := model.NewLocAppError("UpdateTeamMemberRoles", "i18n.server.api.team.update_member_roles.not_a_member", nil, "userId="+userId+" teamId="+teamId)
 		err.StatusCode = http.StatusBadRequest
 		return nil, err
 	}
@@ -199,12 +199,12 @@ func AddUserToTeamByHash(userId string, hash string, data string) (*model.Team, 
 	props := model.MapFromJson(strings.NewReader(data))
 
 	if !model.ComparePassword(hash, fmt.Sprintf("%v:%v", data, utils.Cfg.EmailSettings.InviteSalt)) {
-		return nil, model.NewLocAppError("JoinUserToTeamByHash", "api.user.create_user.signup_link_invalid.app_error", nil, "")
+		return nil, model.NewLocAppError("JoinUserToTeamByHash", "i18n.server.api.user.create_user.signup_link_invalid.app_error", nil, "")
 	}
 
 	t, timeErr := strconv.ParseInt(props["time"], 10, 64)
 	if timeErr != nil || model.GetMillis()-t > 1000*60*60*48 { // 48 hours
-		return nil, model.NewLocAppError("JoinUserToTeamByHash", "api.user.create_user.signup_link_expired.app_error", nil, "")
+		return nil, model.NewLocAppError("JoinUserToTeamByHash", "i18n.server.api.user.create_user.signup_link_expired.app_error", nil, "")
 	}
 
 	tchan := Srv.Store.Team().Get(props["id"])
@@ -310,7 +310,7 @@ func JoinUserToTeam(team *model.Team, user *model.User, userRequestorId string) 
 
 	// Soft error if there is an issue joining the default channels
 	if err := JoinDefaultChannels(team.Id, user, channelRole, userRequestorId); err != nil {
-		l4g.Error(utils.T("api.user.create_user.joining.error"), user.Id, team.Id, err)
+		l4g.Error(utils.T("i18n.server.api.user.create_user.joining.error"), user.Id, team.Id, err)
 	}
 
 	ClearSessionCacheForUser(user.Id)
@@ -558,13 +558,13 @@ func LeaveTeam(team *model.Team, user *model.User) *model.AppError {
 	var err *model.AppError
 
 	if teamMember, err = GetTeamMember(team.Id, user.Id); err != nil {
-		return model.NewLocAppError("LeaveTeam", "api.team.remove_user_from_team.missing.app_error", nil, err.Error())
+		return model.NewLocAppError("LeaveTeam", "i18n.server.api.team.remove_user_from_team.missing.app_error", nil, err.Error())
 	}
 
 	var channelList *model.ChannelList
 
 	if result := <-Srv.Store.Channel().GetChannels(team.Id, user.Id); result.Err != nil {
-		if result.Err.Id == "store.sql_channel.get_channels.not_found.app_error" {
+		if result.Err.Id == "i18n.server.store.sql_channel.get_channels.not_found.app_error" {
 			channelList = &model.ChannelList{}
 		} else {
 			return result.Err
@@ -613,7 +613,7 @@ func LeaveTeam(team *model.Team, user *model.User) *model.AppError {
 
 func InviteNewUsersToTeam(emailList []string, teamId, senderId string) *model.AppError {
 	if len(emailList) == 0 {
-		err := model.NewLocAppError("InviteNewUsersToTeam", "api.team.invite_members.no_one.app_error", nil, "")
+		err := model.NewLocAppError("InviteNewUsersToTeam", "i18n.server.api.team.invite_members.no_one.app_error", nil, "")
 		err.StatusCode = http.StatusBadRequest
 		return err
 	}
@@ -758,12 +758,12 @@ func GetTeamIdFromQuery(query url.Values) (string, *model.AppError) {
 		props := model.MapFromJson(strings.NewReader(data))
 
 		if !model.ComparePassword(hash, fmt.Sprintf("%v:%v", data, utils.Cfg.EmailSettings.InviteSalt)) {
-			return "", model.NewAppError("GetTeamIdFromQuery", "api.oauth.singup_with_oauth.invalid_link.app_error", nil, "", http.StatusBadRequest)
+			return "", model.NewAppError("GetTeamIdFromQuery", "i18n.server.api.oauth.singup_with_oauth.invalid_link.app_error", nil, "", http.StatusBadRequest)
 		}
 
 		t, err := strconv.ParseInt(props["time"], 10, 64)
 		if err != nil || model.GetMillis()-t > 1000*60*60*48 { // 48 hours
-			return "", model.NewAppError("GetTeamIdFromQuery", "api.oauth.singup_with_oauth.expired_link.app_error", nil, "", http.StatusBadRequest)
+			return "", model.NewAppError("GetTeamIdFromQuery", "i18n.server.api.oauth.singup_with_oauth.expired_link.app_error", nil, "", http.StatusBadRequest)
 		}
 
 		return props["id"], nil

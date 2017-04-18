@@ -29,7 +29,7 @@ type WebSocketClient struct {
 func NewWebSocketClient(url, authToken string) (*WebSocketClient, *AppError) {
 	conn, _, err := websocket.DefaultDialer.Dial(url+API_URL_SUFFIX_V3+"/users/websocket", nil)
 	if err != nil {
-		return nil, NewLocAppError("NewWebSocketClient", "model.websocket_client.connect_fail.app_error", nil, err.Error())
+		return nil, NewLocAppError("NewWebSocketClient", "i18n.server.model.websocket_client.connect_fail.app_error", nil, err.Error())
 	}
 
 	client := &WebSocketClient{
@@ -54,7 +54,7 @@ func NewWebSocketClient(url, authToken string) (*WebSocketClient, *AppError) {
 func NewWebSocketClient4(url, authToken string) (*WebSocketClient, *AppError) {
 	conn, _, err := websocket.DefaultDialer.Dial(url+API_URL_SUFFIX+"/websocket", nil)
 	if err != nil {
-		return nil, NewLocAppError("NewWebSocketClient4", "model.websocket_client.connect_fail.app_error", nil, err.Error())
+		return nil, NewLocAppError("NewWebSocketClient4", "i18n.server.model.websocket_client.connect_fail.app_error", nil, err.Error())
 	}
 
 	client := &WebSocketClient{
@@ -78,7 +78,7 @@ func (wsc *WebSocketClient) Connect() *AppError {
 	var err error
 	wsc.Conn, _, err = websocket.DefaultDialer.Dial(wsc.ConnectUrl, nil)
 	if err != nil {
-		return NewLocAppError("Connect", "model.websocket_client.connect_fail.app_error", nil, err.Error())
+		return NewLocAppError("Connect", "i18n.server.model.websocket_client.connect_fail.app_error", nil, err.Error())
 	}
 
 	wsc.EventChannel = make(chan *WebSocketEvent, 100)
@@ -106,7 +106,7 @@ func (wsc *WebSocketClient) Listen() {
 			var err error
 			if _, rawMsg, err = wsc.Conn.ReadMessage(); err != nil {
 				if !websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseNoStatusReceived) {
-					wsc.ListenError = NewLocAppError("NewWebSocketClient", "model.websocket_client.connect_fail.app_error", nil, err.Error())
+					wsc.ListenError = NewLocAppError("NewWebSocketClient", "i18n.server.model.websocket_client.connect_fail.app_error", nil, err.Error())
 				}
 
 				return

@@ -16,13 +16,13 @@ import (
 )
 
 func CreateDefaultChannels(teamId string) ([]*model.Channel, *model.AppError) {
-	townSquare := &model.Channel{DisplayName: utils.T("api.channel.create_default_channels.town_square"), Name: "town-square", Type: model.CHANNEL_OPEN, TeamId: teamId}
+	townSquare := &model.Channel{DisplayName: utils.T("i18n.server.api.channel.create_default_channels.town_square"), Name: "town-square", Type: model.CHANNEL_OPEN, TeamId: teamId}
 
 	if _, err := CreateChannel(townSquare, false); err != nil {
 		return nil, err
 	}
 
-	offTopic := &model.Channel{DisplayName: utils.T("api.channel.create_default_channels.off_topic"), Name: "off-topic", Type: model.CHANNEL_OPEN, TeamId: teamId}
+	offTopic := &model.Channel{DisplayName: utils.T("i18n.server.api.channel.create_default_channels.off_topic"), Name: "off-topic", Type: model.CHANNEL_OPEN, TeamId: teamId}
 
 	if _, err := CreateChannel(offTopic, false); err != nil {
 		return nil, err
@@ -58,11 +58,11 @@ func JoinDefaultChannels(teamId string, user *model.User, channelRole string, us
 
 		if requestor == nil {
 			if err := postJoinChannelMessage(user, townSquare); err != nil {
-				l4g.Error(utils.T("api.channel.post_user_add_remove_message_and_forget.error"), err)
+				l4g.Error(utils.T("i18n.server.api.channel.post_user_add_remove_message_and_forget.error"), err)
 			}
 		} else {
 			if err := PostAddToChannelMessage(requestor, user, townSquare); err != nil {
-				l4g.Error(utils.T("api.channel.post_user_add_remove_message_and_forget.error"), err)
+				l4g.Error(utils.T("i18n.server.api.channel.post_user_add_remove_message_and_forget.error"), err)
 			}
 		}
 
@@ -83,11 +83,11 @@ func JoinDefaultChannels(teamId string, user *model.User, channelRole string, us
 
 		if requestor == nil {
 			if err := postJoinChannelMessage(user, offTopic); err != nil {
-				l4g.Error(utils.T("api.channel.post_user_add_remove_message_and_forget.error"), err)
+				l4g.Error(utils.T("i18n.server.api.channel.post_user_add_remove_message_and_forget.error"), err)
 			}
 		} else {
 			if err := PostAddToChannelMessage(requestor, user, offTopic); err != nil {
-				l4g.Error(utils.T("api.channel.post_user_add_remove_message_and_forget.error"), err)
+				l4g.Error(utils.T("i18n.server.api.channel.post_user_add_remove_message_and_forget.error"), err)
 			}
 		}
 
@@ -99,15 +99,15 @@ func JoinDefaultChannels(teamId string, user *model.User, channelRole string, us
 
 func CreateChannelWithUser(channel *model.Channel, userId string) (*model.Channel, *model.AppError) {
 	if channel.IsGroupOrDirect() {
-		return nil, model.NewAppError("CreateChannelWithUser", "api.channel.create_channel.direct_channel.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("CreateChannelWithUser", "i18n.server.api.channel.create_channel.direct_channel.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	if strings.Index(channel.Name, "__") > 0 {
-		return nil, model.NewAppError("CreateChannelWithUser", "api.channel.create_channel.invalid_character.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("CreateChannelWithUser", "i18n.server.api.channel.create_channel.invalid_character.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	if len(channel.TeamId) == 0 {
-		return nil, model.NewAppError("CreateChannelWithUser", "app.channel.create_channel.no_team_id.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("CreateChannelWithUser", "i18n.server.app.channel.create_channel.no_team_id.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	// Get total number of channels on current team
@@ -115,7 +115,7 @@ func CreateChannelWithUser(channel *model.Channel, userId string) (*model.Channe
 		return nil, err
 	} else {
 		if int64(count+1) > *utils.Cfg.TeamSettings.MaxChannelsPerTeam {
-			return nil, model.NewAppError("CreateChannelWithUser", "api.channel.create_channel.max_channel_limit.app_error", map[string]interface{}{"MaxChannelsPerTeam": *utils.Cfg.TeamSettings.MaxChannelsPerTeam}, "", http.StatusBadRequest)
+			return nil, model.NewAppError("CreateChannelWithUser", "i18n.server.api.channel.create_channel.max_channel_limit.app_error", map[string]interface{}{"MaxChannelsPerTeam": *utils.Cfg.TeamSettings.MaxChannelsPerTeam}, "", http.StatusBadRequest)
 		}
 	}
 
@@ -164,11 +164,11 @@ func CreateDirectChannel(userId string, otherUserId string) (*model.Channel, *mo
 	uc2 := Srv.Store.User().Get(otherUserId)
 
 	if result := <-uc1; result.Err != nil {
-		return nil, model.NewAppError("CreateDirectChannel", "api.channel.create_direct_channel.invalid_user.app_error", nil, userId, http.StatusBadRequest)
+		return nil, model.NewAppError("CreateDirectChannel", "i18n.server.api.channel.create_direct_channel.invalid_user.app_error", nil, userId, http.StatusBadRequest)
 	}
 
 	if result := <-uc2; result.Err != nil {
-		return nil, model.NewAppError("CreateDirectChannel", "api.channel.create_direct_channel.invalid_user.app_error", nil, otherUserId, http.StatusBadRequest)
+		return nil, model.NewAppError("CreateDirectChannel", "i18n.server.api.channel.create_direct_channel.invalid_user.app_error", nil, otherUserId, http.StatusBadRequest)
 	}
 
 	if result := <-Srv.Store.Channel().CreateDirectChannel(userId, otherUserId); result.Err != nil {
@@ -220,7 +220,7 @@ func WaitForChannelMembership(channelId string, userId string) {
 
 func CreateGroupChannel(userIds []string) (*model.Channel, *model.AppError) {
 	if len(userIds) > model.CHANNEL_GROUP_MAX_USERS || len(userIds) < model.CHANNEL_GROUP_MIN_USERS {
-		return nil, model.NewAppError("CreateGroupChannel", "api.channel.create_group.bad_size.app_error", nil, "", http.StatusBadRequest)
+		return nil, model.NewAppError("CreateGroupChannel", "i18n.server.api.channel.create_group.bad_size.app_error", nil, "", http.StatusBadRequest)
 	}
 
 	var users []*model.User
@@ -231,7 +231,7 @@ func CreateGroupChannel(userIds []string) (*model.Channel, *model.AppError) {
 	}
 
 	if len(users) != len(userIds) {
-		return nil, model.NewAppError("CreateGroupChannel", "api.channel.create_group.bad_user.app_error", nil, "user_ids="+model.ArrayToJson(userIds), http.StatusBadRequest)
+		return nil, model.NewAppError("CreateGroupChannel", "i18n.server.api.channel.create_group.bad_user.app_error", nil, "user_ids="+model.ArrayToJson(userIds), http.StatusBadRequest)
 	}
 
 	group := &model.Channel{
@@ -353,13 +353,13 @@ func DeleteChannel(channel *model.Channel, userId string) *model.AppError {
 		outgoingHooks := ohcresult.Data.([]*model.OutgoingWebhook)
 
 		if channel.DeleteAt > 0 {
-			err := model.NewLocAppError("deleteChannel", "api.channel.delete_channel.deleted.app_error", nil, "")
+			err := model.NewLocAppError("deleteChannel", "i18n.server.api.channel.delete_channel.deleted.app_error", nil, "")
 			err.StatusCode = http.StatusBadRequest
 			return err
 		}
 
 		if channel.Name == model.DEFAULT_CHANNEL {
-			err := model.NewLocAppError("deleteChannel", "api.channel.delete_channel.cannot.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
+			err := model.NewLocAppError("deleteChannel", "i18n.server.api.channel.delete_channel.cannot.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
 			err.StatusCode = http.StatusBadRequest
 			return err
 		}
@@ -368,7 +368,7 @@ func DeleteChannel(channel *model.Channel, userId string) *model.AppError {
 
 		post := &model.Post{
 			ChannelId: channel.Id,
-			Message:   fmt.Sprintf(T("api.channel.delete_channel.archived"), user.Username),
+			Message:   fmt.Sprintf(T("i18n.server.api.channel.delete_channel.archived"), user.Username),
 			Type:      model.POST_CHANNEL_DELETED,
 			UserId:    userId,
 			Props: model.StringInterface{
@@ -377,20 +377,20 @@ func DeleteChannel(channel *model.Channel, userId string) *model.AppError {
 		}
 
 		if _, err := CreatePost(post, channel.TeamId, false); err != nil {
-			l4g.Error(utils.T("api.channel.delete_channel.failed_post.error"), err)
+			l4g.Error(utils.T("i18n.server.api.channel.delete_channel.failed_post.error"), err)
 		}
 
 		now := model.GetMillis()
 		for _, hook := range incomingHooks {
 			if result := <-Srv.Store.Webhook().DeleteIncoming(hook.Id, now); result.Err != nil {
-				l4g.Error(utils.T("api.channel.delete_channel.incoming_webhook.error"), hook.Id)
+				l4g.Error(utils.T("i18n.server.api.channel.delete_channel.incoming_webhook.error"), hook.Id)
 			}
 			InvalidateCacheForWebhook(hook.Id)
 		}
 
 		for _, hook := range outgoingHooks {
 			if result := <-Srv.Store.Webhook().DeleteOutgoing(hook.Id, now); result.Err != nil {
-				l4g.Error(utils.T("api.channel.delete_channel.outgoing_webhook.error"), hook.Id)
+				l4g.Error(utils.T("i18n.server.api.channel.delete_channel.outgoing_webhook.error"), hook.Id)
 			}
 		}
 
@@ -410,11 +410,11 @@ func DeleteChannel(channel *model.Channel, userId string) *model.AppError {
 
 func addUserToChannel(user *model.User, channel *model.Channel) (*model.ChannelMember, *model.AppError) {
 	if channel.DeleteAt > 0 {
-		return nil, model.NewLocAppError("AddUserToChannel", "api.channel.add_user_to_channel.deleted.app_error", nil, "")
+		return nil, model.NewLocAppError("AddUserToChannel", "i18n.server.api.channel.add_user_to_channel.deleted.app_error", nil, "")
 	}
 
 	if channel.Type != model.CHANNEL_OPEN && channel.Type != model.CHANNEL_PRIVATE {
-		return nil, model.NewLocAppError("AddUserToChannel", "api.channel.add_user_to_channel.type.app_error", nil, "")
+		return nil, model.NewLocAppError("AddUserToChannel", "i18n.server.api.channel.add_user_to_channel.type.app_error", nil, "")
 	}
 
 	tmchan := Srv.Store.Team().GetMember(channel.TeamId, user.Id)
@@ -425,7 +425,7 @@ func addUserToChannel(user *model.User, channel *model.Channel) (*model.ChannelM
 	} else {
 		teamMember := result.Data.(*model.TeamMember)
 		if teamMember.DeleteAt > 0 {
-			return nil, model.NewLocAppError("AddUserToChannel", "api.channel.add_user.to.channel.failed.deleted.app_error", nil, "")
+			return nil, model.NewLocAppError("AddUserToChannel", "i18n.server.api.channel.add_user.to.channel.failed.deleted.app_error", nil, "")
 		}
 	}
 
@@ -446,7 +446,7 @@ func addUserToChannel(user *model.User, channel *model.Channel) (*model.ChannelM
 	}
 	if result := <-Srv.Store.Channel().SaveMember(newMember); result.Err != nil {
 		l4g.Error("Failed to add member user_id=%v channel_id=%v err=%v", user.Id, channel.Id, result.Err)
-		return nil, model.NewLocAppError("AddUserToChannel", "api.channel.add_user.to.channel.failed.app_error", nil, "")
+		return nil, model.NewLocAppError("AddUserToChannel", "i18n.server.api.channel.add_user.to.channel.failed.app_error", nil, "")
 	}
 
 	WaitForChannelMembership(channel.Id, user.Id)
@@ -500,7 +500,7 @@ func AddChannelMember(userId string, channel *model.Channel, userRequestorId str
 func AddDirectChannels(teamId string, user *model.User) *model.AppError {
 	var profiles []*model.User
 	if result := <-Srv.Store.User().GetProfiles(teamId, 0, 100); result.Err != nil {
-		return model.NewLocAppError("AddDirectChannels", "api.user.add_direct_channels_and_forget.failed.error", map[string]interface{}{"UserId": user.Id, "TeamId": teamId, "Error": result.Err.Error()}, "")
+		return model.NewLocAppError("AddDirectChannels", "i18n.server.api.user.add_direct_channels_and_forget.failed.error", map[string]interface{}{"UserId": user.Id, "TeamId": teamId, "Error": result.Err.Error()}, "")
 	} else {
 		profiles = result.Data.([]*model.User)
 	}
@@ -527,7 +527,7 @@ func AddDirectChannels(teamId string, user *model.User) *model.AppError {
 	}
 
 	if result := <-Srv.Store.Preference().Save(&preferences); result.Err != nil {
-		return model.NewLocAppError("AddDirectChannels", "api.user.add_direct_channels_and_forget.failed.error", map[string]interface{}{"UserId": user.Id, "TeamId": teamId, "Error": result.Err.Error()}, "")
+		return model.NewLocAppError("AddDirectChannels", "i18n.server.api.user.add_direct_channels_and_forget.failed.error", map[string]interface{}{"UserId": user.Id, "TeamId": teamId, "Error": result.Err.Error()}, "")
 	}
 
 	return nil
@@ -537,17 +537,17 @@ func PostUpdateChannelHeaderMessage(userId string, channelId string, teamId stri
 	uc := Srv.Store.User().Get(userId)
 
 	if uresult := <-uc; uresult.Err != nil {
-		return model.NewLocAppError("PostUpdateChannelHeaderMessage", "api.channel.post_update_channel_header_message_and_forget.retrieve_user.error", nil, uresult.Err.Error())
+		return model.NewLocAppError("PostUpdateChannelHeaderMessage", "i18n.server.api.channel.post_update_channel_header_message_and_forget.retrieve_user.error", nil, uresult.Err.Error())
 	} else {
 		user := uresult.Data.(*model.User)
 
 		var message string
 		if oldChannelHeader == "" {
-			message = fmt.Sprintf(utils.T("api.channel.post_update_channel_header_message_and_forget.updated_to"), user.Username, newChannelHeader)
+			message = fmt.Sprintf(utils.T("i18n.server.api.channel.post_update_channel_header_message_and_forget.updated_to"), user.Username, newChannelHeader)
 		} else if newChannelHeader == "" {
-			message = fmt.Sprintf(utils.T("api.channel.post_update_channel_header_message_and_forget.removed"), user.Username, oldChannelHeader)
+			message = fmt.Sprintf(utils.T("i18n.server.api.channel.post_update_channel_header_message_and_forget.removed"), user.Username, oldChannelHeader)
 		} else {
-			message = fmt.Sprintf(utils.T("api.channel.post_update_channel_header_message_and_forget.updated_from"), user.Username, oldChannelHeader, newChannelHeader)
+			message = fmt.Sprintf(utils.T("i18n.server.api.channel.post_update_channel_header_message_and_forget.updated_from"), user.Username, oldChannelHeader, newChannelHeader)
 		}
 
 		post := &model.Post{
@@ -563,7 +563,7 @@ func PostUpdateChannelHeaderMessage(userId string, channelId string, teamId stri
 		}
 
 		if _, err := CreatePost(post, teamId, false); err != nil {
-			return model.NewLocAppError("", "api.channel.post_update_channel_header_message_and_forget.post.error", nil, err.Error())
+			return model.NewLocAppError("", "i18n.server.api.channel.post_update_channel_header_message_and_forget.post.error", nil, err.Error())
 		}
 	}
 
@@ -574,17 +574,17 @@ func PostUpdateChannelPurposeMessage(userId string, channelId string, teamId str
 	uc := Srv.Store.User().Get(userId)
 
 	if uresult := <-uc; uresult.Err != nil {
-		return model.NewLocAppError("PostUpdateChannelPurposeMessage", "app.channel.post_update_channel_purpose_message.retrieve_user.error", nil, uresult.Err.Error())
+		return model.NewLocAppError("PostUpdateChannelPurposeMessage", "i18n.server.app.channel.post_update_channel_purpose_message.retrieve_user.error", nil, uresult.Err.Error())
 	} else {
 		user := uresult.Data.(*model.User)
 
 		var message string
 		if oldChannelPurpose == "" {
-			message = fmt.Sprintf(utils.T("app.channel.post_update_channel_purpose_message.updated_to"), user.Username, newChannelPurpose)
+			message = fmt.Sprintf(utils.T("i18n.server.app.channel.post_update_channel_purpose_message.updated_to"), user.Username, newChannelPurpose)
 		} else if newChannelPurpose == "" {
-			message = fmt.Sprintf(utils.T("app.channel.post_update_channel_purpose_message.removed"), user.Username, oldChannelPurpose)
+			message = fmt.Sprintf(utils.T("i18n.server.app.channel.post_update_channel_purpose_message.removed"), user.Username, oldChannelPurpose)
 		} else {
-			message = fmt.Sprintf(utils.T("app.channel.post_update_channel_purpose_message.updated_from"), user.Username, oldChannelPurpose, newChannelPurpose)
+			message = fmt.Sprintf(utils.T("i18n.server.app.channel.post_update_channel_purpose_message.updated_from"), user.Username, oldChannelPurpose, newChannelPurpose)
 		}
 
 		post := &model.Post{
@@ -599,7 +599,7 @@ func PostUpdateChannelPurposeMessage(userId string, channelId string, teamId str
 			},
 		}
 		if _, err := CreatePost(post, teamId, false); err != nil {
-			return model.NewLocAppError("", "app.channel.post_update_channel_purpose_message.post.error", nil, err.Error())
+			return model.NewLocAppError("", "i18n.server.app.channel.post_update_channel_purpose_message.post.error", nil, err.Error())
 		}
 	}
 
@@ -610,11 +610,11 @@ func PostUpdateChannelDisplayNameMessage(userId string, channelId string, teamId
 	uc := Srv.Store.User().Get(userId)
 
 	if uresult := <-uc; uresult.Err != nil {
-		return model.NewLocAppError("PostUpdateChannelDisplayNameMessage", "api.channel.post_update_channel_displayname_message_and_forget.retrieve_user.error", nil, uresult.Err.Error())
+		return model.NewLocAppError("PostUpdateChannelDisplayNameMessage", "i18n.server.api.channel.post_update_channel_displayname_message_and_forget.retrieve_user.error", nil, uresult.Err.Error())
 	} else {
 		user := uresult.Data.(*model.User)
 
-		message := fmt.Sprintf(utils.T("api.channel.post_update_channel_displayname_message_and_forget.updated_from"), user.Username, oldChannelDisplayName, newChannelDisplayName)
+		message := fmt.Sprintf(utils.T("i18n.server.api.channel.post_update_channel_displayname_message_and_forget.updated_from"), user.Username, oldChannelDisplayName, newChannelDisplayName)
 
 		post := &model.Post{
 			ChannelId: channelId,
@@ -629,7 +629,7 @@ func PostUpdateChannelDisplayNameMessage(userId string, channelId string, teamId
 		}
 
 		if _, err := CreatePost(post, teamId, false); err != nil {
-			return model.NewLocAppError("PostUpdateChannelDisplayNameMessage", "api.channel.post_update_channel_displayname_message_and_forget.create_post.error", nil, err.Error())
+			return model.NewLocAppError("PostUpdateChannelDisplayNameMessage", "i18n.server.api.channel.post_update_channel_displayname_message_and_forget.create_post.error", nil, err.Error())
 		}
 	}
 
@@ -637,7 +637,7 @@ func PostUpdateChannelDisplayNameMessage(userId string, channelId string, teamId
 }
 
 func GetChannel(channelId string) (*model.Channel, *model.AppError) {
-	if result := <-Srv.Store.Channel().Get(channelId, true); result.Err != nil && result.Err.Id == "store.sql_channel.get.existing.app_error" {
+	if result := <-Srv.Store.Channel().Get(channelId, true); result.Err != nil && result.Err.Id == "i18n.server.store.sql_channel.get.existing.app_error" {
 		result.Err.StatusCode = http.StatusNotFound
 		return nil, result.Err
 	} else if result.Err != nil {
@@ -649,7 +649,7 @@ func GetChannel(channelId string) (*model.Channel, *model.AppError) {
 }
 
 func GetChannelByName(channelName, teamId string) (*model.Channel, *model.AppError) {
-	if result := <-Srv.Store.Channel().GetByName(teamId, channelName, true); result.Err != nil && result.Err.Id == "store.sql_channel.get_by_name.missing.app_error" {
+	if result := <-Srv.Store.Channel().GetByName(teamId, channelName, true); result.Err != nil && result.Err.Id == "i18n.server.store.sql_channel.get_by_name.missing.app_error" {
 		result.Err.StatusCode = http.StatusNotFound
 		return nil, result.Err
 	} else if result.Err != nil {
@@ -670,7 +670,7 @@ func GetChannelByNameForTeamName(channelName, teamName string) (*model.Channel, 
 		team = result.Data.(*model.Team)
 	}
 
-	if result := <-Srv.Store.Channel().GetByName(team.Id, channelName, true); result.Err != nil && result.Err.Id == "store.sql_channel.get_by_name.missing.app_error" {
+	if result := <-Srv.Store.Channel().GetByName(team.Id, channelName, true); result.Err != nil && result.Err.Id == "i18n.server.store.sql_channel.get_by_name.missing.app_error" {
 		result.Err.StatusCode = http.StatusNotFound
 		return nil, result.Err
 	} else if result.Err != nil {
@@ -777,7 +777,7 @@ func GetChannelUnread(channelId, userId string) (*model.ChannelUnread, *model.Ap
 
 func JoinChannel(channel *model.Channel, userId string) *model.AppError {
 	if channel.DeleteAt > 0 {
-		return model.NewLocAppError("JoinChannel", "api.channel.join_channel.already_deleted.app_error", nil, "")
+		return model.NewLocAppError("JoinChannel", "i18n.server.api.channel.join_channel.already_deleted.app_error", nil, "")
 	}
 
 	userChan := Srv.Store.User().Get(userId)
@@ -800,7 +800,7 @@ func JoinChannel(channel *model.Channel, userId string) *model.AppError {
 				return err
 			}
 		} else {
-			return model.NewLocAppError("JoinChannel", "api.channel.join_channel.permissions.app_error", nil, "")
+			return model.NewLocAppError("JoinChannel", "i18n.server.api.channel.join_channel.permissions.app_error", nil, "")
 		}
 	}
 
@@ -810,7 +810,7 @@ func JoinChannel(channel *model.Channel, userId string) *model.AppError {
 func postJoinChannelMessage(user *model.User, channel *model.Channel) *model.AppError {
 	post := &model.Post{
 		ChannelId: channel.Id,
-		Message:   fmt.Sprintf(utils.T("api.channel.join_channel.post_and_forget"), user.Username),
+		Message:   fmt.Sprintf(utils.T("i18n.server.api.channel.join_channel.post_and_forget"), user.Username),
 		Type:      model.POST_JOIN_CHANNEL,
 		UserId:    user.Id,
 		Props: model.StringInterface{
@@ -819,7 +819,7 @@ func postJoinChannelMessage(user *model.User, channel *model.Channel) *model.App
 	}
 
 	if _, err := CreatePost(post, channel.TeamId, false); err != nil {
-		return model.NewLocAppError("postJoinChannelMessage", "api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("postJoinChannelMessage", "i18n.server.api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -842,13 +842,13 @@ func LeaveChannel(channelId string, userId string) *model.AppError {
 		membersCount := ccmresult.Data.(int64)
 
 		if channel.IsGroupOrDirect() {
-			err := model.NewLocAppError("LeaveChannel", "api.channel.leave.direct.app_error", nil, "")
+			err := model.NewLocAppError("LeaveChannel", "i18n.server.api.channel.leave.direct.app_error", nil, "")
 			err.StatusCode = http.StatusBadRequest
 			return err
 		}
 
 		if channel.Type == model.CHANNEL_PRIVATE && membersCount == 1 {
-			err := model.NewLocAppError("LeaveChannel", "api.channel.leave.last_member.app_error", nil, "userId="+user.Id)
+			err := model.NewLocAppError("LeaveChannel", "i18n.server.api.channel.leave.last_member.app_error", nil, "userId="+user.Id)
 			err.StatusCode = http.StatusBadRequest
 			return err
 		}
@@ -866,7 +866,7 @@ func LeaveChannel(channelId string, userId string) *model.AppError {
 func postLeaveChannelMessage(user *model.User, channel *model.Channel) *model.AppError {
 	post := &model.Post{
 		ChannelId: channel.Id,
-		Message:   fmt.Sprintf(utils.T("api.channel.leave.left"), user.Username),
+		Message:   fmt.Sprintf(utils.T("i18n.server.api.channel.leave.left"), user.Username),
 		Type:      model.POST_LEAVE_CHANNEL,
 		UserId:    user.Id,
 		Props: model.StringInterface{
@@ -875,7 +875,7 @@ func postLeaveChannelMessage(user *model.User, channel *model.Channel) *model.Ap
 	}
 
 	if _, err := CreatePost(post, channel.TeamId, false); err != nil {
-		return model.NewLocAppError("postLeaveChannelMessage", "api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("postLeaveChannelMessage", "i18n.server.api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -884,7 +884,7 @@ func postLeaveChannelMessage(user *model.User, channel *model.Channel) *model.Ap
 func PostAddToChannelMessage(user *model.User, addedUser *model.User, channel *model.Channel) *model.AppError {
 	post := &model.Post{
 		ChannelId: channel.Id,
-		Message:   fmt.Sprintf(utils.T("api.channel.add_member.added"), addedUser.Username, user.Username),
+		Message:   fmt.Sprintf(utils.T("i18n.server.api.channel.add_member.added"), addedUser.Username, user.Username),
 		Type:      model.POST_ADD_TO_CHANNEL,
 		UserId:    user.Id,
 		Props: model.StringInterface{
@@ -894,7 +894,7 @@ func PostAddToChannelMessage(user *model.User, addedUser *model.User, channel *m
 	}
 
 	if _, err := CreatePost(post, channel.TeamId, false); err != nil {
-		return model.NewLocAppError("postAddToChannelMessage", "api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("postAddToChannelMessage", "i18n.server.api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -903,7 +903,7 @@ func PostAddToChannelMessage(user *model.User, addedUser *model.User, channel *m
 func PostRemoveFromChannelMessage(removerUserId string, removedUser *model.User, channel *model.Channel) *model.AppError {
 	post := &model.Post{
 		ChannelId: channel.Id,
-		Message:   fmt.Sprintf(utils.T("api.channel.remove_member.removed"), removedUser.Username),
+		Message:   fmt.Sprintf(utils.T("i18n.server.api.channel.remove_member.removed"), removedUser.Username),
 		Type:      model.POST_REMOVE_FROM_CHANNEL,
 		UserId:    removerUserId,
 		Props: model.StringInterface{
@@ -912,7 +912,7 @@ func PostRemoveFromChannelMessage(removerUserId string, removedUser *model.User,
 	}
 
 	if _, err := CreatePost(post, channel.TeamId, false); err != nil {
-		return model.NewLocAppError("postRemoveFromChannelMessage", "api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
+		return model.NewLocAppError("postRemoveFromChannelMessage", "i18n.server.api.channel.post_user_add_remove_message_and_forget.error", nil, err.Error())
 	}
 
 	return nil
@@ -920,13 +920,13 @@ func PostRemoveFromChannelMessage(removerUserId string, removedUser *model.User,
 
 func removeUserFromChannel(userIdToRemove string, removerUserId string, channel *model.Channel) *model.AppError {
 	if channel.DeleteAt > 0 {
-		err := model.NewLocAppError("RemoveUserFromChannel", "api.channel.remove_user_from_channel.deleted.app_error", nil, "")
+		err := model.NewLocAppError("RemoveUserFromChannel", "i18n.server.api.channel.remove_user_from_channel.deleted.app_error", nil, "")
 		err.StatusCode = http.StatusBadRequest
 		return err
 	}
 
 	if channel.Name == model.DEFAULT_CHANNEL {
-		return model.NewLocAppError("RemoveUserFromChannel", "api.channel.remove.default.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
+		return model.NewLocAppError("RemoveUserFromChannel", "i18n.server.api.channel.remove.default.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
 	}
 
 	if cmresult := <-Srv.Store.Channel().RemoveMember(channel.Id, userIdToRemove); cmresult.Err != nil {

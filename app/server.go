@@ -72,7 +72,7 @@ const TIME_TO_WAIT_FOR_CONNECTIONS_TO_CLOSE_ON_SERVER_SHUTDOWN = time.Second
 var Srv *Server
 
 func NewServer() {
-	l4g.Info(utils.T("api.server.new_server.init.info"))
+	l4g.Info(utils.T("i18n.server.api.server.new_server.init.info"))
 
 	Srv = &Server{}
 }
@@ -98,7 +98,7 @@ func initalizeThrottledVaryBy() *throttled.VaryBy {
 		vary.Headers = strings.Fields(utils.Cfg.RateLimitSettings.VaryByHeader)
 
 		if utils.Cfg.RateLimitSettings.VaryByRemoteAddr {
-			l4g.Warn(utils.T("api.server.start_server.rate.warn"))
+			l4g.Warn(utils.T("i18n.server.api.server.start_server.rate.warn"))
 			vary.RemoteAddr = false
 		}
 	}
@@ -118,16 +118,16 @@ func redirectHTTPToHTTPS(w http.ResponseWriter, r *http.Request) {
 }
 
 func StartServer() {
-	l4g.Info(utils.T("api.server.start_server.starting.info"))
+	l4g.Info(utils.T("i18n.server.api.server.start_server.starting.info"))
 
 	var handler http.Handler = &CorsWrapper{Srv.Router}
 
 	if *utils.Cfg.RateLimitSettings.Enable {
-		l4g.Info(utils.T("api.server.start_server.rate.info"))
+		l4g.Info(utils.T("i18n.server.api.server.start_server.rate.info"))
 
 		store, err := memstore.New(utils.Cfg.RateLimitSettings.MemoryStoreSize)
 		if err != nil {
-			l4g.Critical(utils.T("api.server.start_server.rate_limiting_memory_store"))
+			l4g.Critical(utils.T("i18n.server.api.server.start_server.rate_limiting_memory_store"))
 			return
 		}
 
@@ -138,7 +138,7 @@ func StartServer() {
 
 		rateLimiter, err := throttled.NewGCRARateLimiter(store, quota)
 		if err != nil {
-			l4g.Critical(utils.T("api.server.start_server.rate_limiting_rate_limiter"))
+			l4g.Critical(utils.T("i18n.server.api.server.start_server.rate_limiting_rate_limiter"))
 			return
 		}
 
@@ -163,7 +163,7 @@ func StartServer() {
 			WriteTimeout: time.Duration(*utils.Cfg.ServiceSettings.WriteTimeout) * time.Second,
 		},
 	}
-	l4g.Info(utils.T("api.server.start_server.listening.info"), utils.Cfg.ServiceSettings.ListenAddress)
+	l4g.Info(utils.T("i18n.server.api.server.start_server.listening.info"), utils.Cfg.ServiceSettings.ListenAddress)
 
 	if *utils.Cfg.ServiceSettings.Forward80To443 {
 		go func() {
@@ -199,7 +199,7 @@ func StartServer() {
 			err = Srv.GracefulServer.ListenAndServe()
 		}
 		if err != nil {
-			l4g.Critical(utils.T("api.server.start_server.starting.critical"), err)
+			l4g.Critical(utils.T("i18n.server.api.server.start_server.starting.critical"), err)
 			time.Sleep(time.Second)
 		}
 	}()
@@ -207,11 +207,11 @@ func StartServer() {
 
 func StopServer() {
 
-	l4g.Info(utils.T("api.server.stop_server.stopping.info"))
+	l4g.Info(utils.T("i18n.server.api.server.stop_server.stopping.info"))
 
 	Srv.GracefulServer.Stop(TIME_TO_WAIT_FOR_CONNECTIONS_TO_CLOSE_ON_SERVER_SHUTDOWN)
 	Srv.Store.Close()
 	HubStop()
 
-	l4g.Info(utils.T("api.server.stop_server.stopped.info"))
+	l4g.Info(utils.T("i18n.server.api.server.stop_server.stopped.info"))
 }

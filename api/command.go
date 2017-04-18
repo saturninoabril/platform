@@ -16,7 +16,7 @@ import (
 )
 
 func InitCommand() {
-	l4g.Debug(utils.T("api.command.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.command.init.debug"))
 
 	BaseRoutes.Commands.Handle("/execute", ApiUserRequired(executeCommand)).Methods("POST")
 	BaseRoutes.Commands.Handle("/list", ApiUserRequired(listCommands)).Methods("GET")
@@ -51,7 +51,7 @@ func executeCommand(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(commandArgs.Command) <= 1 || strings.Index(commandArgs.Command, "/") != 0 {
-		c.Err = model.NewAppError("executeCommand", "api.command.execute_command.start.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("executeCommand", "i18n.server.api.command.execute_command.start.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
@@ -122,7 +122,7 @@ func updateCommand(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.TeamId != oldCmd.TeamId {
-		c.Err = model.NewAppError("updateCommand", "api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("updateCommand", "i18n.server.api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 
@@ -182,7 +182,7 @@ func regenCommandToken(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.TeamId != cmd.TeamId {
-		c.Err = model.NewAppError("regenCommandToken", "api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("regenCommandToken", "i18n.server.api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 
@@ -225,7 +225,7 @@ func deleteCommand(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if c.TeamId != cmd.TeamId {
-		c.Err = model.NewAppError("deleteCommand", "api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("deleteCommand", "i18n.server.api.command.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 

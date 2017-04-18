@@ -13,7 +13,7 @@ import (
 )
 
 func InitChannel() {
-	l4g.Debug(utils.T("api.channel.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.channel.init.debug"))
 
 	BaseRoutes.Channels.Handle("", ApiSessionRequired(createChannel)).Methods("POST")
 	BaseRoutes.Channels.Handle("/direct", ApiSessionRequired(createDirectChannel)).Methods("POST")
@@ -103,14 +103,14 @@ func updateChannel(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if oldChannel.DeleteAt > 0 {
-		c.Err = model.NewLocAppError("updateChannel", "api.channel.update_channel.deleted.app_error", nil, "")
+		c.Err = model.NewLocAppError("updateChannel", "i18n.server.api.channel.update_channel.deleted.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if oldChannel.Name == model.DEFAULT_CHANNEL {
 		if (len(channel.Name) > 0 && channel.Name != oldChannel.Name) || (len(channel.Type) > 0 && channel.Type != oldChannel.Type) {
-			c.Err = model.NewLocAppError("updateChannel", "api.channel.update_channel.tried.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
+			c.Err = model.NewLocAppError("updateChannel", "i18n.server.api.channel.update_channel.tried.app_error", map[string]interface{}{"Channel": model.DEFAULT_CHANNEL}, "")
 			c.Err.StatusCode = http.StatusBadRequest
 			return
 		}

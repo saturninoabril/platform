@@ -13,7 +13,7 @@ import (
 )
 
 func InitCluster() {
-	l4g.Debug(utils.T("api.cluster.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.cluster.init.debug"))
 
 	BaseRoutes.Cluster.Handle("/status", ApiSessionRequired(getClusterStatus)).Methods("GET")
 }

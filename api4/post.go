@@ -14,7 +14,7 @@ import (
 )
 
 func InitPost() {
-	l4g.Debug(utils.T("api.post.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.post.init.debug"))
 
 	BaseRoutes.Posts.Handle("", ApiSessionRequired(createPost)).Methods("POST")
 	BaseRoutes.Post.Handle("", ApiSessionRequired(getPost)).Methods("GET")

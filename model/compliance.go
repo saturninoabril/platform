@@ -75,27 +75,27 @@ func (me *Compliance) JobName() string {
 func (me *Compliance) IsValid() *AppError {
 
 	if len(me.Id) != 26 {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.id.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.id.app_error", nil, "")
 	}
 
 	if me.CreateAt == 0 {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.create_at.app_error", nil, "")
 	}
 
 	if len(me.Desc) > 512 || len(me.Desc) == 0 {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.desc.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.desc.app_error", nil, "")
 	}
 
 	if me.StartAt == 0 {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.start_at.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.start_at.app_error", nil, "")
 	}
 
 	if me.EndAt == 0 {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.end_at.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.end_at.app_error", nil, "")
 	}
 
 	if me.EndAt <= me.StartAt {
-		return NewLocAppError("Compliance.IsValid", "model.compliance.is_valid.start_end_at.app_error", nil, "")
+		return NewLocAppError("Compliance.IsValid", "i18n.server.model.compliance.is_valid.start_end_at.app_error", nil, "")
 	}
 
 	return nil

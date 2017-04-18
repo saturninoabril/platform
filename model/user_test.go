@@ -149,7 +149,7 @@ func HasExpectedUserIsValidError(err *AppError, fieldName string, userId string)
 	}
 
 	return err.Where == "User.IsValid" &&
-		err.Id == fmt.Sprintf("model.user.is_valid.%s.app_error", fieldName) &&
+		err.Id == fmt.Sprintf("i18n.server.model.user.is_valid.%s.app_error", fieldName) &&
 		err.StatusCode == http.StatusBadRequest &&
 		(userId == "" || err.DetailedError == "user_id="+userId)
 }

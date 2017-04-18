@@ -27,13 +27,13 @@ func (me *AwayProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_AWAY,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_away.desc"),
-		DisplayName:      T("api.command_away.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_away.desc"),
+		DisplayName:      T("i18n.server.api.command_away.name"),
 	}
 }
 
 func (me *AwayProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
-	rmsg := args.T("api.command_away.success")
+	rmsg := args.T("i18n.server.api.command_away.success")
 	if len(message) > 0 {
 		rmsg = message + " " + rmsg
 	}

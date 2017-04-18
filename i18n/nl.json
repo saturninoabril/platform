@@ -2884,3211 +2884,3211 @@
     "translation": "Ongeldige {{.Name}} parameter"
   },
   {
-    "id": "app.channel.create_channel.no_team_id.app_error",
+    "id": "i18n.server.app.channel.create_channel.no_team_id.app_error",
     "translation": "Must specify the team ID to create a channel"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.post.error",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.post.error",
     "translation": "Failed to post channel purpose message"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.removed",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.removed",
     "translation": "%s heeft de kanaalkoptekst verwijderd (was: %s)"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.retrieve_user.error",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.retrieve_user.error",
     "translation": "Kon de gebruiker niet ophalen tijdens het bewaren van de nieuwe kanaalkoptekst %v"
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.updated_from",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.updated_from",
     "translation": "%s heeft de kanaalkoptekst veranderd van \"%s\" naar \"%s\""
   },
   {
-    "id": "app.channel.post_update_channel_purpose_message.updated_to",
+    "id": "i18n.server.app.channel.post_update_channel_purpose_message.updated_to",
     "translation": "%s heeft de kanaalkoptekst bijgewerkt naar: %s"
   },
   {
-    "id": "app.import.bulk_import.file_scan.error",
+    "id": "i18n.server.app.import.bulk_import.file_scan.error",
     "translation": "Error reading import data file."
   },
   {
-    "id": "app.import.bulk_import.json_decode.error",
+    "id": "i18n.server.app.import.bulk_import.json_decode.error",
     "translation": "JSON decode of line failed."
   },
   {
-    "id": "app.import.import_channel.team_not_found.error",
+    "id": "i18n.server.app.import.import_channel.team_not_found.error",
     "translation": "Error importing channel. Team with name \"{{.TeamName}}\" could not be found."
   },
   {
-    "id": "app.import.import_line.null_channel.error",
+    "id": "i18n.server.app.import.import_line.null_channel.error",
     "translation": "Import data line has type \"channel\" but the channel object is null."
   },
   {
-    "id": "app.import.import_line.null_post.error",
+    "id": "i18n.server.app.import.import_line.null_post.error",
     "translation": "Import data line has type \"post\" but the post object is null."
   },
   {
-    "id": "app.import.import_line.null_team.error",
+    "id": "i18n.server.app.import.import_line.null_team.error",
     "translation": "Import data line has type \"team\" but the team object is null."
   },
   {
-    "id": "app.import.import_line.null_user.error",
+    "id": "i18n.server.app.import.import_line.null_user.error",
     "translation": "Import data line has type \"user\" but the user object is null."
   },
   {
-    "id": "app.import.import_line.unknown_line_type.error",
+    "id": "i18n.server.app.import.import_line.unknown_line_type.error",
     "translation": "Import data line has unknown type \"{{.Type}}\"."
   },
   {
-    "id": "app.import.import_post.channel_not_found.error",
+    "id": "i18n.server.app.import.import_post.channel_not_found.error",
     "translation": "Error importing post. Channel with name \"{{.ChannelName}}\" could not be found."
   },
   {
-    "id": "app.import.import_post.team_not_found.error",
+    "id": "i18n.server.app.import.import_post.team_not_found.error",
     "translation": "Error importing post. Team with name \"{{.TeamName}}\" could not be found."
   },
   {
-    "id": "app.import.import_post.user_not_found.error",
+    "id": "i18n.server.app.import.import_post.user_not_found.error",
     "translation": "Error importing post. User with username \"{{.Username}}\" could not be found."
   },
   {
-    "id": "app.import.validate_channel_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.create_at_zero.error",
     "translation": "Channel create_at must not be 0 if provided."
   },
   {
-    "id": "app.import.validate_channel_import_data.display_name_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.display_name_length.error",
     "translation": "Channel display_name is not within permitted length constraints."
   },
   {
-    "id": "app.import.validate_channel_import_data.display_name_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.display_name_missing.error",
     "translation": "Missing required channel property: display_name."
   },
   {
-    "id": "app.import.validate_channel_import_data.header_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.header_length.error",
     "translation": "Channel header is too long."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_characters.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_characters.error",
     "translation": "Channel name contains invalid characters."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_length.error",
     "translation": "Channel name is too long."
   },
   {
-    "id": "app.import.validate_channel_import_data.name_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.name_missing.error",
     "translation": "Missing required channel property: name"
   },
   {
-    "id": "app.import.validate_channel_import_data.purpose_length.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.purpose_length.error",
     "translation": "Channel purpose is too long."
   },
   {
-    "id": "app.import.validate_channel_import_data.team_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.team_missing.error",
     "translation": "Missing required channel property: team"
   },
   {
-    "id": "app.import.validate_channel_import_data.type_invalid.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.type_invalid.error",
     "translation": "Channel type is invalid."
   },
   {
-    "id": "app.import.validate_channel_import_data.type_missing.error",
+    "id": "i18n.server.app.import.validate_channel_import_data.type_missing.error",
     "translation": "Missing required channel property: type."
   },
   {
-    "id": "app.import.validate_post_import_data.channel_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.channel_missing.error",
     "translation": "Missing required Post property: Channel."
   },
   {
-    "id": "app.import.validate_post_import_data.create_at_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.create_at_missing.error",
     "translation": "Missing required Post property: create_at."
   },
   {
-    "id": "app.import.validate_post_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_post_import_data.create_at_zero.error",
     "translation": "Post CreateAt must not be zero if it is provided."
   },
   {
-    "id": "app.import.validate_post_import_data.message_length.error",
+    "id": "i18n.server.app.import.validate_post_import_data.message_length.error",
     "translation": "Post Message property is longer than the maximum permitted length."
   },
   {
-    "id": "app.import.validate_post_import_data.message_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.message_missing.error",
     "translation": "Missing required Post property: Message."
   },
   {
-    "id": "app.import.validate_post_import_data.team_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.team_missing.error",
     "translation": "Missing required Post property: Team."
   },
   {
-    "id": "app.import.validate_post_import_data.user_missing.error",
+    "id": "i18n.server.app.import.validate_post_import_data.user_missing.error",
     "translation": "Missing required Post property: User."
   },
   {
-    "id": "app.import.validate_team_import_data.allowed_domains_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.allowed_domains_length.error",
     "translation": "Team allowed_domains is too long."
   },
   {
-    "id": "app.import.validate_team_import_data.create_at_zero.error",
+    "id": "i18n.server.app.import.validate_team_import_data.create_at_zero.error",
     "translation": "Team create_at must not be 0 if provided."
   },
   {
-    "id": "app.import.validate_team_import_data.description_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.description_length.error",
     "translation": "Team description is too long."
   },
   {
-    "id": "app.import.validate_team_import_data.display_name_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.display_name_length.error",
     "translation": "Team display_name is not within permitted length constraints."
   },
   {
-    "id": "app.import.validate_team_import_data.display_name_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.display_name_missing.error",
     "translation": "Missing required team property: display_name"
   },
   {
-    "id": "app.import.validate_team_import_data.name_characters.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_characters.error",
     "translation": "Team name contains invalid characters."
   },
   {
-    "id": "app.import.validate_team_import_data.name_length.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_length.error",
     "translation": "Team name is too long."
   },
   {
-    "id": "app.import.validate_team_import_data.name_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_missing.error",
     "translation": "Missing required team property: name."
   },
   {
-    "id": "app.import.validate_team_import_data.name_reserved.error",
+    "id": "i18n.server.app.import.validate_team_import_data.name_reserved.error",
     "translation": "Team name contains reserved word."
   },
   {
-    "id": "app.import.validate_team_import_data.type_invalid.error",
+    "id": "i18n.server.app.import.validate_team_import_data.type_invalid.error",
     "translation": "Team type is not valid."
   },
   {
-    "id": "app.import.validate_team_import_data.type_missing.error",
+    "id": "i18n.server.app.import.validate_team_import_data.type_missing.error",
     "translation": "Missing required team property: type"
   },
   {
-    "id": "app.import.validate_user_channels_import_data.channel_name_missing.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.channel_name_missing.error",
     "translation": "Channel name missing from User's Channel Membership."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error",
     "translation": "Invalid Desktop NotifyProps for User's Channel Membership."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error",
     "translation": "Invalid MarkUnread NotifyProps for User's Channel Membership."
   },
   {
-    "id": "app.import.validate_user_channels_import_data.invalid_roles.error",
+    "id": "i18n.server.app.import.validate_user_channels_import_data.invalid_roles.error",
     "translation": "Invalid roles for User's Channel Membership."
   },
   {
-    "id": "app.import.validate_user_import_data.auth_data_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.auth_data_length.error",
     "translation": "User AuthData is too long."
   },
   {
-    "id": "app.import.validate_user_import_data.auth_service_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.auth_service_length.error",
     "translation": "User AuthService should not be empty if it is provided."
   },
   {
-    "id": "app.import.validate_user_import_data.email_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.email_length.error",
     "translation": "User email has an invalid length."
   },
   {
-    "id": "app.import.validate_user_import_data.email_missing.error",
+    "id": "i18n.server.app.import.validate_user_import_data.email_missing.error",
     "translation": "Missing required user property: email."
   },
   {
-    "id": "app.import.validate_user_import_data.first_name_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.first_name_length.error",
     "translation": "User First Name is too long."
   },
   {
-    "id": "app.import.validate_user_import_data.last_name_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.last_name_length.error",
     "translation": "User Last Name is too long."
   },
   {
-    "id": "app.import.validate_user_import_data.nickname_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.nickname_length.error",
     "translation": "User nickname is too long."
   },
   {
-    "id": "app.import.validate_user_import_data.position_length.error",
+    "id": "i18n.server.app.import.validate_user_import_data.position_length.error",
     "translation": "User Position is too long."
   },
   {
-    "id": "app.import.validate_user_import_data.roles_invalid.error",
+    "id": "i18n.server.app.import.validate_user_import_data.roles_invalid.error",
     "translation": "User roles are not valid."
   },
   {
-    "id": "app.import.validate_user_import_data.username_invalid.error",
+    "id": "i18n.server.app.import.validate_user_import_data.username_invalid.error",
     "translation": "Username is not valid."
   },
   {
-    "id": "app.import.validate_user_import_data.username_missing.error",
+    "id": "i18n.server.app.import.validate_user_import_data.username_missing.error",
     "translation": "Missing require user property: username."
   },
   {
-    "id": "app.import.validate_user_teams_import_data.invalid_roles.error",
+    "id": "i18n.server.app.import.validate_user_teams_import_data.invalid_roles.error",
     "translation": "Invalid roles for User's Team Membership."
   },
   {
-    "id": "app.import.validate_user_teams_import_data.team_name_missing.error",
+    "id": "i18n.server.app.import.validate_user_teams_import_data.team_name_missing.error",
     "translation": "Team name missing from User's Team Membership."
   },
   {
-    "id": "authentication.permissions.create_group_channel.description",
+    "id": "i18n.server.authentication.permissions.create_group_channel.description",
     "translation": "Ability to create new group message channels"
   },
   {
-    "id": "authentication.permissions.create_group_channel.name",
+    "id": "i18n.server.authentication.permissions.create_group_channel.name",
     "translation": "Create Group Message"
   },
   {
-    "id": "authentication.permissions.create_team_roles.description",
+    "id": "i18n.server.authentication.permissions.create_team_roles.description",
     "translation": "Ability to create new teams"
   },
   {
-    "id": "authentication.permissions.create_team_roles.name",
+    "id": "i18n.server.authentication.permissions.create_team_roles.name",
     "translation": "Create Teams"
   },
   {
-    "id": "authentication.permissions.manage_team_roles.description",
+    "id": "i18n.server.authentication.permissions.manage_team_roles.description",
     "translation": "Ability to change the roles of a team member"
   },
   {
-    "id": "authentication.permissions.manage_team_roles.name",
+    "id": "i18n.server.authentication.permissions.manage_team_roles.name",
     "translation": "Manage Team Roles"
   },
   {
-    "id": "authentication.permissions.read_public_channel.description",
+    "id": "i18n.server.authentication.permissions.read_public_channel.description",
     "translation": "Ability to read public channels"
   },
   {
-    "id": "authentication.permissions.read_public_channel.name",
+    "id": "i18n.server.authentication.permissions.read_public_channel.name",
     "translation": "Read Public Channels"
   },
   {
-    "id": "authentication.permissions.team_invite_user.description",
+    "id": "i18n.server.authentication.permissions.team_invite_user.description",
     "translation": "Mogelijkheid om gebruikers uit te nodigen in een team"
   },
   {
-    "id": "authentication.permissions.team_invite_user.name",
+    "id": "i18n.server.authentication.permissions.team_invite_user.name",
     "translation": "Nodig Gebruiker uit"
   },
   {
-    "id": "authentication.permissions.team_use_slash_commands.description",
+    "id": "i18n.server.authentication.permissions.team_use_slash_commands.description",
     "translation": "Mogelijkheid om slash commando's te gebruiken"
   },
   {
-    "id": "authentication.permissions.team_use_slash_commands.name",
+    "id": "i18n.server.authentication.permissions.team_use_slash_commands.name",
     "translation": "Gebruik Slash Commando's"
   },
   {
-    "id": "cli.license.critical",
+    "id": "i18n.server.cli.license.critical",
     "translation": "Deze optie vereist een enterprise licentie. Neem contact op met de beheerder voor een upgrade van de licentie."
   },
   {
-    "id": "ent.brand.save_brand_image.decode.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.decode.app_error",
     "translation": "De afbeelding kon niet gedecodeerd worden."
   },
   {
-    "id": "ent.brand.save_brand_image.decode_config.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.decode_config.app_error",
     "translation": "De configuratie van de afbeelding kon niet gedecodeerd worden."
   },
   {
-    "id": "ent.brand.save_brand_image.encode.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.encode.app_error",
     "translation": "De afbeelding kon niet worden omgezit in PNG formaat."
   },
   {
-    "id": "ent.brand.save_brand_image.open.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.open.app_error",
     "translation": "Kan de afbeelding niet openen."
   },
   {
-    "id": "ent.brand.save_brand_image.save_image.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.save_image.app_error",
     "translation": "Afbeelding kon niet worden opgeslagen"
   },
   {
-    "id": "ent.brand.save_brand_image.too_large.app_error",
+    "id": "i18n.server.ent.brand.save_brand_image.too_large.app_error",
     "translation": "Kan de afbeelding niet openen. Afbeelding is te groot."
   },
   {
-    "id": "ent.cluster.config_changed.info",
+    "id": "i18n.server.ent.cluster.config_changed.info",
     "translation": "Cluster configuratie is verandert voor id=%v.  Poging tot herstarten van de cluster service.  Om zeker te zijn dat het cluster correct is geconfigureerd moet je niet vertrouwen op deze herstart omdat we een globale configuratie verandering ontdekte. "
   },
   {
-    "id": "ent.cluster.debug_fail.debug",
+    "id": "i18n.server.ent.cluster.debug_fail.debug",
     "translation": "Cluster verstuurde mislukte poging op `%v` detail=%v, extra=%v, retry number=%v"
   },
   {
-    "id": "ent.cluster.final_fail.error",
+    "id": "i18n.server.ent.cluster.final_fail.error",
     "translation": "Cluster verzond laatste mislukte poging op `%v` detail=%v, extra=%v, retry number=%v"
   },
   {
-    "id": "ent.cluster.incompatible.warn",
+    "id": "i18n.server.ent.cluster.incompatible.warn",
     "translation": "Potentieel incompatibel versie gedetecteerd voor clustering met %v"
   },
   {
-    "id": "ent.cluster.incompatible_config.warn",
+    "id": "i18n.server.ent.cluster.incompatible_config.warn",
     "translation": "Potentieel incompatibel configuratie gedetecteerd voor clusteren met %v "
   },
   {
-    "id": "ent.cluster.licence_disable.app_error",
+    "id": "i18n.server.ent.cluster.licence_disable.app_error",
     "translation": "Clustering functionaliteit is uitgeschakeld met de huidige licentie. Neem contact op met de beheerder voor een upgrade van de licentie."
   },
   {
-    "id": "ent.cluster.ping_failed.info",
+    "id": "i18n.server.ent.cluster.ping_failed.info",
     "translation": "Cluster ping gefaald bij hostname=%v op=%v met id=%v"
   },
   {
-    "id": "ent.cluster.ping_success.info",
+    "id": "i18n.server.ent.cluster.ping_success.info",
     "translation": "Cluster ping success met hostnaam=%v op=%v met id=%v self=%v"
   },
   {
-    "id": "ent.cluster.save_config.error",
+    "id": "i18n.server.ent.cluster.save_config.error",
     "translation": "Systeem Console wordt op alleen-lezen gezet wanneer High Availability aan staat. "
   },
   {
-    "id": "ent.cluster.starting.info",
+    "id": "i18n.server.ent.cluster.starting.info",
     "translation": "Cluster internode communicatie luistert op %v met hostnaam=%v id=%v "
   },
   {
-    "id": "ent.cluster.stopping.info",
+    "id": "i18n.server.ent.cluster.stopping.info",
     "translation": "Cluster internode communicatie is aan het stoppen op %v met hostnaam=%v id=%v"
   },
   {
-    "id": "ent.compliance.licence_disable.app_error",
+    "id": "i18n.server.ent.compliance.licence_disable.app_error",
     "translation": "Compliance functionaliteit is uitgeschakeld met de huidige licentie. Neem contact op met de beheerder voor een upgrade van de licentie."
   },
   {
-    "id": "ent.compliance.run_failed.error",
+    "id": "i18n.server.ent.compliance.run_failed.error",
     "translation": "Compliance export is mislukt voor raak '{{.JobName}}' naar '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_finished.info",
+    "id": "i18n.server.ent.compliance.run_finished.info",
     "translation": "Compliance export voor taak '{{.JobName}}' is afgerond. {{.Count}} Record zijn geschreven naar '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_limit.warning",
+    "id": "i18n.server.ent.compliance.run_limit.warning",
     "translation": "Compliance export is mislukt voor taak '{{.JobName}}', er zijn meer dan 30.000 regels voor bestand '{{.FilePath}}'"
   },
   {
-    "id": "ent.compliance.run_started.info",
+    "id": "i18n.server.ent.compliance.run_started.info",
     "translation": "Compliance export is mislukt voor taak '{{.JobName}}' naar '{{.FilePath}}'"
   },
   {
-    "id": "ent.emoji.licence_disable.app_error",
+    "id": "i18n.server.ent.emoji.licence_disable.app_error",
     "translation": "Aangepaste emoji restricties is uitgeschakeld vanwege de huidige licentie. Neem contact op met de beheerder voor een upgrade van de licentie."
   },
   {
-    "id": "ent.ldap.create_fail",
+    "id": "i18n.server.ent.ldap.create_fail",
     "translation": "Unable to create LDAP user."
   },
   {
-    "id": "ent.ldap.disabled.app_error",
+    "id": "i18n.server.ent.ldap.disabled.app_error",
     "translation": "AD/LDAP uitgeschakeld of licentie ondersteund geen AD/LDAP."
   },
   {
-    "id": "ent.ldap.do_login.bind_admin_user.app_error",
+    "id": "i18n.server.ent.ldap.do_login.bind_admin_user.app_error",
     "translation": "Kan geen verbinding maken met de AD/LDAP server. Controleer de opgegeven Bindgebruikersnaam en Bindwachtwoord."
   },
   {
-    "id": "ent.ldap.do_login.invalid_password.app_error",
+    "id": "i18n.server.ent.ldap.do_login.invalid_password.app_error",
     "translation": "Ongeldig wachtwoord"
   },
   {
-    "id": "ent.ldap.do_login.licence_disable.app_error",
+    "id": "i18n.server.ent.ldap.do_login.licence_disable.app_error",
     "translation": "AD/LDAP functionaliteit is uitgeschakeld met de huidige licentie. Neem contact op met de beheerder voor een upgrade van de licentie."
   },
   {
-    "id": "ent.ldap.do_login.matched_to_many_users.app_error",
+    "id": "i18n.server.ent.ldap.do_login.matched_to_many_users.app_error",
     "translation": "Gebruikersnaam is in gebruik door meerdere gebruikers"
   },
   {
-    "id": "ent.ldap.do_login.search_ldap_server.app_error",
+    "id": "i18n.server.ent.ldap.do_login.search_ldap_server.app_error",
     "translation": "Kan niet zoeken op de AD/LDAP server"
   },
   {
-    "id": "ent.ldap.do_login.unable_to_connect.app_error",
+    "id": "i18n.server.ent.ldap.do_login.unable_to_connect.app_error",
     "translation": "Kan niet verbinden met de AD/LDAP server"
   },
   {
-    "id": "ent.ldap.do_login.unable_to_create_user.app_error",
+    "id": "i18n.server.ent.ldap.do_login.unable_to_create_user.app_error",
     "translation": "Geldig wachtwoord, maar kan de gebruiker niet aanmaken."
   },
   {
-    "id": "ent.ldap.do_login.user_filtered.app_error",
+    "id": "i18n.server.ent.ldap.do_login.user_filtered.app_error",
     "translation": "Je AD/LDAP account heeft niet de juiste permissies om van deze Mattermost server gebruik te maken. Vraag je Systeembeheerder om het AD/LDAP gebruikersfilter te controleren."
   },
   {
-    "id": "ent.ldap.do_login.user_not_registered.app_error",
+    "id": "i18n.server.ent.ldap.do_login.user_not_registered.app_error",
     "translation": "Gebruiker is niet bekend op de AD/LDAP server"
   },
   {
-    "id": "ent.ldap.mattermost_user_update",
+    "id": "i18n.server.ent.ldap.mattermost_user_update",
     "translation": "Mattermost gebruiker is bijgewerkt door de AD/LDAP server."
   },
   {
-    "id": "ent.ldap.syncdone.info",
+    "id": "i18n.server.ent.ldap.syncdone.info",
     "translation": "AD/LDAP Synchronisatie voltooid"
   },
   {
-    "id": "ent.ldap.syncronize.get_all.app_error",
+    "id": "i18n.server.ent.ldap.syncronize.get_all.app_error",
     "translation": "Niet mogelijk alle gebruikers te krijgen via AD/LDAP"
   },
   {
-    "id": "ent.ldap.validate_filter.app_error",
+    "id": "i18n.server.ent.ldap.validate_filter.app_error",
     "translation": "Ongeldig AD/LDAP filter"
   },
   {
-    "id": "ent.metrics.starting.info",
+    "id": "i18n.server.ent.metrics.starting.info",
     "translation": "Metrics and profiling server is listening on %v"
   },
   {
-    "id": "ent.metrics.stopping.info",
+    "id": "i18n.server.ent.metrics.stopping.info",
     "translation": "Metrics and profiling server is stopping on %v"
   },
   {
-    "id": "ent.mfa.activate.authenticate.app_error",
+    "id": "i18n.server.ent.mfa.activate.authenticate.app_error",
     "translation": "Probleem bij het authenticeren met een MFA token"
   },
   {
-    "id": "ent.mfa.activate.bad_token.app_error",
+    "id": "i18n.server.ent.mfa.activate.bad_token.app_error",
     "translation": "Ongeldige 'MFA' token"
   },
   {
-    "id": "ent.mfa.activate.save_active.app_erro",
+    "id": "i18n.server.ent.mfa.activate.save_active.app_erro",
     "translation": "Kan de MFA status van de gebruiker niet bijwerken"
   },
   {
-    "id": "ent.mfa.deactivate.save_active.app_erro",
+    "id": "i18n.server.ent.mfa.deactivate.save_active.app_erro",
     "translation": "Kan de MFA status van de gebruiker niet bijwerken"
   },
   {
-    "id": "ent.mfa.deactivate.save_secret.app_error",
+    "id": "i18n.server.ent.mfa.deactivate.save_secret.app_error",
     "translation": "Fout bij het verwijderen van het MFA sleutel"
   },
   {
-    "id": "ent.mfa.generate_qr_code.create_code.app_error",
+    "id": "i18n.server.ent.mfa.generate_qr_code.create_code.app_error",
     "translation": "Fout bij het genereren van een QR code"
   },
   {
-    "id": "ent.mfa.generate_qr_code.save_secret.app_error",
+    "id": "i18n.server.ent.mfa.generate_qr_code.save_secret.app_error",
     "translation": "Fout bij het opslaan van de MFA sleutel"
   },
   {
-    "id": "ent.mfa.license_disable.app_error",
+    "id": "i18n.server.ent.mfa.license_disable.app_error",
     "translation": "Uw licentie ondersteund geen multi-factor authenticatie"
   },
   {
-    "id": "ent.mfa.validate_token.authenticate.app_error",
+    "id": "i18n.server.ent.mfa.validate_token.authenticate.app_error",
     "translation": "Er is een probleem bij het authenticeren met een MFA token opgetreden"
   },
   {
-    "id": "ent.migration.migratetoldap.duplicate_field",
+    "id": "i18n.server.ent.migration.migratetoldap.duplicate_field",
     "translation": "Niet mogelijk om AD/LDAP gebruikers te migreren met het opgegeven veld. Dubbele vermelding ontdekt. Verwijder alle dubbele vermeldingen en probeer opnieuw."
   },
   {
-    "id": "ent.migration.migratetoldap.user_not_found",
+    "id": "i18n.server.ent.migration.migratetoldap.user_not_found",
     "translation": "Kon gebruiker niet vinden op de AD/LDAP server: "
   },
   {
-    "id": "ent.saml.attribute.app_error",
+    "id": "i18n.server.ent.saml.attribute.app_error",
     "translation": "SAML aanmelding is mislukt vanwege verkeerde attributen. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.build_request.app_error",
+    "id": "i18n.server.ent.saml.build_request.app_error",
     "translation": "Er is een fout opgetreden bij de aanvraag richting de Identity Provider. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.build_request.encoding.app_error",
+    "id": "i18n.server.ent.saml.build_request.encoding.app_error",
     "translation": "Er is een fout opgetreden tijdens het versleutelen van de aanvraag richting de Identity Provider. Neem contact op met de beheerder. "
   },
   {
-    "id": "ent.saml.build_request.encoding_signed.app_error",
+    "id": "i18n.server.ent.saml.build_request.encoding_signed.app_error",
     "translation": "Er is een fout opgetreden tijdens het versleutelen van de getekende aanvraag richting de Identity Provider. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.configure.app_error",
+    "id": "i18n.server.ent.saml.configure.app_error",
     "translation": "Er is een fout opgetreden tijdens het configureren van de SAML Service Provider, err=%v"
   },
   {
-    "id": "ent.saml.configure.encryption_not_enabled.app_error",
+    "id": "i18n.server.ent.saml.configure.encryption_not_enabled.app_error",
     "translation": "SAML aanmelding is mislukt vanwege het ontbreken van encryptie. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.configure.load_idp_cert.app_error",
+    "id": "i18n.server.ent.saml.configure.load_idp_cert.app_error",
     "translation": "Identity Provider Public Certificate File is niet gevonden. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.configure.load_private_key.app_error",
+    "id": "i18n.server.ent.saml.configure.load_private_key.app_error",
     "translation": "SAML aanmelding is mislukt vanwege het ontbreken van de Service Provider Private Key. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.configure.load_public_cert.app_error",
+    "id": "i18n.server.ent.saml.configure.load_public_cert.app_error",
     "translation": "Service Provider Publiek Cetificaat bestand was niet gevonden. Neem contact op met jouw Systeem Beheerder."
   },
   {
-    "id": "ent.saml.configure.not_encrypted_response.app_error",
+    "id": "i18n.server.ent.saml.configure.not_encrypted_response.app_error",
     "translation": "SAML aanmelding is mislukt omdat de communicatie met de Identity Provider niet versleuteld is . Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.do_login.decrypt.app_error",
+    "id": "i18n.server.ent.saml.do_login.decrypt.app_error",
     "translation": "SAML aanmelding is mislukt omdat er een fout is opgetreden tijdens het ondersleuteling van het bericht van de Identity Provider. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.do_login.empty_response.app_error",
+    "id": "i18n.server.ent.saml.do_login.empty_response.app_error",
     "translation": "We hebben leeg anwtoord ontvangen van de Identity Provider."
   },
   {
-    "id": "ent.saml.do_login.parse.app_error",
+    "id": "i18n.server.ent.saml.do_login.parse.app_error",
     "translation": "Er is een fout opgetreden tijdens het versleutelen van de aanvraag richting de Identity Provider. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.do_login.validate.app_error",
+    "id": "i18n.server.ent.saml.do_login.validate.app_error",
     "translation": "Er is een fout opgetreden tijdens het versleutelen van de aanvraag richting de Identity Provider. Neem contact op met de beheerder."
   },
   {
-    "id": "ent.saml.license_disable.app_error",
+    "id": "i18n.server.ent.saml.license_disable.app_error",
     "translation": "Jouw licentie ondersteund geen SAML authenticatie"
   },
   {
-    "id": "ent.saml.metadata.app_error",
+    "id": "i18n.server.ent.saml.metadata.app_error",
     "translation": "Er is een fout opgetreden tijdens het opstellen van Service Provider Metadata."
   },
   {
-    "id": "ent.saml.service_disable.app_error",
+    "id": "i18n.server.ent.saml.service_disable.app_error",
     "translation": "SAML is niet ondersteund, of niet geconfigureerd op deze server."
   },
   {
-    "id": "ent.saml.update_saml_user.unable_error",
+    "id": "i18n.server.ent.saml.update_saml_user.unable_error",
     "translation": "Kon bestaande SAML gebruiker niet bijwerken. Inloggen toch toestaan. err=%v"
   },
   {
-    "id": "error.generic.link_message",
+    "id": "i18n.server.error.generic.link_message",
     "translation": "Ga terug naar Mattermost"
   },
   {
-    "id": "error.generic.message",
+    "id": "i18n.server.error.generic.message",
     "translation": "Er is een fout opgetreden."
   },
   {
-    "id": "error.generic.title",
+    "id": "i18n.server.error.generic.title",
     "translation": "Fout"
   },
   {
-    "id": "error.not_found.link_message",
+    "id": "i18n.server.error.not_found.link_message",
     "translation": "Ga terug naar Mattermost"
   },
   {
-    "id": "error.not_found.message",
+    "id": "i18n.server.error.not_found.message",
     "translation": "De pagina die je probeert te bereiken bestaat niet."
   },
   {
-    "id": "error.not_found.title",
+    "id": "i18n.server.error.not_found.title",
     "translation": "Pagina niet gevonden"
   },
   {
-    "id": "manaultesting.get_channel_id.no_found.debug",
+    "id": "i18n.server.manualtesting.get_channel_id.no_found.debug",
     "translation": "Kan het kanaal %v niet vinden, %v mogelijkheden doorzocht"
   },
   {
-    "id": "manaultesting.get_channel_id.unable.debug",
+    "id": "i18n.server.manualtesting.get_channel_id.unable.debug",
     "translation": "Kan de kanalen niet ophalen"
   },
   {
-    "id": "manaultesting.manual_test.create.info",
+    "id": "i18n.server.manualtesting.manual_test.create.info",
     "translation": "Aanmaken gebruikers en team"
   },
   {
-    "id": "manaultesting.manual_test.parse.app_error",
+    "id": "i18n.server.manualtesting.manual_test.parse.app_error",
     "translation": "Kan URL niet vewerken"
   },
   {
-    "id": "manaultesting.manual_test.setup.info",
+    "id": "i18n.server.manualtesting.manual_test.setup.info",
     "translation": "Klaarzetten om handmatig te testen..."
   },
   {
-    "id": "manaultesting.manual_test.uid.debug",
+    "id": "i18n.server.manualtesting.manual_test.uid.debug",
     "translation": "Geen uid in de url"
   },
   {
-    "id": "manaultesting.test_autolink.info",
+    "id": "i18n.server.manualtesting.test_autolink.info",
     "translation": "Handmatige test voor automatisch linken"
   },
   {
-    "id": "manaultesting.test_autolink.unable.app_error",
+    "id": "i18n.server.manualtesting.test_autolink.unable.app_error",
     "translation": "Kan de kanalen niet ophalen"
   },
   {
-    "id": "mattermost.bulletin.subject",
+    "id": "i18n.server.mattermost.bulletin.subject",
     "translation": "Mattermost beveiligings bulletin"
   },
   {
-    "id": "mattermost.config_file",
+    "id": "i18n.server.mattermost.config_file",
     "translation": "Config ingelezen uit bestand %v"
   },
   {
-    "id": "mattermost.current_version",
+    "id": "i18n.server.mattermost.current_version",
     "translation": "Huidige versie is %v (%v/%v/%v/%v)"
   },
   {
-    "id": "mattermost.entreprise_enabled",
+    "id": "i18n.server.mattermost.entreprise_enabled",
     "translation": "Enterprise ingeschaked: %v"
   },
   {
-    "id": "mattermost.load_license.find.warn",
+    "id": "i18n.server.mattermost.load_license.find.warn",
     "translation": "License key from https://mattermost.com required to unlock enterprise features."
   },
   {
-    "id": "mattermost.security_bulletin.error",
+    "id": "i18n.server.mattermost.security_bulletin.error",
     "translation": "Kan de details van het security bulletin niet ophalen"
   },
   {
-    "id": "mattermost.security_bulletin_read.error",
+    "id": "i18n.server.mattermost.security_bulletin_read.error",
     "translation": "Kan de details van het security bulletin niet inlezen"
   },
   {
-    "id": "mattermost.security_checks.debug",
+    "id": "i18n.server.mattermost.security_checks.debug",
     "translation": "Controle op beveiligings-bijwerkingen van Mattermost"
   },
   {
-    "id": "mattermost.security_info.error",
+    "id": "i18n.server.mattermost.security_info.error",
     "translation": "Kan geen beveiligings-bijwerking informatie van Mattermost ophalen."
   },
   {
-    "id": "mattermost.send_bulletin.info",
+    "id": "i18n.server.mattermost.send_bulletin.info",
     "translation": "Versturen beveiligings bulletin voor %v naar %v"
   },
   {
-    "id": "mattermost.system_admins.error",
+    "id": "i18n.server.mattermost.system_admins.error",
     "translation": "Kan systeembeheerder niet vinden voor de beveiligings-bijwerkingen informatie van Mattermost."
   },
   {
-    "id": "mattermost.working_dir",
+    "id": "i18n.server.mattermost.working_dir",
     "translation": "Huidige werk directory is %v"
   },
   {
-    "id": "model.access.is_valid.access_token.app_error",
+    "id": "i18n.server.model.access.is_valid.access_token.app_error",
     "translation": "Ongeldig toegangs token"
   },
   {
-    "id": "model.access.is_valid.client_id.app_error",
+    "id": "i18n.server.model.access.is_valid.client_id.app_error",
     "translation": "Ongeldig client id "
   },
   {
-    "id": "model.access.is_valid.redirect_uri.app_error",
+    "id": "i18n.server.model.access.is_valid.redirect_uri.app_error",
     "translation": "Ongeldige doorverwijzings uri"
   },
   {
-    "id": "model.access.is_valid.refresh_token.app_error",
+    "id": "i18n.server.model.access.is_valid.refresh_token.app_error",
     "translation": "Ongeldig verversings token"
   },
   {
-    "id": "model.access.is_valid.user_id.app_error",
+    "id": "i18n.server.model.access.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.authorize.is_valid.auth_code.app_error",
+    "id": "i18n.server.model.authorize.is_valid.auth_code.app_error",
     "translation": "Ongeldige authorizatie code"
   },
   {
-    "id": "model.authorize.is_valid.client_id.app_error",
+    "id": "i18n.server.model.authorize.is_valid.client_id.app_error",
     "translation": "Ongeldig client id"
   },
   {
-    "id": "model.authorize.is_valid.create_at.app_error",
+    "id": "i18n.server.model.authorize.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.authorize.is_valid.expires.app_error",
+    "id": "i18n.server.model.authorize.is_valid.expires.app_error",
     "translation": "Verloopt moet ingesteld zijn"
   },
   {
-    "id": "model.authorize.is_valid.redirect_uri.app_error",
+    "id": "i18n.server.model.authorize.is_valid.redirect_uri.app_error",
     "translation": "Ongeldige doorverwijzing uri"
   },
   {
-    "id": "model.authorize.is_valid.scope.app_error",
+    "id": "i18n.server.model.authorize.is_valid.scope.app_error",
     "translation": "Ongeldige omgeving"
   },
   {
-    "id": "model.authorize.is_valid.state.app_error",
+    "id": "i18n.server.model.authorize.is_valid.state.app_error",
     "translation": "Ongeldige status"
   },
   {
-    "id": "model.authorize.is_valid.user_id.app_error",
+    "id": "i18n.server.model.authorize.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.channel.is_valid.2_or_more.app_error",
+    "id": "i18n.server.model.channel.is_valid.2_or_more.app_error",
     "translation": "Naam oet 2 of meer kleine letters bevatten"
   },
   {
-    "id": "model.channel.is_valid.create_at.app_error",
+    "id": "i18n.server.model.channel.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.channel.is_valid.creator_id.app_error",
+    "id": "i18n.server.model.channel.is_valid.creator_id.app_error",
     "translation": "Ongeldig aanmaak id"
   },
   {
-    "id": "model.channel.is_valid.display_name.app_error",
+    "id": "i18n.server.model.channel.is_valid.display_name.app_error",
     "translation": "Ongeldige weergave naam"
   },
   {
-    "id": "model.channel.is_valid.header.app_error",
+    "id": "i18n.server.model.channel.is_valid.header.app_error",
     "translation": "Ongeldige header"
   },
   {
-    "id": "model.channel.is_valid.id.app_error",
+    "id": "i18n.server.model.channel.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.channel.is_valid.name.app_error",
+    "id": "i18n.server.model.channel.is_valid.name.app_error",
     "translation": "Ongeldige naam"
   },
   {
-    "id": "model.channel.is_valid.purpose.app_error",
+    "id": "i18n.server.model.channel.is_valid.purpose.app_error",
     "translation": "Ongeldig doel"
   },
   {
-    "id": "model.channel.is_valid.type.app_error",
+    "id": "i18n.server.model.channel.is_valid.type.app_error",
     "translation": "Ongeldige type"
   },
   {
-    "id": "model.channel.is_valid.update_at.app_error",
+    "id": "i18n.server.model.channel.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.channel_member.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.channel_id.app_error",
     "translation": "Ongeldig kanaal id"
   },
   {
-    "id": "model.channel_member.is_valid.email_value.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.email_value.app_error",
     "translation": "Invalid email notification value"
   },
   {
-    "id": "model.channel_member.is_valid.notify_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.notify_level.app_error",
     "translation": "Ongeldig waarschuwings nivo"
   },
   {
-    "id": "model.channel_member.is_valid.push_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.push_level.app_error",
     "translation": "Invalid push notification level"
   },
   {
-    "id": "model.channel_member.is_valid.role.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.role.app_error",
     "translation": "Ongeldige rol"
   },
   {
-    "id": "model.channel_member.is_valid.unread_level.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.unread_level.app_error",
     "translation": "Ongeldige markering ongelezen nivo"
   },
   {
-    "id": "model.channel_member.is_valid.user_id.app_error",
+    "id": "i18n.server.model.channel_member.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.client.connecting.app_error",
+    "id": "i18n.server.model.client.connecting.app_error",
     "translation": "Er is een probleem opgetreden tijdens het verbinden met de server"
   },
   {
-    "id": "model.client.create_emoji.emoji.app_error",
+    "id": "i18n.server.model.client.create_emoji.emoji.app_error",
     "translation": "Fout bij het toevoegen van emoji aan verzoek"
   },
   {
-    "id": "model.client.create_emoji.image.app_error",
+    "id": "i18n.server.model.client.create_emoji.image.app_error",
     "translation": "Fout bij het toevoegen van afbeelding aan verzoek"
   },
   {
-    "id": "model.client.create_emoji.writer.app_error",
+    "id": "i18n.server.model.client.create_emoji.writer.app_error",
     "translation": "Fout bij het schrijven van verzoek"
   },
   {
-    "id": "model.client.login.app_error",
+    "id": "i18n.server.model.client.login.app_error",
     "translation": "Authenticatie tokens komen niet overeen"
   },
   {
-    "id": "model.client.read_file.app_error",
+    "id": "i18n.server.model.client.read_file.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van het gebruikersprofiel"
   },
   {
-    "id": "model.client.set_profile_user.no_file.app_error",
+    "id": "i18n.server.model.client.set_profile_user.no_file.app_error",
     "translation": "Geen bestand bij 'image' in aanvraag"
   },
   {
-    "id": "model.client.set_profile_user.writer.app_error",
+    "id": "i18n.server.model.client.set_profile_user.writer.app_error",
     "translation": "Fout bij het schrijven van verzoek"
   },
   {
-    "id": "model.client.upload_post_attachment.channel_id.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.channel_id.app_error",
     "translation": "Error writing channel id to multipart form"
   },
   {
-    "id": "model.client.upload_post_attachment.file.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.file.app_error",
     "translation": "Error writing file to multipart form"
   },
   {
-    "id": "model.client.upload_post_attachment.file_size.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.file_size.app_error",
     "translation": "Error writing fileSize to multipart form"
   },
   {
-    "id": "model.client.upload_post_attachment.import_from.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.import_from.app_error",
     "translation": "Error writing importFrom to multipart form"
   },
   {
-    "id": "model.client.upload_post_attachment.writer.app_error",
+    "id": "i18n.server.model.client.upload_post_attachment.writer.app_error",
     "translation": "Error closing multipart writer"
   },
   {
-    "id": "model.client.upload_saml_cert.app_error",
+    "id": "i18n.server.model.client.upload_saml_cert.app_error",
     "translation": "Error creating SAML certificate multipart form request"
   },
   {
-    "id": "model.command.is_valid.create_at.app_error",
+    "id": "i18n.server.model.command.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.command.is_valid.description.app_error",
+    "id": "i18n.server.model.command.is_valid.description.app_error",
     "translation": "Ongeldige beschrijving"
   },
   {
-    "id": "model.command.is_valid.display_name.app_error",
+    "id": "i18n.server.model.command.is_valid.display_name.app_error",
     "translation": "Ongeldige weergave naam"
   },
   {
-    "id": "model.command.is_valid.id.app_error",
+    "id": "i18n.server.model.command.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.command.is_valid.method.app_error",
+    "id": "i18n.server.model.command.is_valid.method.app_error",
     "translation": "Ongeldige methode"
   },
   {
-    "id": "model.command.is_valid.team_id.app_error",
+    "id": "i18n.server.model.command.is_valid.team_id.app_error",
     "translation": "Ongeldig team id"
   },
   {
-    "id": "model.command.is_valid.token.app_error",
+    "id": "i18n.server.model.command.is_valid.token.app_error",
     "translation": "Ongeldig token"
   },
   {
-    "id": "model.command.is_valid.trigger.app_error",
+    "id": "i18n.server.model.command.is_valid.trigger.app_error",
     "translation": "Ongeldig trigger-woord"
   },
   {
-    "id": "model.command.is_valid.update_at.app_error",
+    "id": "i18n.server.model.command.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.command.is_valid.url.app_error",
+    "id": "i18n.server.model.command.is_valid.url.app_error",
     "translation": "Invalid URL"
   },
   {
-    "id": "model.command.is_valid.url_http.app_error",
+    "id": "i18n.server.model.command.is_valid.url_http.app_error",
     "translation": "Ongeldige URL. Een geldige URl begint met http:// of https://"
   },
   {
-    "id": "model.command.is_valid.user_id.app_error",
+    "id": "i18n.server.model.command.is_valid.user_id.app_error",
     "translation": "Ongeldig gebruikers id"
   },
   {
-    "id": "model.compliance.is_valid.create_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.compliance.is_valid.desc.app_error",
+    "id": "i18n.server.model.compliance.is_valid.desc.app_error",
     "translation": "Ongeldige omschrijving"
   },
   {
-    "id": "model.compliance.is_valid.end_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.end_at.app_error",
     "translation": "Tot en met moet een geldige tijd zijn"
   },
   {
-    "id": "model.compliance.is_valid.id.app_error",
+    "id": "i18n.server.model.compliance.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.compliance.is_valid.start_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.start_at.app_error",
     "translation": "Vanaf moet een geldige tijd zijn"
   },
   {
-    "id": "model.compliance.is_valid.start_end_at.app_error",
+    "id": "i18n.server.model.compliance.is_valid.start_end_at.app_error",
     "translation": "Tot en met, moet later zijn dan Vanaf"
   },
   {
-    "id": "model.config.is_valid.cluster_email_batching.app_error",
+    "id": "i18n.server.model.config.is_valid.cluster_email_batching.app_error",
     "translation": "Niet mogelijk om bulk email aan te zetten als clustering aan staat."
   },
   {
-    "id": "model.config.is_valid.email_batching_buffer_size.app_error",
+    "id": "i18n.server.model.config.is_valid.email_batching_buffer_size.app_error",
     "translation": "Verkeerde buffer grootte bij bulk email instellingen. Moet 0 zijn of een positief nummer."
   },
   {
-    "id": "model.config.is_valid.email_batching_interval.app_error",
+    "id": "i18n.server.model.config.is_valid.email_batching_interval.app_error",
     "translation": "Verkeerde interval bij bulk email instellingen. Moet 30 secondes of meer zijn."
   },
   {
-    "id": "model.config.is_valid.email_reset_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.email_reset_salt.app_error",
     "translation": "Ongeldige 'salt' voor wachtwoord reset e-mail instellingen. De salt moet 32 of meer karakters hebben."
   },
   {
-    "id": "model.config.is_valid.email_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.email_salt.app_error",
     "translation": "Ongeldige 'salt' voor uitnodigings e-mail instellingen. De salt moet 32 of meer karakters hebben."
   },
   {
-    "id": "model.config.is_valid.email_security.app_error",
+    "id": "i18n.server.model.config.is_valid.email_security.app_error",
     "translation": "Ongeldige beveiligings instelling bij e-mail. Moet '', 'TLS' of 'STARTTLS' zijn"
   },
   {
-    "id": "model.config.is_valid.encrypt_sql.app_error",
+    "id": "i18n.server.model.config.is_valid.encrypt_sql.app_error",
     "translation": "Ongeldige encryptie sleutel bij de SQL instellingen. Deze moet 32 of karakters hebben."
   },
   {
-    "id": "model.config.is_valid.file_driver.app_error",
+    "id": "i18n.server.model.config.is_valid.file_driver.app_error",
     "translation": "Ongeldige stuurprogramma voor bestand instellingen. Deze moet 'lokaal' of 'amazons3' zijn"
   },
   {
-    "id": "model.config.is_valid.file_preview_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_preview_height.app_error",
     "translation": "Ongeldige voorvertonings-hoogte voor bestand instellingen.  Moet 0 of groter zijn."
   },
   {
-    "id": "model.config.is_valid.file_preview_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_preview_width.app_error",
     "translation": "Ongeldige voorvertonings breedte voor bestand instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.file_profile_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_profile_height.app_error",
     "translation": "Ongeldige profiel hoogte bij bestands instellingen. Moet groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.file_profile_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_profile_width.app_error",
     "translation": "Ongeldige profiel breedte bij bestands instellingen. Moet een positief nummer zijn."
   },
   {
-    "id": "model.config.is_valid.file_salt.app_error",
+    "id": "i18n.server.model.config.is_valid.file_salt.app_error",
     "translation": "Ongeldige publieke 'salt' bij bestands instellingen. De salt moet 32 of meer karakters hebben."
   },
   {
-    "id": "model.config.is_valid.file_thumb_height.app_error",
+    "id": "i18n.server.model.config.is_valid.file_thumb_height.app_error",
     "translation": "Ongeldige voorvertonings hoogte bij bestands instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.file_thumb_width.app_error",
+    "id": "i18n.server.model.config.is_valid.file_thumb_width.app_error",
     "translation": "Ongeldige voorvertonings breedte bij bestands instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.ldap_basedn",
+    "id": "i18n.server.model.config.is_valid.ldap_basedn",
     "translation": "AD/LDAP veld \"BaseDN\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_bind_password",
+    "id": "i18n.server.model.config.is_valid.ldap_bind_password",
     "translation": "AD/LDAP veld \"Bind Password\" is verplicht"
   },
   {
-    "id": "model.config.is_valid.ldap_bind_username",
+    "id": "i18n.server.model.config.is_valid.ldap_bind_username",
     "translation": "AD/LDAP veld \"Bind Username\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_email",
+    "id": "i18n.server.model.config.is_valid.ldap_email",
     "translation": "AD/LDAP veld \"Email Attribute\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_firstname",
+    "id": "i18n.server.model.config.is_valid.ldap_firstname",
     "translation": "AD/LDAP veld \"First Name Attribute\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_id",
+    "id": "i18n.server.model.config.is_valid.ldap_id",
     "translation": "AD/LDAP veld \"ID Attribute\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_lastname",
+    "id": "i18n.server.model.config.is_valid.ldap_lastname",
     "translation": "AD/LDAP veld \"Last Name Attribute\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_max_page_size.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_max_page_size.app_error",
     "translation": "Ongeldige max page size waarde."
   },
   {
-    "id": "model.config.is_valid.ldap_required.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_required.app_error",
     "translation": "Verplicht AD/LDAP veld is niet ingevuld."
   },
   {
-    "id": "model.config.is_valid.ldap_required.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_required.app_error",
     "translation": "Verplicht AD/LDAP veld is niet ingevuld."
   },
   {
-    "id": "model.config.is_valid.ldap_security.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_security.app_error",
     "translation": "Ongeldige verbindings instelling bij AD/LDAP instellingen. Keuze uit; '', 'TLS' of 'STARTTLS'"
   },
   {
-    "id": "model.config.is_valid.ldap_server",
+    "id": "i18n.server.model.config.is_valid.ldap_server",
     "translation": "AD/LDAP veld \"AD/LDAP Server\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.ldap_sync_interval.app_error",
+    "id": "i18n.server.model.config.is_valid.ldap_sync_interval.app_error",
     "translation": "Verkeerde sync interval tijd. Moet minimaal een minuut zijn."
   },
   {
-    "id": "model.config.is_valid.ldap_username",
+    "id": "i18n.server.model.config.is_valid.ldap_username",
     "translation": "AD/LDAP veld \"Username Attribute\" is verplicht."
   },
   {
-    "id": "model.config.is_valid.listen_address.app_error",
+    "id": "i18n.server.model.config.is_valid.listen_address.app_error",
     "translation": "Ongeldig luister adres bij de service instellingen. Deze moet geconfigureerd zijn."
   },
   {
-    "id": "model.config.is_valid.login_attempts.app_error",
+    "id": "i18n.server.model.config.is_valid.login_attempts.app_error",
     "translation": "Maximaal aantal inlog poging bij service instellingen. Moet een getal grote dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.max_burst.app_error",
+    "id": "i18n.server.model.config.is_valid.max_burst.app_error",
     "translation": "Maximum burst size must be greater than zero."
   },
   {
-    "id": "model.config.is_valid.max_channels.app_error",
+    "id": "i18n.server.model.config.is_valid.max_channels.app_error",
     "translation": "Ongeldig maximaal aantal gebruikers per team bij team instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.max_file_size.app_error",
+    "id": "i18n.server.model.config.is_valid.max_file_size.app_error",
     "translation": "Ongeldige maximale bestandsgrootte voor bestands-instellingen. Moet nul of groter zijn."
   },
   {
-    "id": "model.config.is_valid.max_notify_per_channel.app_error",
+    "id": "i18n.server.model.config.is_valid.max_notify_per_channel.app_error",
     "translation": "Ongeldig maximaal aantal gebruikers per team bij team instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.max_users.app_error",
+    "id": "i18n.server.model.config.is_valid.max_users.app_error",
     "translation": "Ongeldig maximaal aantal gebruikers per team bij team instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.password_length.app_error",
+    "id": "i18n.server.model.config.is_valid.password_length.app_error",
     "translation": "Wachtwoord moet een lengte hebben van minimaal {{.MinLength}} en/of maximaal {{.MaxLength}}"
   },
   {
-    "id": "model.config.is_valid.password_length_max_min.app_error",
+    "id": "i18n.server.model.config.is_valid.password_length_max_min.app_error",
     "translation": "Maximale lengte van wachtwoord moet groter of gelijk zijn aan minimale lengte."
   },
   {
-    "id": "model.config.is_valid.rate_mem.app_error",
+    "id": "i18n.server.model.config.is_valid.rate_mem.app_error",
     "translation": "Ongeldige 'geheugen opslag' bij frequentie beperings instellingen. Moet een getal groter dan 0 zijn"
   },
   {
-    "id": "model.config.is_valid.rate_sec.app_error",
+    "id": "i18n.server.model.config.is_valid.rate_sec.app_error",
     "translation": "Ongeldige frequentie beperings instelling. Moet een getal groter dan 0 zijn"
   },
   {
-    "id": "model.config.is_valid.read_timeout.app_error",
+    "id": "i18n.server.model.config.is_valid.read_timeout.app_error",
     "translation": "Invalid value for read timeout."
   },
   {
-    "id": "model.config.is_valid.restrict_direct_message.app_error",
+    "id": "i18n.server.model.config.is_valid.restrict_direct_message.app_error",
     "translation": "Ongeldig privé bericht beperking. Moet zijn 'allen' of 'team'"
   },
   {
-    "id": "model.config.is_valid.saml_assertion_consumer_service_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_assertion_consumer_service_url.app_error",
     "translation": "Ongeldige URL. Een geldige URL begint met http:// of https://"
   },
   {
-    "id": "model.config.is_valid.saml_email_attribute.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_email_attribute.app_error",
     "translation": "Ongeldig Email attribuut. Dit moet ingesteld worden."
   },
   {
-    "id": "model.config.is_valid.saml_idp_cert.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_cert.app_error",
     "translation": "Publiek certificaat van Identity Provider is niet gevonden. Vergeten te uploaden?"
   },
   {
-    "id": "model.config.is_valid.saml_idp_descriptor_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_descriptor_url.app_error",
     "translation": "Ongeldige URL. Een geldige URL begint met http:// of https://."
   },
   {
-    "id": "model.config.is_valid.saml_idp_url.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_idp_url.app_error",
     "translation": "Ongeldige URL. Een geldige URl begint met http:// of https://."
   },
   {
-    "id": "model.config.is_valid.saml_private_key.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_private_key.app_error",
     "translation": "Service Provider Private Key mist. Wellicht vergeten deze up te loaden?"
   },
   {
-    "id": "model.config.is_valid.saml_public_cert.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_public_cert.app_error",
     "translation": "Publiek certificaat van Identity Provider is niet gevonden. Vergeten te uploaden?"
   },
   {
-    "id": "model.config.is_valid.saml_username_attribute.app_error",
+    "id": "i18n.server.model.config.is_valid.saml_username_attribute.app_error",
     "translation": "Ongeldig gebruikersnaam attribuut. Dit moet ingesteld worden."
   },
   {
-    "id": "model.config.is_valid.site_url.app_error",
+    "id": "i18n.server.model.config.is_valid.site_url.app_error",
     "translation": "Ongeldige URL. Een geldige URl begint met http:// of https://"
   },
   {
-    "id": "model.config.is_valid.site_url_email_batching.app_error",
+    "id": "i18n.server.model.config.is_valid.site_url_email_batching.app_error",
     "translation": "Niet mogelijk om bulk email aan te zetten als de SiteURL niet is ingevuld."
   },
   {
-    "id": "model.config.is_valid.sitename_length.app_error",
+    "id": "i18n.server.model.config.is_valid.sitename_length.app_error",
     "translation": "Site naam moet minder dan of gelijk aan {{.MaxLength}} karakters."
   },
   {
-    "id": "model.config.is_valid.sql_data_src.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_data_src.app_error",
     "translation": "Ongeldige brond bij SQL instellingen. Moet ingesteld zijn."
   },
   {
-    "id": "model.config.is_valid.sql_driver.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_driver.app_error",
     "translation": "Ongeldig stuurprogramma bij SQL intellingen. Keuze uit mysql of postgres"
   },
   {
-    "id": "model.config.is_valid.sql_idle.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_idle.app_error",
     "translation": "Ongeldig maximum activiteitslooze verbidingen bij SQL instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.sql_max_conn.app_error",
+    "id": "i18n.server.model.config.is_valid.sql_max_conn.app_error",
     "translation": "Ongeldig maximaal aantal open verbindingen bij SQL instellingen. Moet een getal groter dan 0 zijn."
   },
   {
-    "id": "model.config.is_valid.time_between_user_typing.app_error",
+    "id": "i18n.server.model.config.is_valid.time_between_user_typing.app_error",
     "translation": "Time between user typing updates should not be set to less than 1000 milliseconds."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_admin_secret.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_admin_secret.app_error",
     "translation": "WebRTC Gateway Admin Secret moet worden ingesteld."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_admin_url.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_admin_url.app_error",
     "translation": "WebRTC Gateway Admin Url moet een geldige URL zijn en starten met http:// of https://."
   },
   {
-    "id": "model.config.is_valid.webrtc_gateway_ws_url.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_gateway_ws_url.app_error",
     "translation": "WebRTC Gateway Websocket Url moet een geldige URL zijn en starten met ws:// of wss://."
   },
   {
-    "id": "model.config.is_valid.webrtc_stun_uri.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_stun_uri.app_error",
     "translation": "WebRTC STUN URI must be a valid URL starting with stun:"
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_shared_key.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_shared_key.app_error",
     "translation": "WebRTC TURN Gebruikersnaam kan niet leeg zijn als de TURN URI is ingesteld."
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_uri.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_uri.app_error",
     "translation": "WebRTC TURN URI must be a valid URI and start with turn:"
   },
   {
-    "id": "model.config.is_valid.webrtc_turn_username.app_error",
+    "id": "i18n.server.model.config.is_valid.webrtc_turn_username.app_error",
     "translation": "WebRTC TURN Gebruikersnaam kan niet leeg zijn als de TURN URI is ingesteld."
   },
   {
-    "id": "model.config.is_valid.webserver_security.app_error",
+    "id": "i18n.server.model.config.is_valid.webserver_security.app_error",
     "translation": "Invalid value for webserver connection security."
   },
   {
-    "id": "model.config.is_valid.write_timeout.app_error",
+    "id": "i18n.server.model.config.is_valid.write_timeout.app_error",
     "translation": "Invalid value for write timeout."
   },
   {
-    "id": "model.emoji.create_at.app_error",
+    "id": "i18n.server.model.emoji.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.emoji.creator_id.app_error",
+    "id": "i18n.server.model.emoji.creator_id.app_error",
     "translation": "Ongeldig aanmaak id"
   },
   {
-    "id": "model.emoji.id.app_error",
+    "id": "i18n.server.model.emoji.id.app_error",
     "translation": "Ongeldig emoji id"
   },
   {
-    "id": "model.emoji.name.app_error",
+    "id": "i18n.server.model.emoji.name.app_error",
     "translation": "Naam moet 1 tot 64 kleine letters bevatten"
   },
   {
-    "id": "model.emoji.update_at.app_error",
+    "id": "i18n.server.model.emoji.update_at.app_error",
     "translation": "Bijgewerkt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.file_info.get.gif.app_error",
+    "id": "i18n.server.model.file_info.get.gif.app_error",
     "translation": "Kan gif niet decoderen."
   },
   {
-    "id": "model.incoming_hook.channel_id.app_error",
+    "id": "i18n.server.model.incoming_hook.channel_id.app_error",
     "translation": "Ongeldig kanaal id"
   },
   {
-    "id": "model.incoming_hook.create_at.app_error",
+    "id": "i18n.server.model.incoming_hook.create_at.app_error",
     "translation": "Aangemaakt op, moet een geldige tijd zijn"
   },
   {
-    "id": "model.incoming_hook.description.app_error",
+    "id": "i18n.server.model.incoming_hook.description.app_error",
     "translation": "Ongeldige omschrijving"
   },
   {
-    "id": "model.incoming_hook.display_name.app_error",
+    "id": "i18n.server.model.incoming_hook.display_name.app_error",
     "translation": "Ongeldige weergave naam"
   },
   {
-    "id": "model.incoming_hook.id.app_error",
+    "id": "i18n.server.model.incoming_hook.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.incoming_hook.team_id.app_error",
+    "id": "i18n.server.model.incoming_hook.team_id.app_error",
     "translation": "Ongeldig team id"
   },
   {
-    "id": "model.incoming_hook.update_at.app_error",
+    "id": "i18n.server.model.incoming_hook.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.incoming_hook.user_id.app_error",
+    "id": "i18n.server.model.incoming_hook.user_id.app_error",
     "translation": "Ongeldig gebruikers id"
   },
   {
-    "id": "model.oauth.is_valid.app_id.app_error",
+    "id": "i18n.server.model.oauth.is_valid.app_id.app_error",
     "translation": "Ongeldig app id"
   },
   {
-    "id": "model.oauth.is_valid.callback.app_error",
+    "id": "i18n.server.model.oauth.is_valid.callback.app_error",
     "translation": "Ongeldige URL. Een geldige URl begint met http:// of https://."
   },
   {
-    "id": "model.oauth.is_valid.client_secret.app_error",
+    "id": "i18n.server.model.oauth.is_valid.client_secret.app_error",
     "translation": "Ongeldig client geheim"
   },
   {
-    "id": "model.oauth.is_valid.create_at.app_error",
+    "id": "i18n.server.model.oauth.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.oauth.is_valid.creator_id.app_error",
+    "id": "i18n.server.model.oauth.is_valid.creator_id.app_error",
     "translation": "Ongeldige maker id"
   },
   {
-    "id": "model.oauth.is_valid.description.app_error",
+    "id": "i18n.server.model.oauth.is_valid.description.app_error",
     "translation": "Ongeldige beschrijving"
   },
   {
-    "id": "model.oauth.is_valid.homepage.app_error",
+    "id": "i18n.server.model.oauth.is_valid.homepage.app_error",
     "translation": "Beginpagina moet een geldige URL zijn, een geldige URl begint met http:// of https://."
   },
   {
-    "id": "model.oauth.is_valid.icon_url.app_error",
+    "id": "i18n.server.model.oauth.is_valid.icon_url.app_error",
     "translation": "Ikoon URL moet een geldige URl zijn, die begint met http:// of https://"
   },
   {
-    "id": "model.oauth.is_valid.name.app_error",
+    "id": "i18n.server.model.oauth.is_valid.name.app_error",
     "translation": "Ongeldige naam"
   },
   {
-    "id": "model.oauth.is_valid.update_at.app_error",
+    "id": "i18n.server.model.oauth.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.outgoing_hook.is_valid.callback.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.callback.app_error",
     "translation": "Ongeldige 'callback' urls"
   },
   {
-    "id": "model.outgoing_hook.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.channel_id.app_error",
     "translation": "Ongeldig kanaal id"
   },
   {
-    "id": "model.outgoing_hook.is_valid.create_at.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.outgoing_hook.is_valid.description.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.description.app_error",
     "translation": "Ongeldige beschrijving"
   },
   {
-    "id": "model.outgoing_hook.is_valid.display_name.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.display_name.app_error",
     "translation": "Ongeldige weergave naam"
   },
   {
-    "id": "model.outgoing_hook.is_valid.id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.outgoing_hook.is_valid.team_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.team_id.app_error",
     "translation": "Ongeldig team id"
   },
   {
-    "id": "model.outgoing_hook.is_valid.token.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.token.app_error",
     "translation": "Ongeldig token"
   },
   {
-    "id": "model.outgoing_hook.is_valid.trigger_words.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.trigger_words.app_error",
     "translation": "Ongeldige trigger-woorden"
   },
   {
-    "id": "model.outgoing_hook.is_valid.update_at.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.outgoing_hook.is_valid.url.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.url.app_error",
     "translation": "Ongeldige 'callback' URL's. Iedere geldige URL moet beginnen met http:// of https://"
   },
   {
-    "id": "model.outgoing_hook.is_valid.user_id.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.outgoing_hook.is_valid.words.app_error",
+    "id": "i18n.server.model.outgoing_hook.is_valid.words.app_error",
     "translation": "Ongeldige trigger-woorden"
   },
   {
-    "id": "model.post.is_valid.channel_id.app_error",
+    "id": "i18n.server.model.post.is_valid.channel_id.app_error",
     "translation": "Ongeldige kanaal id"
   },
   {
-    "id": "model.post.is_valid.create_at.app_error",
+    "id": "i18n.server.model.post.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd bevatten"
   },
   {
-    "id": "model.post.is_valid.file_ids.app_error",
+    "id": "i18n.server.model.post.is_valid.file_ids.app_error",
     "translation": "Ongeldige bestands-ids"
   },
   {
-    "id": "model.post.is_valid.filenames.app_error",
+    "id": "i18n.server.model.post.is_valid.filenames.app_error",
     "translation": "Ongeldige bestandsnaamen"
   },
   {
-    "id": "model.post.is_valid.hashtags.app_error",
+    "id": "i18n.server.model.post.is_valid.hashtags.app_error",
     "translation": "Ongeldige hashtags"
   },
   {
-    "id": "model.post.is_valid.id.app_error",
+    "id": "i18n.server.model.post.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.post.is_valid.msg.app_error",
+    "id": "i18n.server.model.post.is_valid.msg.app_error",
     "translation": "Ongeldig bericht"
   },
   {
-    "id": "model.post.is_valid.original_id.app_error",
+    "id": "i18n.server.model.post.is_valid.original_id.app_error",
     "translation": "Ongeldige orgineel id"
   },
   {
-    "id": "model.post.is_valid.parent_id.app_error",
+    "id": "i18n.server.model.post.is_valid.parent_id.app_error",
     "translation": "Ongeldig ouder id"
   },
   {
-    "id": "model.post.is_valid.props.app_error",
+    "id": "i18n.server.model.post.is_valid.props.app_error",
     "translation": "Ongeldige eigenschappen"
   },
   {
-    "id": "model.post.is_valid.root_id.app_error",
+    "id": "i18n.server.model.post.is_valid.root_id.app_error",
     "translation": "Ongeldig start id"
   },
   {
-    "id": "model.post.is_valid.root_parent.app_error",
+    "id": "i18n.server.model.post.is_valid.root_parent.app_error",
     "translation": "Ongeldig start id, moet gezet zijn, als ouder id gezet is"
   },
   {
-    "id": "model.post.is_valid.type.app_error",
+    "id": "i18n.server.model.post.is_valid.type.app_error",
     "translation": "Ongeldig type"
   },
   {
-    "id": "model.post.is_valid.update_at.app_error",
+    "id": "i18n.server.model.post.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.post.is_valid.user_id.app_error",
+    "id": "i18n.server.model.post.is_valid.user_id.app_error",
     "translation": "Ongeldig gebruikers id"
   },
   {
-    "id": "model.preference.is_valid.category.app_error",
+    "id": "i18n.server.model.preference.is_valid.category.app_error",
     "translation": "Ongeldige categorie"
   },
   {
-    "id": "model.preference.is_valid.id.app_error",
+    "id": "i18n.server.model.preference.is_valid.id.app_error",
     "translation": "Ongeldig gebruikers id"
   },
   {
-    "id": "model.preference.is_valid.name.app_error",
+    "id": "i18n.server.model.preference.is_valid.name.app_error",
     "translation": "Ongeldige naam"
   },
   {
-    "id": "model.preference.is_valid.theme.app_error",
+    "id": "i18n.server.model.preference.is_valid.theme.app_error",
     "translation": "Ongeldig thema"
   },
   {
-    "id": "model.preference.is_valid.value.app_error",
+    "id": "i18n.server.model.preference.is_valid.value.app_error",
     "translation": "Waarde it te lang"
   },
   {
-    "id": "model.reaction.is_valid.create_at.app_error",
+    "id": "i18n.server.model.reaction.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.reaction.is_valid.emoji_name.app_error",
+    "id": "i18n.server.model.reaction.is_valid.emoji_name.app_error",
     "translation": "Ongeldig emoji id"
   },
   {
-    "id": "model.reaction.is_valid.post_id.app_error",
+    "id": "i18n.server.model.reaction.is_valid.post_id.app_error",
     "translation": "Ongeldig start id"
   },
   {
-    "id": "model.reaction.is_valid.user_id.app_error",
+    "id": "i18n.server.model.reaction.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.team.is_valid.characters.app_error",
+    "id": "i18n.server.model.team.is_valid.characters.app_error",
     "translation": "Naam oet 2 of meer kleine letters bevatten"
   },
   {
-    "id": "model.team.is_valid.company.app_error",
+    "id": "i18n.server.model.team.is_valid.company.app_error",
     "translation": "Ongeldige bedrijfsnaam"
   },
   {
-    "id": "model.team.is_valid.create_at.app_error",
+    "id": "i18n.server.model.team.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.team.is_valid.description.app_error",
+    "id": "i18n.server.model.team.is_valid.description.app_error",
     "translation": "Ongeldige beschrijving"
   },
   {
-    "id": "model.team.is_valid.domains.app_error",
+    "id": "i18n.server.model.team.is_valid.domains.app_error",
     "translation": "Toegestane domeinen is ongeldig"
   },
   {
-    "id": "model.team.is_valid.email.app_error",
+    "id": "i18n.server.model.team.is_valid.email.app_error",
     "translation": "Ongeldige e-mail"
   },
   {
-    "id": "model.team.is_valid.id.app_error",
+    "id": "i18n.server.model.team.is_valid.id.app_error",
     "translation": "Ongeldig Id"
   },
   {
-    "id": "model.team.is_valid.name.app_error",
+    "id": "i18n.server.model.team.is_valid.name.app_error",
     "translation": "Ongeldige naam"
   },
   {
-    "id": "model.team.is_valid.reserved.app_error",
+    "id": "i18n.server.model.team.is_valid.reserved.app_error",
     "translation": "Deze URL is niet beschikbaar. Probeer een andere."
   },
   {
-    "id": "model.team.is_valid.type.app_error",
+    "id": "i18n.server.model.team.is_valid.type.app_error",
     "translation": "Ongeldig type"
   },
   {
-    "id": "model.team.is_valid.update_at.app_error",
+    "id": "i18n.server.model.team.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.team.is_valid.url.app_error",
+    "id": "i18n.server.model.team.is_valid.url.app_error",
     "translation": "Ongeldige URL 'identifier'"
   },
   {
-    "id": "model.team_member.is_valid.role.app_error",
+    "id": "i18n.server.model.team_member.is_valid.role.app_error",
     "translation": "Ongeldige rol"
   },
   {
-    "id": "model.team_member.is_valid.team_id.app_error",
+    "id": "i18n.server.model.team_member.is_valid.team_id.app_error",
     "translation": "Ongeldig team id"
   },
   {
-    "id": "model.team_member.is_valid.user_id.app_error",
+    "id": "i18n.server.model.team_member.is_valid.user_id.app_error",
     "translation": "Ongeldige gebruikers id"
   },
   {
-    "id": "model.user.is_valid.auth_data.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data.app_error",
     "translation": "Ongeldige auth data"
   },
   {
-    "id": "model.user.is_valid.auth_data_pwd.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data_pwd.app_error",
     "translation": "Ongeldige gebruiker, wachtwoord en auth data kunnen niet beide ingesteld zijn"
   },
   {
-    "id": "model.user.is_valid.auth_data_type.app_error",
+    "id": "i18n.server.model.user.is_valid.auth_data_type.app_error",
     "translation": "Ongeldige gebruiker, auth data moet ingesteld zijn met auth type"
   },
   {
-    "id": "model.user.is_valid.create_at.app_error",
+    "id": "i18n.server.model.user.is_valid.create_at.app_error",
     "translation": "Aangemaakt op moet een geldige tijd zijn"
   },
   {
-    "id": "model.user.is_valid.email.app_error",
+    "id": "i18n.server.model.user.is_valid.email.app_error",
     "translation": "Ongeldige e-mail"
   },
   {
-    "id": "model.user.is_valid.first_name.app_error",
+    "id": "i18n.server.model.user.is_valid.first_name.app_error",
     "translation": "Ongeldige voornaam"
   },
   {
-    "id": "model.user.is_valid.id.app_error",
+    "id": "i18n.server.model.user.is_valid.id.app_error",
     "translation": "Ongeldig gebruikers id"
   },
   {
-    "id": "model.user.is_valid.last_name.app_error",
+    "id": "i18n.server.model.user.is_valid.last_name.app_error",
     "translation": "Ongeldige achternaam"
   },
   {
-    "id": "model.user.is_valid.nickname.app_error",
+    "id": "i18n.server.model.user.is_valid.nickname.app_error",
     "translation": "Ongeldige bijnaam"
   },
   {
-    "id": "model.user.is_valid.position.app_error",
+    "id": "i18n.server.model.user.is_valid.position.app_error",
     "translation": "Invalid position: must not be longer than 35 characters."
   },
   {
-    "id": "model.user.is_valid.pwd.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters en minimaal 1 kleine letter bestaan."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_number.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter en 1 cijfer bevatten"
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_number_symbol.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter, 1 cijfer en 1 symbol bevatten (bijv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_symbol.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter met 1 symbool uit bijv. \"~!@#$%^&*()\" bevatten."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter en 1 hoofdletter bevatten."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_number.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter, 1 hoofdletter en 1 cijfer bevatten"
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_number_symbol.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 symbol bevatten (bijv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_lowercase_uppercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_lowercase_uppercase_symbol.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 kleine letter, 1 hoofdletter en 1 symbol bevatten (bijv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_number.app_error",
     "translation": "Je wachtwoord moet minimaal {{.Min}} karakters bevatten en met minimaal 1 cijfer."
   },
   {
-    "id": "model.user.is_valid.pwd_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_number_symbol.app_error",
     "translation": "Je wachtwoord moet minimaal {{.Min}} karakters bevatten en met minimaal 1 cijfer en 1 karakter (bv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_symbol.app_error",
     "translation": "Je wachtwoord moet minimaal {{.Min}} karakters bevatten en met minimaal 1 karakter (bv. \"~!@#$%^&*()\"). "
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 hoofdletter bevatten."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_number.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_number.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 hoofdletter en 1 cijfer."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_number_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_number_symbol.app_error",
     "translation": "Je wachtwoord moet minimaal {{.Min}} karakters bevatten en met minimaal 1 hoofdletter, minimaal 1 cijfer en minimaal een karakter (bv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.pwd_uppercase_symbol.app_error",
+    "id": "i18n.server.model.user.is_valid.pwd_uppercase_symbol.app_error",
     "translation": "Het wachtwoord moet minimaal uit {{.Min}} karakters bestaan en minimaal 1 hoofdletter en 1 symbol bevatten (bijv. \"~!@#$%^&*()\")."
   },
   {
-    "id": "model.user.is_valid.team_id.app_error",
+    "id": "i18n.server.model.user.is_valid.team_id.app_error",
     "translation": "Ongeldig team id"
   },
   {
-    "id": "model.user.is_valid.update_at.app_error",
+    "id": "i18n.server.model.user.is_valid.update_at.app_error",
     "translation": "Het veld 'bijgewerkt op' moet een geldige tijd zijn"
   },
   {
-    "id": "model.user.is_valid.username.app_error",
+    "id": "i18n.server.model.user.is_valid.username.app_error",
     "translation": "Ongeldige gebruikersnaam"
   },
   {
-    "id": "model.utils.decode_json.app_error",
+    "id": "i18n.server.model.utils.decode_json.app_error",
     "translation": "kan niet decoderen"
   },
   {
-    "id": "store.sql.alter_column_type.critical",
+    "id": "i18n.server.store.sql.alter_column_type.critical",
     "translation": "Fout tijdens het aanpassen van kolom type %v"
   },
   {
-    "id": "store.sql.check_index.critical",
+    "id": "i18n.server.store.sql.check_index.critical",
     "translation": "Fout bij het controleren van de index %v"
   },
   {
-    "id": "store.sql.closing.info",
+    "id": "i18n.server.store.sql.closing.info",
     "translation": "Afsluiten van Sql opslag"
   },
   {
-    "id": "store.sql.column_exists.critical",
+    "id": "i18n.server.store.sql.column_exists.critical",
     "translation": "Fout bij controle of de kolom bestaat %v"
   },
   {
-    "id": "store.sql.column_exists_missing_driver.critical",
+    "id": "i18n.server.store.sql.column_exists_missing_driver.critical",
     "translation": "Stuurprogramma mist bij het controleren of de kolom bestaat"
   },
   {
-    "id": "store.sql.convert_encrypt_string_map",
+    "id": "i18n.server.store.sql.convert_encrypt_string_map",
     "translation": "FromDb: Kan EncryptStringMap niet naar *string omzetten"
   },
   {
-    "id": "store.sql.convert_string_array",
+    "id": "i18n.server.store.sql.convert_string_array",
     "translation": "FromDb: Kan StringArray niet naar *string omzetten"
   },
   {
-    "id": "store.sql.convert_string_interface",
+    "id": "i18n.server.store.sql.convert_string_interface",
     "translation": "FromDb: Kan StringInterface niet naar *string omzetten"
   },
   {
-    "id": "store.sql.convert_string_map",
+    "id": "i18n.server.store.sql.convert_string_map",
     "translation": "FromDb: Kan StringMap niet naar *string omzetten"
   },
   {
-    "id": "store.sql.create_column.critical",
+    "id": "i18n.server.store.sql.create_column.critical",
     "translation": "Fout bij het aanmaken van kolom %v"
   },
   {
-    "id": "store.sql.create_column_missing_driver.critical",
+    "id": "i18n.server.store.sql.create_column_missing_driver.critical",
     "translation": "Stuurprogramma mist bij het aanmaken van de kolom"
   },
   {
-    "id": "store.sql.create_index.critical",
+    "id": "i18n.server.store.sql.create_index.critical",
     "translation": "Fout bij het aanmaken van een index %v"
   },
   {
-    "id": "store.sql.create_index_missing_driver.critical",
+    "id": "i18n.server.store.sql.create_index_missing_driver.critical",
     "translation": "Stuurprogramma mist bij het aanmaken van een index"
   },
   {
-    "id": "store.sql.creating_tables.critical",
+    "id": "i18n.server.store.sql.creating_tables.critical",
     "translation": "Fout bij het aanmaken van database tabellen: %v"
   },
   {
-    "id": "store.sql.dialect_driver.critical",
+    "id": "i18n.server.store.sql.dialect_driver.critical",
     "translation": "Fout bij het aanmaken van dialect specifiek stuurprogramma"
   },
   {
-    "id": "store.sql.dialect_driver.panic",
+    "id": "i18n.server.store.sql.dialect_driver.panic",
     "translation": "Fout bij het maken van dialect specifiek stuurprogramma %v"
   },
   {
-    "id": "store.sql.drop_column.critical",
+    "id": "i18n.server.store.sql.drop_column.critical",
     "translation": "Fout bij het verwijderen van kolom %v"
   },
   {
-    "id": "store.sql.incorrect_mac",
+    "id": "i18n.server.store.sql.incorrect_mac",
     "translation": "Ongeldige MAC voor de opgegeven encryptietext"
   },
   {
-    "id": "store.sql.maxlength_column.critical",
+    "id": "i18n.server.store.sql.maxlength_column.critical",
     "translation": "Fout bij het bepalen van de maximale lengte van kolom %v"
   },
   {
-    "id": "store.sql.open_conn.critical",
+    "id": "i18n.server.store.sql.open_conn.critical",
     "translation": "Fout bij het starten van sql verbinding, fout; %v"
   },
   {
-    "id": "store.sql.open_conn.panic",
+    "id": "i18n.server.store.sql.open_conn.panic",
     "translation": "Fout bij het openen van de sql verbinding %v"
   },
   {
-    "id": "store.sql.ping.critical",
+    "id": "i18n.server.store.sql.ping.critical",
     "translation": "Fout bij het 'pingen' van de database, fout: %v"
   },
   {
-    "id": "store.sql.pinging.info",
+    "id": "i18n.server.store.sql.pinging.info",
     "translation": "'Pingen' sql %v database"
   },
   {
-    "id": "store.sql.read_replicas_not_licensed.critical",
+    "id": "i18n.server.store.sql.read_replicas_not_licensed.critical",
     "translation": "Ondersteuning voor meer dan 1 lees replica is uitgeschakeld met de huidige licentie. Neem contact op met de systeembeheerder voor een upgrade van de licentie."
   },
   {
-    "id": "store.sql.remove_index.critical",
+    "id": "i18n.server.store.sql.remove_index.critical",
     "translation": "Fout bij het verwijderen van index %v"
   },
   {
-    "id": "store.sql.rename_column.critical",
+    "id": "i18n.server.store.sql.rename_column.critical",
     "translation": "Fout bij het hernoemen van kolom %v"
   },
   {
-    "id": "store.sql.schema_out_of_date.warn",
+    "id": "i18n.server.store.sql.schema_out_of_date.warn",
     "translation": "Database schema versie %v lijkt niet bijgewerkt te zijn"
   },
   {
-    "id": "store.sql.schema_set.info",
+    "id": "i18n.server.store.sql.schema_set.info",
     "translation": "Het database schema is gezet op versie %v"
   },
   {
-    "id": "store.sql.schema_upgrade_attempt.warn",
+    "id": "i18n.server.store.sql.schema_upgrade_attempt.warn",
     "translation": "Poging om de database schema te upgraden naar versie %v"
   },
   {
-    "id": "store.sql.schema_version.critical",
+    "id": "i18n.server.store.sql.schema_version.critical",
     "translation": "Database schema met versie %v kan niet geupgrade worden. Tussenliggende versies kunnen niet overgeslagen worden."
   },
   {
-    "id": "store.sql.short_ciphertext",
+    "id": "i18n.server.store.sql.short_ciphertext",
     "translation": "Korte encryptietext"
   },
   {
-    "id": "store.sql.table_column_type.critical",
+    "id": "i18n.server.store.sql.table_column_type.critical",
     "translation": "Fout bij het ophalen van data type voor kolom %s uit tabel %s: %v"
   },
   {
-    "id": "store.sql.table_exists.critical",
+    "id": "i18n.server.store.sql.table_exists.critical",
     "translation": "Fout bij controle of de tabel bestaat %v"
   },
   {
-    "id": "store.sql.too_short_ciphertext",
+    "id": "i18n.server.store.sql.too_short_ciphertext",
     "translation": "encryptietext is te kort"
   },
   {
-    "id": "store.sql.upgraded.warn",
+    "id": "i18n.server.store.sql.upgraded.warn",
     "translation": "Database schema is geupgrade naar versie %v"
   },
   {
-    "id": "store.sql_audit.get.finding.app_error",
+    "id": "i18n.server.store.sql_audit.get.finding.app_error",
     "translation": "Er is een fout gevonden bij het zoeken naar de audit data"
   },
   {
-    "id": "store.sql_audit.get.limit.app_error",
+    "id": "i18n.server.store.sql_audit.get.limit.app_error",
     "translation": "Grens bereikt voor opdelen in pagina's"
   },
   {
-    "id": "store.sql_audit.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_audit.permanent_delete_by_user.app_error",
     "translation": "Fout opgestreden bij het verwijderen van de audit data"
   },
   {
-    "id": "store.sql_audit.save.saving.app_error",
+    "id": "i18n.server.store.sql_audit.save.saving.app_error",
     "translation": "Fout bij het opslaan van de audit data"
   },
   {
-    "id": "store.sql_channel.analytics_deleted_type_count.app_error",
+    "id": "i18n.server.store.sql_channel.analytics_deleted_type_count.app_error",
     "translation": "We kunnen de kanalen typen niet tellen"
   },
   {
-    "id": "store.sql_channel.analytics_type_count.app_error",
+    "id": "i18n.server.store.sql_channel.analytics_type_count.app_error",
     "translation": "We kunnen de kanalen typen niet tellen"
   },
   {
-    "id": "store.sql_channel.check_open_channel_permissions.app_error",
+    "id": "i18n.server.store.sql_channel.check_open_channel_permissions.app_error",
     "translation": "De permissies kunnen niet gecontroleerd worden"
   },
   {
-    "id": "store.sql_channel.check_permissions.app_error",
+    "id": "i18n.server.store.sql_channel.check_permissions.app_error",
     "translation": "De permissies kunnen niet gecontroleerd worden"
   },
   {
-    "id": "store.sql_channel.check_permissions_by_name.app_error",
+    "id": "i18n.server.store.sql_channel.check_permissions_by_name.app_error",
     "translation": "De permissies kunnen niet gecontroleerd worden"
   },
   {
-    "id": "store.sql_channel.delete.channel.app_error",
+    "id": "i18n.server.store.sql_channel.delete.channel.app_error",
     "translation": "Het kanaal kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_channel.extra_updated.app_error",
+    "id": "i18n.server.store.sql_channel.extra_updated.app_error",
     "translation": "Probleem bij het bijwerken van de leden laatst bijgewerkte tijd"
   },
   {
-    "id": "store.sql_channel.get.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get.existing.app_error",
     "translation": "Het kanaal kon niet gevonden worden"
   },
   {
-    "id": "store.sql_channel.get.find.app_error",
+    "id": "i18n.server.store.sql_channel.get.find.app_error",
     "translation": "Er is een probleem opgetreden bij het zoeken naar het kanaal"
   },
   {
-    "id": "store.sql_channel.get_all.app_error",
+    "id": "i18n.server.store.sql_channel.get_all.app_error",
     "translation": "Niet alle kanalen kunnen opgehaald worden"
   },
   {
-    "id": "store.sql_channel.get_by_name.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get_by_name.existing.app_error",
     "translation": "Het bestaande kanaal kon niet gevonden worden"
   },
   {
-    "id": "store.sql_channel.get_by_name.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_by_name.missing.app_error",
     "translation": "Kanaal bestaat niet"
   },
   {
-    "id": "store.sql_channel.get_channel_counts.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channel_counts.get.app_error",
     "translation": "We kunnen de kanalen niet tellen"
   },
   {
-    "id": "store.sql_channel.get_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels.get.app_error",
     "translation": "We kunnen de kanalen niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_channels.not_found.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels.not_found.app_error",
     "translation": "Geen kanaal gevonden"
   },
   {
-    "id": "store.sql_channel.get_channels_by_ids.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels_by_ids.get.app_error",
     "translation": "We kunnen de kanalen niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_channels_by_ids.not_found.app_error",
+    "id": "i18n.server.store.sql_channel.get_channels_by_ids.not_found.app_error",
     "translation": "No channel found"
   },
   {
-    "id": "store.sql_channel.get_deleted_by_name.existing.app_error",
+    "id": "i18n.server.store.sql_channel.get_deleted_by_name.existing.app_error",
     "translation": "Het kanaal kon niet gevonden worden"
   },
   {
-    "id": "store.sql_channel.get_deleted_by_name.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_deleted_by_name.missing.app_error",
     "translation": "No deleted channel exists with that name"
   },
   {
-    "id": "store.sql_channel.get_extra_members.app_error",
+    "id": "i18n.server.store.sql_channel.get_extra_members.app_error",
     "translation": "We kunnen de extra info niet ophalen voor de kanaal leden"
   },
   {
-    "id": "store.sql_channel.get_for_post.app_error",
+    "id": "i18n.server.store.sql_channel.get_for_post.app_error",
     "translation": "We couldn't get the channel for the given post"
   },
   {
-    "id": "store.sql_channel.get_member.app_error",
+    "id": "i18n.server.store.sql_channel.get_member.app_error",
     "translation": "We kunnen de kanaal leden niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_member.missing.app_error",
+    "id": "i18n.server.store.sql_channel.get_member.missing.app_error",
     "translation": "Geen kanaal lid gevonden voor deze gebruikers id en kanaal id"
   },
   {
-    "id": "store.sql_channel.get_member_count.app_error",
+    "id": "i18n.server.store.sql_channel.get_member_count.app_error",
     "translation": "We kunnen het aantal leden van het kanaal niet tellen"
   },
   {
-    "id": "store.sql_channel.get_member_for_post.app_error",
+    "id": "i18n.server.store.sql_channel.get_member_for_post.app_error",
     "translation": "We couldn't get the channel member for the given post"
   },
   {
-    "id": "store.sql_channel.get_members.app_error",
+    "id": "i18n.server.store.sql_channel.get_members.app_error",
     "translation": "We kunnen de kanaal leden niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_members_by_ids.app_error",
+    "id": "i18n.server.store.sql_channel.get_members_by_ids.app_error",
     "translation": "We kunnen de kanaal leden niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_more_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_more_channels.get.app_error",
     "translation": "We kunnen de kanalen niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_public_channels.get.app_error",
+    "id": "i18n.server.store.sql_channel.get_public_channels.get.app_error",
     "translation": "We kunnen de kanalen niet ophalen"
   },
   {
-    "id": "store.sql_channel.get_unread.app_error",
+    "id": "i18n.server.store.sql_channel.get_unread.app_error",
     "translation": "We couldn't get the channel unread messages"
   },
   {
-    "id": "store.sql_channel.increment_mention_count.app_error",
+    "id": "i18n.server.store.sql_channel.increment_mention_count.app_error",
     "translation": "We kunnen de vermeldingen niet ophogen"
   },
   {
-    "id": "store.sql_channel.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete.app_error",
     "translation": "Het kanaal kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_channel.permanent_delete_by_team.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete_by_team.app_error",
     "translation": "De kanalen kunnen niet verwijderd worden"
   },
   {
-    "id": "store.sql_channel.permanent_delete_members_by_user.app_error",
+    "id": "i18n.server.store.sql_channel.permanent_delete_members_by_user.app_error",
     "translation": "Het kanaal lid kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_channel.pinned_posts.app_error",
+    "id": "i18n.server.store.sql_channel.pinned_posts.app_error",
     "translation": "We couldn't find the pinned posts"
   },
   {
-    "id": "store.sql_channel.remove_member.app_error",
+    "id": "i18n.server.store.sql_channel.remove_member.app_error",
     "translation": "Het kanaal lid kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_channel.save.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save.commit_transaction.app_error",
     "translation": "De transactie kan niet worden vastgelegt"
   },
   {
-    "id": "store.sql_channel.save.direct_channel.app_error",
+    "id": "i18n.server.store.sql_channel.save.direct_channel.app_error",
     "translation": "Gebruik 'SaveDirectChannel' om een direct kanaal aan te maken"
   },
   {
-    "id": "store.sql_channel.save.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save.open_transaction.app_error",
     "translation": "Kan transactie niet openen"
   },
   {
-    "id": "store.sql_channel.save_channel.current_count.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.current_count.app_error",
     "translation": "Fout bij het tellen van de kanalen"
   },
   {
-    "id": "store.sql_channel.save_channel.existing.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.existing.app_error",
     "translation": "Moet bijwerken aanroepen voor het bestaande kanaal"
   },
   {
-    "id": "store.sql_channel.save_channel.exists.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.exists.app_error",
     "translation": "A channel with that name already exists on the same team"
   },
   {
-    "id": "store.sql_channel.save_channel.limit.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.limit.app_error",
     "translation": "Het maximum aantal toegestane kanalen is bereikt."
   },
   {
-    "id": "store.sql_channel.save_channel.previously.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.previously.app_error",
     "translation": "Een kanaal met die URL is eerder aangemaakt"
   },
   {
-    "id": "store.sql_channel.save_channel.save.app_error",
+    "id": "i18n.server.store.sql_channel.save_channel.save.app_error",
     "translation": "Het kanaal kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.add_members.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.add_members.app_error",
     "translation": "Kan leden niet toevoegen aan het directe kanaal"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.commit.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.commit.app_error",
     "translation": "Kan de transactie niet opslaan"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.not_direct.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.not_direct.app_error",
     "translation": "Geen poging om een direkt kanaal te maken met 'SaveDirectChannel'"
   },
   {
-    "id": "store.sql_channel.save_direct_channel.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_direct_channel.open_transaction.app_error",
     "translation": "Kan een transactie niet openen"
   },
   {
-    "id": "store.sql_channel.save_member.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.commit_transaction.app_error",
     "translation": "Kan de transactie niet opslaan"
   },
   {
-    "id": "store.sql_channel.save_member.exists.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.exists.app_error",
     "translation": "Een kanaal lid met de opgegeven id bestaat al"
   },
   {
-    "id": "store.sql_channel.save_member.open_transaction.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.open_transaction.app_error",
     "translation": "Kan de transactie niet openen"
   },
   {
-    "id": "store.sql_channel.save_member.save.app_error",
+    "id": "i18n.server.store.sql_channel.save_member.save.app_error",
     "translation": "Het kanaal lid kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_channel.search.app_error",
+    "id": "i18n.server.store.sql_channel.search.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van het kanaal"
   },
   {
-    "id": "store.sql_channel.set_last_viewed_at.app_error",
+    "id": "i18n.server.store.sql_channel.set_last_viewed_at.app_error",
     "translation": "De laatst bekeken tijd kon niet worden bijgewerkt"
   },
   {
-    "id": "store.sql_channel.update.app_error",
+    "id": "i18n.server.store.sql_channel.update.app_error",
     "translation": "Het kanaal kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_channel.update.exists.app_error",
+    "id": "i18n.server.store.sql_channel.update.exists.app_error",
     "translation": "Een kanaal met dat 'handle' bestaat al"
   },
   {
-    "id": "store.sql_channel.update.previously.app_error",
+    "id": "i18n.server.store.sql_channel.update.previously.app_error",
     "translation": "Een kanaal met dat 'handle' is eerder aangemaakt"
   },
   {
-    "id": "store.sql_channel.update.updating.app_error",
+    "id": "i18n.server.store.sql_channel.update.updating.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van het kanaal"
   },
   {
-    "id": "store.sql_channel.update_last_viewed_at.app_error",
+    "id": "i18n.server.store.sql_channel.update_last_viewed_at.app_error",
     "translation": "De laatst bekeken tijd kon niet worden bijgewerkt"
   },
   {
-    "id": "store.sql_channel.update_member.app_error",
+    "id": "i18n.server.store.sql_channel.update_member.app_error",
     "translation": "Er is een probleem opgetreden tijdens het bijwerken van de kanaal leden"
   },
   {
-    "id": "store.sql_command.analytics_command_count.app_error",
+    "id": "i18n.server.store.sql_command.analytics_command_count.app_error",
     "translation": "We kunnen de opdrachten niet tellen"
   },
   {
-    "id": "store.sql_command.save.delete.app_error",
+    "id": "i18n.server.store.sql_command.save.delete.app_error",
     "translation": "De opdracht kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_command.save.delete_perm.app_error",
+    "id": "i18n.server.store.sql_command.save.delete_perm.app_error",
     "translation": "De opdracht kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_command.save.get.app_error",
+    "id": "i18n.server.store.sql_command.save.get.app_error",
     "translation": "We kunnen de opdracht niet ophalen"
   },
   {
-    "id": "store.sql_command.save.get_team.app_error",
+    "id": "i18n.server.store.sql_command.save.get_team.app_error",
     "translation": "We kunnen de opdrachten niet ophalen"
   },
   {
-    "id": "store.sql_command.save.saving.app_error",
+    "id": "i18n.server.store.sql_command.save.saving.app_error",
     "translation": "De opdracht kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_command.save.saving_overwrite.app_error",
+    "id": "i18n.server.store.sql_command.save.saving_overwrite.app_error",
     "translation": "Een bestaande opdracht kan niet overschreven worden"
   },
   {
-    "id": "store.sql_command.save.update.app_error",
+    "id": "i18n.server.store.sql_command.save.update.app_error",
     "translation": "De opdracht kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_compliance.get.finding.app_error",
+    "id": "i18n.server.store.sql_compliance.get.finding.app_error",
     "translation": "Er is een probleem opgetreden bij het ophalen van het 'compliance' rapport"
   },
   {
-    "id": "store.sql_compliance.save.saving.app_error",
+    "id": "i18n.server.store.sql_compliance.save.saving.app_error",
     "translation": "Er is een probleem opgetreden bij het opslaan van het 'compliance' rapport"
   },
   {
-    "id": "store.sql_emoji.delete.app_error",
+    "id": "i18n.server.store.sql_emoji.delete.app_error",
     "translation": "De emoji kon niet verwijderd worden"
   },
   {
-    "id": "store.sql_emoji.delete.no_results",
+    "id": "i18n.server.store.sql_emoji.delete.no_results",
     "translation": "We konden de emoticon voor verwijdering niet vinden"
   },
   {
-    "id": "store.sql_emoji.get.app_error",
+    "id": "i18n.server.store.sql_emoji.get.app_error",
     "translation": "De emoji kon niet opgehaald worden"
   },
   {
-    "id": "store.sql_emoji.get_all.app_error",
+    "id": "i18n.server.store.sql_emoji.get_all.app_error",
     "translation": "De emoji kon niet opgehaald worden"
   },
   {
-    "id": "store.sql_emoji.get_by_name.app_error",
+    "id": "i18n.server.store.sql_emoji.get_by_name.app_error",
     "translation": "De emoji kon niet opgehaald worden"
   },
   {
-    "id": "store.sql_emoji.save.app_error",
+    "id": "i18n.server.store.sql_emoji.save.app_error",
     "translation": "De emoji kon niet opgeslagen worden"
   },
   {
-    "id": "store.sql_file_info.attach_to_post.app_error",
+    "id": "i18n.server.store.sql_file_info.attach_to_post.app_error",
     "translation": "We konden de bestandsinfo niet ophalen"
   },
   {
-    "id": "store.sql_file_info.delete_for_post.app_error",
+    "id": "i18n.server.store.sql_file_info.delete_for_post.app_error",
     "translation": "We konden de bestandsinfo niet ophalen"
   },
   {
-    "id": "store.sql_file_info.get.app_error",
+    "id": "i18n.server.store.sql_file_info.get.app_error",
     "translation": "We konden de bestandsinfo niet ophalen"
   },
   {
-    "id": "store.sql_file_info.get_by_path.app_error",
+    "id": "i18n.server.store.sql_file_info.get_by_path.app_error",
     "translation": "We konden de bestandsinfo niet ophalen"
   },
   {
-    "id": "store.sql_file_info.get_for_post.app_error",
+    "id": "i18n.server.store.sql_file_info.get_for_post.app_error",
     "translation": "We konden de bestandsinfo niet ophalen"
   },
   {
-    "id": "store.sql_file_info.save.app_error",
+    "id": "i18n.server.store.sql_file_info.save.app_error",
     "translation": "We konden de bestandsinfo niet opslaan"
   },
   {
-    "id": "store.sql_license.get.app_error",
+    "id": "i18n.server.store.sql_license.get.app_error",
     "translation": "Er is een probleem opgetreden bij het ophalen van de licentie"
   },
   {
-    "id": "store.sql_license.get.missing.app_error",
+    "id": "i18n.server.store.sql_license.get.missing.app_error",
     "translation": "Een licentie met deze ID is niet gevonden"
   },
   {
-    "id": "store.sql_license.save.app_error",
+    "id": "i18n.server.store.sql_license.save.app_error",
     "translation": "Er is een probleem opgetreden tijdens het opslaan van de licentie"
   },
   {
-    "id": "store.sql_oauth.delete.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.commit_transaction.app_error",
     "translation": "De transactie kan niet worden vastgelegd"
   },
   {
-    "id": "store.sql_oauth.delete.open_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.open_transaction.app_error",
     "translation": "Niet mogelijk om de OAuth2 app te verwijderen"
   },
   {
-    "id": "store.sql_oauth.delete.rollback_transaction.app_error",
+    "id": "i18n.server.store.sql_oauth.delete.rollback_transaction.app_error",
     "translation": "Niet mogelijk om de OAuth2 app verwijdering terug te draaien"
   },
   {
-    "id": "store.sql_oauth.delete_app.app_error",
+    "id": "i18n.server.store.sql_oauth.delete_app.app_error",
     "translation": "Er deed zich een fout voor tijdens het verwijderen van de OAuth2 App"
   },
   {
-    "id": "store.sql_oauth.get_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.get_access_data.app_error",
     "translation": "Er is een probleem opgetreden bij het ophalen van het access token"
   },
   {
-    "id": "store.sql_oauth.get_access_data_by_user_for_app.app_error",
+    "id": "i18n.server.store.sql_oauth.get_access_data_by_user_for_app.app_error",
     "translation": "Er is een probleem opgetreden bij het ophalen van alle access tokens"
   },
   {
-    "id": "store.sql_oauth.get_app.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app.find.app_error",
     "translation": "De gezochte app kan niet gevonden worden"
   },
   {
-    "id": "store.sql_oauth.get_app.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app.finding.app_error",
     "translation": "Er is een probleem opgetreden bij het zoeken naar de app"
   },
   {
-    "id": "store.sql_oauth.get_app_by_user.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_app_by_user.find.app_error",
     "translation": "Er kunnen geen bestaande app's gevonden worden"
   },
   {
-    "id": "store.sql_oauth.get_apps.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_apps.find.app_error",
     "translation": "Er is een fout opgetreden tijdens het vinden van OAuth2 applicaties."
   },
   {
-    "id": "store.sql_oauth.get_auth_data.find.app_error",
+    "id": "i18n.server.store.sql_oauth.get_auth_data.find.app_error",
     "translation": "We kunnen de authorisatie code niet vinden"
   },
   {
-    "id": "store.sql_oauth.get_auth_data.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.get_auth_data.finding.app_error",
     "translation": "Er is een probleem opgetreden bij het zoeken van de autorisatie code"
   },
   {
-    "id": "store.sql_oauth.get_previous_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.get_previous_access_data.app_error",
     "translation": "Er is een probleem opgetreden bij het ophalen van het access token"
   },
   {
-    "id": "store.sql_oauth.permanent_delete_auth_data_by_user.app_error",
+    "id": "i18n.server.store.sql_oauth.permanent_delete_auth_data_by_user.app_error",
     "translation": "De authorisatie code kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_oauth.remove_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.remove_access_data.app_error",
     "translation": "Het access token kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_oauth.remove_auth_data.app_error",
+    "id": "i18n.server.store.sql_oauth.remove_auth_data.app_error",
     "translation": "De authorisatie code kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_oauth.save_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.save_access_data.app_error",
     "translation": "Het access token kan niet opgeslagen worden."
   },
   {
-    "id": "store.sql_oauth.save_app.existing.app_error",
+    "id": "i18n.server.store.sql_oauth.save_app.existing.app_error",
     "translation": "Bijwerken moet worden aangeroepen voor een bestaande app"
   },
   {
-    "id": "store.sql_oauth.save_app.save.app_error",
+    "id": "i18n.server.store.sql_oauth.save_app.save.app_error",
     "translation": "De app kan niet opgeslagen worden."
   },
   {
-    "id": "store.sql_oauth.save_auth_data.app_error",
+    "id": "i18n.server.store.sql_oauth.save_auth_data.app_error",
     "translation": "De authorisatie code kan niet opgeslagen worden."
   },
   {
-    "id": "store.sql_oauth.update_access_data.app_error",
+    "id": "i18n.server.store.sql_oauth.update_access_data.app_error",
     "translation": "Er is een probleem opgetreden bij het bijwerken van het access token"
   },
   {
-    "id": "store.sql_oauth.update_app.find.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.find.app_error",
     "translation": "We kunnen de bestaande app niet vinden om bij te werken"
   },
   {
-    "id": "store.sql_oauth.update_app.finding.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.finding.app_error",
     "translation": "Er is een fout opgetreden bij het zoeken van de app"
   },
   {
-    "id": "store.sql_oauth.update_app.update.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.update.app_error",
     "translation": "De app kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_oauth.update_app.updating.app_error",
+    "id": "i18n.server.store.sql_oauth.update_app.updating.app_error",
     "translation": "Er is een probleem opgetreden bij het bijwerken van de app"
   },
   {
-    "id": "store.sql_post.analytics_posts_count.app_error",
+    "id": "i18n.server.store.sql_post.analytics_posts_count.app_error",
     "translation": "We kunnen het aantal geplaatste berichten niet tellen"
   },
   {
-    "id": "store.sql_post.analytics_posts_count_by_day.app_error",
+    "id": "i18n.server.store.sql_post.analytics_posts_count_by_day.app_error",
     "translation": "We kunnen het aantal berichten per dag niet tellen"
   },
   {
-    "id": "store.sql_post.analytics_user_counts_posts_by_day.app_error",
+    "id": "i18n.server.store.sql_post.analytics_user_counts_posts_by_day.app_error",
     "translation": "We kunnen de aantallen berichten per gebruiker niet tellen"
   },
   {
-    "id": "store.sql_post.delete.app_error",
+    "id": "i18n.server.store.sql_post.delete.app_error",
     "translation": "Het bericht kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_post.get.app_error",
+    "id": "i18n.server.store.sql_post.get.app_error",
     "translation": "Het bericht kan niet opgehaald worden"
   },
   {
-    "id": "store.sql_post.get_parents_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_parents_posts.app_error",
     "translation": "We kunnen het startbericht voor het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.get_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_posts.app_error",
     "translation": "Grens bereikt bij het opdelen in pagina's"
   },
   {
-    "id": "store.sql_post.get_posts_around.get.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_around.get.app_error",
     "translation": "We kunnen de berichten van het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.get_posts_around.get_parent.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_around.get_parent.app_error",
     "translation": "We kunnen het start bericht voor het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.get_posts_created_att.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_created_att.app_error",
     "translation": "We kunnen de berichten van het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.get_posts_since.app_error",
+    "id": "i18n.server.store.sql_post.get_posts_since.app_error",
     "translation": "We kunnen de berichten van het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.get_root_posts.app_error",
+    "id": "i18n.server.store.sql_post.get_root_posts.app_error",
     "translation": "We kunnen de berichten van het kanaal niet ophalen"
   },
   {
-    "id": "store.sql_post.overwrite.app_error",
+    "id": "i18n.server.store.sql_post.overwrite.app_error",
     "translation": "Het bericht kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_post.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete.app_error",
     "translation": "Het bericht kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_post.permanent_delete_all_comments_by_user.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_all_comments_by_user.app_error",
     "translation": "We kunnen het bericht voor de gebruiker niet verwijderen"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_channel.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_channel.app_error",
     "translation": "Het kanaal kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_user.app_error",
     "translation": "We kunnen de gekozen berichten voor de gebruiker niet verwijderen"
   },
   {
-    "id": "store.sql_post.permanent_delete_by_user.too_many.app_error",
+    "id": "i18n.server.store.sql_post.permanent_delete_by_user.too_many.app_error",
     "translation": "We kunnen de geselecteerde berichten voor de gebruiker niet verwijderen (het zijn er te veel), probeer opnieuw"
   },
   {
-    "id": "store.sql_post.save.app_error",
+    "id": "i18n.server.store.sql_post.save.app_error",
     "translation": "We kunnen het bericht niet opslaan"
   },
   {
-    "id": "store.sql_post.save.existing.app_error",
+    "id": "i18n.server.store.sql_post.save.existing.app_error",
     "translation": "Een bestaand bericht kan niet bijwerkt worden"
   },
   {
-    "id": "store.sql_post.search.warn",
+    "id": "i18n.server.store.sql_post.search.warn",
     "translation": "Query error searching posts: %v"
   },
   {
-    "id": "store.sql_post.update.app_error",
+    "id": "i18n.server.store.sql_post.update.app_error",
     "translation": "Het bericht kan niet worden bijgewerkt"
   },
   {
-    "id": "store.sql_preference.delete.app_error",
+    "id": "i18n.server.store.sql_preference.delete.app_error",
     "translation": "Er is een probleem opgetreden tijden het verwijderen van voorkeuren"
   },
   {
-    "id": "store.sql_preference.delete_unused_features.debug",
+    "id": "i18n.server.store.sql_preference.delete_unused_features.debug",
     "translation": "Verdijderen van alle ongebruikte pre-release mogelijkheden"
   },
   {
-    "id": "store.sql_preference.get.app_error",
+    "id": "i18n.server.store.sql_preference.get.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van voorkeuren"
   },
   {
-    "id": "store.sql_preference.get_all.app_error",
+    "id": "i18n.server.store.sql_preference.get_all.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van voorkeuren"
   },
   {
-    "id": "store.sql_preference.get_category.app_error",
+    "id": "i18n.server.store.sql_preference.get_category.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van voorkeuren"
   },
   {
-    "id": "store.sql_preference.insert.exists.app_error",
+    "id": "i18n.server.store.sql_preference.insert.exists.app_error",
     "translation": "Een voorkeur met deze gebruikers id, categorie of naam bestaat al"
   },
   {
-    "id": "store.sql_preference.insert.save.app_error",
+    "id": "i18n.server.store.sql_preference.insert.save.app_error",
     "translation": "De voorkeur kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_preference.is_feature_enabled.app_error",
+    "id": "i18n.server.store.sql_preference.is_feature_enabled.app_error",
     "translation": "Er is een probleem opgetreden tijdens het zoeken naar een pre-release functie voorkeur"
   },
   {
-    "id": "store.sql_preference.permanent_delete_by_user.app_error",
+    "id": "i18n.server.store.sql_preference.permanent_delete_by_user.app_error",
     "translation": "Er is een probleem opgetreden tijden het verwijderen van voorkeuren"
   },
   {
-    "id": "store.sql_preference.save.commit_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.commit_transaction.app_error",
     "translation": "Kan de transactie niet opslaan om de voorkeuren vast te leggen"
   },
   {
-    "id": "store.sql_preference.save.missing_driver.app_error",
+    "id": "i18n.server.store.sql_preference.save.missing_driver.app_error",
     "translation": "Er is een probleem opgetreden tijdens het bijwerken van de voorkeuren"
   },
   {
-    "id": "store.sql_preference.save.open_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.open_transaction.app_error",
     "translation": "Kan de transactie om voorkeuren op te slaan niet openen"
   },
   {
-    "id": "store.sql_preference.save.rollback_transaction.app_error",
+    "id": "i18n.server.store.sql_preference.save.rollback_transaction.app_error",
     "translation": "Kan de transactie niet terugdraaien om de voorkeuren op te slaan"
   },
   {
-    "id": "store.sql_preference.save.updating.app_error",
+    "id": "i18n.server.store.sql_preference.save.updating.app_error",
     "translation": "Er is een probleem opgetreden tijdens het bijwerken van de voorkeuren"
   },
   {
-    "id": "store.sql_preference.update.app_error",
+    "id": "i18n.server.store.sql_preference.update.app_error",
     "translation": "De instelling kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_reaction.delete.begin.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.begin.app_error",
     "translation": "Unable to open transaction while deleting reaction"
   },
   {
-    "id": "store.sql_reaction.delete.commit.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.commit.app_error",
     "translation": "Unable to commit transaction while deleting reaction"
   },
   {
-    "id": "store.sql_reaction.delete.save.app_error",
+    "id": "i18n.server.store.sql_reaction.delete.save.app_error",
     "translation": "Unable to delete reaction"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoj_name.delete_reactions.app_error",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoj_name.delete_reactions.app_error",
     "translation": "Unable to delete reactions with the given emoji name"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoj_name.get_reactions.app_error",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoj_name.get_reactions.app_error",
     "translation": "Unable to get reactions with the given emoji name"
   },
   {
-    "id": "store.sql_reaction.delete_all_with_emoji_name.update_post.warn",
+    "id": "i18n.server.store.sql_reaction.delete_all_with_emoji_name.update_post.warn",
     "translation": "Unable to update Post.HasReactions while removing reactions post_id=%v, error=%v"
   },
   {
-    "id": "store.sql_reaction.get_for_post.app_error",
+    "id": "i18n.server.store.sql_reaction.get_for_post.app_error",
     "translation": "Unable to get reactions for post"
   },
   {
-    "id": "store.sql_reaction.save.begin.app_error",
+    "id": "i18n.server.store.sql_reaction.save.begin.app_error",
     "translation": "Unable to open transaction while saving reaction"
   },
   {
-    "id": "store.sql_reaction.save.commit.app_error",
+    "id": "i18n.server.store.sql_reaction.save.commit.app_error",
     "translation": "Unable to commit transaction while saving reaction"
   },
   {
-    "id": "store.sql_reaction.save.save.app_error",
+    "id": "i18n.server.store.sql_reaction.save.save.app_error",
     "translation": "Unable to save reaction"
   },
   {
-    "id": "store.sql_session.analytics_session_count.app_error",
+    "id": "i18n.server.store.sql_session.analytics_session_count.app_error",
     "translation": "Het aantal sessies kan niet geteld worden"
   },
   {
-    "id": "store.sql_session.cleanup_expired_sessions.app_error",
+    "id": "i18n.server.store.sql_session.cleanup_expired_sessions.app_error",
     "translation": "Er is een probleem opgetreden tijdens het verwijderen van verlopen gebruikers sessies"
   },
   {
-    "id": "store.sql_session.get.app_error",
+    "id": "i18n.server.store.sql_session.get.app_error",
     "translation": "Er is een fout opgetreden bij het zoeken naar de sessie"
   },
   {
-    "id": "store.sql_session.get_sessions.app_error",
+    "id": "i18n.server.store.sql_session.get_sessions.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van de gebruikers sessie"
   },
   {
-    "id": "store.sql_session.get_sessions.error",
+    "id": "i18n.server.store.sql_session.get_sessions.error",
     "translation": "Fout bij het opruimen van sessies in getSessions fout=%v"
   },
   {
-    "id": "store.sql_session.permanent_delete_sessions_by_user.app_error",
+    "id": "i18n.server.store.sql_session.permanent_delete_sessions_by_user.app_error",
     "translation": "Niet alle gebruikers sessie kunnen verwijderd worden voor de gebruiker"
   },
   {
-    "id": "store.sql_session.remove.app_error",
+    "id": "i18n.server.store.sql_session.remove.app_error",
     "translation": "De sessie kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_session.remove_all_sessions_for_team.app_error",
+    "id": "i18n.server.store.sql_session.remove_all_sessions_for_team.app_error",
     "translation": "Niet alle sessies konden verwijderd worden"
   },
   {
-    "id": "store.sql_session.save.app_error",
+    "id": "i18n.server.store.sql_session.save.app_error",
     "translation": "De sessie kan niet worden opgeslagen"
   },
   {
-    "id": "store.sql_session.save.cleanup.error",
+    "id": "i18n.server.store.sql_session.save.cleanup.error",
     "translation": "Fout bij het opruimten van de sessies in 'Save' fout=%v"
   },
   {
-    "id": "store.sql_session.save.existing.app_error",
+    "id": "i18n.server.store.sql_session.save.existing.app_error",
     "translation": "Kan de huidige sessie niet bijwerken"
   },
   {
-    "id": "store.sql_session.update_device_id.app_error",
+    "id": "i18n.server.store.sql_session.update_device_id.app_error",
     "translation": "Het device id kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_session.update_last_activity.app_error",
+    "id": "i18n.server.store.sql_session.update_last_activity.app_error",
     "translation": "De 'last_activity_at' kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_session.update_roles.app_error",
+    "id": "i18n.server.store.sql_session.update_roles.app_error",
     "translation": "De rollen kunnen niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_status.get.app_error",
+    "id": "i18n.server.store.sql_status.get.app_error",
     "translation": "Er is een probleem opgetreden tijdens het ophalen van de status"
   },
   {
-    "id": "store.sql_status.get.missing.app_error",
+    "id": "i18n.server.store.sql_status.get.missing.app_error",
     "translation": "Er is niks ingevoerd voor deze status"
   },
   {
-    "id": "store.sql_status.get_online.app_error",
+    "id": "i18n.server.store.sql_status.get_online.app_error",
     "translation": "Fout bij het ophalen van de online statussen"
   },
   {
-    "id": "store.sql_status.get_online_away.app_error",
+    "id": "i18n.server.store.sql_status.get_online_away.app_error",
     "translation": "Fout bij het ophalen van de online/weg statuses"
   },
   {
-    "id": "store.sql_status.get_team_statuses.app_error",
+    "id": "i18n.server.store.sql_status.get_team_statuses.app_error",
     "translation": "Fout bij het ophalen van de statussen van alle team leden"
   },
   {
-    "id": "store.sql_status.get_total_active_users_count.app_error",
+    "id": "i18n.server.store.sql_status.get_total_active_users_count.app_error",
     "translation": "De gebruikers kunnen niet geteld worden"
   },
   {
-    "id": "store.sql_status.reset_all.app_error",
+    "id": "i18n.server.store.sql_status.reset_all.app_error",
     "translation": "Er is een probleem opgetreden tijdens het resetten van alle statussen "
   },
   {
-    "id": "store.sql_status.save.app_error",
+    "id": "i18n.server.store.sql_status.save.app_error",
     "translation": "Er is een probleem opgetreden tijdens het opslaan van de status"
   },
   {
-    "id": "store.sql_status.update.app_error",
+    "id": "i18n.server.store.sql_status.update.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van de status"
   },
   {
-    "id": "store.sql_system.get.app_error",
+    "id": "i18n.server.store.sql_system.get.app_error",
     "translation": "Er is een probleem opgetreden tijdens het zoeken van de systeem instellingen"
   },
   {
-    "id": "store.sql_system.get_by_name.app_error",
+    "id": "i18n.server.store.sql_system.get_by_name.app_error",
     "translation": "De systeem variabele kan niet gevonden worden."
   },
   {
-    "id": "store.sql_system.get_version.app_error",
+    "id": "i18n.server.store.sql_system.get_version.app_error",
     "translation": "We konden de database versie niet ophalen"
   },
   {
-    "id": "store.sql_system.save.app_error",
+    "id": "i18n.server.store.sql_system.save.app_error",
     "translation": "Er is een probleem opgetreden tijdens het opslaan van de systeem instellingen"
   },
   {
-    "id": "store.sql_system.update.app_error",
+    "id": "i18n.server.store.sql_system.update.app_error",
     "translation": "Er is een probleem opgetreden tijdens het bijwerken van een systeem instelling"
   },
   {
-    "id": "store.sql_team.analytics_team_count.app_error",
+    "id": "i18n.server.store.sql_team.analytics_team_count.app_error",
     "translation": "Het aantal teams kan niet geteld worden"
   },
   {
-    "id": "store.sql_team.get.find.app_error",
+    "id": "i18n.server.store.sql_team.get.find.app_error",
     "translation": "Het bestaande team kan niet gevonden worden"
   },
   {
-    "id": "store.sql_team.get.finding.app_error",
+    "id": "i18n.server.store.sql_team.get.finding.app_error",
     "translation": "Er is een fout opgetreden bij het zoeken van het team"
   },
   {
-    "id": "store.sql_team.get_all.app_error",
+    "id": "i18n.server.store.sql_team.get_all.app_error",
     "translation": "Niet alle teams kunnen opgehaald worden"
   },
   {
-    "id": "store.sql_team.get_all_team_listing.app_error",
+    "id": "i18n.server.store.sql_team.get_all_team_listing.app_error",
     "translation": "Niet alle teams kunnen opgehaald worden"
   },
   {
-    "id": "store.sql_team.get_by_invite_id.find.app_error",
+    "id": "i18n.server.store.sql_team.get_by_invite_id.find.app_error",
     "translation": "Het bestaande team kan niet gevonden worden"
   },
   {
-    "id": "store.sql_team.get_by_invite_id.finding.app_error",
+    "id": "i18n.server.store.sql_team.get_by_invite_id.finding.app_error",
     "translation": "Het bestaande team kan niet gevonden worden"
   },
   {
-    "id": "store.sql_team.get_by_name.app_error",
+    "id": "i18n.server.store.sql_team.get_by_name.app_error",
     "translation": "Het bestaande team kan niet gevonden worden"
   },
   {
-    "id": "store.sql_team.get_member.app_error",
+    "id": "i18n.server.store.sql_team.get_member.app_error",
     "translation": "We kunnen het teamlid niet ophalen"
   },
   {
-    "id": "store.sql_team.get_member.missing.app_error",
+    "id": "i18n.server.store.sql_team.get_member.missing.app_error",
     "translation": "Geen teamlid gevonden voor dit gebruikers id en kanaal id"
   },
   {
-    "id": "store.sql_team.get_member_count.app_error",
+    "id": "i18n.server.store.sql_team.get_member_count.app_error",
     "translation": "We kunnen de teamleden niet ophalen"
   },
   {
-    "id": "store.sql_team.get_members.app_error",
+    "id": "i18n.server.store.sql_team.get_members.app_error",
     "translation": "We kunnen de teamleden niet ophalen"
   },
   {
-    "id": "store.sql_team.get_members_by_ids.app_error",
+    "id": "i18n.server.store.sql_team.get_members_by_ids.app_error",
     "translation": "We kunnen de teamleden niet ophalen"
   },
   {
-    "id": "store.sql_team.get_teams_for_email.app_error",
+    "id": "i18n.server.store.sql_team.get_teams_for_email.app_error",
     "translation": "Er is een probleem geconstateerd bij het opzoeken van de teams"
   },
   {
-    "id": "store.sql_team.get_unread.app_error",
+    "id": "i18n.server.store.sql_team.get_unread.app_error",
     "translation": "We couldn't get the teams unread messages"
   },
   {
-    "id": "store.sql_team.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_team.permanent_delete.app_error",
     "translation": "Het team kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_team.remove_member.app_error",
+    "id": "i18n.server.store.sql_team.remove_member.app_error",
     "translation": "Het teamlid kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_team.save.app_error",
+    "id": "i18n.server.store.sql_team.save.app_error",
     "translation": "Het team kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_team.save.domain_exists.app_error",
+    "id": "i18n.server.store.sql_team.save.domain_exists.app_error",
     "translation": "Een team met dat domein bestaat al"
   },
   {
-    "id": "store.sql_team.save.existing.app_error",
+    "id": "i18n.server.store.sql_team.save.existing.app_error",
     "translation": "Bijwerken moet aangeroepen worden voor bestaand team"
   },
   {
-    "id": "store.sql_team.save_member.exists.app_error",
+    "id": "i18n.server.store.sql_team.save_member.exists.app_error",
     "translation": "Een team lid met de opgegeven id bestaat al"
   },
   {
-    "id": "store.sql_team.save_member.save.app_error",
+    "id": "i18n.server.store.sql_team.save_member.save.app_error",
     "translation": "Het team lid kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_team.search_all_team.app_error",
+    "id": "i18n.server.store.sql_team.search_all_team.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van het kanaal"
   },
   {
-    "id": "store.sql_team.search_open_team.app_error",
+    "id": "i18n.server.store.sql_team.search_open_team.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van het kanaal"
   },
   {
-    "id": "store.sql_team.update.app_error",
+    "id": "i18n.server.store.sql_team.update.app_error",
     "translation": "Het team kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_team.update.find.app_error",
+    "id": "i18n.server.store.sql_team.update.find.app_error",
     "translation": "We kunnen geen bestaand team vinden om bij te werken"
   },
   {
-    "id": "store.sql_team.update.finding.app_error",
+    "id": "i18n.server.store.sql_team.update.finding.app_error",
     "translation": "Er is een fout opgetreden bij het zoeken van het team"
   },
   {
-    "id": "store.sql_team.update.updating.app_error",
+    "id": "i18n.server.store.sql_team.update.updating.app_error",
     "translation": "Er is een fout opgetreden tijdens het bijwerken van het team"
   },
   {
-    "id": "store.sql_team.update_display_name.app_error",
+    "id": "i18n.server.store.sql_team.update_display_name.app_error",
     "translation": "De teamnaam kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.analytics_get_inactive_users_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_get_inactive_users_count.app_error",
     "translation": "De gebruikers kunnen niet geteld worden"
   },
   {
-    "id": "store.sql_user.analytics_get_system_admin_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_get_system_admin_count.app_error",
     "translation": "We couldn't get the system admin count"
   },
   {
-    "id": "store.sql_user.analytics_unique_user_count.app_error",
+    "id": "i18n.server.store.sql_user.analytics_unique_user_count.app_error",
     "translation": "We kunnen het aantal unieke gebruikers niet tellen"
   },
   {
-    "id": "store.sql_user.get.app_error",
+    "id": "i18n.server.store.sql_user.get.app_error",
     "translation": "Er is een fout opgestreden bij het opzoeken van het account"
   },
   {
-    "id": "store.sql_user.get_all_using_auth_service.other.app_error",
+    "id": "i18n.server.store.sql_user.get_all_using_auth_service.other.app_error",
     "translation": "Er is een probleem opgetreden om de accounts te vinden op basis van specifiek authenticatie type."
   },
   {
-    "id": "store.sql_user.get_by_auth.missing_account.app_error",
+    "id": "i18n.server.store.sql_user.get_by_auth.missing_account.app_error",
     "translation": "We kunnen geen bestaand account vinden die inloggen bij dit team toe staat. Het kan zijn dat een uitnodiging voor het team nodig is om lid te worden."
   },
   {
-    "id": "store.sql_user.get_by_auth.other.app_error",
+    "id": "i18n.server.store.sql_user.get_by_auth.other.app_error",
     "translation": "Er is een probleem opgetreden om een account te vinden op basis van authenticatie type."
   },
   {
-    "id": "store.sql_user.get_by_username.app_error",
+    "id": "i18n.server.store.sql_user.get_by_username.app_error",
     "translation": "We kunnen geen bestaand account vinden met de gebruikersnaam voor dit team. Het kan zijn dat een uitnodiging voor het team nodig is om lid te worden."
   },
   {
-    "id": "store.sql_user.get_for_login.app_error",
+    "id": "i18n.server.store.sql_user.get_for_login.app_error",
     "translation": "We kunnen geen bestaand account vinden met de gebruikersnaam voor dit team. Het kan zijn dat een uitnodiging voor het team nodig is om lid te worden."
   },
   {
-    "id": "store.sql_user.get_for_login.multiple_users",
+    "id": "i18n.server.store.sql_user.get_for_login.multiple_users",
     "translation": "We vonden meerdere gebruikers die overeenkomen met uw referenties en waren niet in staat om u te laten inloggen. Neem contact op met een systeembeheerder."
   },
   {
-    "id": "store.sql_user.get_profiles.app_error",
+    "id": "i18n.server.store.sql_user.get_profiles.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van het gebruikersprofiel"
   },
   {
-    "id": "store.sql_user.get_recently_active_users.app_error",
+    "id": "i18n.server.store.sql_user.get_recently_active_users.app_error",
     "translation": "We encountered an error while finding the recently active users"
   },
   {
-    "id": "store.sql_user.get_sysadmin_profiles.app_error",
+    "id": "i18n.server.store.sql_user.get_sysadmin_profiles.app_error",
     "translation": "Er is een probleem opgestreden tijdens het opzoeken van het gebruikersprofiel"
   },
   {
-    "id": "store.sql_user.get_total_users_count.app_error",
+    "id": "i18n.server.store.sql_user.get_total_users_count.app_error",
     "translation": "Het aantal gebruikers kan niet geteld worden"
   },
   {
-    "id": "store.sql_user.get_unread_count.app_error",
+    "id": "i18n.server.store.sql_user.get_unread_count.app_error",
     "translation": "Het aantal ongelezen berichten voor de gebruiker kan niet geteld worden"
   },
   {
-    "id": "store.sql_user.get_unread_count_for_channel.app_error",
+    "id": "i18n.server.store.sql_user.get_unread_count_for_channel.app_error",
     "translation": "Het aantal ongelezen berichten voor de gebruiker en kanaal kan niet geteld worden"
   },
   {
-    "id": "store.sql_user.migrate_theme.critical",
+    "id": "i18n.server.store.sql_user.migrate_theme.critical",
     "translation": "Mislukt om de gebruiker te migreren. ThemeProps naar Voorkeuren tabel %v"
   },
   {
-    "id": "store.sql_user.missing_account.const",
+    "id": "i18n.server.store.sql_user.missing_account.const",
     "translation": "De gebruiker kan niet gevonden worden"
   },
   {
-    "id": "store.sql_user.permanent_delete.app_error",
+    "id": "i18n.server.store.sql_user.permanent_delete.app_error",
     "translation": "Het bestaande account kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_user.save.app_error",
+    "id": "i18n.server.store.sql_user.save.app_error",
     "translation": "Het account kan niet opgeslagen worden."
   },
   {
-    "id": "store.sql_user.save.email_exists.app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.app_error",
     "translation": "Een account met dat e-mail adres bestaat al."
   },
   {
-    "id": "store.sql_user.save.email_exists.ldap_app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.ldap_app_error",
     "translation": "Dit account gebruikt geen AD/LDAP authenticatie. Log in met e-mail en wachtwoord."
   },
   {
-    "id": "store.sql_user.save.email_exists.saml_app_error",
+    "id": "i18n.server.store.sql_user.save.email_exists.saml_app_error",
     "translation": "Dit account gebruikt geen SAML authenticatie. Log in met e-mail en wachtwoord."
   },
   {
-    "id": "store.sql_user.save.existing.app_error",
+    "id": "i18n.server.store.sql_user.save.existing.app_error",
     "translation": "Bijwerken moet aangeroepen worden voor bestaande gebruikers"
   },
   {
-    "id": "store.sql_user.save.max_accounts.app_error",
+    "id": "i18n.server.store.sql_user.save.max_accounts.app_error",
     "translation": "Het maximaal aantal leden voor dit team is bereikt. Neem contact op met de beheerder voor een hoger limiet."
   },
   {
-    "id": "store.sql_user.save.member_count.app_error",
+    "id": "i18n.server.store.sql_user.save.member_count.app_error",
     "translation": "Fout bij het tellen van leden in dit team"
   },
   {
-    "id": "store.sql_user.save.username_exists.app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.app_error",
     "translation": "Een account met deze gebruikersnaam bestaat al."
   },
   {
-    "id": "store.sql_user.save.username_exists.ldap_app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.ldap_app_error",
     "translation": "Een account met die gebruikersnaam bestaat al. Neem kontakt op met de systeembeheerder."
   },
   {
-    "id": "store.sql_user.save.username_exists.saml_app_error",
+    "id": "i18n.server.store.sql_user.save.username_exists.saml_app_error",
     "translation": "Een account met die gebruikersnaam bestaat al. Neem contact op met de systeembeheerder."
   },
   {
-    "id": "store.sql_user.update.app_error",
+    "id": "i18n.server.store.sql_user.update.app_error",
     "translation": "Het account kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update.can_not_change_ldap.app_error",
+    "id": "i18n.server.store.sql_user.update.can_not_change_ldap.app_error",
     "translation": "Velden die gezet zijn door AD/LDAP kunnen niet gewijzigd worden"
   },
   {
-    "id": "store.sql_user.update.email_taken.app_error",
+    "id": "i18n.server.store.sql_user.update.email_taken.app_error",
     "translation": "Dit e-mail adres is reeds in gebruik. Kies aub een andere."
   },
   {
-    "id": "store.sql_user.update.find.app_error",
+    "id": "i18n.server.store.sql_user.update.find.app_error",
     "translation": "We kunnen geen account vinden om bij te werken"
   },
   {
-    "id": "store.sql_user.update.finding.app_error",
+    "id": "i18n.server.store.sql_user.update.finding.app_error",
     "translation": "Er is een fout opgestreden bij het opzoeken van het account"
   },
   {
-    "id": "store.sql_user.update.updating.app_error",
+    "id": "i18n.server.store.sql_user.update.updating.app_error",
     "translation": "Er is een fout opgestreden bij het bijwerken van het account"
   },
   {
-    "id": "store.sql_user.update.username_taken.app_error",
+    "id": "i18n.server.store.sql_user.update.username_taken.app_error",
     "translation": "Deze gebruikersnaam is al in gebruik. Kies een andere."
   },
   {
-    "id": "store.sql_user.update_auth_data.app_error",
+    "id": "i18n.server.store.sql_user.update_auth_data.app_error",
     "translation": "De authenticatie gegevens kunnen niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update_auth_data.email_exists.app_error",
+    "id": "i18n.server.store.sql_user.update_auth_data.email_exists.app_error",
     "translation": "Niet mogelijk om account om te schakelen naar {{.Service}}. Een ander account maakt gebruik van het emailadres {{.Email}}."
   },
   {
-    "id": "store.sql_user.update_failed_pwd_attempts.app_error",
+    "id": "i18n.server.store.sql_user.update_failed_pwd_attempts.app_error",
     "translation": "Het aantal mislukte pogingen (failed_attempts) kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update_last_activity.app_error",
+    "id": "i18n.server.store.sql_user.update_last_activity.app_error",
     "translation": "De laatste activiteit (last_activity_at) kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update_last_picture_update.app_error",
+    "id": "i18n.server.store.sql_user.update_last_picture_update.app_error",
     "translation": "Laatste bijwerk moment (update_at) kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update_last_ping.app_error",
+    "id": "i18n.server.store.sql_user.update_last_ping.app_error",
     "translation": "De 'last_ping_at' kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.update_mfa_active.app_error",
+    "id": "i18n.server.store.sql_user.update_mfa_active.app_error",
     "translation": "Er is een probleem opgetreden tijdens het bijwerken van de MFA status van de gebruiker"
   },
   {
-    "id": "store.sql_user.update_mfa_secret.app_error",
+    "id": "i18n.server.store.sql_user.update_mfa_secret.app_error",
     "translation": "Er is een probleem opgetreden bij het bijwerken van de gebruiker zijn MFA geheim"
   },
   {
-    "id": "store.sql_user.update_password.app_error",
+    "id": "i18n.server.store.sql_user.update_password.app_error",
     "translation": "Het wachtwoord van de gebruiker kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_user.verify_email.app_error",
+    "id": "i18n.server.store.sql_user.verify_email.app_error",
     "translation": "Het verificatie e-mail adres kan niet bijgewerkt worden"
   },
   {
-    "id": "store.sql_webhooks.analytics_incoming_count.app_error",
+    "id": "i18n.server.store.sql_webhooks.analytics_incoming_count.app_error",
     "translation": "Het aantal binnenkomende webhooks kan niet geteld worden"
   },
   {
-    "id": "store.sql_webhooks.analytics_outgoing_count.app_error",
+    "id": "i18n.server.store.sql_webhooks.analytics_outgoing_count.app_error",
     "translation": "Het aantal uitgaande webhooks kan niet geteld worden"
   },
   {
-    "id": "store.sql_webhooks.delete_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.delete_incoming.app_error",
     "translation": "De webhook kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_webhooks.delete_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.delete_outgoing.app_error",
     "translation": "De webhook kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_webhooks.get_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming.app_error",
     "translation": "We kunnen de webhook niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.get_incoming_by_channel.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming_by_channel.app_error",
     "translation": "We kunnen de webhooks niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.get_incoming_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_incoming_by_user.app_error",
     "translation": "We kunnen de webhook niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing.app_error",
     "translation": "We kunnen de webhook niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing_by_channel.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing_by_channel.app_error",
     "translation": "We kunnen de webhooks niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.get_outgoing_by_team.app_error",
+    "id": "i18n.server.store.sql_webhooks.get_outgoing_by_team.app_error",
     "translation": "We kunnen de webhooks niet ophalen"
   },
   {
-    "id": "store.sql_webhooks.permanent_delete_incoming_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.permanent_delete_incoming_by_user.app_error",
     "translation": "De webhook kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_webhooks.permanent_delete_outgoing_by_user.app_error",
+    "id": "i18n.server.store.sql_webhooks.permanent_delete_outgoing_by_user.app_error",
     "translation": "De webhook kan niet verwijderd worden"
   },
   {
-    "id": "store.sql_webhooks.save_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_incoming.app_error",
     "translation": "De binnenkomende webhook kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_webhooks.save_incoming.existing.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_incoming.existing.app_error",
     "translation": "Een bestaande binnenkomende webhook kan niet overschreven worden"
   },
   {
-    "id": "store.sql_webhooks.save_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_outgoing.app_error",
     "translation": "De uitgaande webhook kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_webhooks.save_outgoing.override.app_error",
+    "id": "i18n.server.store.sql_webhooks.save_outgoing.override.app_error",
     "translation": "Een uitgaande webhook kan niet overschreven worden"
   },
   {
-    "id": "store.sql_webhooks.update_incoming.app_error",
+    "id": "i18n.server.store.sql_webhooks.update_incoming.app_error",
     "translation": "De binnenkomende webhook kan niet opgeslagen worden"
   },
   {
-    "id": "store.sql_webhooks.update_outgoing.app_error",
+    "id": "i18n.server.store.sql_webhooks.update_outgoing.app_error",
     "translation": "De webhook kan niet bijgewerkt worden"
   },
   {
-    "id": "system.message.name",
+    "id": "i18n.server.system.message.name",
     "translation": "Systeem"
   },
   {
-    "id": "utils.config.load_config.decoding.panic",
+    "id": "i18n.server.utils.config.load_config.decoding.panic",
     "translation": "Fout bij het decoderen van de config. Bestand={{.Filename}}, fout={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.getting.panic",
+    "id": "i18n.server.utils.config.load_config.getting.panic",
     "translation": "Fout bij het ophalen van de config info. Bestand={{.Filename}}, fout={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.opening.panic",
+    "id": "i18n.server.utils.config.load_config.opening.panic",
     "translation": "Fout bij het openen van het config bestand {{.Filename}}, fout={{.Error}}"
   },
   {
-    "id": "utils.config.load_config.validating.panic",
+    "id": "i18n.server.utils.config.load_config.validating.panic",
     "translation": "Fout bij het valideren van het config bestand {{.Filename}}, fout={{.Error}}"
   },
   {
-    "id": "utils.config.save_config.saving.app_error",
+    "id": "i18n.server.utils.config.save_config.saving.app_error",
     "translation": "Er is ee probleem opgetreden bij het opslaan van het bestand in {{.Filename}}"
   },
   {
-    "id": "utils.config.supported_client_locale.app_error",
+    "id": "i18n.server.utils.config.supported_client_locale.app_error",
     "translation": "Unable to load mattermost configuration file:  DefaultClientLocale must be one of the supported locales"
   },
   {
-    "id": "utils.config.supported_server_locale.app_error",
+    "id": "i18n.server.utils.config.supported_server_locale.app_error",
     "translation": "Unable to load mattermost configuration file:  DefaultServerLocale must be one of the supported locales"
   },
   {
-    "id": "utils.config.validate_locale.app_error",
+    "id": "i18n.server.utils.config.validate_locale.app_error",
     "translation": "Unable to load mattermost configuration file:  AvailableLocales must include DefaultClientLocale"
   },
   {
-    "id": "utils.diagnostic.analytics_not_found.app_error",
+    "id": "i18n.server.utils.diagnostic.analytics_not_found.app_error",
     "translation": "Analytics niet geïnitialiseerd"
   },
   {
-    "id": "utils.i18n.loaded",
+    "id": "i18n.server.utils.i18n.loaded",
     "translation": "Systeem vertaling ingelezen voor '%v' uit '%v'"
   },
   {
-    "id": "utils.iru.with_evict",
+    "id": "i18n.server.utils.iru.with_evict",
     "translation": "Er moet een positieve maat opgegeven worden"
   },
   {
-    "id": "utils.license.load_license.invalid.warn",
+    "id": "i18n.server.utils.license.load_license.invalid.warn",
     "translation": "Geen geldige enterprise licentie gevonden"
   },
   {
-    "id": "utils.license.remove_license.unable.error",
+    "id": "i18n.server.utils.license.remove_license.unable.error",
     "translation": "Licentie bestand kan niet verwijderd word, fout=%v"
   },
   {
-    "id": "utils.license.validate_license.decode.error",
+    "id": "i18n.server.utils.license.validate_license.decode.error",
     "translation": "Er is een probleem opgetreden tijdens het decoderen van de licentie, fout=%v"
   },
   {
-    "id": "utils.license.validate_license.invalid.error",
+    "id": "i18n.server.utils.license.validate_license.invalid.error",
     "translation": "Ongeldige ondertekening, fout=%v"
   },
   {
-    "id": "utils.license.validate_license.not_long.error",
+    "id": "i18n.server.utils.license.validate_license.not_long.error",
     "translation": "Ondertekende licentie is niet lang genoeg"
   },
   {
-    "id": "utils.license.validate_license.signing.error",
+    "id": "i18n.server.utils.license.validate_license.signing.error",
     "translation": "Er is een probleem opgetreden tijdens het ondertekenen van de licentie, fout=%v"
   },
   {
-    "id": "utils.mail.connect_smtp.open.app_error",
+    "id": "i18n.server.utils.mail.connect_smtp.open.app_error",
     "translation": "Fout bij het openen van de sql verbinding"
   },
   {
-    "id": "utils.mail.connect_smtp.open_tls.app_error",
+    "id": "i18n.server.utils.mail.connect_smtp.open_tls.app_error",
     "translation": "Fout bij het openen van TLS verbinding"
   },
   {
-    "id": "utils.mail.new_client.auth.app_error",
+    "id": "i18n.server.utils.mail.new_client.auth.app_error",
     "translation": "Kan niet authenticeren bij de SMTP server"
   },
   {
-    "id": "utils.mail.new_client.open.error",
+    "id": "i18n.server.utils.mail.new_client.open.error",
     "translation": "Kan geen verbinding opzetten naa de SMTP server, fout=%v"
   },
   {
-    "id": "utils.mail.send_mail.close.app_error",
+    "id": "i18n.server.utils.mail.send_mail.close.app_error",
     "translation": "Er is een probleem opgetreden bij het afsluiten van de verbinding naar de SMTP server"
   },
   {
-    "id": "utils.mail.send_mail.from_address.app_error",
+    "id": "i18n.server.utils.mail.send_mail.from_address.app_error",
     "translation": "Toevoegen vanuit een e-mailadres is mislukt"
   },
   {
-    "id": "utils.mail.send_mail.msg.app_error",
+    "id": "i18n.server.utils.mail.send_mail.msg.app_error",
     "translation": "Kan het e-mail bericht niet schrijven"
   },
   {
-    "id": "utils.mail.send_mail.msg_data.app_error",
+    "id": "i18n.server.utils.mail.send_mail.msg_data.app_error",
     "translation": "Kan geen e-mail bericht toevoegen"
   },
   {
-    "id": "utils.mail.send_mail.sending.debug",
+    "id": "i18n.server.utils.mail.send_mail.sending.debug",
     "translation": "Mail verstuurd naar %v, met als onderwerp '%v'"
   },
   {
-    "id": "utils.mail.send_mail.to_address.app_error",
+    "id": "i18n.server.utils.mail.send_mail.to_address.app_error",
     "translation": "Kan e-mailadres niet toevoegen"
   },
   {
-    "id": "utils.mail.test.configured.error",
+    "id": "i18n.server.utils.mail.test.configured.error",
     "translation": "De SMTP server instellingen lijken verkeerd geconfigureerd te zijn. Fout=%v, details=%v"
   },
   {
-    "id": "utils.mail.test.configured.error",
+    "id": "i18n.server.utils.mail.test.configured.error",
     "translation": "De SMTP server instellingen lijken verkeerd geconfigureerd te zijn. Fout=%v, details=%v"
   },
   {
-    "id": "web.admin_console.title",
+    "id": "i18n.server.web.admin_console.title",
     "translation": "Beheerder Console"
   },
   {
-    "id": "web.authorize_oauth.title",
+    "id": "i18n.server.web.authorize_oauth.title",
     "translation": "Authoriseer Applicaties"
   },
   {
-    "id": "web.check_browser_compatibility.app_error",
+    "id": "i18n.server.web.check_browser_compatibility.app_error",
     "translation": "Uw huidige webbrowser word niet ondersteund. Kies een van de volgende: Google Chrome 21 of nieuwer, Internet Explorere 11 of nieuwe, FireFox 14 of nieuwer, Safari 9 of nieuwer"
   },
   {
-    "id": "web.claim_account.team.error",
+    "id": "i18n.server.web.claim_account.team.error",
     "translation": "Kan heat team niet vinden, naam=%v, fout=%v"
   },
   {
-    "id": "web.claim_account.title",
+    "id": "i18n.server.web.claim_account.title",
     "translation": "Claim een account"
   },
   {
-    "id": "web.claim_account.user.error",
+    "id": "i18n.server.web.claim_account.user.error",
     "translation": "Kan de gebruiker niet vinden, teamid=%v, email=%v, fout=%v"
   },
   {
-    "id": "web.create_dir.error",
+    "id": "i18n.server.web.create_dir.error",
     "translation": "Toevoegen van een directory om te controleren is mislukt %v"
   },
   {
-    "id": "web.dir_fail.error",
+    "id": "i18n.server.web.dir_fail.error",
     "translation": "Fout tijdens het bekijken van de directory %v"
   },
   {
-    "id": "web.do_load_channel.error",
+    "id": "i18n.server.web.do_load_channel.error",
     "translation": "Probleem bij het ophalen van het gebruikersprofiel voor id=%v, uitlog actie geforceerd"
   },
   {
-    "id": "web.doc.title",
+    "id": "i18n.server.web.doc.title",
     "translation": "Documentatie"
   },
   {
-    "id": "web.email_verified.title",
+    "id": "i18n.server.web.email_verified.title",
     "translation": "E-mail geverifieerd"
   },
   {
-    "id": "web.find_team.title",
+    "id": "i18n.server.web.find_team.title",
     "translation": "Zoek een Team"
   },
   {
-    "id": "web.header.back",
+    "id": "i18n.server.web.header.back",
     "translation": "Terug"
   },
   {
-    "id": "web.incoming_webhook.attachment.app_error",
+    "id": "i18n.server.web.incoming_webhook.attachment.app_error",
     "translation": "Maximum attachments length is {{.Max}} characters, received size is {{.Actual}}"
   },
   {
-    "id": "web.incoming_webhook.channel.app_error",
+    "id": "i18n.server.web.incoming_webhook.channel.app_error",
     "translation": "Het kanaal kan niet gevonden worden"
   },
   {
-    "id": "web.incoming_webhook.disabled.app_error",
+    "id": "i18n.server.web.incoming_webhook.disabled.app_error",
     "translation": "Commando's zijn uitgeschakeld door de beheerder."
   },
   {
-    "id": "web.incoming_webhook.invalid.app_error",
+    "id": "i18n.server.web.incoming_webhook.invalid.app_error",
     "translation": "Ongeldige webhook"
   },
   {
-    "id": "web.incoming_webhook.parse.app_error",
+    "id": "i18n.server.web.incoming_webhook.parse.app_error",
     "translation": "Kan binnenkomende data niet verwerken"
   },
   {
-    "id": "web.incoming_webhook.permissions.app_error",
+    "id": "i18n.server.web.incoming_webhook.permissions.app_error",
     "translation": "Onjuiste kanaal rechten"
   },
   {
-    "id": "web.incoming_webhook.text.app_error",
+    "id": "i18n.server.web.incoming_webhook.text.app_error",
     "translation": "Geen tekst gespecifieerd"
   },
   {
-    "id": "web.incoming_webhook.text.length.app_error",
+    "id": "i18n.server.web.incoming_webhook.text.length.app_error",
     "translation": "Maximum text length is {{.Max}} characters, received size is {{.Actual}}"
   },
   {
-    "id": "web.incoming_webhook.user.app_error",
+    "id": "i18n.server.web.incoming_webhook.user.app_error",
     "translation": "De gebruiker kan niet gevonden worden"
   },
   {
-    "id": "web.init.debug",
+    "id": "i18n.server.web.init.debug",
     "translation": "Initialisatie web api"
   },
   {
-    "id": "web.login.error",
+    "id": "i18n.server.web.login.error",
     "translation": "Kan het team niet vinden, naam=%v, fout=%v"
   },
   {
-    "id": "web.login.login_title",
+    "id": "i18n.server.web.login.login_title",
     "translation": "Aanmelden"
   },
   {
-    "id": "web.login_with_oauth.invalid_team.app_error",
+    "id": "i18n.server.web.login_with_oauth.invalid_team.app_error",
     "translation": "Ongeldige team naam"
   },
   {
-    "id": "web.parsing_templates.debug",
+    "id": "i18n.server.web.parsing_templates.debug",
     "translation": "Server template aan het verwerken voor %v"
   },
   {
-    "id": "web.parsing_templates.error",
+    "id": "i18n.server.web.parsing_templates.error",
     "translation": "Server template %v is niet te verwerken"
   },
   {
-    "id": "web.post_permalink.app_error",
+    "id": "i18n.server.web.post_permalink.app_error",
     "translation": "Ongeldige bericht ID"
   },
   {
-    "id": "web.reparse_templates.info",
+    "id": "i18n.server.web.reparse_templates.info",
     "translation": "Templates opnieuw verwerken, door aangepast bestand %v"
   },
   {
-    "id": "web.reset_password.expired_link.app_error",
+    "id": "i18n.server.web.reset_password.expired_link.app_error",
     "translation": "De wachtwoord reset link is niet meer geldig"
   },
   {
-    "id": "web.reset_password.invalid_link.app_error",
+    "id": "i18n.server.web.reset_password.invalid_link.app_error",
     "translation": "De reset link is niet geldig"
   },
   {
-    "id": "web.root.home_title",
+    "id": "i18n.server.web.root.home_title",
     "translation": "Start"
   },
   {
-    "id": "web.root.singup_title",
+    "id": "i18n.server.web.root.singup_title",
     "translation": "Aanmelden"
   },
   {
-    "id": "web.signup_team_complete.invalid_link.app_error",
+    "id": "i18n.server.web.signup_team_complete.invalid_link.app_error",
     "translation": "De aanmeld link is niet geldig"
   },
   {
-    "id": "web.signup_team_complete.link_expired.app_error",
+    "id": "i18n.server.web.signup_team_complete.link_expired.app_error",
     "translation": "De aanmeld link is verlopen"
   },
   {
-    "id": "web.signup_team_complete.title",
+    "id": "i18n.server.web.signup_team_complete.title",
     "translation": "Team aanmelden afronden"
   },
   {
-    "id": "web.signup_team_confirm.title",
+    "id": "i18n.server.web.signup_team_confirm.title",
     "translation": "Aanmeld e-mail is verstuurd"
   },
   {
-    "id": "web.signup_user_complete.link_expired.app_error",
+    "id": "i18n.server.web.signup_user_complete.link_expired.app_error",
     "translation": "De aanmeld link is verlopen"
   },
   {
-    "id": "web.signup_user_complete.link_invalid.app_error",
+    "id": "i18n.server.web.signup_user_complete.link_invalid.app_error",
     "translation": "De aanmeld link is niet geldig"
   },
   {
-    "id": "web.signup_user_complete.no_invites.app_error",
+    "id": "i18n.server.web.signup_user_complete.no_invites.app_error",
     "translation": "Het team type staat open uitnodiging niet toe"
   },
   {
-    "id": "web.signup_user_complete.title",
+    "id": "i18n.server.web.signup_user_complete.title",
     "translation": "Gebruikers aanmelden afronden"
   },
   {
-    "id": "web.singup_with_oauth.invalid_team.app_error",
+    "id": "i18n.server.web.singup_with_oauth.invalid_team.app_error",
     "translation": "Ongeldige team naam"
   },
   {
-    "id": "web.watcher_fail.error",
+    "id": "i18n.server.web.watcher_fail.error",
     "translation": "Toevoegen van een directory om te controleren is mislukt %v"
   },
   {
-    "id": "wsapi.status.init.debug",
+    "id": "i18n.server.wsapi.status.init.debug",
     "translation": "Het initialiseren van status api routes"
   },
   {
-    "id": "wsapi.system.init.debug",
+    "id": "i18n.server.wsapi.system.init.debug",
     "translation": "Initialisatie van de websocket api"
   },
   {
-    "id": "wsapi.user.init.debug",
+    "id": "i18n.server.wsapi.user.init.debug",
     "translation": "Initialisatie van de websocket api"
   },
   {
-    "id": "wsapi.webrtc.init.debug",
+    "id": "i18n.server.wsapi.webrtc.init.debug",
     "translation": "Initialisatie van de websocket api"
   }
 ]

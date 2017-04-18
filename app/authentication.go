@@ -43,7 +43,7 @@ func checkUserPassword(user *model.User, password string) *model.AppError {
 			return result.Err
 		}
 
-		return model.NewAppError("checkUserPassword", "api.user.check_user_password.invalid.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
+		return model.NewAppError("checkUserPassword", "i18n.server.api.user.check_user_password.invalid.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
 	} else {
 		if result := <-Srv.Store.User().UpdateFailedPasswordAttempts(user.Id, 0); result.Err != nil {
 			return result.Err
@@ -57,7 +57,7 @@ func checkLdapUserPasswordAndAllCriteria(ldapId *string, password string, mfaTok
 	ldapInterface := einterfaces.GetLdapInterface()
 
 	if ldapInterface == nil || ldapId == nil {
-		err := model.NewAppError("doLdapAuthentication", "api.user.login_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
+		err := model.NewAppError("doLdapAuthentication", "i18n.server.api.user.login_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
 		return nil, err
 	}
 
@@ -108,13 +108,13 @@ func CheckUserMfa(user *model.User, token string) *model.AppError {
 
 	mfaInterface := einterfaces.GetMfaInterface()
 	if mfaInterface == nil {
-		return model.NewAppError("checkUserMfa", "api.user.check_user_mfa.not_available.app_error", nil, "", http.StatusNotImplemented)
+		return model.NewAppError("checkUserMfa", "i18n.server.api.user.check_user_mfa.not_available.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	if ok, err := mfaInterface.ValidateToken(user.MfaSecret, token); err != nil {
 		return err
 	} else if !ok {
-		return model.NewAppError("checkUserMfa", "api.user.check_user_mfa.bad_code.app_error", nil, "", http.StatusUnauthorized)
+		return model.NewAppError("checkUserMfa", "i18n.server.api.user.check_user_mfa.bad_code.app_error", nil, "", http.StatusUnauthorized)
 	}
 
 	return nil
@@ -122,7 +122,7 @@ func CheckUserMfa(user *model.User, token string) *model.AppError {
 
 func checkUserLoginAttempts(user *model.User) *model.AppError {
 	if user.FailedAttempts >= utils.Cfg.ServiceSettings.MaximumLoginAttempts {
-		return model.NewAppError("checkUserLoginAttempts", "api.user.check_user_login_attempts.too_many.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
+		return model.NewAppError("checkUserLoginAttempts", "i18n.server.api.user.check_user_login_attempts.too_many.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
 	}
 
 	return nil
@@ -130,14 +130,14 @@ func checkUserLoginAttempts(user *model.User) *model.AppError {
 
 func checkEmailVerified(user *model.User) *model.AppError {
 	if !user.EmailVerified && utils.Cfg.EmailSettings.RequireEmailVerification {
-		return model.NewAppError("Login", "api.user.login.not_verified.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
+		return model.NewAppError("Login", "i18n.server.api.user.login.not_verified.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
 	}
 	return nil
 }
 
 func checkUserNotDisabled(user *model.User) *model.AppError {
 	if user.DeleteAt > 0 {
-		return model.NewAppError("Login", "api.user.login.inactive.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
+		return model.NewAppError("Login", "i18n.server.api.user.login.inactive.app_error", nil, "user_id="+user.Id, http.StatusUnauthorized)
 	}
 	return nil
 }
@@ -147,7 +147,7 @@ func authenticateUser(user *model.User, password, mfaToken string) (*model.User,
 
 	if user.AuthService == model.USER_AUTH_SERVICE_LDAP {
 		if !ldapAvailable {
-			err := model.NewAppError("login", "api.user.login_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
+			err := model.NewAppError("login", "i18n.server.api.user.login_ldap.not_available.app_error", nil, "", http.StatusNotImplemented)
 			return user, err
 		} else if ldapUser, err := checkLdapUserPasswordAndAllCriteria(user.AuthData, password, mfaToken); err != nil {
 			err.StatusCode = http.StatusUnauthorized
@@ -161,7 +161,7 @@ func authenticateUser(user *model.User, password, mfaToken string) (*model.User,
 		if authService == model.USER_AUTH_SERVICE_SAML {
 			authService = strings.ToUpper(authService)
 		}
-		err := model.NewAppError("login", "api.user.login.use_auth_service.app_error", map[string]interface{}{"AuthService": authService}, "", http.StatusBadRequest)
+		err := model.NewAppError("login", "i18n.server.api.user.login.use_auth_service.app_error", map[string]interface{}{"AuthService": authService}, "", http.StatusBadRequest)
 		return user, err
 	} else {
 		if err := CheckPasswordAndAllCriteria(user, password, mfaToken); err != nil {

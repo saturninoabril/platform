@@ -11,7 +11,7 @@ import (
 )
 
 func IsPasswordValid(password string) *model.AppError {
-	id := "model.user.is_valid.pwd"
+	id := "i18n.server.model.user.is_valid.pwd"
 	isError := false
 	min := model.PASSWORD_MINIMUM_LENGTH
 

@@ -38,8 +38,8 @@ func (me *ExpandProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_EXPAND,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_expand.desc"),
-		DisplayName:      T("api.command_expand.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_expand.desc"),
+		DisplayName:      T("i18n.server.api.command_expand.name"),
 	}
 }
 
@@ -47,8 +47,8 @@ func (me *CollapseProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_COLLAPSE,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_collapse.desc"),
-		DisplayName:      T("api.command_collapse.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_collapse.desc"),
+		DisplayName:      T("i18n.server.api.command_collapse.name"),
 	}
 }
 
@@ -69,7 +69,7 @@ func setCollapsePreference(args *model.CommandArgs, isCollapse bool) *model.Comm
 	}
 
 	if result := <-Srv.Store.Preference().Save(&model.Preferences{pref}); result.Err != nil {
-		return &model.CommandResponse{Text: args.T("api.command_expand_collapse.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+		return &model.CommandResponse{Text: args.T("i18n.server.api.command_expand_collapse.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 	}
 
 	socketMessage := model.NewWebSocketEvent(model.WEBSOCKET_EVENT_PREFERENCE_CHANGED, "", "", args.UserId, nil)
@@ -79,9 +79,9 @@ func setCollapsePreference(args *model.CommandArgs, isCollapse bool) *model.Comm
 	var rmsg string
 
 	if isCollapse {
-		rmsg = args.T("api.command_collapse.success")
+		rmsg = args.T("i18n.server.api.command_collapse.success")
 	} else {
-		rmsg = args.T("api.command_expand.success")
+		rmsg = args.T("i18n.server.api.command_expand.success")
 	}
 	return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: rmsg}
 }

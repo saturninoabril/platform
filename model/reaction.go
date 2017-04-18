@@ -53,19 +53,19 @@ func ReactionsFromJson(data io.Reader) []*Reaction {
 
 func (o *Reaction) IsValid() *AppError {
 	if len(o.UserId) != 26 {
-		return NewLocAppError("Reaction.IsValid", "model.reaction.is_valid.user_id.app_error", nil, "user_id="+o.UserId)
+		return NewLocAppError("Reaction.IsValid", "i18n.server.model.reaction.is_valid.user_id.app_error", nil, "user_id="+o.UserId)
 	}
 
 	if len(o.PostId) != 26 {
-		return NewLocAppError("Reaction.IsValid", "model.reaction.is_valid.post_id.app_error", nil, "post_id="+o.PostId)
+		return NewLocAppError("Reaction.IsValid", "i18n.server.model.reaction.is_valid.post_id.app_error", nil, "post_id="+o.PostId)
 	}
 
 	if len(o.EmojiName) == 0 || len(o.EmojiName) > 64 {
-		return NewLocAppError("Reaction.IsValid", "model.reaction.is_valid.emoji_name.app_error", nil, "emoji_name="+o.EmojiName)
+		return NewLocAppError("Reaction.IsValid", "i18n.server.model.reaction.is_valid.emoji_name.app_error", nil, "emoji_name="+o.EmojiName)
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("Reaction.IsValid", "model.reaction.is_valid.create_at.app_error", nil, "")
+		return NewLocAppError("Reaction.IsValid", "i18n.server.model.reaction.is_valid.create_at.app_error", nil, "")
 	}
 
 	return nil

@@ -18,7 +18,7 @@ import (
 )
 
 func InitWeb() {
-	l4g.Debug(utils.T("web.init.debug"))
+	l4g.Debug(utils.T("i18n.server.web.init.debug"))
 
 	mainrouter := app.Srv.Router
 
@@ -69,7 +69,7 @@ func root(c *api.Context, w http.ResponseWriter, r *http.Request) {
 	if !CheckBrowserCompatability(c, r) {
 		w.Header().Set("Cache-Control", "no-store")
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte(c.T("web.check_browser_compatibility.app_error")))
+		w.Write([]byte(c.T("i18n.server.web.check_browser_compatibility.app_error")))
 		return
 	}
 

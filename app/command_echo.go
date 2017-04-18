@@ -34,15 +34,15 @@ func (me *EchoProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_ECHO,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_echo.desc"),
-		AutoCompleteHint: T("api.command_echo.hint"),
-		DisplayName:      T("api.command_echo.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_echo.desc"),
+		AutoCompleteHint: T("i18n.server.api.command_echo.hint"),
+		DisplayName:      T("i18n.server.api.command_echo.name"),
 	}
 }
 
 func (me *EchoProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
 	if len(message) == 0 {
-		return &model.CommandResponse{Text: args.T("api.command_echo.message.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+		return &model.CommandResponse{Text: args.T("i18n.server.api.command_echo.message.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 	}
 
 	maxThreads := 100
@@ -64,7 +64,7 @@ func (me *EchoProvider) DoCommand(args *model.CommandArgs, message string) *mode
 	}
 
 	if delay > 10000 {
-		return &model.CommandResponse{Text: args.T("api.command_echo.delay.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+		return &model.CommandResponse{Text: args.T("i18n.server.api.command_echo.delay.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 	}
 
 	if echoSem == nil {
@@ -73,7 +73,7 @@ func (me *EchoProvider) DoCommand(args *model.CommandArgs, message string) *mode
 	}
 
 	if len(echoSem) >= maxThreads {
-		return &model.CommandResponse{Text: args.T("api.command_echo.high_volume.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+		return &model.CommandResponse{Text: args.T("i18n.server.api.command_echo.high_volume.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 	}
 
 	echoSem <- true
@@ -89,7 +89,7 @@ func (me *EchoProvider) DoCommand(args *model.CommandArgs, message string) *mode
 		time.Sleep(time.Duration(delay) * time.Second)
 
 		if _, err := CreatePost(post, args.TeamId, true); err != nil {
-			l4g.Error(args.T("api.command_echo.create.app_error"), err)
+			l4g.Error(args.T("i18n.server.api.command_echo.create.app_error"), err)
 		}
 	}()
 

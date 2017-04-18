@@ -27,36 +27,36 @@ func (me *JoinProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_JOIN,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_join.desc"),
-		AutoCompleteHint: T("api.command_join.hint"),
-		DisplayName:      T("api.command_join.name"),
+		AutoCompleteDesc: T("i18n.server.api.command_join.desc"),
+		AutoCompleteHint: T("i18n.server.api.command_join.hint"),
+		DisplayName:      T("i18n.server.api.command_join.name"),
 	}
 }
 
 func (me *JoinProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
 	if result := <-Srv.Store.Channel().GetByName(args.TeamId, message, true); result.Err != nil {
-		return &model.CommandResponse{Text: args.T("api.command_join.list.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+		return &model.CommandResponse{Text: args.T("i18n.server.api.command_join.list.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 	} else {
 		channel := result.Data.(*model.Channel)
 
 		if channel.Name == message {
 
 			if channel.Type != model.CHANNEL_OPEN {
-				return &model.CommandResponse{Text: args.T("api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+				return &model.CommandResponse{Text: args.T("i18n.server.api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 			}
 
 			if err := JoinChannel(channel, args.UserId); err != nil {
-				return &model.CommandResponse{Text: args.T("api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+				return &model.CommandResponse{Text: args.T("i18n.server.api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 			}
 
 			team, err := GetTeam(channel.TeamId)
 			if err != nil {
-				return &model.CommandResponse{Text: args.T("api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+				return &model.CommandResponse{Text: args.T("i18n.server.api.command_join.fail.app_error"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 			}
 
-			return &model.CommandResponse{GotoLocation: args.SiteURL + "/" + team.Name + "/channels/" + channel.Name, Text: args.T("api.command_join.success"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
+			return &model.CommandResponse{GotoLocation: args.SiteURL + "/" + team.Name + "/channels/" + channel.Name, Text: args.T("i18n.server.api.command_join.success"), ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL}
 		}
 	}
 
-	return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command_join.missing.app_error")}
+	return &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command_join.missing.app_error")}
 }

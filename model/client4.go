@@ -267,7 +267,7 @@ func (c *Client4) DoApiRequest(method, url, data, etag string) (*http.Response, 
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return nil, NewLocAppError(url, "model.client.connecting.app_error", nil, err.Error())
+		return nil, NewLocAppError(url, "i18n.server.model.client.connecting.app_error", nil, err.Error())
 	} else if rp.StatusCode == 304 {
 		return rp, nil
 	} else if rp.StatusCode >= 300 {
@@ -288,7 +288,7 @@ func (c *Client4) DoUploadFile(url string, data []byte, contentType string) (*Fi
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return nil, &Response{Error: NewAppError(url, "model.client.connecting.app_error", nil, err.Error(), 0)}
+		return nil, &Response{Error: NewAppError(url, "i18n.server.model.client.connecting.app_error", nil, err.Error(), 0)}
 	} else if rp.StatusCode >= 300 {
 		return nil, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else {
@@ -307,7 +307,7 @@ func (c *Client4) DoEmojiUploadFile(url string, data []byte, contentType string)
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return nil, &Response{Error: NewAppError(url, "model.client.connecting.app_error", nil, err.Error(), 0)}
+		return nil, &Response{Error: NewAppError(url, "i18n.server.model.client.connecting.app_error", nil, err.Error(), 0)}
 	} else if rp.StatusCode >= 300 {
 		return nil, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else {
@@ -326,11 +326,11 @@ func (c *Client4) DoUploadImportTeam(url string, data []byte, contentType string
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return nil, &Response{Error: NewAppError(url, "model.client.connecting.app_error", nil, err.Error(), 0)}
+		return nil, &Response{Error: NewAppError(url, "i18n.server.model.client.connecting.app_error", nil, err.Error(), 0)}
 	} else if rp.StatusCode >= 300 {
 		return nil, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else if data, err := ioutil.ReadAll(rp.Body); err != nil {
-		return nil, &Response{StatusCode: rp.StatusCode, Error: NewAppError("UploadImportTeam", "model.client.read_file.app_error", nil, err.Error(), rp.StatusCode)}
+		return nil, &Response{StatusCode: rp.StatusCode, Error: NewAppError("UploadImportTeam", "i18n.server.model.client.read_file.app_error", nil, err.Error(), rp.StatusCode)}
 	} else {
 		defer closeBody(rp)
 		return data, BuildResponse(rp)
@@ -513,7 +513,7 @@ func (c *Client4) GetProfileImage(userId, etag string) ([]byte, *Response) {
 	if r, err := c.DoApiGet(c.GetUserRoute(userId)+"/image", etag); err != nil {
 		return nil, &Response{StatusCode: r.StatusCode, Error: err}
 	} else if data, err := ioutil.ReadAll(r.Body); err != nil {
-		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetProfileImage", "model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
+		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetProfileImage", "i18n.server.model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
 	} else {
 		return data, BuildResponse(r)
 	}
@@ -829,13 +829,13 @@ func (c *Client4) SetProfileImage(userId string, data []byte) (bool, *Response) 
 	writer := multipart.NewWriter(body)
 
 	if part, err := writer.CreateFormFile("image", "profile.png"); err != nil {
-		return false, &Response{Error: NewAppError("SetProfileImage", "model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("SetProfileImage", "i18n.server.model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, bytes.NewBuffer(data)); err != nil {
-		return false, &Response{Error: NewAppError("SetProfileImage", "model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("SetProfileImage", "i18n.server.model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if err := writer.Close(); err != nil {
-		return false, &Response{Error: NewAppError("SetProfileImage", "model.client.set_profile_user.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("SetProfileImage", "i18n.server.model.client.set_profile_user.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	rq, _ := http.NewRequest("POST", c.ApiUrl+c.GetUserRoute(userId)+"/image", bytes.NewReader(body.Bytes()))
@@ -848,7 +848,7 @@ func (c *Client4) SetProfileImage(userId string, data []byte) (bool, *Response) 
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
 		// set to http.StatusForbidden(403)
-		return false, &Response{StatusCode: http.StatusForbidden, Error: NewAppError(c.GetUserRoute(userId)+"/image", "model.client.connecting.app_error", nil, err.Error(), 403)}
+		return false, &Response{StatusCode: http.StatusForbidden, Error: NewAppError(c.GetUserRoute(userId)+"/image", "i18n.server.model.client.connecting.app_error", nil, err.Error(), 403)}
 	} else if rp.StatusCode >= 300 {
 		return false, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else {
@@ -1091,25 +1091,25 @@ func (c *Client4) ImportTeam(data []byte, filesize int, importFrom, filename, te
 	writer := multipart.NewWriter(body)
 
 	if part, err := writer.CreateFormFile("file", filename); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, bytes.NewBuffer(data)); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if part, err := writer.CreateFormField("filesize"); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.file_size.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.file_size.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, strings.NewReader(strconv.Itoa(filesize))); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.file_size.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.file_size.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if part, err := writer.CreateFormField("importFrom"); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.import_from.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.import_from.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, strings.NewReader(importFrom)); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.import_from.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.import_from.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if err := writer.Close(); err != nil {
-		return nil, &Response{Error: NewAppError("UploadImportTeam", "model.client.upload_post_attachment.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadImportTeam", "i18n.server.model.client.upload_post_attachment.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	return c.DoUploadImportTeam(c.GetTeamImportRoute(teamId), body.Bytes(), writer.FormDataContentType())
@@ -1483,7 +1483,7 @@ func (c *Client4) GetFlaggedPostsForUser(userId string, page int, perPage int) (
 // GetFlaggedPostsForUserInTeam returns flagged posts in team of a user based on user id string.
 func (c *Client4) GetFlaggedPostsForUserInTeam(userId string, teamId string, page int, perPage int) (*PostList, *Response) {
 	if len(teamId) == 0 || len(teamId) != 26 {
-		return nil, &Response{StatusCode: http.StatusBadRequest, Error: NewAppError("GetFlaggedPostsForUserInTeam", "model.client.get_flagged_posts_in_team.missing_parameter.app_error", nil, "", http.StatusBadRequest)}
+		return nil, &Response{StatusCode: http.StatusBadRequest, Error: NewAppError("GetFlaggedPostsForUserInTeam", "i18n.server.model.client.get_flagged_posts_in_team.missing_parameter.app_error", nil, "", http.StatusBadRequest)}
 	}
 
 	query := fmt.Sprintf("?in_team=%v&page=%v&per_page=%v", teamId, page, perPage)
@@ -1498,7 +1498,7 @@ func (c *Client4) GetFlaggedPostsForUserInTeam(userId string, teamId string, pag
 // GetFlaggedPostsForUserInChannel returns flagged posts in channel of a user based on user id string.
 func (c *Client4) GetFlaggedPostsForUserInChannel(userId string, channelId string, page int, perPage int) (*PostList, *Response) {
 	if len(channelId) == 0 || len(channelId) != 26 {
-		return nil, &Response{StatusCode: http.StatusBadRequest, Error: NewAppError("GetFlaggedPostsForUserInChannel", "model.client.get_flagged_posts_in_channel.missing_parameter.app_error", nil, "", http.StatusBadRequest)}
+		return nil, &Response{StatusCode: http.StatusBadRequest, Error: NewAppError("GetFlaggedPostsForUserInChannel", "i18n.server.model.client.get_flagged_posts_in_channel.missing_parameter.app_error", nil, "", http.StatusBadRequest)}
 	}
 
 	query := fmt.Sprintf("?in_channel=%v&page=%v&per_page=%v", channelId, page, perPage)
@@ -1562,19 +1562,19 @@ func (c *Client4) UploadFile(data []byte, channelId string, filename string) (*F
 	writer := multipart.NewWriter(body)
 
 	if part, err := writer.CreateFormFile("files", filename); err != nil {
-		return nil, &Response{Error: NewAppError("UploadPostAttachment", "model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadPostAttachment", "i18n.server.model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, bytes.NewBuffer(data)); err != nil {
-		return nil, &Response{Error: NewAppError("UploadPostAttachment", "model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadPostAttachment", "i18n.server.model.client.upload_post_attachment.file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if part, err := writer.CreateFormField("channel_id"); err != nil {
-		return nil, &Response{Error: NewAppError("UploadPostAttachment", "model.client.upload_post_attachment.channel_id.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadPostAttachment", "i18n.server.model.client.upload_post_attachment.channel_id.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, strings.NewReader(channelId)); err != nil {
-		return nil, &Response{Error: NewAppError("UploadPostAttachment", "model.client.upload_post_attachment.channel_id.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadPostAttachment", "i18n.server.model.client.upload_post_attachment.channel_id.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if err := writer.Close(); err != nil {
-		return nil, &Response{Error: NewAppError("UploadPostAttachment", "model.client.upload_post_attachment.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("UploadPostAttachment", "i18n.server.model.client.upload_post_attachment.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	return c.DoUploadFile(c.GetFilesRoute(), body.Bytes(), writer.FormDataContentType())
@@ -1585,7 +1585,7 @@ func (c *Client4) GetFile(fileId string) ([]byte, *Response) {
 	if r, err := c.DoApiGet(c.GetFileRoute(fileId), ""); err != nil {
 		return nil, &Response{StatusCode: r.StatusCode, Error: err}
 	} else if data, err := ioutil.ReadAll(r.Body); err != nil {
-		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFile", "model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
+		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFile", "i18n.server.model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
 	} else {
 		return data, BuildResponse(r)
 	}
@@ -1596,7 +1596,7 @@ func (c *Client4) GetFileThumbnail(fileId string) ([]byte, *Response) {
 	if r, err := c.DoApiGet(c.GetFileRoute(fileId)+"/thumbnail", ""); err != nil {
 		return nil, &Response{StatusCode: r.StatusCode, Error: err}
 	} else if data, err := ioutil.ReadAll(r.Body); err != nil {
-		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFileThumbnail", "model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
+		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFileThumbnail", "i18n.server.model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
 	} else {
 		return data, BuildResponse(r)
 	}
@@ -1616,7 +1616,7 @@ func (c *Client4) GetFilePreview(fileId string) ([]byte, *Response) {
 	if r, err := c.DoApiGet(c.GetFileRoute(fileId)+"/preview", ""); err != nil {
 		return nil, &Response{StatusCode: r.StatusCode, Error: err}
 	} else if data, err := ioutil.ReadAll(r.Body); err != nil {
-		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFilePreview", "model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
+		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetFilePreview", "i18n.server.model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
 	} else {
 		return data, BuildResponse(r)
 	}
@@ -1974,7 +1974,7 @@ func samlFileToMultipart(data []byte, filename string) ([]byte, *multipart.Write
 func (c *Client4) UploadSamlIdpCertificate(data []byte, filename string) (bool, *Response) {
 	body, writer, err := samlFileToMultipart(data, filename)
 	if err != nil {
-		return false, &Response{Error: NewAppError("UploadSamlIdpCertificate", "model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadSamlIdpCertificate", "i18n.server.model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	_, resp := c.DoUploadFile(c.GetSamlRoute()+"/certificate/idp", body, writer.FormDataContentType())
@@ -1985,7 +1985,7 @@ func (c *Client4) UploadSamlIdpCertificate(data []byte, filename string) (bool, 
 func (c *Client4) UploadSamlPublicCertificate(data []byte, filename string) (bool, *Response) {
 	body, writer, err := samlFileToMultipart(data, filename)
 	if err != nil {
-		return false, &Response{Error: NewAppError("UploadSamlPublicCertificate", "model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadSamlPublicCertificate", "i18n.server.model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	_, resp := c.DoUploadFile(c.GetSamlRoute()+"/certificate/public", body, writer.FormDataContentType())
@@ -1996,7 +1996,7 @@ func (c *Client4) UploadSamlPublicCertificate(data []byte, filename string) (boo
 func (c *Client4) UploadSamlPrivateCertificate(data []byte, filename string) (bool, *Response) {
 	body, writer, err := samlFileToMultipart(data, filename)
 	if err != nil {
-		return false, &Response{Error: NewAppError("UploadSamlPrivateCertificate", "model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadSamlPrivateCertificate", "i18n.server.model.client.upload_saml_cert.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	_, resp := c.DoUploadFile(c.GetSamlRoute()+"/certificate/private", body, writer.FormDataContentType())
@@ -2087,13 +2087,13 @@ func (c *Client4) DownloadComplianceReport(reportId string) ([]byte, *Response) 
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return nil, &Response{Error: NewAppError("DownloadComplianceReport", "model.client.connecting.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return nil, &Response{Error: NewAppError("DownloadComplianceReport", "i18n.server.model.client.connecting.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if rp.StatusCode >= 300 {
 		defer rp.Body.Close()
 		return nil, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else if data, err := ioutil.ReadAll(rp.Body); err != nil {
 		defer closeBody(rp)
-		return nil, &Response{StatusCode: rp.StatusCode, Error: NewAppError("DownloadComplianceReport", "model.client.read_file.app_error", nil, err.Error(), rp.StatusCode)}
+		return nil, &Response{StatusCode: rp.StatusCode, Error: NewAppError("DownloadComplianceReport", "i18n.server.model.client.read_file.app_error", nil, err.Error(), rp.StatusCode)}
 	} else {
 		defer closeBody(rp)
 		return data, BuildResponse(rp)
@@ -2155,7 +2155,7 @@ func (c *Client4) GetBrandImage() ([]byte, *Response) {
 	if r, err := c.DoApiGet(c.GetBrandRoute()+"/image", ""); err != nil {
 		return nil, &Response{StatusCode: r.StatusCode, Error: err}
 	} else if data, err := ioutil.ReadAll(r.Body); err != nil {
-		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetBrandImage", "model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
+		return nil, &Response{StatusCode: r.StatusCode, Error: NewAppError("GetBrandImage", "i18n.server.model.client.read_file.app_error", nil, err.Error(), r.StatusCode)}
 	} else {
 		return data, BuildResponse(r)
 	}
@@ -2167,13 +2167,13 @@ func (c *Client4) UploadBrandImage(data []byte) (bool, *Response) {
 	writer := multipart.NewWriter(body)
 
 	if part, err := writer.CreateFormFile("image", "brand.png"); err != nil {
-		return false, &Response{Error: NewAppError("UploadBrandImage", "model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadBrandImage", "i18n.server.model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	} else if _, err = io.Copy(part, bytes.NewBuffer(data)); err != nil {
-		return false, &Response{Error: NewAppError("UploadBrandImage", "model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadBrandImage", "i18n.server.model.client.set_profile_user.no_file.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	if err := writer.Close(); err != nil {
-		return false, &Response{Error: NewAppError("UploadBrandImage", "model.client.set_profile_user.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
+		return false, &Response{Error: NewAppError("UploadBrandImage", "i18n.server.model.client.set_profile_user.writer.app_error", nil, err.Error(), http.StatusBadRequest)}
 	}
 
 	rq, _ := http.NewRequest("POST", c.ApiUrl+c.GetBrandRoute()+"/image", bytes.NewReader(body.Bytes()))
@@ -2185,7 +2185,7 @@ func (c *Client4) UploadBrandImage(data []byte) (bool, *Response) {
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
-		return false, &Response{StatusCode: http.StatusForbidden, Error: NewAppError(c.GetBrandRoute()+"/image", "model.client.connecting.app_error", nil, err.Error(), http.StatusForbidden)}
+		return false, &Response{StatusCode: http.StatusForbidden, Error: NewAppError(c.GetBrandRoute()+"/image", "i18n.server.model.client.connecting.app_error", nil, err.Error(), http.StatusForbidden)}
 	} else if rp.StatusCode >= 300 {
 		return false, &Response{StatusCode: rp.StatusCode, Error: AppErrorFromJson(rp.Body)}
 	} else {
@@ -2326,17 +2326,17 @@ func (c *Client4) CreateEmoji(emoji *Emoji, image []byte, filename string) (*Emo
 	writer := multipart.NewWriter(body)
 
 	if part, err := writer.CreateFormFile("image", filename); err != nil {
-		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "model.client.create_emoji.image.app_error", nil, err.Error())}
+		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "i18n.server.model.client.create_emoji.image.app_error", nil, err.Error())}
 	} else if _, err = io.Copy(part, bytes.NewBuffer(image)); err != nil {
-		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "model.client.create_emoji.image.app_error", nil, err.Error())}
+		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "i18n.server.model.client.create_emoji.image.app_error", nil, err.Error())}
 	}
 
 	if err := writer.WriteField("emoji", emoji.ToJson()); err != nil {
-		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "model.client.create_emoji.emoji.app_error", nil, err.Error())}
+		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "i18n.server.model.client.create_emoji.emoji.app_error", nil, err.Error())}
 	}
 
 	if err := writer.Close(); err != nil {
-		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "model.client.create_emoji.writer.app_error", nil, err.Error())}
+		return nil, &Response{StatusCode: http.StatusForbidden, Error: NewLocAppError("CreateEmoji", "i18n.server.model.client.create_emoji.writer.app_error", nil, err.Error())}
 	}
 
 	return c.DoEmojiUploadFile(c.GetEmojisRoute(), body.Bytes(), writer.FormDataContentType())

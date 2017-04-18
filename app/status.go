@@ -189,11 +189,11 @@ func SetStatusOnline(userId string, sessionId string, manual bool) {
 		}
 
 		if result := <-achan; result.Err != nil {
-			l4g.Error(utils.T("api.status.last_activity.error"), userId, sessionId, result.Err)
+			l4g.Error(utils.T("i18n.server.api.status.last_activity.error"), userId, sessionId, result.Err)
 		}
 
 		if result := <-schan; result.Err != nil {
-			l4g.Error(utils.T("api.status.save_status.error"), userId, result.Err)
+			l4g.Error(utils.T("i18n.server.api.status.save_status.error"), userId, result.Err)
 		}
 	}
 
@@ -216,7 +216,7 @@ func SetStatusOffline(userId string, manual bool) {
 	AddStatusCache(status)
 
 	if result := <-Srv.Store.Status().SaveOrUpdate(status); result.Err != nil {
-		l4g.Error(utils.T("api.status.save_status.error"), userId, result.Err)
+		l4g.Error(utils.T("i18n.server.api.status.save_status.error"), userId, result.Err)
 	}
 
 	event := model.NewWebSocketEvent(model.WEBSOCKET_EVENT_STATUS_CHANGE, "", "", status.UserId, nil)
@@ -253,7 +253,7 @@ func SetStatusAwayIfNeeded(userId string, manual bool) {
 	AddStatusCache(status)
 
 	if result := <-Srv.Store.Status().SaveOrUpdate(status); result.Err != nil {
-		l4g.Error(utils.T("api.status.save_status.error"), userId, result.Err)
+		l4g.Error(utils.T("i18n.server.api.status.save_status.error"), userId, result.Err)
 	}
 
 	event := model.NewWebSocketEvent(model.WEBSOCKET_EVENT_STATUS_CHANGE, "", "", status.UserId, nil)

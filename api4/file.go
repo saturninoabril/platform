@@ -19,7 +19,7 @@ const (
 )
 
 func InitFile() {
-	l4g.Debug(utils.T("api.file.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.file.init.debug"))
 
 	BaseRoutes.Files.Handle("", ApiSessionRequired(uploadFile)).Methods("POST")
 	BaseRoutes.File.Handle("", ApiSessionRequired(getFile)).Methods("GET")
@@ -34,7 +34,7 @@ func InitFile() {
 
 func uploadFile(c *Context, w http.ResponseWriter, r *http.Request) {
 	if r.ContentLength > *utils.Cfg.FileSettings.MaxFileSize {
-		c.Err = model.NewLocAppError("uploadFile", "api.file.upload_file.too_large.app_error", nil, "")
+		c.Err = model.NewLocAppError("uploadFile", "i18n.server.api.file.upload_file.too_large.app_error", nil, "")
 		c.Err.StatusCode = http.StatusRequestEntityTooLarge
 		return
 	}
@@ -116,7 +116,7 @@ func getFileThumbnail(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if info.ThumbnailPath == "" {
-		c.Err = model.NewLocAppError("getFileThumbnail", "api.file.get_file_thumbnail.no_thumbnail.app_error", nil, "file_id="+info.Id)
+		c.Err = model.NewLocAppError("getFileThumbnail", "i18n.server.api.file.get_file_thumbnail.no_thumbnail.app_error", nil, "file_id="+info.Id)
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -137,7 +137,7 @@ func getFileLink(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !utils.Cfg.FileSettings.EnablePublicLink {
-		c.Err = model.NewLocAppError("getPublicLink", "api.file.get_public_link.disabled.app_error", nil, "")
+		c.Err = model.NewLocAppError("getPublicLink", "i18n.server.api.file.get_public_link.disabled.app_error", nil, "")
 		c.Err.StatusCode = http.StatusNotImplemented
 		return
 	}
@@ -154,7 +154,7 @@ func getFileLink(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(info.PostId) == 0 {
-		c.Err = model.NewLocAppError("getPublicLink", "api.file.get_public_link.no_post.app_error", nil, "file_id="+info.Id)
+		c.Err = model.NewLocAppError("getPublicLink", "i18n.server.api.file.get_public_link.no_post.app_error", nil, "file_id="+info.Id)
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -183,7 +183,7 @@ func getFilePreview(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if info.PreviewPath == "" {
-		c.Err = model.NewLocAppError("getFilePreview", "api.file.get_file_preview.no_preview.app_error", nil, "file_id="+info.Id)
+		c.Err = model.NewLocAppError("getFilePreview", "i18n.server.api.file.get_file_preview.no_preview.app_error", nil, "file_id="+info.Id)
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
@@ -225,7 +225,7 @@ func getPublicFile(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !utils.Cfg.FileSettings.EnablePublicLink {
-		c.Err = model.NewLocAppError("getPublicFile", "api.file.get_public_link.disabled.app_error", nil, "")
+		c.Err = model.NewLocAppError("getPublicFile", "i18n.server.api.file.get_public_link.disabled.app_error", nil, "")
 		c.Err.StatusCode = http.StatusNotImplemented
 		return
 	}
@@ -239,13 +239,13 @@ func getPublicFile(c *Context, w http.ResponseWriter, r *http.Request) {
 	hash := r.URL.Query().Get("h")
 
 	if len(hash) == 0 {
-		c.Err = model.NewLocAppError("getPublicFile", "api.file.get_file.public_invalid.app_error", nil, "")
+		c.Err = model.NewLocAppError("getPublicFile", "i18n.server.api.file.get_file.public_invalid.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	if hash != app.GeneratePublicLinkHash(info.Id, *utils.Cfg.FileSettings.PublicLinkSalt) {
-		c.Err = model.NewLocAppError("getPublicFile", "api.file.get_file.public_invalid.app_error", nil, "")
+		c.Err = model.NewLocAppError("getPublicFile", "i18n.server.api.file.get_file.public_invalid.app_error", nil, "")
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}

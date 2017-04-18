@@ -14,7 +14,7 @@ import (
 )
 
 func InitWebSocket() {
-	l4g.Debug(utils.T("api.web_socket.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.web_socket.init.debug"))
 	BaseRoutes.Users.Handle("/websocket", ApiAppHandlerTrustRequester(connect)).Methods("GET")
 }
 
@@ -29,8 +29,8 @@ func connect(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		l4g.Error(utils.T("api.web_socket.connect.error"), err)
-		c.Err = model.NewLocAppError("connect", "api.web_socket.connect.upgrade.app_error", nil, "")
+		l4g.Error(utils.T("i18n.server.api.web_socket.connect.error"), err)
+		c.Err = model.NewLocAppError("connect", "i18n.server.api.web_socket.connect.upgrade.app_error", nil, "")
 		return
 	}
 

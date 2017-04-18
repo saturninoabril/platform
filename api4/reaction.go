@@ -13,7 +13,7 @@ import (
 )
 
 func InitReaction() {
-	l4g.Debug(utils.T("api.reaction.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.reaction.init.debug"))
 
 	BaseRoutes.Post.Handle("/reactions", ApiSessionRequired(getReactions)).Methods("GET")
 }

@@ -211,7 +211,7 @@ func HandleEtag(etag string, routeName string, w http.ResponseWriter, r *http.Re
 }
 
 func Handle404(w http.ResponseWriter, r *http.Request) {
-	err := model.NewLocAppError("Handle404", "api.context.404.app_error", nil, "")
+	err := model.NewLocAppError("Handle404", "i18n.server.api.context.404.app_error", nil, "")
 	err.Translate(utils.T)
 	err.StatusCode = http.StatusNotFound
 

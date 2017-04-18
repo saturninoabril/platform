@@ -592,7 +592,7 @@ func TestUpdateIncomingHook(t *testing.T) {
 		utils.Cfg.ServiceSettings.EnableIncomingWebhooks = false
 		_, resp := Client.UpdateIncomingWebhook(createdHook)
 		CheckNotImplementedStatus(t, resp)
-		CheckErrorMessage(t, resp, "api.incoming_webhook.disabled.app_error")
+		CheckErrorMessage(t, resp, "i18n.server.api.incoming_webhook.disabled.app_error")
 	})
 
 	utils.Cfg.ServiceSettings.EnableIncomingWebhooks = true

@@ -48,7 +48,7 @@ func (s SqlCommandStore) Save(command *model.Command) StoreChannel {
 		result := StoreResult{}
 
 		if len(command.Id) > 0 {
-			result.Err = model.NewLocAppError("SqlCommandStore.Save", "store.sql_command.save.saving_overwrite.app_error", nil, "id="+command.Id)
+			result.Err = model.NewLocAppError("SqlCommandStore.Save", "i18n.server.store.sql_command.save.saving_overwrite.app_error", nil, "id="+command.Id)
 			storeChannel <- result
 			close(storeChannel)
 			return
@@ -62,7 +62,7 @@ func (s SqlCommandStore) Save(command *model.Command) StoreChannel {
 		}
 
 		if err := s.GetMaster().Insert(command); err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.Save", "store.sql_command.save.saving.app_error", nil, "id="+command.Id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.Save", "i18n.server.store.sql_command.save.saving.app_error", nil, "id="+command.Id+", "+err.Error())
 		} else {
 			result.Data = command
 		}
@@ -83,7 +83,7 @@ func (s SqlCommandStore) Get(id string) StoreChannel {
 		var command model.Command
 
 		if err := s.GetReplica().SelectOne(&command, "SELECT * FROM Commands WHERE Id = :Id AND DeleteAt = 0", map[string]interface{}{"Id": id}); err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.Get", "store.sql_command.save.get.app_error", nil, "id="+id+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.Get", "i18n.server.store.sql_command.save.get.app_error", nil, "id="+id+", err="+err.Error())
 		}
 
 		result.Data = &command
@@ -104,7 +104,7 @@ func (s SqlCommandStore) GetByTeam(teamId string) StoreChannel {
 		var commands []*model.Command
 
 		if _, err := s.GetReplica().Select(&commands, "SELECT * FROM Commands WHERE TeamId = :TeamId AND DeleteAt = 0", map[string]interface{}{"TeamId": teamId}); err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.GetByTeam", "store.sql_command.save.get_team.app_error", nil, "teamId="+teamId+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.GetByTeam", "i18n.server.store.sql_command.save.get_team.app_error", nil, "teamId="+teamId+", err="+err.Error())
 		}
 
 		result.Data = commands
@@ -124,7 +124,7 @@ func (s SqlCommandStore) Delete(commandId string, time int64) StoreChannel {
 
 		_, err := s.GetMaster().Exec("Update Commands SET DeleteAt = :DeleteAt, UpdateAt = :UpdateAt WHERE Id = :Id", map[string]interface{}{"DeleteAt": time, "UpdateAt": time, "Id": commandId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.Delete", "store.sql_command.save.delete.app_error", nil, "id="+commandId+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.Delete", "i18n.server.store.sql_command.save.delete.app_error", nil, "id="+commandId+", err="+err.Error())
 		}
 
 		storeChannel <- result
@@ -142,7 +142,7 @@ func (s SqlCommandStore) PermanentDeleteByUser(userId string) StoreChannel {
 
 		_, err := s.GetMaster().Exec("DELETE FROM Commands WHERE CreatorId = :UserId", map[string]interface{}{"UserId": userId})
 		if err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.DeleteByUser", "store.sql_command.save.delete_perm.app_error", nil, "id="+userId+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.DeleteByUser", "i18n.server.store.sql_command.save.delete_perm.app_error", nil, "id="+userId+", err="+err.Error())
 		}
 
 		storeChannel <- result
@@ -161,7 +161,7 @@ func (s SqlCommandStore) Update(cmd *model.Command) StoreChannel {
 		cmd.UpdateAt = model.GetMillis()
 
 		if _, err := s.GetMaster().Update(cmd); err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.Update", "store.sql_command.save.update.app_error", nil, "id="+cmd.Id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.Update", "i18n.server.store.sql_command.save.update.app_error", nil, "id="+cmd.Id+", "+err.Error())
 		} else {
 			result.Data = cmd
 		}
@@ -192,7 +192,7 @@ func (s SqlCommandStore) AnalyticsCommandCount(teamId string) StoreChannel {
 		}
 
 		if c, err := s.GetReplica().SelectInt(query, map[string]interface{}{"TeamId": teamId}); err != nil {
-			result.Err = model.NewLocAppError("SqlCommandStore.AnalyticsCommandCount", "store.sql_command.analytics_command_count.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlCommandStore.AnalyticsCommandCount", "i18n.server.store.sql_command.analytics_command_count.app_error", nil, err.Error())
 		} else {
 			result.Data = c
 		}

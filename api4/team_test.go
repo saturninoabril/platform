@@ -44,12 +44,12 @@ func TestCreateTeam(t *testing.T) {
 
 	rteam.Id = ""
 	_, resp = Client.CreateTeam(rteam)
-	CheckErrorMessage(t, resp, "store.sql_team.save.domain_exists.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.store.sql_team.save.domain_exists.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	rteam.Name = ""
 	_, resp = Client.CreateTeam(rteam)
-	CheckErrorMessage(t, resp, "model.team.is_valid.characters.app_error")
+	CheckErrorMessage(t, resp, "i18n.server.model.team.is_valid.characters.app_error")
 	CheckBadRequestStatus(t, resp)
 
 	if r, err := Client.DoApiPost("/teams", "garbage"); err == nil {

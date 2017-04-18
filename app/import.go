@@ -110,7 +110,7 @@ func BulkImport(fileReader io.Reader, dryRun bool) (*model.AppError, int) {
 
 		var line LineImportData
 		if err := decoder.Decode(&line); err != nil {
-			return model.NewLocAppError("BulkImport", "app.import.bulk_import.json_decode.error", nil, err.Error()), lineNumber
+			return model.NewLocAppError("BulkImport", "i18n.server.app.import.bulk_import.json_decode.error", nil, err.Error()), lineNumber
 		} else {
 			if lineNumber == 1 {
 				importDataFileVersion, apperr := processImportDataFileVersionLine(line)
@@ -119,7 +119,7 @@ func BulkImport(fileReader io.Reader, dryRun bool) (*model.AppError, int) {
 				}
 
 				if importDataFileVersion != 1 {
-					return model.NewAppError("BulkImport", "app.import.bulk_import.unsupported_version.error", nil, "", http.StatusBadRequest), lineNumber
+					return model.NewAppError("BulkImport", "i18n.server.app.import.bulk_import.unsupported_version.error", nil, "", http.StatusBadRequest), lineNumber
 				}
 			} else if err := ImportLine(line, dryRun); err != nil {
 				return err, lineNumber
@@ -128,7 +128,7 @@ func BulkImport(fileReader io.Reader, dryRun bool) (*model.AppError, int) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		return model.NewLocAppError("BulkImport", "app.import.bulk_import.file_scan.error", nil, err.Error()), 0
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.bulk_import.file_scan.error", nil, err.Error()), 0
 	}
 
 	return nil, 0
@@ -136,7 +136,7 @@ func BulkImport(fileReader io.Reader, dryRun bool) (*model.AppError, int) {
 
 func processImportDataFileVersionLine(line LineImportData) (int, *model.AppError) {
 	if line.Type != "version" || line.Version == nil {
-		return -1, model.NewAppError("BulkImport", "app.import.process_import_data_file_version_line.invalid_version.error", nil, "", http.StatusBadRequest)
+		return -1, model.NewAppError("BulkImport", "i18n.server.app.import.process_import_data_file_version_line.invalid_version.error", nil, "", http.StatusBadRequest)
 	}
 
 	return *line.Version, nil
@@ -146,30 +146,30 @@ func ImportLine(line LineImportData, dryRun bool) *model.AppError {
 	switch {
 	case line.Type == "team":
 		if line.Team == nil {
-			return model.NewLocAppError("BulkImport", "app.import.import_line.null_team.error", nil, "")
+			return model.NewLocAppError("BulkImport", "i18n.server.app.import.import_line.null_team.error", nil, "")
 		} else {
 			return ImportTeam(line.Team, dryRun)
 		}
 	case line.Type == "channel":
 		if line.Channel == nil {
-			return model.NewLocAppError("BulkImport", "app.import.import_line.null_channel.error", nil, "")
+			return model.NewLocAppError("BulkImport", "i18n.server.app.import.import_line.null_channel.error", nil, "")
 		} else {
 			return ImportChannel(line.Channel, dryRun)
 		}
 	case line.Type == "user":
 		if line.User == nil {
-			return model.NewAppError("BulkImport", "app.import.import_line.null_user.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.import_line.null_user.error", nil, "", http.StatusBadRequest)
 		} else {
 			return ImportUser(line.User, dryRun)
 		}
 	case line.Type == "post":
 		if line.Post == nil {
-			return model.NewAppError("BulkImport", "app.import.import_line.null_post.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.import_line.null_post.error", nil, "", http.StatusBadRequest)
 		} else {
 			return ImportPost(line.Post, dryRun)
 		}
 	default:
-		return model.NewLocAppError("BulkImport", "app.import.import_line.unknown_line_type.error", map[string]interface{}{"Type": line.Type}, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.import_line.unknown_line_type.error", map[string]interface{}{"Type": line.Type}, "")
 	}
 }
 
@@ -218,29 +218,29 @@ func ImportTeam(data *TeamImportData, dryRun bool) *model.AppError {
 func validateTeamImportData(data *TeamImportData) *model.AppError {
 
 	if data.Name == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.name_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.name_missing.error", nil, "")
 	} else if len(*data.Name) > model.TEAM_NAME_MAX_LENGTH {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.name_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.name_length.error", nil, "")
 	} else if model.IsReservedTeamName(*data.Name) {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.name_reserved.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.name_reserved.error", nil, "")
 	} else if !model.IsValidTeamName(*data.Name) {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.name_characters.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.name_characters.error", nil, "")
 	}
 
 	if data.DisplayName == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.display_name_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.display_name_missing.error", nil, "")
 	} else if utf8.RuneCountInString(*data.DisplayName) == 0 || utf8.RuneCountInString(*data.DisplayName) > model.TEAM_DISPLAY_NAME_MAX_RUNES {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.display_name_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.display_name_length.error", nil, "")
 	}
 
 	if data.Type == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.type_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.type_missing.error", nil, "")
 	} else if *data.Type != model.TEAM_OPEN && *data.Type != model.TEAM_INVITE {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.type_invalid.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.type_invalid.error", nil, "")
 	}
 
 	if data.Description != nil && len(*data.Description) > model.TEAM_DESCRIPTION_MAX_LENGTH {
-		return model.NewLocAppError("BulkImport", "app.import.validate_team_import_data.description_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_team_import_data.description_length.error", nil, "")
 	}
 
 	return nil
@@ -258,7 +258,7 @@ func ImportChannel(data *ChannelImportData, dryRun bool) *model.AppError {
 
 	var team *model.Team
 	if result := <-Srv.Store.Team().GetByName(*data.Team); result.Err != nil {
-		return model.NewLocAppError("BulkImport", "app.import.import_channel.team_not_found.error", map[string]interface{}{"TeamName": *data.Team}, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.import_channel.team_not_found.error", map[string]interface{}{"TeamName": *data.Team}, "")
 	} else {
 		team = result.Data.(*model.Team)
 	}
@@ -299,35 +299,35 @@ func ImportChannel(data *ChannelImportData, dryRun bool) *model.AppError {
 func validateChannelImportData(data *ChannelImportData) *model.AppError {
 
 	if data.Team == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.team_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.team_missing.error", nil, "")
 	}
 
 	if data.Name == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.name_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.name_missing.error", nil, "")
 	} else if len(*data.Name) > model.CHANNEL_NAME_MAX_LENGTH {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.name_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.name_length.error", nil, "")
 	} else if !model.IsValidChannelIdentifier(*data.Name) {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.name_characters.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.name_characters.error", nil, "")
 	}
 
 	if data.DisplayName == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.display_name_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.display_name_missing.error", nil, "")
 	} else if utf8.RuneCountInString(*data.DisplayName) == 0 || utf8.RuneCountInString(*data.DisplayName) > model.CHANNEL_DISPLAY_NAME_MAX_RUNES {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.display_name_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.display_name_length.error", nil, "")
 	}
 
 	if data.Type == nil {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.type_missing.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.type_missing.error", nil, "")
 	} else if *data.Type != model.CHANNEL_OPEN && *data.Type != model.CHANNEL_PRIVATE {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.type_invalid.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.type_invalid.error", nil, "")
 	}
 
 	if data.Header != nil && utf8.RuneCountInString(*data.Header) > model.CHANNEL_HEADER_MAX_RUNES {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.header_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.header_length.error", nil, "")
 	}
 
 	if data.Purpose != nil && utf8.RuneCountInString(*data.Purpose) > model.CHANNEL_PURPOSE_MAX_RUNES {
-		return model.NewLocAppError("BulkImport", "app.import.validate_channel_import_data.purpose_length.error", nil, "")
+		return model.NewLocAppError("BulkImport", "i18n.server.app.import.validate_channel_import_data.purpose_length.error", nil, "")
 	}
 
 	return nil
@@ -505,7 +505,7 @@ func ImportUser(data *UserImportData, dryRun bool) *model.AppError {
 
 	if len(preferences) > 0 {
 		if result := <-Srv.Store.Preference().Save(&preferences); result.Err != nil {
-			return model.NewAppError("BulkImport", "app.import.import_user.save_preferences.error", nil, "", http.StatusInternalServerError)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.import_user.save_preferences.error", nil, "", http.StatusInternalServerError)
 		}
 	}
 
@@ -616,43 +616,43 @@ func ImportUserChannels(user *model.User, team *model.Team, data *[]UserChannelI
 func validateUserImportData(data *UserImportData) *model.AppError {
 
 	if data.Username == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.username_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.username_missing.error", nil, "", http.StatusBadRequest)
 	} else if !model.IsValidUsername(*data.Username) {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.username_invalid.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.username_invalid.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Email == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.email_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.email_missing.error", nil, "", http.StatusBadRequest)
 	} else if len(*data.Email) == 0 || len(*data.Email) > model.USER_EMAIL_MAX_LENGTH {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.email_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.email_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.AuthService != nil && len(*data.AuthService) == 0 {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.auth_service_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.auth_service_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.AuthData != nil && len(*data.AuthData) > model.USER_AUTH_DATA_MAX_LENGTH {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.auth_data_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.auth_data_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Nickname != nil && utf8.RuneCountInString(*data.Nickname) > model.USER_NICKNAME_MAX_RUNES {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.nickname_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.nickname_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.FirstName != nil && utf8.RuneCountInString(*data.FirstName) > model.USER_FIRST_NAME_MAX_RUNES {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.first_name_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.first_name_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.LastName != nil && utf8.RuneCountInString(*data.LastName) > model.USER_LAST_NAME_MAX_RUNES {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.last_name_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.last_name_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Position != nil && utf8.RuneCountInString(*data.Position) > model.USER_POSITION_MAX_RUNES {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.position_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.position_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Roles != nil && !model.IsValidUserRoles(*data.Roles) {
-		return model.NewAppError("BulkImport", "app.import.validate_user_import_data.roles_invalid.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_import_data.roles_invalid.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Teams != nil {
@@ -669,11 +669,11 @@ func validateUserTeamsImportData(data *[]UserTeamImportData) *model.AppError {
 
 	for _, tdata := range *data {
 		if tdata.Name == nil {
-			return model.NewAppError("BulkImport", "app.import.validate_user_teams_import_data.team_name_missing.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_teams_import_data.team_name_missing.error", nil, "", http.StatusBadRequest)
 		}
 
 		if tdata.Roles != nil && !model.IsValidUserRoles(*tdata.Roles) {
-			return model.NewAppError("BulkImport", "app.import.validate_user_teams_import_data.invalid_roles.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_teams_import_data.invalid_roles.error", nil, "", http.StatusBadRequest)
 		}
 
 		if tdata.Channels != nil {
@@ -693,20 +693,20 @@ func validateUserChannelsImportData(data *[]UserChannelImportData) *model.AppErr
 
 	for _, cdata := range *data {
 		if cdata.Name == nil {
-			return model.NewAppError("BulkImport", "app.import.validate_user_channels_import_data.channel_name_missing.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_channels_import_data.channel_name_missing.error", nil, "", http.StatusBadRequest)
 		}
 
 		if cdata.Roles != nil && !model.IsValidUserRoles(*cdata.Roles) {
-			return model.NewAppError("BulkImport", "app.import.validate_user_channels_import_data.invalid_roles.error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_channels_import_data.invalid_roles.error", nil, "", http.StatusBadRequest)
 		}
 
 		if cdata.NotifyProps != nil {
 			if cdata.NotifyProps.Desktop != nil && !model.IsChannelNotifyLevelValid(*cdata.NotifyProps.Desktop) {
-				return model.NewAppError("BulkImport", "app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error", nil, "", http.StatusBadRequest)
+				return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_desktop.error", nil, "", http.StatusBadRequest)
 			}
 
 			if cdata.NotifyProps.MarkUnread != nil && !model.IsChannelMarkUnreadLevelValid(*cdata.NotifyProps.MarkUnread) {
-				return model.NewAppError("BulkImport", "app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error", nil, "", http.StatusBadRequest)
+				return model.NewAppError("BulkImport", "i18n.server.app.import.validate_user_channels_import_data.invalid_notify_props_mark_unread.error", nil, "", http.StatusBadRequest)
 			}
 		}
 	}
@@ -726,21 +726,21 @@ func ImportPost(data *PostImportData, dryRun bool) *model.AppError {
 
 	var team *model.Team
 	if result := <-Srv.Store.Team().GetByName(*data.Team); result.Err != nil {
-		return model.NewAppError("BulkImport", "app.import.import_post.team_not_found.error", map[string]interface{}{"TeamName": *data.Team}, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.import_post.team_not_found.error", map[string]interface{}{"TeamName": *data.Team}, "", http.StatusBadRequest)
 	} else {
 		team = result.Data.(*model.Team)
 	}
 
 	var channel *model.Channel
 	if result := <-Srv.Store.Channel().GetByName(team.Id, *data.Channel, false); result.Err != nil {
-		return model.NewAppError("BulkImport", "app.import.import_post.channel_not_found.error", map[string]interface{}{"ChannelName": *data.Channel}, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.import_post.channel_not_found.error", map[string]interface{}{"ChannelName": *data.Channel}, "", http.StatusBadRequest)
 	} else {
 		channel = result.Data.(*model.Channel)
 	}
 
 	var user *model.User
 	if result := <-Srv.Store.User().GetByUsername(*data.User); result.Err != nil {
-		return model.NewAppError("BulkImport", "app.import.import_post.user_not_found.error", map[string]interface{}{"Username": *data.User}, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.import_post.user_not_found.error", map[string]interface{}{"Username": *data.User}, "", http.StatusBadRequest)
 	} else {
 		user = result.Data.(*model.User)
 	}
@@ -787,27 +787,27 @@ func ImportPost(data *PostImportData, dryRun bool) *model.AppError {
 
 func validatePostImportData(data *PostImportData) *model.AppError {
 	if data.Team == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.team_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.team_missing.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Channel == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.channel_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.channel_missing.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.User == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.user_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.user_missing.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.Message == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.message_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.message_missing.error", nil, "", http.StatusBadRequest)
 	} else if utf8.RuneCountInString(*data.Message) > model.POST_MESSAGE_MAX_RUNES {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.message_length.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.message_length.error", nil, "", http.StatusBadRequest)
 	}
 
 	if data.CreateAt == nil {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.create_at_missing.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.create_at_missing.error", nil, "", http.StatusBadRequest)
 	} else if *data.CreateAt == 0 {
-		return model.NewAppError("BulkImport", "app.import.validate_post_import_data.create_at_zero.error", nil, "", http.StatusBadRequest)
+		return model.NewAppError("BulkImport", "i18n.server.app.import.validate_post_import_data.create_at_zero.error", nil, "", http.StatusBadRequest)
 	}
 
 	return nil
@@ -835,12 +835,12 @@ func OldImportPost(post *model.Post) {
 		post.Hashtags, _ = model.ParseHashtags(post.Message)
 
 		if result := <-Srv.Store.Post().Save(post); result.Err != nil {
-			l4g.Debug(utils.T("api.import.import_post.saving.debug"), post.UserId, post.Message)
+			l4g.Debug(utils.T("i18n.server.api.import.import_post.saving.debug"), post.UserId, post.Message)
 		}
 
 		for _, fileId := range post.FileIds {
 			if result := <-Srv.Store.FileInfo().AttachToPost(fileId, post.Id); result.Err != nil {
-				l4g.Error(utils.T("api.import.import_post.attach_files.error"), post.Id, post.FileIds, result.Err)
+				l4g.Error(utils.T("i18n.server.api.import.import_post.attach_files.error"), post.Id, post.FileIds, result.Err)
 			}
 		}
 
@@ -856,17 +856,17 @@ func OldImportUser(team *model.Team, user *model.User) *model.User {
 	user.Roles = model.ROLE_SYSTEM_USER.Id
 
 	if result := <-Srv.Store.User().Save(user); result.Err != nil {
-		l4g.Error(utils.T("api.import.import_user.saving.error"), result.Err)
+		l4g.Error(utils.T("i18n.server.api.import.import_user.saving.error"), result.Err)
 		return nil
 	} else {
 		ruser := result.Data.(*model.User)
 
 		if cresult := <-Srv.Store.User().VerifyEmail(ruser.Id); cresult.Err != nil {
-			l4g.Error(utils.T("api.import.import_user.set_email.error"), cresult.Err)
+			l4g.Error(utils.T("i18n.server.api.import.import_user.set_email.error"), cresult.Err)
 		}
 
 		if err := JoinUserToTeam(team, user, ""); err != nil {
-			l4g.Error(utils.T("api.import.import_user.join_team.error"), err)
+			l4g.Error(utils.T("i18n.server.api.import.import_user.join_team.error"), err)
 		}
 
 		return ruser

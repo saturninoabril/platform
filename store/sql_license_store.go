@@ -43,7 +43,7 @@ func (ls SqlLicenseStore) Save(license *model.LicenseRecord) StoreChannel {
 		// Only insert if not exists
 		if err := ls.GetReplica().SelectOne(&model.LicenseRecord{}, "SELECT * FROM Licenses WHERE Id = :Id", map[string]interface{}{"Id": license.Id}); err != nil {
 			if err := ls.GetMaster().Insert(license); err != nil {
-				result.Err = model.NewLocAppError("SqlLicenseStore.Save", "store.sql_license.save.app_error", nil, "license_id="+license.Id+", "+err.Error())
+				result.Err = model.NewLocAppError("SqlLicenseStore.Save", "i18n.server.store.sql_license.save.app_error", nil, "license_id="+license.Id+", "+err.Error())
 			} else {
 				result.Data = license
 			}
@@ -64,9 +64,9 @@ func (ls SqlLicenseStore) Get(id string) StoreChannel {
 		result := StoreResult{}
 
 		if obj, err := ls.GetReplica().Get(model.LicenseRecord{}, id); err != nil {
-			result.Err = model.NewLocAppError("SqlLicenseStore.Get", "store.sql_license.get.app_error", nil, "license_id="+id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlLicenseStore.Get", "i18n.server.store.sql_license.get.app_error", nil, "license_id="+id+", "+err.Error())
 		} else if obj == nil {
-			result.Err = model.NewLocAppError("SqlLicenseStore.Get", "store.sql_license.get.missing.app_error", nil, "license_id="+id)
+			result.Err = model.NewLocAppError("SqlLicenseStore.Get", "i18n.server.store.sql_license.get.missing.app_error", nil, "license_id="+id)
 		} else {
 			result.Data = obj.(*model.LicenseRecord)
 		}

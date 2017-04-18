@@ -43,12 +43,12 @@ func GetSession(token string) (*model.Session, *model.AppError) {
 
 	if session == nil {
 		if sessionResult := <-Srv.Store.Session().Get(token); sessionResult.Err != nil {
-			return nil, model.NewLocAppError("GetSession", "api.context.invalid_token.error", map[string]interface{}{"Token": token, "Error": sessionResult.Err.DetailedError}, "")
+			return nil, model.NewLocAppError("GetSession", "i18n.server.api.context.invalid_token.error", map[string]interface{}{"Token": token, "Error": sessionResult.Err.DetailedError}, "")
 		} else {
 			session = sessionResult.Data.(*model.Session)
 
 			if session.IsExpired() || session.Token != token {
-				return nil, model.NewLocAppError("GetSession", "api.context.invalid_token.error", map[string]interface{}{"Token": token, "Error": sessionResult.Err.DetailedError}, "")
+				return nil, model.NewLocAppError("GetSession", "i18n.server.api.context.invalid_token.error", map[string]interface{}{"Token": token, "Error": sessionResult.Err.DetailedError}, "")
 			} else {
 				AddSessionToCache(session)
 				return session, nil
@@ -57,7 +57,7 @@ func GetSession(token string) (*model.Session, *model.AppError) {
 	}
 
 	if session == nil || session.IsExpired() {
-		return nil, model.NewLocAppError("GetSession", "api.context.invalid_token.error", map[string]interface{}{"Token": token}, "")
+		return nil, model.NewLocAppError("GetSession", "i18n.server.api.context.invalid_token.error", map[string]interface{}{"Token": token}, "")
 	}
 
 	return session, nil
@@ -135,7 +135,7 @@ func RevokeSessionsForDeviceId(userId string, deviceId string, currentSessionId 
 		sessions := result.Data.([]*model.Session)
 		for _, session := range sessions {
 			if session.DeviceId == deviceId && session.Id != currentSessionId {
-				l4g.Debug(utils.T("api.user.login.revoking.app_error"), session.Id, userId)
+				l4g.Debug(utils.T("i18n.server.api.user.login.revoking.app_error"), session.Id, userId)
 				if err := RevokeSession(session); err != nil {
 					// Soft error so we still remove the other sessions
 					l4g.Error(err.Error())

@@ -89,47 +89,47 @@ func (o *Post) Etag() string {
 func (o *Post) IsValid() *AppError {
 
 	if len(o.Id) != 26 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.id.app_error", nil, "")
 	}
 
 	if o.CreateAt == 0 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.create_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.create_at.app_error", nil, "id="+o.Id)
 	}
 
 	if o.UpdateAt == 0 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.update_at.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.update_at.app_error", nil, "id="+o.Id)
 	}
 
 	if len(o.UserId) != 26 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.user_id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.user_id.app_error", nil, "")
 	}
 
 	if len(o.ChannelId) != 26 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.channel_id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.channel_id.app_error", nil, "")
 	}
 
 	if !(len(o.RootId) == 26 || len(o.RootId) == 0) {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.root_id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.root_id.app_error", nil, "")
 	}
 
 	if !(len(o.ParentId) == 26 || len(o.ParentId) == 0) {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.parent_id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.parent_id.app_error", nil, "")
 	}
 
 	if len(o.ParentId) == 26 && len(o.RootId) == 0 {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.root_parent.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.root_parent.app_error", nil, "")
 	}
 
 	if !(len(o.OriginalId) == 26 || len(o.OriginalId) == 0) {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.original_id.app_error", nil, "")
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.original_id.app_error", nil, "")
 	}
 
 	if utf8.RuneCountInString(o.Message) > POST_MESSAGE_MAX_RUNES {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.msg.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.msg.app_error", nil, "id="+o.Id)
 	}
 
 	if utf8.RuneCountInString(o.Hashtags) > POST_HASHTAGS_MAX_RUNES {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.hashtags.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.hashtags.app_error", nil, "id="+o.Id)
 	}
 
 	// should be removed once more message types are supported
@@ -138,19 +138,19 @@ func (o *Post) IsValid() *AppError {
 		o.Type == POST_REMOVE_FROM_CHANNEL || o.Type == POST_ADD_TO_CHANNEL ||
 		o.Type == POST_SLACK_ATTACHMENT || o.Type == POST_HEADER_CHANGE || o.Type == POST_PURPOSE_CHANGE ||
 		o.Type == POST_DISPLAYNAME_CHANGE || o.Type == POST_CHANNEL_DELETED) {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.type.app_error", nil, "id="+o.Type)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.type.app_error", nil, "id="+o.Type)
 	}
 
 	if utf8.RuneCountInString(ArrayToJson(o.Filenames)) > POST_FILENAMES_MAX_RUNES {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.filenames.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.filenames.app_error", nil, "id="+o.Id)
 	}
 
 	if utf8.RuneCountInString(ArrayToJson(o.FileIds)) > POST_FILEIDS_MAX_RUNES {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.file_ids.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.file_ids.app_error", nil, "id="+o.Id)
 	}
 
 	if utf8.RuneCountInString(StringInterfaceToJson(o.Props)) > POST_PROPS_MAX_RUNES {
-		return NewLocAppError("Post.IsValid", "model.post.is_valid.props.app_error", nil, "id="+o.Id)
+		return NewLocAppError("Post.IsValid", "i18n.server.model.post.is_valid.props.app_error", nil, "id="+o.Id)
 	}
 
 	return nil

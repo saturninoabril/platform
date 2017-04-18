@@ -42,7 +42,7 @@ func GetLogsSkipSend(page, perPage int) ([]string, *model.AppError) {
 	if utils.Cfg.LogSettings.EnableFile {
 		file, err := os.Open(utils.GetLogFileLocation(utils.Cfg.LogSettings.FileLocation))
 		if err != nil {
-			return nil, model.NewLocAppError("getLogs", "api.admin.file_read_error", nil, err.Error())
+			return nil, model.NewLocAppError("getLogs", "i18n.server.api.admin.file_read_error", nil, err.Error())
 		}
 
 		defer file.Close()
@@ -94,7 +94,7 @@ func InvalidateAllCaches() *model.AppError {
 }
 
 func InvalidateAllCachesSkipSend() {
-	l4g.Info(utils.T("api.context.invalidate_all_caches"))
+	l4g.Info(utils.T("i18n.server.api.context.invalidate_all_caches"))
 	sessionCache.Purge()
 	ClearStatusCache()
 	store.ClearChannelCaches()
@@ -133,7 +133,7 @@ func SaveConfig(cfg *model.Config) *model.AppError {
 	}
 
 	if *utils.Cfg.ClusterSettings.Enable {
-		return model.NewLocAppError("saveConfig", "ent.cluster.save_config.error", nil, "")
+		return model.NewLocAppError("saveConfig", "i18n.server.ent.cluster.save_config.error", nil, "")
 	}
 
 	utils.DisableConfigWatch()
@@ -167,18 +167,18 @@ func SaveConfig(cfg *model.Config) *model.AppError {
 func RecycleDatabaseConnection() {
 	oldStore := Srv.Store
 
-	l4g.Warn(utils.T("api.admin.recycle_db_start.warn"))
+	l4g.Warn(utils.T("i18n.server.api.admin.recycle_db_start.warn"))
 	Srv.Store = store.NewSqlStore()
 
 	time.Sleep(20 * time.Second)
 	oldStore.Close()
 
-	l4g.Warn(utils.T("api.admin.recycle_db_end.warn"))
+	l4g.Warn(utils.T("i18n.server.api.admin.recycle_db_end.warn"))
 }
 
 func TestEmail(userId string, cfg *model.Config) *model.AppError {
 	if len(cfg.EmailSettings.SMTPServer) == 0 {
-		return model.NewLocAppError("testEmail", "api.admin.test_email.missing_server", nil, utils.T("api.context.invalid_param.app_error", map[string]interface{}{"Name": "SMTPServer"}))
+		return model.NewLocAppError("testEmail", "i18n.server.api.admin.test_email.missing_server", nil, utils.T("i18n.server.api.context.invalid_param.app_error", map[string]interface{}{"Name": "SMTPServer"}))
 	}
 
 	// if the user hasn't changed their email settings, fill in the actual SMTP password so that
@@ -189,7 +189,7 @@ func TestEmail(userId string, cfg *model.Config) *model.AppError {
 			cfg.EmailSettings.SMTPUsername == utils.Cfg.EmailSettings.SMTPUsername {
 			cfg.EmailSettings.SMTPPassword = utils.Cfg.EmailSettings.SMTPPassword
 		} else {
-			return model.NewLocAppError("testEmail", "api.admin.test_email.reenter_password", nil, "")
+			return model.NewLocAppError("testEmail", "i18n.server.api.admin.test_email.reenter_password", nil, "")
 		}
 	}
 
@@ -197,7 +197,7 @@ func TestEmail(userId string, cfg *model.Config) *model.AppError {
 		return err
 	} else {
 		T := utils.GetUserTranslations(user.Locale)
-		if err := utils.SendMailUsingConfig(user.Email, T("api.admin.test_email.subject"), T("api.admin.test_email.body"), cfg); err != nil {
+		if err := utils.SendMailUsingConfig(user.Email, T("i18n.server.api.admin.test_email.subject"), T("i18n.server.api.admin.test_email.body"), cfg); err != nil {
 			return err
 		}
 	}

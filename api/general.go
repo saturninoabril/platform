@@ -15,7 +15,7 @@ import (
 )
 
 func InitGeneral() {
-	l4g.Debug(utils.T("api.general.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.general.init.debug"))
 
 	BaseRoutes.General.Handle("/client_props", ApiAppHandler(getClientConfig)).Methods("GET")
 	BaseRoutes.General.Handle("/log_client", ApiAppHandler(logClient)).Methods("POST")

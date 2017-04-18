@@ -16,7 +16,7 @@ import (
 
 func AuthenticateUserForLogin(id, loginId, password, mfaToken, deviceId string, ldapOnly bool) (*model.User, *model.AppError) {
 	if len(password) == 0 {
-		err := model.NewLocAppError("AuthenticateUserForLogin", "api.user.login.blank_pwd.app_error", nil, "")
+		err := model.NewLocAppError("AuthenticateUserForLogin", "i18n.server.api.user.login.blank_pwd.app_error", nil, "")
 		err.StatusCode = http.StatusBadRequest
 		return nil, err
 	}

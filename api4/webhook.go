@@ -13,7 +13,7 @@ import (
 )
 
 func InitWebhook() {
-	l4g.Debug(utils.T("api.webhook.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.webhook.init.debug"))
 
 	BaseRoutes.IncomingHooks.Handle("", ApiSessionRequired(createIncomingHook)).Methods("POST")
 	BaseRoutes.IncomingHooks.Handle("", ApiSessionRequired(getIncomingHooks)).Methods("GET")
@@ -88,7 +88,7 @@ func updateIncomingHook(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if updatedHook.TeamId != oldHook.TeamId {
-		c.Err = model.NewAppError("updateIncomingHook", "api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
+		c.Err = model.NewAppError("updateIncomingHook", "i18n.server.api.webhook.team_mismatch.app_error", nil, "user_id="+c.Session.UserId, http.StatusBadRequest)
 		return
 	}
 

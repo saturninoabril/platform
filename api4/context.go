@@ -112,7 +112,7 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 			if h.requireSession && !h.trustRequester {
 				if r.Header.Get(model.HEADER_REQUESTED_WITH) != model.HEADER_REQUESTED_WITH_XML {
-					c.Err = model.NewLocAppError("ServeHTTP", "api.context.session_expired.app_error", nil, "token="+token+" Appears to be a CSRF attempt")
+					c.Err = model.NewLocAppError("ServeHTTP", "i18n.server.api.context.session_expired.app_error", nil, "token="+token+" Appears to be a CSRF attempt")
 					token = ""
 				}
 			}
@@ -143,14 +143,14 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		session, err := app.GetSession(token)
 
 		if err != nil {
-			l4g.Error(utils.T("api.context.invalid_session.error"), err.Error())
+			l4g.Error(utils.T("i18n.server.api.context.invalid_session.error"), err.Error())
 			c.RemoveSessionCookie(w, r)
 			if h.requireSession {
-				c.Err = model.NewLocAppError("ServeHTTP", "api.context.session_expired.app_error", nil, "token="+token)
+				c.Err = model.NewLocAppError("ServeHTTP", "i18n.server.api.context.session_expired.app_error", nil, "token="+token)
 				c.Err.StatusCode = http.StatusUnauthorized
 			}
 		} else if !session.IsOAuth && isTokenFromQueryString {
-			c.Err = model.NewLocAppError("ServeHTTP", "api.context.token_provided.app_error", nil, "token="+token)
+			c.Err = model.NewLocAppError("ServeHTTP", "i18n.server.api.context.token_provided.app_error", nil, "token="+token)
 			c.Err.StatusCode = http.StatusUnauthorized
 		} else {
 			c.Session = *session
@@ -223,16 +223,16 @@ func (c *Context) LogAuditWithUserId(userId, extraInfo string) {
 func (c *Context) LogError(err *model.AppError) {
 
 	// filter out endless reconnects
-	if c.Path == "/api/v3/users/websocket" && err.StatusCode == 401 || err.Id == "web.check_browser_compatibility.app_error" {
+	if c.Path == "/api/v3/users/websocket" && err.StatusCode == 401 || err.Id == "i18n.server.web.check_browser_compatibility.app_error" {
 		c.LogDebug(err)
 	} else {
-		l4g.Error(utils.T("api.context.log.error"), c.Path, err.Where, err.StatusCode,
+		l4g.Error(utils.T("i18n.server.api.context.log.error"), c.Path, err.Where, err.StatusCode,
 			c.RequestId, c.Session.UserId, c.IpAddress, err.SystemMessage(utils.T), err.DetailedError)
 	}
 }
 
 func (c *Context) LogDebug(err *model.AppError) {
-	l4g.Debug(utils.T("api.context.log.error"), c.Path, err.Where, err.StatusCode,
+	l4g.Debug(utils.T("i18n.server.api.context.log.error"), c.Path, err.Where, err.StatusCode,
 		c.RequestId, c.Session.UserId, c.IpAddress, err.SystemMessage(utils.T), err.DetailedError)
 }
 
@@ -242,7 +242,7 @@ func (c *Context) IsSystemAdmin() bool {
 
 func (c *Context) SessionRequired() {
 	if len(c.Session.UserId) == 0 {
-		c.Err = model.NewAppError("", "api.context.session_expired.app_error", nil, "UserRequired", http.StatusUnauthorized)
+		c.Err = model.NewAppError("", "i18n.server.api.context.session_expired.app_error", nil, "UserRequired", http.StatusUnauthorized)
 		return
 	}
 }
@@ -259,7 +259,7 @@ func (c *Context) MfaRequired() {
 	}
 
 	if user, err := app.GetUser(c.Session.UserId); err != nil {
-		c.Err = model.NewLocAppError("", "api.context.session_expired.app_error", nil, "MfaRequired")
+		c.Err = model.NewLocAppError("", "i18n.server.api.context.session_expired.app_error", nil, "MfaRequired")
 		c.Err.StatusCode = http.StatusUnauthorized
 		return
 	} else {
@@ -271,7 +271,7 @@ func (c *Context) MfaRequired() {
 		}
 
 		if !user.MfaActive {
-			c.Err = model.NewLocAppError("", "api.context.mfa_required.app_error", nil, "MfaRequired")
+			c.Err = model.NewLocAppError("", "i18n.server.api.context.mfa_required.app_error", nil, "MfaRequired")
 			c.Err.StatusCode = http.StatusUnauthorized
 			return
 		}
@@ -299,18 +299,18 @@ func (c *Context) SetInvalidUrlParam(parameter string) {
 }
 
 func NewInvalidParamError(parameter string) *model.AppError {
-	err := model.NewLocAppError("Context", "api.context.invalid_body_param.app_error", map[string]interface{}{"Name": parameter}, "")
+	err := model.NewLocAppError("Context", "i18n.server.api.context.invalid_body_param.app_error", map[string]interface{}{"Name": parameter}, "")
 	err.StatusCode = http.StatusBadRequest
 	return err
 }
 func NewInvalidUrlParamError(parameter string) *model.AppError {
-	err := model.NewLocAppError("Context", "api.context.invalid_url_param.app_error", map[string]interface{}{"Name": parameter}, "")
+	err := model.NewLocAppError("Context", "i18n.server.api.context.invalid_url_param.app_error", map[string]interface{}{"Name": parameter}, "")
 	err.StatusCode = http.StatusBadRequest
 	return err
 }
 
 func (c *Context) SetPermissionError(permission *model.Permission) {
-	c.Err = model.NewLocAppError("Permissions", "api.context.permissions.app_error", nil, "userId="+c.Session.UserId+", "+"permission="+permission.Id)
+	c.Err = model.NewLocAppError("Permissions", "i18n.server.api.context.permissions.app_error", nil, "userId="+c.Session.UserId+", "+"permission="+permission.Id)
 	c.Err.StatusCode = http.StatusForbidden
 }
 

@@ -38,7 +38,7 @@ func DoSecurityUpdateCheck() {
 			currentTime := model.GetMillis()
 
 			if (currentTime - lastSecurityTime) > SECURITY_UPDATE_PERIOD {
-				l4g.Debug(utils.T("mattermost.security_checks.debug"))
+				l4g.Debug(utils.T("i18n.server.mattermost.security_checks.debug"))
 
 				v := url.Values{}
 
@@ -75,7 +75,7 @@ func DoSecurityUpdateCheck() {
 
 				res, err := http.Get(SECURITY_URL + "/security?" + v.Encode())
 				if err != nil {
-					l4g.Error(utils.T("mattermost.security_info.error"))
+					l4g.Error(utils.T("i18n.server.mattermost.security_info.error"))
 					return
 				}
 
@@ -87,27 +87,27 @@ func DoSecurityUpdateCheck() {
 					if bulletin.AppliesToVersion == model.CurrentVersion {
 						if props["SecurityBulletin_"+bulletin.Id] == "" {
 							if results := <-Srv.Store.User().GetSystemAdminProfiles(); results.Err != nil {
-								l4g.Error(utils.T("mattermost.system_admins.error"))
+								l4g.Error(utils.T("i18n.server.mattermost.system_admins.error"))
 								return
 							} else {
 								users := results.Data.(map[string]*model.User)
 
 								resBody, err := http.Get(SECURITY_URL + "/bulletins/" + bulletin.Id)
 								if err != nil {
-									l4g.Error(utils.T("mattermost.security_bulletin.error"))
+									l4g.Error(utils.T("i18n.server.mattermost.security_bulletin.error"))
 									return
 								}
 
 								body, err := ioutil.ReadAll(resBody.Body)
 								res.Body.Close()
 								if err != nil || resBody.StatusCode != 200 {
-									l4g.Error(utils.T("mattermost.security_bulletin_read.error"))
+									l4g.Error(utils.T("i18n.server.mattermost.security_bulletin_read.error"))
 									return
 								}
 
 								for _, user := range users {
-									l4g.Info(utils.T("mattermost.send_bulletin.info"), bulletin.Id, user.Email)
-									utils.SendMail(user.Email, utils.T("mattermost.bulletin.subject"), string(body))
+									l4g.Info(utils.T("i18n.server.mattermost.send_bulletin.info"), bulletin.Id, user.Email)
+									utils.SendMail(user.Email, utils.T("i18n.server.mattermost.bulletin.subject"), string(body))
 								}
 							}
 

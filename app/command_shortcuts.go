@@ -30,59 +30,59 @@ func (me *ShortcutsProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_SHORTCUTS,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_shortcuts.desc"),
+		AutoCompleteDesc: T("i18n.server.api.command_shortcuts.desc"),
 		AutoCompleteHint: "",
-		DisplayName:      T("api.command_shortcuts.name"),
+		DisplayName:      T("i18n.server.api.command_shortcuts.name"),
 	}
 }
 
 func (me *ShortcutsProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
 	shortcutIds := [28]string{
-		"api.command_shortcuts.header",
+		"i18n.server.api.command_shortcuts.header",
 		// Nav shortcuts
-		"api.command_shortcuts.nav.header",
-		"api.command_shortcuts.nav.prev",
-		"api.command_shortcuts.nav.next",
-		"api.command_shortcuts.nav.unread_prev",
-		"api.command_shortcuts.nav.unread_next",
-		"api.command_shortcuts.nav.switcher",
-		"api.command_shortcuts.nav.settings",
-		"api.command_shortcuts.nav.recent_mentions",
+		"i18n.server.api.command_shortcuts.nav.header",
+		"i18n.server.api.command_shortcuts.nav.prev",
+		"i18n.server.api.command_shortcuts.nav.next",
+		"i18n.server.api.command_shortcuts.nav.unread_prev",
+		"i18n.server.api.command_shortcuts.nav.unread_next",
+		"i18n.server.api.command_shortcuts.nav.switcher",
+		"i18n.server.api.command_shortcuts.nav.settings",
+		"i18n.server.api.command_shortcuts.nav.recent_mentions",
 		// Files shortcuts
-		"api.command_shortcuts.files.header",
-		"api.command_shortcuts.files.upload",
+		"i18n.server.api.command_shortcuts.files.header",
+		"i18n.server.api.command_shortcuts.files.upload",
 		// Msg shortcuts
-		"api.command_shortcuts.msgs.header",
-		"api.command_shortcuts.msgs.mark_as_read",
-		"api.command_shortcuts.msgs.reprint_prev",
-		"api.command_shortcuts.msgs.reprint_next",
-		"api.command_shortcuts.msgs.edit",
-		"api.command_shortcuts.msgs.comp_username",
-		"api.command_shortcuts.msgs.comp_channel",
-		"api.command_shortcuts.msgs.comp_emoji",
+		"i18n.server.api.command_shortcuts.msgs.header",
+		"i18n.server.api.command_shortcuts.msgs.mark_as_read",
+		"i18n.server.api.command_shortcuts.msgs.reprint_prev",
+		"i18n.server.api.command_shortcuts.msgs.reprint_next",
+		"i18n.server.api.command_shortcuts.msgs.edit",
+		"i18n.server.api.command_shortcuts.msgs.comp_username",
+		"i18n.server.api.command_shortcuts.msgs.comp_channel",
+		"i18n.server.api.command_shortcuts.msgs.comp_emoji",
 		// Browser shortcuts
-		"api.command_shortcuts.browser.header",
-		"api.command_shortcuts.browser.channel_prev",
-		"api.command_shortcuts.browser.channel_next",
-		"api.command_shortcuts.browser.font_increase",
-		"api.command_shortcuts.browser.font_decrease",
-		"api.command_shortcuts.browser.highlight_prev",
-		"api.command_shortcuts.browser.highlight_next",
-		"api.command_shortcuts.browser.newline",
+		"i18n.server.api.command_shortcuts.browser.header",
+		"i18n.server.api.command_shortcuts.browser.channel_prev",
+		"i18n.server.api.command_shortcuts.browser.channel_next",
+		"i18n.server.api.command_shortcuts.browser.font_increase",
+		"i18n.server.api.command_shortcuts.browser.font_decrease",
+		"i18n.server.api.command_shortcuts.browser.highlight_prev",
+		"i18n.server.api.command_shortcuts.browser.highlight_next",
+		"i18n.server.api.command_shortcuts.browser.newline",
 	}
 
 	var osDependentWords map[string]interface{}
 	if strings.Contains(message, "mac") {
 		osDependentWords = map[string]interface{}{
-			"CmdOrCtrl":      args.T("api.command_shortcuts.cmd"),
-			"ChannelPrevCmd": args.T("api.command_shortcuts.browser.channel_prev.cmd_mac"),
-			"ChannelNextCmd": args.T("api.command_shortcuts.browser.channel_next.cmd_mac"),
+			"CmdOrCtrl":      args.T("i18n.server.api.command_shortcuts.cmd"),
+			"ChannelPrevCmd": args.T("i18n.server.api.command_shortcuts.browser.channel_prev.cmd_mac"),
+			"ChannelNextCmd": args.T("i18n.server.api.command_shortcuts.browser.channel_next.cmd_mac"),
 		}
 	} else {
 		osDependentWords = map[string]interface{}{
-			"CmdOrCtrl":      args.T("api.command_shortcuts.ctrl"),
-			"ChannelPrevCmd": args.T("api.command_shortcuts.browser.channel_prev.cmd"),
-			"ChannelNextCmd": args.T("api.command_shortcuts.browser.channel_next.cmd"),
+			"CmdOrCtrl":      args.T("i18n.server.api.command_shortcuts.ctrl"),
+			"ChannelPrevCmd": args.T("i18n.server.api.command_shortcuts.browser.channel_prev.cmd"),
+			"ChannelNextCmd": args.T("i18n.server.api.command_shortcuts.browser.channel_next.cmd"),
 		}
 	}
 

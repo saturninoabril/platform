@@ -55,7 +55,7 @@ func (es SqlEmojiStore) Save(emoji *model.Emoji) StoreChannel {
 		}
 
 		if err := es.GetMaster().Insert(emoji); err != nil {
-			result.Err = model.NewLocAppError("SqlEmojiStore.Save", "store.sql_emoji.save.app_error", nil, "id="+emoji.Id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.Save", "i18n.server.store.sql_emoji.save.app_error", nil, "id="+emoji.Id+", "+err.Error())
 		} else {
 			result.Data = emoji
 		}
@@ -104,7 +104,7 @@ func (es SqlEmojiStore) Get(id string, allowFromCache bool) StoreChannel {
 			WHERE
 				Id = :Id
 				AND DeleteAt = 0`, map[string]interface{}{"Id": id}); err != nil {
-			result.Err = model.NewLocAppError("SqlEmojiStore.Get", "store.sql_emoji.get.app_error", nil, "id="+id+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.Get", "i18n.server.store.sql_emoji.get.app_error", nil, "id="+id+", "+err.Error())
 		} else {
 			result.Data = emoji
 
@@ -136,7 +136,7 @@ func (es SqlEmojiStore) GetByName(name string) StoreChannel {
 			WHERE
 				Name = :Name
 				AND DeleteAt = 0`, map[string]interface{}{"Name": name}); err != nil {
-			result.Err = model.NewLocAppError("SqlEmojiStore.GetByName", "store.sql_emoji.get_by_name.app_error", nil, "name="+name+", "+err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.GetByName", "i18n.server.store.sql_emoji.get_by_name.app_error", nil, "name="+name+", "+err.Error())
 		} else {
 			result.Data = emoji
 		}
@@ -163,7 +163,7 @@ func (es SqlEmojiStore) GetAll() StoreChannel {
 				Emoji
 			WHERE
 				DeleteAt = 0`); err != nil {
-			result.Err = model.NewLocAppError("SqlEmojiStore.Get", "store.sql_emoji.get_all.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.Get", "i18n.server.store.sql_emoji.get_all.app_error", nil, err.Error())
 		} else {
 			result.Data = emoji
 		}
@@ -190,9 +190,9 @@ func (es SqlEmojiStore) Delete(id string, time int64) StoreChannel {
 			WHERE
 				Id = :Id
 				AND DeleteAt = 0`, map[string]interface{}{"DeleteAt": time, "UpdateAt": time, "Id": id}); err != nil {
-			result.Err = model.NewLocAppError("SqlEmojiStore.Delete", "store.sql_emoji.delete.app_error", nil, "id="+id+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.Delete", "i18n.server.store.sql_emoji.delete.app_error", nil, "id="+id+", err="+err.Error())
 		} else if rows, _ := sqlResult.RowsAffected(); rows == 0 {
-			result.Err = model.NewLocAppError("SqlEmojiStore.Delete", "store.sql_emoji.delete.no_results", nil, "id="+id+", err="+err.Error())
+			result.Err = model.NewLocAppError("SqlEmojiStore.Delete", "i18n.server.store.sql_emoji.delete.no_results", nil, "id="+id+", err="+err.Error())
 		}
 
 		storeChannel <- result

@@ -21,10 +21,10 @@ https://medium.com/@slackhq/11-useful-tips-for-getting-the-most-of-slack-5dfb3d1
 `
 
 func testAutoLink(env TestEnvironment) *model.AppError {
-	l4g.Info(utils.T("manaultesting.test_autolink.info"))
+	l4g.Info(utils.T("i18n.server.manualtesting.test_autolink.info"))
 	channelID, err := getChannelID(model.DEFAULT_CHANNEL, env.CreatedTeamId, env.CreatedUserId)
 	if err != true {
-		return model.NewLocAppError("/manualtest", "manaultesting.test_autolink.unable.app_error", nil, "")
+		return model.NewLocAppError("/manualtest", "i18n.server.manualtesting.test_autolink.unable.app_error", nil, "")
 	}
 
 	post := &model.Post{

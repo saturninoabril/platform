@@ -22,7 +22,7 @@ func GetPreferenceByCategoryForUser(userId string, category string) (model.Prefe
 		result.Err.StatusCode = http.StatusBadRequest
 		return nil, result.Err
 	} else if len(result.Data.(model.Preferences)) == 0 {
-		err := model.NewAppError("getPreferenceCategory", "api.preference.preferences_category.get.app_error", nil, "", http.StatusNotFound)
+		err := model.NewAppError("getPreferenceCategory", "i18n.server.api.preference.preferences_category.get.app_error", nil, "", http.StatusNotFound)
 		return nil, err
 	} else {
 		return result.Data.(model.Preferences), nil

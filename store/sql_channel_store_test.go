@@ -437,7 +437,7 @@ func TestChannelStoreDelete(t *testing.T) {
 
 	cresult = <-store.Channel().GetChannels(o1.TeamId, m1.UserId)
 	t.Log(cresult.Err)
-	if cresult.Err.Id != "store.sql_channel.get_channels.not_found.app_error" {
+	if cresult.Err.Id != "i18n.server.store.sql_channel.get_channels.not_found.app_error" {
 		t.Fatal("no channels should be found")
 	}
 

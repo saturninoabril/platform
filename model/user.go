@@ -135,7 +135,7 @@ func (u *User) IsValid() *AppError {
 }
 
 func InvalidUserError(fieldName string, userId string) *AppError {
-	id := fmt.Sprintf("model.user.is_valid.%s.app_error", fieldName)
+	id := fmt.Sprintf("i18n.server.model.user.is_valid.%s.app_error", fieldName)
 	details := ""
 	if userId != "" {
 		details = "user_id=" + userId

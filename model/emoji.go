@@ -19,23 +19,23 @@ type Emoji struct {
 
 func (emoji *Emoji) IsValid() *AppError {
 	if len(emoji.Id) != 26 {
-		return NewLocAppError("Emoji.IsValid", "model.emoji.id.app_error", nil, "")
+		return NewLocAppError("Emoji.IsValid", "i18n.server.model.emoji.id.app_error", nil, "")
 	}
 
 	if emoji.CreateAt == 0 {
-		return NewLocAppError("Emoji.IsValid", "model.emoji.create_at.app_error", nil, "id="+emoji.Id)
+		return NewLocAppError("Emoji.IsValid", "i18n.server.model.emoji.create_at.app_error", nil, "id="+emoji.Id)
 	}
 
 	if emoji.UpdateAt == 0 {
-		return NewLocAppError("Emoji.IsValid", "model.emoji.update_at.app_error", nil, "id="+emoji.Id)
+		return NewLocAppError("Emoji.IsValid", "i18n.server.model.emoji.update_at.app_error", nil, "id="+emoji.Id)
 	}
 
 	if len(emoji.CreatorId) != 26 {
-		return NewLocAppError("Emoji.IsValid", "model.emoji.user_id.app_error", nil, "")
+		return NewLocAppError("Emoji.IsValid", "i18n.server.model.emoji.user_id.app_error", nil, "")
 	}
 
 	if len(emoji.Name) == 0 || len(emoji.Name) > 64 {
-		return NewLocAppError("Emoji.IsValid", "model.emoji.name.app_error", nil, "")
+		return NewLocAppError("Emoji.IsValid", "i18n.server.model.emoji.name.app_error", nil, "")
 	}
 
 	return nil

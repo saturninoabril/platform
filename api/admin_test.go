@@ -183,7 +183,7 @@ func TestEmailTest(t *testing.T) {
 	if _, err := th.SystemAdminClient.TestEmail(utils.Cfg); err == nil {
 		t.Fatal("should have errored")
 	} else {
-		if err.Id != "api.admin.test_email.missing_server" {
+		if err.Id != "i18n.server.api.admin.test_email.missing_server" {
 			t.Fatal(err)
 		}
 	}

@@ -52,10 +52,10 @@ func runServer(configFileLocation string) {
 	utils.TestConnection(utils.Cfg)
 
 	pwd, _ := os.Getwd()
-	l4g.Info(utils.T("mattermost.current_version"), model.CurrentVersion, model.BuildNumber, model.BuildDate, model.BuildHash, model.BuildHashEnterprise)
-	l4g.Info(utils.T("mattermost.entreprise_enabled"), model.BuildEnterpriseReady)
-	l4g.Info(utils.T("mattermost.working_dir"), pwd)
-	l4g.Info(utils.T("mattermost.config_file"), utils.FindConfigFile(configFileLocation))
+	l4g.Info(utils.T("i18n.server.mattermost.current_version"), model.CurrentVersion, model.BuildNumber, model.BuildDate, model.BuildHash, model.BuildHashEnterprise)
+	l4g.Info(utils.T("i18n.server.mattermost.entreprise_enabled"), model.BuildEnterpriseReady)
+	l4g.Info(utils.T("i18n.server.mattermost.working_dir"), pwd)
+	l4g.Info(utils.T("i18n.server.mattermost.config_file"), utils.FindConfigFile(configFileLocation))
 
 	// Enable developer settings if this is a "dev" build
 	if model.BuildNumber == "dev" {
@@ -76,7 +76,7 @@ func runServer(configFileLocation string) {
 	}
 
 	if !utils.IsLicensed && len(utils.Cfg.SqlSettings.DataSourceReplicas) > 1 {
-		l4g.Warn(utils.T("store.sql.read_replicas_not_licensed.critical"))
+		l4g.Warn(utils.T("i18n.server.store.sql.read_replicas_not_licensed.critical"))
 		utils.Cfg.SqlSettings.DataSourceReplicas = utils.Cfg.SqlSettings.DataSourceReplicas[:1]
 	}
 
@@ -141,7 +141,7 @@ func runDiagnosticsJob() {
 
 func resetStatuses() {
 	if result := <-app.Srv.Store.Status().ResetAll(); result.Err != nil {
-		l4g.Error(utils.T("mattermost.reset_status.error"), result.Err.Error())
+		l4g.Error(utils.T("i18n.server.mattermost.reset_status.error"), result.Err.Error())
 	}
 }
 

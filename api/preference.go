@@ -13,7 +13,7 @@ import (
 )
 
 func InitPreference() {
-	l4g.Debug(utils.T("api.preference.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.preference.init.debug"))
 
 	BaseRoutes.Preferences.Handle("/", ApiUserRequired(getAllPreferences)).Methods("GET")
 	BaseRoutes.Preferences.Handle("/save", ApiUserRequired(savePreferences)).Methods("POST")
@@ -35,15 +35,15 @@ func getAllPreferences(c *Context, w http.ResponseWriter, r *http.Request) {
 func savePreferences(c *Context, w http.ResponseWriter, r *http.Request) {
 	preferences, err := model.PreferencesFromJson(r.Body)
 	if err != nil {
-		c.Err = model.NewLocAppError("savePreferences", "api.preference.save_preferences.decode.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("savePreferences", "i18n.server.api.preference.save_preferences.decode.app_error", nil, err.Error())
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	for _, preference := range preferences {
 		if c.Session.UserId != preference.UserId {
-			c.Err = model.NewLocAppError("savePreferences", "api.preference.save_preferences.set.app_error", nil,
-				c.T("api.preference.save_preferences.set_details.app_error",
+			c.Err = model.NewLocAppError("savePreferences", "i18n.server.api.preference.save_preferences.set.app_error", nil,
+				c.T("i18n.server.api.preference.save_preferences.set_details.app_error",
 					map[string]interface{}{"SessionUserId": c.Session.UserId, "PreferenceUserId": preference.UserId}))
 			c.Err.StatusCode = http.StatusForbidden
 			return
@@ -87,14 +87,14 @@ func getPreference(c *Context, w http.ResponseWriter, r *http.Request) {
 func deletePreferences(c *Context, w http.ResponseWriter, r *http.Request) {
 	preferences, err := model.PreferencesFromJson(r.Body)
 	if err != nil {
-		c.Err = model.NewLocAppError("savePreferences", "api.preference.delete_preferences.decode.app_error", nil, err.Error())
+		c.Err = model.NewLocAppError("savePreferences", "i18n.server.api.preference.delete_preferences.decode.app_error", nil, err.Error())
 		c.Err.StatusCode = http.StatusBadRequest
 		return
 	}
 
 	for _, preference := range preferences {
 		if c.Session.UserId != preference.UserId {
-			c.Err = model.NewLocAppError("deletePreferences", "api.preference.delete_preferences.user_id.app_error",
+			c.Err = model.NewLocAppError("deletePreferences", "i18n.server.api.preference.delete_preferences.user_id.app_error",
 				nil, "session.user_id="+c.Session.UserId+",preference.user_id="+preference.UserId)
 			c.Err.StatusCode = http.StatusForbidden
 			return

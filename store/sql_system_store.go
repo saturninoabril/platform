@@ -34,7 +34,7 @@ func (s SqlSystemStore) Save(system *model.System) StoreChannel {
 		result := StoreResult{}
 
 		if err := s.GetMaster().Insert(system); err != nil {
-			result.Err = model.NewLocAppError("SqlSystemStore.Save", "store.sql_system.save.app_error", nil, err.Error())
+			result.Err = model.NewLocAppError("SqlSystemStore.Save", "i18n.server.store.sql_system.save.app_error", nil, err.Error())
 		}
 
 		storeChannel <- result
@@ -53,11 +53,11 @@ func (s SqlSystemStore) SaveOrUpdate(system *model.System) StoreChannel {
 
 		if err := s.GetReplica().SelectOne(&model.System{}, "SELECT * FROM Systems WHERE Name = :Name", map[string]interface{}{"Name": system.Name}); err == nil {
 			if _, err := s.GetMaster().Update(system); err != nil {
-				result.Err = model.NewLocAppError("SqlSystemStore.SaveOrUpdate", "store.sql_system.update.app_error", nil, "")
+				result.Err = model.NewLocAppError("SqlSystemStore.SaveOrUpdate", "i18n.server.store.sql_system.update.app_error", nil, "")
 			}
 		} else {
 			if err := s.GetMaster().Insert(system); err != nil {
-				result.Err = model.NewLocAppError("SqlSystemStore.SaveOrUpdate", "store.sql_system.save.app_error", nil, "")
+				result.Err = model.NewLocAppError("SqlSystemStore.SaveOrUpdate", "i18n.server.store.sql_system.save.app_error", nil, "")
 			}
 		}
 
@@ -76,7 +76,7 @@ func (s SqlSystemStore) Update(system *model.System) StoreChannel {
 		result := StoreResult{}
 
 		if _, err := s.GetMaster().Update(system); err != nil {
-			result.Err = model.NewLocAppError("SqlSystemStore.Update", "store.sql_system.update.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlSystemStore.Update", "i18n.server.store.sql_system.update.app_error", nil, "")
 		}
 
 		storeChannel <- result
@@ -96,7 +96,7 @@ func (s SqlSystemStore) Get() StoreChannel {
 		var systems []model.System
 		props := make(model.StringMap)
 		if _, err := s.GetReplica().Select(&systems, "SELECT * FROM Systems"); err != nil {
-			result.Err = model.NewLocAppError("SqlSystemStore.Get", "store.sql_system.get.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlSystemStore.Get", "i18n.server.store.sql_system.get.app_error", nil, "")
 		} else {
 			for _, prop := range systems {
 				props[prop.Name] = prop.Value
@@ -121,7 +121,7 @@ func (s SqlSystemStore) GetByName(name string) StoreChannel {
 
 		var system model.System
 		if err := s.GetReplica().SelectOne(&system, "SELECT * FROM Systems WHERE Name = :Name", map[string]interface{}{"Name": name}); err != nil {
-			result.Err = model.NewLocAppError("SqlSystemStore.GetByName", "store.sql_system.get_by_name.app_error", nil, "")
+			result.Err = model.NewLocAppError("SqlSystemStore.GetByName", "i18n.server.store.sql_system.get_by_name.app_error", nil, "")
 		}
 
 		result.Data = &system

@@ -37,12 +37,12 @@ func InitEmailBatching() {
 
 func AddNotificationEmailToBatch(user *model.User, post *model.Post, team *model.Team) *model.AppError {
 	if !*utils.Cfg.EmailSettings.EnableEmailBatching {
-		return model.NewLocAppError("AddNotificationEmailToBatch", "api.email_batching.add_notification_email_to_batch.disabled.app_error", nil, "")
+		return model.NewLocAppError("AddNotificationEmailToBatch", "i18n.server.api.email_batching.add_notification_email_to_batch.disabled.app_error", nil, "")
 	}
 
 	if !emailBatchingJob.Add(user, post, team) {
-		l4g.Error(utils.T("api.email_batching.add_notification_email_to_batch.channel_full.app_error"))
-		return model.NewLocAppError("AddNotificationEmailToBatch", "api.email_batching.add_notification_email_to_batch.channel_full.app_error", nil, "")
+		l4g.Error(utils.T("i18n.server.api.email_batching.add_notification_email_to_batch.channel_full.app_error"))
+		return model.NewLocAppError("AddNotificationEmailToBatch", "i18n.server.api.email_batching.add_notification_email_to_batch.channel_full.app_error", nil, "")
 	}
 
 	return nil
@@ -71,7 +71,7 @@ func (job *EmailBatchingJob) Start() {
 		task.Cancel()
 	}
 
-	l4g.Debug(utils.T("api.email_batching.start.starting"), *utils.Cfg.EmailSettings.EmailBatchingInterval)
+	l4g.Debug(utils.T("i18n.server.api.email_batching.start.starting"), *utils.Cfg.EmailSettings.EmailBatchingInterval)
 	model.CreateRecurringTask(EMAIL_BATCHING_TASK_NAME, job.CheckPendingEmails, time.Duration(*utils.Cfg.EmailSettings.EmailBatchingInterval)*time.Second)
 }
 
@@ -98,7 +98,7 @@ func (job *EmailBatchingJob) CheckPendingEmails() {
 	// without actually sending emails
 	job.checkPendingNotifications(time.Now(), sendBatchedEmailNotification)
 
-	l4g.Debug(utils.T("api.email_batching.check_pending_emails.finished_running"), len(job.pendingNotifications))
+	l4g.Debug(utils.T("i18n.server.api.email_batching.check_pending_emails.finished_running"), len(job.pendingNotifications))
 }
 
 func (job *EmailBatchingJob) handleNewNotifications() {
@@ -130,7 +130,7 @@ func (job *EmailBatchingJob) checkPendingNotifications(now time.Time, handler fu
 
 		// check if the user has been active and would've seen any new posts
 		if result := <-schan; result.Err != nil {
-			l4g.Error(utils.T("api.email_batching.check_pending_emails.status.app_error"), result.Err)
+			l4g.Error(utils.T("i18n.server.api.email_batching.check_pending_emails.status.app_error"), result.Err)
 			delete(job.pendingNotifications, userId)
 			continue
 		} else if status := result.Data.(*model.Status); status.LastActivityAt >= batchStartTime {
@@ -167,7 +167,7 @@ func sendBatchedEmailNotification(userId string, notifications []*batchedNotific
 
 	var user *model.User
 	if result := <-uchan; result.Err != nil {
-		l4g.Warn("api.email_batching.send_batched_email_notification.user.app_error")
+		l4g.Warn("i18n.server.api.email_batching.send_batched_email_notification.user.app_error")
 		return
 	} else {
 		user = result.Data.(*model.User)
@@ -177,7 +177,7 @@ func sendBatchedEmailNotification(userId string, notifications []*batchedNotific
 
 	var displayNameFormat string
 	if result := <-pchan; result.Err != nil && result.Err.DetailedError != sql.ErrNoRows.Error() {
-		l4g.Warn("api.email_batching.send_batched_email_notification.preferences.app_error")
+		l4g.Warn("i18n.server.api.email_batching.send_batched_email_notification.preferences.app_error")
 		return
 	} else if result.Err != nil {
 		// no display name format saved, so fall back to default
@@ -195,7 +195,7 @@ func sendBatchedEmailNotification(userId string, notifications []*batchedNotific
 
 	tm := time.Unix(notifications[0].post.CreateAt/1000, 0)
 
-	subject := translateFunc("api.email_batching.send_batched_email_notification.subject", len(notifications), map[string]interface{}{
+	subject := translateFunc("i18n.server.api.email_batching.send_batched_email_notification.subject", len(notifications), map[string]interface{}{
 		"SiteName": utils.Cfg.TeamSettings.SiteName,
 		"Year":     tm.Year(),
 		"Month":    translateFunc(tm.Month().String()),
@@ -205,10 +205,10 @@ func sendBatchedEmailNotification(userId string, notifications []*batchedNotific
 	body := utils.NewHTMLTemplate("post_batched_body", user.Locale)
 	body.Props["SiteURL"] = *utils.Cfg.ServiceSettings.SiteURL
 	body.Props["Posts"] = template.HTML(contents)
-	body.Props["BodyText"] = translateFunc("api.email_batching.send_batched_email_notification.body_text", len(notifications))
+	body.Props["BodyText"] = translateFunc("i18n.server.api.email_batching.send_batched_email_notification.body_text", len(notifications))
 
 	if err := utils.SendMail(user.Email, subject, body.Render()); err != nil {
-		l4g.Warn(utils.T("api.email_batching.send_batched_email_notification.send.app_error"), user.Email, err)
+		l4g.Warn(utils.T("i18n.server.api.email_batching.send_batched_email_notification.send.app_error"), user.Email, err)
 	}
 }
 
@@ -216,14 +216,14 @@ func renderBatchedPost(template *utils.HTMLTemplate, post *model.Post, teamName 
 	schan := Srv.Store.User().Get(post.UserId)
 	cchan := Srv.Store.Channel().Get(post.ChannelId, true)
 
-	template.Props["Button"] = translateFunc("api.email_batching.render_batched_post.go_to_post")
+	template.Props["Button"] = translateFunc("i18n.server.api.email_batching.render_batched_post.go_to_post")
 	template.Props["PostMessage"] = GetMessageForNotification(post, translateFunc)
 	template.Props["PostLink"] = *utils.Cfg.ServiceSettings.SiteURL + "/" + teamName + "/pl/" + post.Id
 
 	tm := time.Unix(post.CreateAt/1000, 0)
 	timezone, _ := tm.Zone()
 
-	template.Props["Date"] = translateFunc("api.email_batching.render_batched_post.date", map[string]interface{}{
+	template.Props["Date"] = translateFunc("i18n.server.api.email_batching.render_batched_post.date", map[string]interface{}{
 		"Year":     tm.Year(),
 		"Month":    translateFunc(tm.Month().String()),
 		"Day":      tm.Day(),
@@ -233,19 +233,19 @@ func renderBatchedPost(template *utils.HTMLTemplate, post *model.Post, teamName 
 	})
 
 	if result := <-schan; result.Err != nil {
-		l4g.Warn(utils.T("api.email_batching.render_batched_post.sender.app_error"))
+		l4g.Warn(utils.T("i18n.server.api.email_batching.render_batched_post.sender.app_error"))
 		return ""
 	} else {
 		template.Props["SenderName"] = result.Data.(*model.User).GetDisplayNameForPreference(displayNameFormat)
 	}
 
 	if result := <-cchan; result.Err != nil {
-		l4g.Warn(utils.T("api.email_batching.render_batched_post.channel.app_error"))
+		l4g.Warn(utils.T("i18n.server.api.email_batching.render_batched_post.channel.app_error"))
 		return ""
 	} else if channel := result.Data.(*model.Channel); channel.Type == model.CHANNEL_DIRECT {
-		template.Props["ChannelName"] = translateFunc("api.email_batching.render_batched_post.direct_message")
+		template.Props["ChannelName"] = translateFunc("i18n.server.api.email_batching.render_batched_post.direct_message")
 	} else if channel.Type == model.CHANNEL_GROUP {
-		template.Props["ChannelName"] = translateFunc("api.email_batching.render_batched_post.group_message")
+		template.Props["ChannelName"] = translateFunc("i18n.server.api.email_batching.render_batched_post.group_message")
 	} else {
 		template.Props["ChannelName"] = channel.DisplayName
 	}

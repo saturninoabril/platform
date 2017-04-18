@@ -27,14 +27,14 @@ func (me *LogoutProvider) GetCommand(T goi18n.TranslateFunc) *model.Command {
 	return &model.Command{
 		Trigger:          CMD_LOGOUT,
 		AutoComplete:     true,
-		AutoCompleteDesc: T("api.command_logout.desc"),
+		AutoCompleteDesc: T("i18n.server.api.command_logout.desc"),
 		AutoCompleteHint: "",
-		DisplayName:      T("api.command_logout.name"),
+		DisplayName:      T("i18n.server.api.command_logout.name"),
 	}
 }
 
 func (me *LogoutProvider) DoCommand(args *model.CommandArgs, message string) *model.CommandResponse {
-	FAIL := &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("api.command_logout.fail_message")}
+	FAIL := &model.CommandResponse{ResponseType: model.COMMAND_RESPONSE_TYPE_EPHEMERAL, Text: args.T("i18n.server.api.command_logout.fail_message")}
 	SUCCESS := &model.CommandResponse{GotoLocation: "/login"}
 
 	// We can't actually remove the user's cookie from here so we just dump their session and let the browser figure it out

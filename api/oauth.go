@@ -16,7 +16,7 @@ import (
 )
 
 func InitOAuth() {
-	l4g.Debug(utils.T("api.oauth.init.debug"))
+	l4g.Debug(utils.T("i18n.server.api.oauth.init.debug"))
 
 	BaseRoutes.OAuth.Handle("/register", ApiUserRequired(registerOAuthApp)).Methods("POST")
 	BaseRoutes.OAuth.Handle("/list", ApiUserRequired(getOAuthApps)).Methods("GET")
@@ -41,7 +41,7 @@ func InitOAuth() {
 
 func registerOAuthApp(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_OAUTH) {
-		c.Err = model.NewAppError("registerOAuthApp", "api.command.admin_only.app_error", nil, "", http.StatusForbidden)
+		c.Err = model.NewAppError("registerOAuthApp", "i18n.server.api.command.admin_only.app_error", nil, "", http.StatusForbidden)
 		return
 	}
 
@@ -67,7 +67,7 @@ func registerOAuthApp(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func getOAuthApps(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_OAUTH) {
-		c.Err = model.NewAppError("getOAuthApps", "api.command.admin_only.app_error", nil, "", http.StatusForbidden)
+		c.Err = model.NewAppError("getOAuthApps", "i18n.server.api.command.admin_only.app_error", nil, "", http.StatusForbidden)
 		return
 	}
 
@@ -105,19 +105,19 @@ func getOAuthAppInfo(c *Context, w http.ResponseWriter, r *http.Request) {
 func allowOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 	responseType := r.URL.Query().Get("response_type")
 	if len(responseType) == 0 {
-		c.Err = model.NewAppError("allowOAuth", "api.oauth.allow_oauth.bad_response.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("allowOAuth", "i18n.server.api.oauth.allow_oauth.bad_response.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
 	clientId := r.URL.Query().Get("client_id")
 	if len(clientId) != 26 {
-		c.Err = model.NewAppError("allowOAuth", "api.oauth.allow_oauth.bad_client.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("allowOAuth", "i18n.server.api.oauth.allow_oauth.bad_client.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
 	redirectUri := r.URL.Query().Get("redirect_uri")
 	if len(redirectUri) == 0 {
-		c.Err = model.NewAppError("allowOAuth", "api.oauth.allow_oauth.bad_redirect.app_error", nil, "", http.StatusBadRequest)
+		c.Err = model.NewAppError("allowOAuth", "i18n.server.api.oauth.allow_oauth.bad_redirect.app_error", nil, "", http.StatusBadRequest)
 		return
 	}
 
@@ -154,7 +154,7 @@ func completeOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	code := r.URL.Query().Get("code")
 	if len(code) == 0 {
-		c.Err = model.NewLocAppError("completeOAuth", "api.oauth.complete_oauth.missing_code.app_error", map[string]interface{}{"service": strings.Title(service)}, "URL: "+r.URL.String())
+		c.Err = model.NewLocAppError("completeOAuth", "i18n.server.api.oauth.complete_oauth.missing_code.app_error", map[string]interface{}{"service": strings.Title(service)}, "URL: "+r.URL.String())
 		return
 	}
 
@@ -196,7 +196,7 @@ func completeOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 
 func authorizeOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 	if !utils.Cfg.ServiceSettings.EnableOAuthServiceProvider {
-		c.Err = model.NewLocAppError("authorizeOAuth", "api.oauth.authorize_oauth.disabled.app_error", nil, "")
+		c.Err = model.NewLocAppError("authorizeOAuth", "i18n.server.api.oauth.authorize_oauth.disabled.app_error", nil, "")
 		c.Err.StatusCode = http.StatusNotImplemented
 		return
 	}
@@ -212,7 +212,7 @@ func authorizeOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(responseType) == 0 || len(clientId) == 0 || len(redirect) == 0 {
-		c.Err = model.NewLocAppError("authorizeOAuth", "api.oauth.authorize_oauth.missing.app_error", nil, "")
+		c.Err = model.NewLocAppError("authorizeOAuth", "i18n.server.api.oauth.authorize_oauth.missing.app_error", nil, "")
 		return
 	}
 
@@ -265,28 +265,28 @@ func getAccessToken(c *Context, w http.ResponseWriter, r *http.Request) {
 	switch grantType {
 	case model.ACCESS_TOKEN_GRANT_TYPE:
 		if len(code) == 0 {
-			c.Err = model.NewLocAppError("getAccessToken", "api.oauth.get_access_token.missing_code.app_error", nil, "")
+			c.Err = model.NewLocAppError("getAccessToken", "i18n.server.api.oauth.get_access_token.missing_code.app_error", nil, "")
 			return
 		}
 	case model.REFRESH_TOKEN_GRANT_TYPE:
 		if len(refreshToken) == 0 {
-			c.Err = model.NewLocAppError("getAccessToken", "api.oauth.get_access_token.missing_refresh_token.app_error", nil, "")
+			c.Err = model.NewLocAppError("getAccessToken", "i18n.server.api.oauth.get_access_token.missing_refresh_token.app_error", nil, "")
 			return
 		}
 	default:
-		c.Err = model.NewLocAppError("getAccessToken", "api.oauth.get_access_token.bad_grant.app_error", nil, "")
+		c.Err = model.NewLocAppError("getAccessToken", "i18n.server.api.oauth.get_access_token.bad_grant.app_error", nil, "")
 		return
 	}
 
 	clientId := r.FormValue("client_id")
 	if len(clientId) != 26 {
-		c.Err = model.NewLocAppError("getAccessToken", "api.oauth.get_access_token.bad_client_id.app_error", nil, "")
+		c.Err = model.NewLocAppError("getAccessToken", "i18n.server.api.oauth.get_access_token.bad_client_id.app_error", nil, "")
 		return
 	}
 
 	secret := r.FormValue("client_secret")
 	if len(secret) == 0 {
-		c.Err = model.NewLocAppError("getAccessToken", "api.oauth.get_access_token.bad_client_secret.app_error", nil, "")
+		c.Err = model.NewLocAppError("getAccessToken", "i18n.server.api.oauth.get_access_token.bad_client_secret.app_error", nil, "")
 		return
 	}
 
@@ -334,7 +334,7 @@ func signupWithOAuth(c *Context, w http.ResponseWriter, r *http.Request) {
 	service := params["service"]
 
 	if !utils.Cfg.TeamSettings.EnableUserCreation {
-		c.Err = model.NewAppError("signupWithOAuth", "api.oauth.singup_with_oauth.disabled.app_error", nil, "", http.StatusNotImplemented)
+		c.Err = model.NewAppError("signupWithOAuth", "i18n.server.api.oauth.singup_with_oauth.disabled.app_error", nil, "", http.StatusNotImplemented)
 		return
 	}
 
@@ -364,7 +364,7 @@ func deleteOAuthApp(c *Context, w http.ResponseWriter, r *http.Request) {
 	c.LogAudit("attempt")
 
 	if !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_OAUTH) {
-		c.Err = model.NewAppError("deleteOAuthApp", "api.command.admin_only.app_error", nil, "", http.StatusForbidden)
+		c.Err = model.NewAppError("deleteOAuthApp", "i18n.server.api.command.admin_only.app_error", nil, "", http.StatusForbidden)
 		return
 	}
 
@@ -376,7 +376,7 @@ func deleteOAuthApp(c *Context, w http.ResponseWriter, r *http.Request) {
 
 	if c.Session.UserId != oauthApp.CreatorId && !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_SYSTEM_WIDE_OAUTH) {
 		c.LogAudit("fail - inappropriate permissions")
-		c.Err = model.NewAppError("deleteOAuthApp", "api.oauth.delete.permissions.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
+		c.Err = model.NewAppError("deleteOAuthApp", "i18n.server.api.oauth.delete.permissions.app_error", nil, "user_id="+c.Session.UserId, http.StatusForbidden)
 		return
 	}
 
@@ -415,7 +415,7 @@ func regenerateOAuthSecret(c *Context, w http.ResponseWriter, r *http.Request) {
 	}
 
 	if oauthApp.CreatorId != c.Session.UserId && !app.SessionHasPermissionTo(c.Session, model.PERMISSION_MANAGE_SYSTEM_WIDE_OAUTH) {
-		c.Err = model.NewAppError("regenerateOAuthSecret", "api.command.admin_only.app_error", nil, "", http.StatusForbidden)
+		c.Err = model.NewAppError("regenerateOAuthSecret", "i18n.server.api.command.admin_only.app_error", nil, "", http.StatusForbidden)
 		return
 	}
 

@@ -91,8 +91,8 @@ func TestGetLicenseFileLocation(t *testing.T) {
 		t.Fatal("invalid default file name")
 	}
 
-	fileName = GetLicenseFileLocation("mattermost.mattermost-license")
-	if fileName != "mattermost.mattermost-license" {
+	fileName = GetLicenseFileLocation("i18n.server.mattermost.mattermost-license")
+	if fileName != "i18n.server.mattermost.mattermost-license" {
 		t.Fatal("invalid file name")
 	}
 }

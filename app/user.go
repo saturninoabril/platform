@@ -38,11 +38,11 @@ func CreateUserWithHash(user *model.User, hash string, data string) (*model.User
 	props := model.MapFromJson(strings.NewReader(data))
 
 	if !model.ComparePassword(hash, fmt.Sprintf("%v:%v", data, utils.Cfg.EmailSettings.InviteSalt)) {
-		return nil, model.NewLocAppError("CreateUserWithHash", "api.user.create_user.signup_link_invalid.app_error", nil, "")
+		return nil, model.NewLocAppError("CreateUserWithHash", "i18n.server.api.user.create_user.signup_link_invalid.app_error", nil, "")
 	}
 
 	if t, err := strconv.ParseInt(props["time"], 10, 64); err != nil || model.GetMillis()-t > 1000*60*60*48 { // 48 hours
-		return nil, model.NewLocAppError("CreateUserWithHash", "api.user.create_user.signup_link_expired.app_error", nil, "")
+		return nil, model.NewLocAppError("CreateUserWithHash", "i18n.server.api.user.create_user.signup_link_expired.app_error", nil, "")
 	}
 
 	teamId := props["id"]
@@ -124,7 +124,7 @@ func CreateUserFromSignup(user *model.User) (*model.User, *model.AppError) {
 	}
 
 	if !IsFirstUserAccount() && !*utils.Cfg.TeamSettings.EnableOpenServer {
-		err := model.NewLocAppError("CreateUserFromSignup", "api.user.create_user.no_open_server", nil, "email="+user.Email)
+		err := model.NewLocAppError("CreateUserFromSignup", "i18n.server.api.user.create_user.no_open_server", nil, "email="+user.Email)
 		err.StatusCode = http.StatusForbidden
 		return nil, err
 	}
@@ -145,7 +145,7 @@ func CreateUserFromSignup(user *model.User) (*model.User, *model.AppError) {
 
 func IsUserSignUpAllowed() *model.AppError {
 	if !utils.Cfg.EmailSettings.EnableSignUpWithEmail || !utils.Cfg.TeamSettings.EnableUserCreation {
-		err := model.NewLocAppError("IsUserSignUpAllowed", "api.user.create_user.signup_email_disabled.app_error", nil, "")
+		err := model.NewLocAppError("IsUserSignUpAllowed", "i18n.server.api.user.create_user.signup_email_disabled.app_error", nil, "")
 		err.StatusCode = http.StatusNotImplemented
 		return err
 	}
@@ -170,7 +170,7 @@ func IsFirstUserAccount() bool {
 
 func CreateUser(user *model.User) (*model.User, *model.AppError) {
 	if !user.IsSSOUser() && !CheckUserDomain(user, utils.Cfg.TeamSettings.RestrictCreationToDomains) {
-		return nil, model.NewLocAppError("CreateUser", "api.user.create_user.accepted_domain.app_error", nil, "")
+		return nil, model.NewLocAppError("CreateUser", "i18n.server.api.user.create_user.accepted_domain.app_error", nil, "")
 	}
 
 	user.Roles = model.ROLE_SYSTEM_USER.Id
@@ -210,20 +210,20 @@ func createUser(user *model.User) (*model.User, *model.AppError) {
 	}
 
 	if result := <-Srv.Store.User().Save(user); result.Err != nil {
-		l4g.Error(utils.T("api.user.create_user.save.error"), result.Err)
+		l4g.Error(utils.T("i18n.server.api.user.create_user.save.error"), result.Err)
 		return nil, result.Err
 	} else {
 		ruser := result.Data.(*model.User)
 
 		if user.EmailVerified {
 			if err := VerifyUserEmail(ruser.Id); err != nil {
-				l4g.Error(utils.T("api.user.create_user.verified.error"), err)
+				l4g.Error(utils.T("i18n.server.api.user.create_user.verified.error"), err)
 			}
 		}
 
 		pref := model.Preference{UserId: ruser.Id, Category: model.PREFERENCE_CATEGORY_TUTORIAL_STEPS, Name: ruser.Id, Value: "0"}
 		if presult := <-Srv.Store.Preference().Save(&model.Preferences{pref}); presult.Err != nil {
-			l4g.Error(utils.T("api.user.create_user.tutorial.error"), presult.Err.Message)
+			l4g.Error(utils.T("i18n.server.api.user.create_user.tutorial.error"), presult.Err.Message)
 		}
 
 		ruser.Sanitize(map[string]bool{})
@@ -234,19 +234,19 @@ func createUser(user *model.User) (*model.User, *model.AppError) {
 
 func CreateOAuthUser(service string, userData io.Reader, teamId string) (*model.User, *model.AppError) {
 	if !utils.Cfg.TeamSettings.EnableUserCreation {
-		return nil, model.NewAppError("CreateOAuthUser", "api.user.create_user.disabled.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("CreateOAuthUser", "i18n.server.api.user.create_user.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	var user *model.User
 	provider := einterfaces.GetOauthProvider(service)
 	if provider == nil {
-		return nil, model.NewLocAppError("CreateOAuthUser", "api.user.create_oauth_user.not_available.app_error", map[string]interface{}{"Service": strings.Title(service)}, "")
+		return nil, model.NewLocAppError("CreateOAuthUser", "i18n.server.api.user.create_oauth_user.not_available.app_error", map[string]interface{}{"Service": strings.Title(service)}, "")
 	} else {
 		user = provider.GetUserFromJson(userData)
 	}
 
 	if user == nil {
-		return nil, model.NewLocAppError("CreateOAuthUser", "api.user.create_oauth_user.create.app_error", map[string]interface{}{"Service": service}, "")
+		return nil, model.NewLocAppError("CreateOAuthUser", "i18n.server.api.user.create_oauth_user.create.app_error", map[string]interface{}{"Service": service}, "")
 	}
 
 	suchan := Srv.Store.User().GetByAuth(user.AuthData, service)
@@ -262,16 +262,16 @@ func CreateOAuthUser(service string, userData io.Reader, teamId string) (*model.
 	}
 
 	if result := <-suchan; result.Err == nil {
-		return nil, model.NewLocAppError("CreateOAuthUser", "api.user.create_oauth_user.already_used.app_error", map[string]interface{}{"Service": service}, "email="+user.Email)
+		return nil, model.NewLocAppError("CreateOAuthUser", "i18n.server.api.user.create_oauth_user.already_used.app_error", map[string]interface{}{"Service": service}, "email="+user.Email)
 	}
 
 	if result := <-euchan; result.Err == nil {
 		authService := result.Data.(*model.User).AuthService
 		if authService == "" {
-			return nil, model.NewLocAppError("CreateOAuthUser", "api.user.create_oauth_user.already_attached.app_error",
+			return nil, model.NewLocAppError("CreateOAuthUser", "i18n.server.api.user.create_oauth_user.already_attached.app_error",
 				map[string]interface{}{"Service": service, "Auth": model.USER_AUTH_SERVICE_EMAIL}, "email="+user.Email)
 		} else {
-			return nil, model.NewLocAppError("CreateOAuthUser", "api.user.create_oauth_user.already_attached.app_error",
+			return nil, model.NewLocAppError("CreateOAuthUser", "i18n.server.api.user.create_oauth_user.already_attached.app_error",
 				map[string]interface{}{"Service": service, "Auth": authService}, "email="+user.Email)
 		}
 	}
@@ -340,7 +340,7 @@ func GetUser(userId string) (*model.User, *model.AppError) {
 }
 
 func GetUserByUsername(username string) (*model.User, *model.AppError) {
-	if result := <-Srv.Store.User().GetByUsername(username); result.Err != nil && result.Err.Id == "store.sql_user.get_by_username.app_error" {
+	if result := <-Srv.Store.User().GetByUsername(username); result.Err != nil && result.Err.Id == "i18n.server.store.sql_user.get_by_username.app_error" {
 		result.Err.StatusCode = http.StatusNotFound
 		return nil, result.Err
 	} else {
@@ -350,7 +350,7 @@ func GetUserByUsername(username string) (*model.User, *model.AppError) {
 
 func GetUserByEmail(email string) (*model.User, *model.AppError) {
 
-	if result := <-Srv.Store.User().GetByEmail(email); result.Err != nil && result.Err.Id == "store.sql_user.missing_account.const" {
+	if result := <-Srv.Store.User().GetByEmail(email); result.Err != nil && result.Err.Id == "i18n.server.store.sql_user.missing_account.const" {
 		result.Err.StatusCode = http.StatusNotFound
 		return nil, result.Err
 	} else if result.Err != nil {
@@ -377,7 +377,7 @@ func GetUserForLogin(loginId string, onlyLdap bool) (*model.User, *model.AppErro
 		*utils.Cfg.EmailSettings.EnableSignInWithUsername && !onlyLdap,
 		*utils.Cfg.EmailSettings.EnableSignInWithEmail && !onlyLdap,
 		ldapAvailable,
-	); result.Err != nil && result.Err.Id == "store.sql_user.get_for_login.multiple_users" {
+	); result.Err != nil && result.Err.Id == "i18n.server.store.sql_user.get_for_login.multiple_users" {
 		// don't fall back to LDAP in this case since we already know there's an LDAP user, but that it shouldn't work
 		result.Err.StatusCode = http.StatusBadRequest
 		return nil, result.Err
@@ -619,7 +619,7 @@ func GetUsersByIds(userIds []string, asAdmin bool) ([]*model.User, *model.AppErr
 func GenerateMfaSecret(userId string) (*model.MfaSecret, *model.AppError) {
 	mfaInterface := einterfaces.GetMfaInterface()
 	if mfaInterface == nil {
-		return nil, model.NewAppError("generateMfaSecret", "api.user.generate_mfa_qr.not_available.app_error", nil, "", http.StatusNotImplemented)
+		return nil, model.NewAppError("generateMfaSecret", "i18n.server.api.user.generate_mfa_qr.not_available.app_error", nil, "", http.StatusNotImplemented)
 	}
 
 	var user *model.User
@@ -640,7 +640,7 @@ func GenerateMfaSecret(userId string) (*model.MfaSecret, *model.AppError) {
 func ActivateMfa(userId, token string) *model.AppError {
 	mfaInterface := einterfaces.GetMfaInterface()
 	if mfaInterface == nil {
-		err := model.NewLocAppError("ActivateMfa", "api.user.update_mfa.not_available.app_error", nil, "")
+		err := model.NewLocAppError("ActivateMfa", "i18n.server.api.user.update_mfa.not_available.app_error", nil, "")
 		err.StatusCode = http.StatusNotImplemented
 		return err
 	}
@@ -653,7 +653,7 @@ func ActivateMfa(userId, token string) *model.AppError {
 	}
 
 	if len(user.AuthService) > 0 && user.AuthService != model.USER_AUTH_SERVICE_LDAP {
-		return model.NewLocAppError("ActivateMfa", "api.user.activate_mfa.email_and_ldap_only.app_error", nil, "")
+		return model.NewLocAppError("ActivateMfa", "i18n.server.api.user.activate_mfa.email_and_ldap_only.app_error", nil, "")
 	}
 
 	if err := mfaInterface.Activate(user, token); err != nil {
@@ -666,7 +666,7 @@ func ActivateMfa(userId, token string) *model.AppError {
 func DeactivateMfa(userId string) *model.AppError {
 	mfaInterface := einterfaces.GetMfaInterface()
 	if mfaInterface == nil {
-		err := model.NewLocAppError("DeactivateMfa", "api.user.update_mfa.not_available.app_error", nil, "")
+		err := model.NewLocAppError("DeactivateMfa", "i18n.server.api.user.update_mfa.not_available.app_error", nil, "")
 		err.StatusCode = http.StatusNotImplemented
 		return err
 	}
@@ -716,11 +716,11 @@ func CreateProfileImage(username string, userId string) ([]byte, *model.AppError
 
 	fontBytes, err := ioutil.ReadFile(utils.FindDir("fonts") + utils.Cfg.FileSettings.InitialFont)
 	if err != nil {
-		return nil, model.NewLocAppError("CreateProfileImage", "api.user.create_profile_image.default_font.app_error", nil, err.Error())
+		return nil, model.NewLocAppError("CreateProfileImage", "i18n.server.api.user.create_profile_image.default_font.app_error", nil, err.Error())
 	}
 	font, err := freetype.ParseFont(fontBytes)
 	if err != nil {
-		return nil, model.NewLocAppError("CreateProfileImage", "api.user.create_profile_image.default_font.app_error", nil, err.Error())
+		return nil, model.NewLocAppError("CreateProfileImage", "i18n.server.api.user.create_profile_image.default_font.app_error", nil, err.Error())
 	}
 
 	width := int(utils.Cfg.FileSettings.ProfileWidth)
@@ -741,13 +741,13 @@ func CreateProfileImage(username string, userId string) ([]byte, *model.AppError
 	pt := freetype.Pt(width/6, height*2/3)
 	_, err = c.DrawString(initial, pt)
 	if err != nil {
-		return nil, model.NewLocAppError("CreateProfileImage", "api.user.create_profile_image.initial.app_error", nil, err.Error())
+		return nil, model.NewLocAppError("CreateProfileImage", "i18n.server.api.user.create_profile_image.initial.app_error", nil, err.Error())
 	}
 
 	buf := new(bytes.Buffer)
 
 	if imgErr := png.Encode(buf, dstImg); imgErr != nil {
-		return nil, model.NewLocAppError("CreateProfileImage", "api.user.create_profile_image.encode.app_error", nil, imgErr.Error())
+		return nil, model.NewLocAppError("CreateProfileImage", "i18n.server.api.user.create_profile_image.encode.app_error", nil, imgErr.Error())
 	} else {
 		return buf.Bytes(), nil
 	}
@@ -790,15 +790,15 @@ func SetProfileImage(userId string, imageData *multipart.FileHeader) *model.AppE
 	file, err := imageData.Open()
 	defer file.Close()
 	if err != nil {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.open.app_error", nil, err.Error())
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.open.app_error", nil, err.Error())
 	}
 
 	// Decode image config first to check dimensions before loading the whole thing into memory later on
 	config, _, err := image.DecodeConfig(file)
 	if err != nil {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.decode_config.app_error", nil, err.Error())
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.decode_config.app_error", nil, err.Error())
 	} else if config.Width*config.Height > model.MaxImageSize {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.too_large.app_error", nil, err.Error())
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.too_large.app_error", nil, err.Error())
 	}
 
 	file.Seek(0, 0)
@@ -806,7 +806,7 @@ func SetProfileImage(userId string, imageData *multipart.FileHeader) *model.AppE
 	// Decode image into Image object
 	img, _, err := image.Decode(file)
 	if err != nil {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.decode.app_error", nil, err.Error())
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.decode.app_error", nil, err.Error())
 	}
 
 	// Scale profile image
@@ -815,19 +815,19 @@ func SetProfileImage(userId string, imageData *multipart.FileHeader) *model.AppE
 	buf := new(bytes.Buffer)
 	err = png.Encode(buf, img)
 	if err != nil {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.encode.app_error", nil, err.Error())
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.encode.app_error", nil, err.Error())
 	}
 
 	path := "users/" + userId + "/profile.png"
 
 	if err := WriteFile(buf.Bytes(), path); err != nil {
-		return model.NewLocAppError("SetProfileImage", "api.user.upload_profile_user.upload_profile.app_error", nil, "")
+		return model.NewLocAppError("SetProfileImage", "i18n.server.api.user.upload_profile_user.upload_profile.app_error", nil, "")
 	}
 
 	Srv.Store.User().UpdateLastPictureUpdate(userId)
 
 	if user, err := GetUser(userId); err != nil {
-		l4g.Error(utils.T("api.user.get_me.getting.error"), userId)
+		l4g.Error(utils.T("i18n.server.api.user.get_me.getting.error"), userId)
 	} else {
 		options := utils.Cfg.GetSanitizeOptions()
 		user.SanitizeProfile(options)
@@ -852,25 +852,25 @@ func UpdatePasswordAsUser(userId, currentPassword, newPassword string) *model.Ap
 	}
 
 	if user == nil {
-		err = model.NewAppError("updatePassword", "api.user.update_password.valid_account.app_error", nil, "", http.StatusBadRequest)
+		err = model.NewAppError("updatePassword", "i18n.server.api.user.update_password.valid_account.app_error", nil, "", http.StatusBadRequest)
 		return err
 	}
 
 	if user.AuthData != nil && *user.AuthData != "" {
-		err = model.NewAppError("updatePassword", "api.user.update_password.oauth.app_error", nil, "auth_service="+user.AuthService, http.StatusBadRequest)
+		err = model.NewAppError("updatePassword", "i18n.server.api.user.update_password.oauth.app_error", nil, "auth_service="+user.AuthService, http.StatusBadRequest)
 		return err
 	}
 
 	if err := doubleCheckPassword(user, currentPassword); err != nil {
-		if err.Id == "api.user.check_user_password.invalid.app_error" {
-			err = model.NewAppError("updatePassword", "api.user.update_password.incorrect.app_error", nil, "", http.StatusBadRequest)
+		if err.Id == "i18n.server.api.user.check_user_password.invalid.app_error" {
+			err = model.NewAppError("updatePassword", "i18n.server.api.user.update_password.incorrect.app_error", nil, "", http.StatusBadRequest)
 		}
 		return err
 	}
 
 	T := utils.GetUserTranslations(user.Locale)
 
-	if err := UpdatePasswordSendEmail(user, newPassword, T("api.user.update_password.menu")); err != nil {
+	if err := UpdatePasswordSendEmail(user, newPassword, T("i18n.server.api.user.update_password.menu")); err != nil {
 		return err
 	}
 
@@ -885,7 +885,7 @@ func UpdateActiveNoLdap(userId string, active bool) (*model.User, *model.AppErro
 	}
 
 	if user.IsLDAPUser() {
-		err := model.NewLocAppError("UpdateActive", "api.user.update_active.no_deactivate_ldap.app_error", nil, "userId="+user.Id)
+		err := model.NewLocAppError("UpdateActive", "i18n.server.api.user.update_active.no_deactivate_ldap.app_error", nil, "userId="+user.Id)
 		err.StatusCode = http.StatusBadRequest
 		return nil, err
 	}
@@ -1078,7 +1078,7 @@ func UpdatePassword(user *model.User, newPassword string) *model.AppError {
 	hashedPassword := model.HashPassword(newPassword)
 
 	if result := <-Srv.Store.User().UpdatePassword(user.Id, hashedPassword); result.Err != nil {
-		return model.NewLocAppError("UpdatePassword", "api.user.update_password.failed.app_error", nil, result.Err.Error())
+		return model.NewLocAppError("UpdatePassword", "i18n.server.api.user.update_password.failed.app_error", nil, result.Err.Error())
 	}
 
 	return nil
@@ -1105,7 +1105,7 @@ func ResetPasswordFromCode(code, newPassword string) *model.AppError {
 		return err
 	} else {
 		if model.GetMillis()-recovery.CreateAt >= model.PASSWORD_RECOVER_EXPIRY_TIME {
-			return model.NewAppError("resetPassword", "api.user.reset_password.link_expired.app_error", nil, "", http.StatusBadRequest)
+			return model.NewAppError("resetPassword", "i18n.server.api.user.reset_password.link_expired.app_error", nil, "", http.StatusBadRequest)
 		}
 	}
 
@@ -1115,12 +1115,12 @@ func ResetPasswordFromCode(code, newPassword string) *model.AppError {
 	}
 
 	if user.IsSSOUser() {
-		return model.NewAppError("ResetPasswordFromCode", "api.user.reset_password.sso.app_error", nil, "userId="+user.Id, http.StatusBadRequest)
+		return model.NewAppError("ResetPasswordFromCode", "i18n.server.api.user.reset_password.sso.app_error", nil, "userId="+user.Id, http.StatusBadRequest)
 	}
 
 	T := utils.GetUserTranslations(user.Locale)
 
-	if err := UpdatePasswordSendEmail(user, newPassword, T("api.user.reset_password.method")); err != nil {
+	if err := UpdatePasswordSendEmail(user, newPassword, T("i18n.server.api.user.reset_password.method")); err != nil {
 		return err
 	}
 
@@ -1139,7 +1139,7 @@ func SendPasswordReset(email string, siteURL string) (bool, *model.AppError) {
 	}
 
 	if user.AuthData != nil && len(*user.AuthData) != 0 {
-		return false, model.NewAppError("SendPasswordReset", "api.user.send_password_reset.sso.app_error", nil, "userId="+user.Id, http.StatusBadRequest)
+		return false, model.NewAppError("SendPasswordReset", "i18n.server.api.user.send_password_reset.sso.app_error", nil, "userId="+user.Id, http.StatusBadRequest)
 	}
 
 	var recovery *model.PasswordRecovery
@@ -1148,7 +1148,7 @@ func SendPasswordReset(email string, siteURL string) (bool, *model.AppError) {
 	}
 
 	if _, err := SendPasswordResetEmail(email, recovery, user.Locale, siteURL); err != nil {
-		return false, model.NewLocAppError("SendPasswordReset", "api.user.send_password_reset.send.app_error", nil, "err="+err.Message)
+		return false, model.NewLocAppError("SendPasswordReset", "i18n.server.api.user.send_password_reset.send.app_error", nil, "err="+err.Message)
 	}
 
 	return true, nil
@@ -1167,7 +1167,7 @@ func CreatePasswordRecovery(userId string) (*model.PasswordRecovery, *model.AppE
 
 func GetPasswordRecovery(code string) (*model.PasswordRecovery, *model.AppError) {
 	if result := <-Srv.Store.PasswordRecovery().GetByCode(code); result.Err != nil {
-		return nil, model.NewAppError("GetPasswordRecovery", "api.user.reset_password.invalid_link.app_error", nil, result.Err.Error(), http.StatusBadRequest)
+		return nil, model.NewAppError("GetPasswordRecovery", "i18n.server.api.user.reset_password.invalid_link.app_error", nil, result.Err.Error(), http.StatusBadRequest)
 	} else {
 		return result.Data.(*model.PasswordRecovery), nil
 	}
@@ -1211,9 +1211,9 @@ func UpdateUserRoles(userId string, newRoles string) (*model.User, *model.AppErr
 }
 
 func PermanentDeleteUser(user *model.User) *model.AppError {
-	l4g.Warn(utils.T("api.user.permanent_delete_user.attempting.warn"), user.Email, user.Id)
+	l4g.Warn(utils.T("i18n.server.api.user.permanent_delete_user.attempting.warn"), user.Email, user.Id)
 	if user.IsInRole(model.ROLE_SYSTEM_ADMIN.Id) {
-		l4g.Warn(utils.T("api.user.permanent_delete_user.system_admin.warn"), user.Email)
+		l4g.Warn(utils.T("i18n.server.api.user.permanent_delete_user.system_admin.warn"), user.Email)
 	}
 
 	if _, err := UpdateActive(user, false); err != nil {
@@ -1268,7 +1268,7 @@ func PermanentDeleteUser(user *model.User) *model.AppError {
 		return result.Err
 	}
 
-	l4g.Warn(utils.T("api.user.permanent_delete_user.deleted.warn"), user.Email, user.Id)
+	l4g.Warn(utils.T("i18n.server.api.user.permanent_delete_user.deleted.warn"), user.Email, user.Id)
 
 	return nil
 }
@@ -1433,7 +1433,7 @@ func UpdateOAuthUserAttrs(userData io.Reader, user *model.User, provider einterf
 	oauthUser := provider.GetUserFromJson(userData)
 
 	if oauthUser == nil {
-		return model.NewLocAppError("UpdateOAuthUserAttrs", "api.user.update_oauth_user_attrs.get_user.app_error", map[string]interface{}{"Service": service}, "")
+		return model.NewLocAppError("UpdateOAuthUserAttrs", "i18n.server.api.user.update_oauth_user_attrs.get_user.app_error", map[string]interface{}{"Service": service}, "")
 	}
 
 	userAttrsChanged := false

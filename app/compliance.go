@@ -13,7 +13,7 @@ import (
 
 func GetComplianceReports(page, perPage int) (model.Compliances, *model.AppError) {
 	if !*utils.Cfg.ComplianceSettings.Enable || !utils.IsLicensed || !*utils.License.Features.Compliance {
-		return nil, model.NewLocAppError("GetComplianceReports", "ent.compliance.licence_disable.app_error", nil, "")
+		return nil, model.NewLocAppError("GetComplianceReports", "i18n.server.ent.compliance.licence_disable.app_error", nil, "")
 	}
 
 	if result := <-Srv.Store.Compliance().GetAll(page*perPage, perPage); result.Err != nil {
@@ -25,7 +25,7 @@ func GetComplianceReports(page, perPage int) (model.Compliances, *model.AppError
 
 func SaveComplianceReport(job *model.Compliance) (*model.Compliance, *model.AppError) {
 	if !*utils.Cfg.ComplianceSettings.Enable || !utils.IsLicensed || !*utils.License.Features.Compliance || einterfaces.GetComplianceInterface() == nil {
-		return nil, model.NewLocAppError("saveComplianceReport", "ent.compliance.licence_disable.app_error", nil, "")
+		return nil, model.NewLocAppError("saveComplianceReport", "i18n.server.ent.compliance.licence_disable.app_error", nil, "")
 	}
 
 	job.Type = model.COMPLIANCE_TYPE_ADHOC
@@ -42,7 +42,7 @@ func SaveComplianceReport(job *model.Compliance) (*model.Compliance, *model.AppE
 
 func GetComplianceReport(reportId string) (*model.Compliance, *model.AppError) {
 	if !*utils.Cfg.ComplianceSettings.Enable || !utils.IsLicensed || !*utils.License.Features.Compliance || einterfaces.GetComplianceInterface() == nil {
-		return nil, model.NewLocAppError("downloadComplianceReport", "ent.compliance.licence_disable.app_error", nil, "")
+		return nil, model.NewLocAppError("downloadComplianceReport", "i18n.server.ent.compliance.licence_disable.app_error", nil, "")
 	}
 
 	if result := <-Srv.Store.Compliance().Get(reportId); result.Err != nil {
@@ -54,7 +54,7 @@ func GetComplianceReport(reportId string) (*model.Compliance, *model.AppError) {
 
 func GetComplianceFile(job *model.Compliance) ([]byte, *model.AppError) {
 	if f, err := ioutil.ReadFile(*utils.Cfg.ComplianceSettings.Directory + "compliance/" + job.JobName() + ".zip"); err != nil {
-		return nil, model.NewLocAppError("readFile", "api.file.read_file.reading_local.app_error", nil, err.Error())
+		return nil, model.NewLocAppError("readFile", "i18n.server.api.file.read_file.reading_local.app_error", nil, err.Error())
 
 	} else {
 		return f, nil
