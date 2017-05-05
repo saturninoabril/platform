@@ -5,9 +5,11 @@ import React from 'react';
 
 import Client from 'client/web_client.jsx';
 import PreferenceStore from 'stores/preference_store.jsx';
+import UserStore from 'stores/user_store.jsx';
 import * as Utils from 'utils/utils.jsx';
 
 import SidebarHeaderDropdown from './sidebar_header_dropdown.jsx';
+import StatusIcon from './status_icon.jsx';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
 import {Preferences, TutorialSteps, Constants} from 'utils/constants.jsx';
@@ -55,12 +57,21 @@ export default class SidebarHeader extends React.Component {
             return null;
         }
 
+        let status = UserStore.getStatus(me.id);
+
+        ///////////////
+        console.log('me: ', me);
+        console.log('status: ', status);
+
         if (me.last_picture_update) {
             profilePicture = (
-                <img
-                    className='user__picture'
-                    src={Client.getUsersRoute() + '/' + me.id + '/image?time=' + me.last_picture_update}
-                />
+                <span className='status-wrapper'>
+                    <img
+                        className='user__picture'
+                        src={Client.getUsersRoute() + '/' + me.id + '/image?time=' + me.last_picture_update}
+                    />
+                    <StatusIcon status={status}/>
+                </span>
             );
         }
 
