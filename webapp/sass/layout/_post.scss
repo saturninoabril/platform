@@ -600,13 +600,6 @@
     .post-list__content {
         display: table-cell;
         vertical-align: bottom;
-
-        .dropdown-menu {
-            &.bottom {
-                bottom: 19px;
-                top: auto;
-            }
-        }
     }
 }
 
@@ -641,7 +634,7 @@
         }
     }
 
-    &.post--hovered {
+    &.post-dropdown-menu--opened {
         .dropdown,
         .comment-icon__container,
         .post__reply,
@@ -926,7 +919,7 @@
             padding: 0 .5em 0 1em;
 
             &:hover,
-            &.post--hovered {
+            &.post-dropdown-menu--opened {
                 .post__time {
                     @include opacity(.5);
                 }

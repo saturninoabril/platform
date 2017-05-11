@@ -29,13 +29,31 @@
             }
         }
 
+        &.rhs-dropdown-menu--opened {
+            .dropdown,
+            .comment-icon__container,
+            .col__reply,
+            .col__remove,
+            .reacticon__container {
+                visibility: visible;
+            }
+
+            .post__body {
+                background: transparent !important;
+            }
+        }
+
         .post__header {
             .col__reply {
-                background: transparent !important;
-                border: none !important;
-                right: 5px;
-                text-align: right;
-                top: 0;
+                border: 1px solid transparent;
+                border-radius: 2px;
+                min-width: 30px;
+                padding: 2px 5px;
+                position: absolute;
+                right: 0;
+                top: -4px;
+                white-space: nowrap;
+                z-index: 6;
             }
         }
 

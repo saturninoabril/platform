@@ -194,7 +194,7 @@ export default class Post extends Component {
         }
 
         if (this.state.dropdownOpened) {
-            className += ' post--hovered';
+            className += ' post-dropdown-menu--opened';
         }
 
         if (post.is_pinned) {

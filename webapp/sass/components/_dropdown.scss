@@ -45,6 +45,11 @@
 
         > .dropdown-menu {
             display: block;
+
+            &.bottom {
+                bottom: 19px;
+                top: auto;
+            }
         }
     }
 }

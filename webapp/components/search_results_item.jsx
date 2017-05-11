@@ -7,24 +7,23 @@ import UserProfile from './user_profile.jsx';
 import FileAttachmentListContainer from './file_attachment_list_container.jsx';
 import ProfilePicture from './profile_picture.jsx';
 import CommentIcon from 'components/common/comment_icon.jsx';
+import DotMenu from 'components/common/dot_menu.jsx';
+import Jump from 'components/common/jump.jsx';
 
 import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 
-import AppDispatcher from '../dispatcher/app_dispatcher.jsx';
 import * as GlobalActions from 'actions/global_actions.jsx';
 import {flagPost, unflagPost} from 'actions/post_actions.jsx';
 import PostFlagIcon from 'components/common/post_flag_icon.jsx';
 
 import * as Utils from 'utils/utils.jsx';
 import * as PostUtils from 'utils/post_utils.jsx';
-
 import Constants from 'utils/constants.jsx';
-const ActionTypes = Constants.ActionTypes;
 
 import React from 'react';
 import {FormattedMessage, FormattedDate} from 'react-intl';
-import {browserHistory, Link} from 'react-router/es6';
+import {Link} from 'react-router/es6';
 
 export default class SearchResultsItem extends React.Component {
     constructor(props) {
@@ -38,7 +37,8 @@ export default class SearchResultsItem extends React.Component {
         this.state = {
             currentTeamDisplayName: TeamStore.getCurrent().name,
             width: '',
-            height: ''
+            height: '',
+            dropdownOpened: false
         };
     }
 
@@ -52,6 +52,14 @@ export default class SearchResultsItem extends React.Component {
         window.removeEventListener('resize', () => {
             Utils.updateWindowDimensions(this);
         });
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextState.dropdownOpened !== this.state.dropdownOpened) {
+            return true;
+        }
+
+        return false;
     }
 
     hideSidebar() {
@@ -107,6 +115,10 @@ export default class SearchResultsItem extends React.Component {
                     {this.timeTag(post)}
                 </Link>
             );
+    }
+
+    handleDropdownOpened = (opened) => {
+        this.setState({dropdownOpened: opened});
     }
 
     render() {
@@ -167,6 +179,10 @@ export default class SearchResultsItem extends React.Component {
             compactClass = 'post--compact';
         }
 
+        if (this.state.dropdownOpened) {
+            compactClass += ' rhs-dropdown-menu--opened';
+        }
+
         let fileAttachment = null;
         if (post.file_ids && post.file_ids.length > 0) {
             fileAttachment = (
@@ -201,46 +217,25 @@ export default class SearchResultsItem extends React.Component {
 
             rhsControls = (
                 <li className='col__controls'>
+                    <DotMenu
+                        idPrefix='search'
+                        idCount={idCount}
+                        post={post}
+                        isFlagged={this.props.isFlagged}
+                        handleDropdownOpened={this.handleDropdownOpened}
+                    />
                     <CommentIcon
                         idPrefix={'searchCommentIcon'}
                         idCount={idCount}
                         handleCommentClick={this.handleFocusRHSClick}
                         searchStyle={'search-item__comment'}
                     />
-                    <a
-                        onClick={
-                            () => {
-                                if (Utils.isMobile()) {
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_SEARCH,
-                                        results: null
-                                    });
-
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_SEARCH_TERM,
-                                        term: null,
-                                        do_search: false,
-                                        is_mention_search: false
-                                    });
-
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_POST_SELECTED,
-                                        postId: null
-                                    });
-
-                                    this.hideSidebar();
-                                }
-                                this.shrinkSidebar();
-                                browserHistory.push(TeamStore.getCurrentTeamRelativeUrl() + '/pl/' + post.id);
-                            }
-                        }
-                        className='search-item__jump'
-                    >
-                        <FormattedMessage
-                            id='search_item.jump'
-                            defaultMessage='Jump'
-                        />
-                    </a>
+                    <Jump
+                        idPrefix='searchJump'
+                        idCount={idCount}
+                        postId={post.id}
+                        shrink={this.props.shrink}
+                    />
                 </li>
             );
 

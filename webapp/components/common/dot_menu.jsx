@@ -38,13 +38,12 @@ export default class DotMenu extends Component {
         this.canDelete = false;
         this.canEdit = false;
         this.editDisableAction = new DelayedAction(this.handleEditDisable);
+        this.dropdownId = Utils.createSafeId(this.props.idPrefix + this.props.post.id);
     }
 
     componentDidMount() {
-        if (this.props.idPrefix === Constants.CENTER) {
-            $('#post_dropdown' + this.props.post.id).on('shown.bs.dropdown', this.handleDropdownOpened);
-            $('#post_dropdown' + this.props.post.id).on('hidden.bs.dropdown', () => this.props.handleDropdownOpened(false));
-        }
+        $('#' + this.dropdownId).on('shown.bs.dropdown', this.handleDropdownOpened);
+        $('#' + this.dropdownId).on('hidden.bs.dropdown', () => this.props.handleDropdownOpened(false));
     }
 
     handleDropdownOpened() {
@@ -167,7 +166,7 @@ export default class DotMenu extends Component {
                 ref='dotMenu'
             >
                 <div
-                    id={'post_dropdown' + this.props.post.id}
+                    id={this.dropdownId}
                 >
                     <a
                         ref='dropdownToggle'

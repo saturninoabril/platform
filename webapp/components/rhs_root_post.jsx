@@ -51,7 +51,8 @@ export default class RhsRootPost extends React.Component {
             width: '',
             height: '',
             showRHSEmojiPicker: false,
-            testStateObj: true
+            testStateObj: true,
+            dropdownOpened: false
         };
     }
 
@@ -110,6 +111,10 @@ export default class RhsRootPost extends React.Component {
         }
 
         if (this.state.showRHSEmojiPicker !== nextState.showRHSEmojiPicker) {
+            return true;
+        }
+
+        if (nextState.dropdownOpened !== this.state.dropdownOpened) {
             return true;
         }
 
@@ -189,7 +194,17 @@ export default class RhsRootPost extends React.Component {
             className += ' post--pinned';
         }
 
+        if (this.state.dropdownOpened) {
+            className += ' rhs-dropdown-menu--opened';
+        }
+
         return className;
+    }
+
+    handleDropdownOpened = (opened) => {
+        this.setState({
+            dropdownOpened: opened
+        });
     }
 
     render() {
@@ -257,6 +272,7 @@ export default class RhsRootPost extends React.Component {
                 idPrefix='rhsRoot'
                 post={this.props.post}
                 isFlagged={this.props.isFlagged}
+                handleDropdownOpened={this.handleDropdownOpened}
             />
         );
 

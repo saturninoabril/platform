@@ -49,7 +49,8 @@ export default class RhsComment extends React.Component {
             width: '',
             height: '',
             showReactEmojiPicker: false,
-            reactPickerOffset: 15
+            reactPickerOffset: 15,
+            dropdownOpened: false
         };
     }
 
@@ -121,6 +122,10 @@ export default class RhsComment extends React.Component {
         }
 
         if (nextProps.lastPostCount !== this.props.lastPostCount) {
+            return true;
+        }
+
+        if (nextState.dropdownOpened !== this.state.dropdownOpened) {
             return true;
         }
 
@@ -211,7 +216,17 @@ export default class RhsComment extends React.Component {
             className += ' post--pinned';
         }
 
+        if (this.state.dropdownOpened) {
+            className += ' rhs-dropdown-menu--opened';
+        }
+
         return className;
+    }
+
+    handleDropdownOpened = (opened) => {
+        this.setState({
+            dropdownOpened: opened
+        });
     }
 
     render() {
@@ -409,6 +424,7 @@ export default class RhsComment extends React.Component {
                     idCount={idCount}
                     post={this.props.post}
                     isFlagged={this.props.isFlagged}
+                    handleDropdownOpened={this.handleDropdownOpened}
                 />
             );
 
