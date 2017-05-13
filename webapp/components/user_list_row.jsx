@@ -13,7 +13,7 @@ import Client from 'client/web_client.jsx';
 import React from 'react';
 import {FormattedHTMLMessage} from 'react-intl';
 
-export default function UserListRow({user, extraInfo, actions, actionProps, actionUserProps}) {
+export default function UserListRow({user, extraInfo, actions, actionProps, actionUserProps, idCount}) {
     const nameFormat = PreferenceStore.get(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'name_format', '');
 
     let name = user.username;
@@ -58,6 +58,13 @@ export default function UserListRow({user, extraInfo, actions, actionProps, acti
         status = UserStore.getStatus(user.id);
     }
 
+    let usernameId = null;
+    let emailId = null;
+    if (idCount >= 0) {
+        usernameId = Utils.createSafeId('userListRowName' + idCount);
+        emailId = Utils.createSafeId('userListRowEmail' + idCount);
+    }
+
     return (
         <div
             key={user.id}
@@ -72,10 +79,16 @@ export default function UserListRow({user, extraInfo, actions, actionProps, acti
             <div
                 className='more-modal__details'
             >
-                <div className='more-modal__name'>
+                <div
+                    id={usernameId}
+                    className='more-modal__name'
+                >
                     {name}
                 </div>
-                <div className={emailStyle}>
+                <div
+                    id={emailId}
+                    className={emailStyle}
+                >
                     {email}
                 </div>
                 {extraInfo}
@@ -101,5 +114,6 @@ UserListRow.propTypes = {
     extraInfo: React.PropTypes.arrayOf(React.PropTypes.object),
     actions: React.PropTypes.arrayOf(React.PropTypes.func),
     actionProps: React.PropTypes.object,
-    actionUserProps: React.PropTypes.object
+    actionUserProps: React.PropTypes.object,
+    idCount: React.PropTypes.number
 };
