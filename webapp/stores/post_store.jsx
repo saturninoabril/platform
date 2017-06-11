@@ -468,15 +468,21 @@ class PostStoreClass extends EventEmitter {
     }
 
     updatePendingPost(post) {
+        console.log("UPDATE PENDING POST");
         const copyPost = JSON.parse(JSON.stringify(post));
         const postList = makePostListNonNull(this.getPendingPosts(copyPost.channel_id));
 
+        console.log("updatePendingPost copyPost: ", copyPost);
+        console.log("updatePendingPost postList: ", postList);
+
         if (postList.order.indexOf(copyPost.pending_post_id) === -1) {
+            console.log("updatePendingPost copyPost NOT FOUND in postList");
             return;
         }
 
         postList.posts[copyPost.pending_post_id] = copyPost;
         this.postsInfo[copyPost.channel_id].pendingPosts = postList;
+        console.log("updatePendingPost this.postsInfo[copyPost.channel_id].pendingPosts: ", this.postsInfo[copyPost.channel_id].pendingPosts);
         this.emitChange();
     }
 
