@@ -433,10 +433,14 @@ class PostStoreClass extends EventEmitter {
     }
 
     storePendingPost(post) {
+        console.log("STORE PENDING POST");
         const copyPost = JSON.parse(JSON.stringify(post));
         copyPost.state = Constants.POST_LOADING;
 
         const postList = makePostListNonNull(this.getPendingPosts(copyPost.channel_id));
+
+        console.log("storePendingPost copyPost: ", copyPost);
+        console.log("storePendingPost copyPost: ", postList);
 
         postList.posts[copyPost.pending_post_id] = copyPost;
         postList.order.unshift(copyPost.pending_post_id);

@@ -24,19 +24,19 @@ export default class PendingPostOptions extends React.Component {
     retryPost(e) {
         e.preventDefault();
 
+        console.log("RETRY POST");
+
         // if (this.submitting || !WebSocketClient.isOpen()) {
         //     return;
         // }
 
         if (this.submitting) {
-            console.log("SUBMITTING");
-            console.log("this.props.post: ", this.props.post);
+            console.log("retryPost SUBMITTING this.props.post: ", this.props.post);
             return;
         }
 
         if (WebSocketClient.isOpen()) {
-            console.log("WS NOT OPEN");
-            console.log("this.props.post: ", this.props.post);
+            console.log("retryPost WS NOT OPEN this.props.post: ", this.props.post);
             return;
         }
 
@@ -58,7 +58,7 @@ export default class PendingPostOptions extends React.Component {
         post.state = Constants.POST_LOADING;
         PostStore.updatePendingPost(post);
         this.forceUpdate();
-        console.log("SUBMIT ==> POST_LOADING ==>", "POST: ", post);
+        console.log("retryPost SUBMIT ==> POST_LOADING ==>", "POST: ", post);
     }
     cancelPost(e) {
         e.preventDefault();
