@@ -37,7 +37,7 @@ export default class PendingPostOptions extends React.Component {
         if (WebSocketClient.isOpen()) {
             console.log("WS NOT OPEN");
             console.log("this.props.post: ", this.props.post);
-            // return;
+            return;
         }
 
         this.submitting = true;

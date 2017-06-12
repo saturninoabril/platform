@@ -393,6 +393,7 @@ function sendNextPostInQueue() {
 
 export function createPost(post, doLoadPost, success, error) {
     if (WebSocketClient.isOpen()) {
+        console.log("CREATEPOST: WS OPEN");
         Client.createPost(post,
             (data) => {
                 if (doLoadPost) {
@@ -425,6 +426,7 @@ export function createPost(post, doLoadPost, success, error) {
             }
         );
     } else {
+        console.log("NOT CREATEPOST: WS NOT OPEN")
         post.state = Constants.POST_FAILED;
         PostStore.updatePendingPost(post);
     }
