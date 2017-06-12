@@ -346,7 +346,6 @@ const postQueue = [];
 
 export function queuePost(post, doLoadPost, success, error) {
     console.log("QUEUE POST");
-    console.log("queuePost postQueue: ", postQueue);
     postQueue.push(
         createPost.bind(
             this,
@@ -369,6 +368,7 @@ export function queuePost(post, doLoadPost, success, error) {
         )
     );
 
+    console.log("queuePost postQueue: ", postQueue);
     sendFirstPostInQueue();
 }
 
