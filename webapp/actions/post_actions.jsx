@@ -344,6 +344,7 @@ export function removeReaction(channelId, postId, emojiName) {
 const postQueue = [];
 
 export function queuePost(post, doLoadPost, success, error) {
+    console.log("QUEUEPOST");
     postQueue.push(
         createPost.bind(
             this,
@@ -365,6 +366,8 @@ export function queuePost(post, doLoadPost, success, error) {
             }
         )
     );
+
+    console.log("QUEUEPOST postQueue: ", postQueue);
 
     sendFirstPostInQueue();
 }
@@ -391,11 +394,14 @@ function sendNextPostInQueue() {
 }
 
 export function createPost(post, doLoadPost, success, error) {
+    console.log("CREATEPOST post: ", post);
     Client.createPost(post,
         (data) => {
             if (doLoadPost) {
+                console.log("CREATEPOST loadPosts");
                 loadPosts(post.channel_id);
             } else {
+                console.log("CREATEPOST removePendingPost");
                 PostStore.removePendingPost(post.pending_post_id);
             }
 
@@ -405,19 +411,23 @@ export function createPost(post, doLoadPost, success, error) {
             });
 
             if (success) {
+                console.log("CREATEPOST success data: ", data);
                 success(data);
             }
         },
 
         (err) => {
             if (err.id === 'api.post.create_post.root_id.app_error') {
+                console.log("CREATEPOST removePendingPost err.id");
                 PostStore.removePendingPost(post.pending_post_id);
             } else {
                 post.state = Constants.POST_FAILED;
                 PostStore.updatePendingPost(post);
+                console.log("CREATEPOST updatePendingPost Constants.POST_FAILED post:", post);
             }
 
             if (error) {
+                console.log("CREATEPOST error err:", err);
                 error(err);
             }
         }

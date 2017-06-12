@@ -433,31 +433,38 @@ class PostStoreClass extends EventEmitter {
     }
 
     storePendingPost(post) {
+        console.log("STOREPENDINGPOST");
         const copyPost = JSON.parse(JSON.stringify(post));
         copyPost.state = Constants.POST_LOADING;
 
         const postList = makePostListNonNull(this.getPendingPosts(copyPost.channel_id));
 
+        console.log("STOREPENDINGPOST Constants.POST_LOADING copyPost: ", copyPost);
+        console.log("STOREPENDINGPOST postList: ", postList);
+        
         postList.posts[copyPost.pending_post_id] = copyPost;
         postList.order.unshift(copyPost.pending_post_id);
 
         this.makePostsInfo(copyPost.channel_id);
         this.postsInfo[copyPost.channel_id].pendingPosts = postList;
+        console.log("STOREPENDINGPOST this.postsInfo[copyPost.channel_id].pendingPosts: ", this.postsInfo[copyPost.channel_id].pendingPosts);
         this.emitChange();
     }
 
     removePendingPost(channelId, pendingPostId) {
         const postList = makePostListNonNull(this.getPendingPosts(channelId));
-
+        console.log("REMOVEPENDINGPOST postList: ", postList);
         Reflect.deleteProperty(postList.posts, pendingPostId);
         const index = postList.order.indexOf(pendingPostId);
         if (index === -1) {
+            console.log("REMOVEPENDINGPOST index === -1");
             return;
         }
 
         postList.order.splice(index, 1);
 
         this.postsInfo[channelId].pendingPosts = postList;
+        console.log("REMOVEPENDINGPOST this.postsInfo[channelId].pendingPosts: ", this.postsInfo[channelId].pendingPosts);
         this.emitChange();
     }
 
@@ -471,12 +478,17 @@ class PostStoreClass extends EventEmitter {
         const copyPost = JSON.parse(JSON.stringify(post));
         const postList = makePostListNonNull(this.getPendingPosts(copyPost.channel_id));
 
+        console.log("UPDATEPENDINGPOST copyPost: ", copyPost);
+        console.log("UPDATEPENDINGPOST postList: ", postList);
+
         if (postList.order.indexOf(copyPost.pending_post_id) === -1) {
+            console.log("UPDATEPENDINGPOST not found: ");
             return;
         }
 
         postList.posts[copyPost.pending_post_id] = copyPost;
         this.postsInfo[copyPost.channel_id].pendingPosts = postList;
+        console.log("REMOVEPENDINGPOST this.postsInfo[copyPost.channel_id].pendingPosts: ", this.postsInfo[copyPost.channel_id].pendingPosts);
         this.emitChange();
     }
 
