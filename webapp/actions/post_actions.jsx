@@ -345,6 +345,8 @@ export function removeReaction(channelId, postId, emojiName) {
 const postQueue = [];
 
 export function queuePost(post, doLoadPost, success, error) {
+    console.log("QUEUE POST");
+    console.log("queuePost doLoadPost: ", postQueue);
     postQueue.push(
         createPost.bind(
             this,
