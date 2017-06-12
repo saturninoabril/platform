@@ -44,6 +44,8 @@ export default class PendingPostOptions extends React.Component {
         this.submitting = true;
 
         var post = this.props.post;
+        console.log("retryPost post: ", post);
+        console.log("retryPost queuePost");
         queuePost(post, true, null,
             (err) => {
                 if (err.id === 'api.post.create_post.root_id.app_error') {
@@ -57,6 +59,7 @@ export default class PendingPostOptions extends React.Component {
         );
 
         post.state = Constants.POST_LOADING;
+        console.log("retryPost after queuePost post: ", post);
         PostStore.updatePendingPost(post);
         this.forceUpdate();
         console.log("retryPost SUBMIT ==> POST_LOADING ==>", "POST: ", post);

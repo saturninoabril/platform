@@ -158,6 +158,10 @@ export default class WebSocketClient {
     }
 
     isClosed() {
+        //////////////////////
+        if (this.conn !== null) {
+            console.log("WS isClosed this.conn.readyState: ", this.conn.readyState);
+        }
         return this.conn !== null && this.conn.readyState === WebSocket.CLOSED;
     }
 
