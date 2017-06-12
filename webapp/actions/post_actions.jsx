@@ -393,8 +393,13 @@ function sendNextPostInQueue() {
 
 export function createPost(post, doLoadPost, success, error) {
     console.log("CREATEPOST:");
-    if (WebSocketClient.isOpen()) {
-        console.log("createPost: WS OPEN");
+    if (WebSocketClient.isClosed()) {
+        console.log("createPost: WS CLOSED");
+        post.state = Constants.POST_FAILED;
+        console.log("createPost before updatePendingPost: post: ", post);
+        PostStore.updatePendingPost(post);
+    } else {
+        console.log("createPost: WS NOT CLOSED");
         console.log("createPost: post: ", post);
         Client.createPost(post,
             (data) => {
@@ -427,11 +432,6 @@ export function createPost(post, doLoadPost, success, error) {
                 }
             }
         );
-    } else {
-        console.log("createPost: WS NOT OPEN");
-        post.state = Constants.POST_FAILED;
-        console.log("createPost before updatePendingPost: post: ", post);
-        PostStore.updatePendingPost(post);
     }
 }
 

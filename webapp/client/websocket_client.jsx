@@ -157,8 +157,8 @@ export default class WebSocketClient {
         }
     }
 
-    isOpen() {
-        return this.conn !== null && this.conn.readyState === WebSocket.OPEN;
+    isClosed() {
+        return this.conn !== null && this.conn.readyState === WebSocket.CLOSED;
     }
 
     sendMessage(action, data, responseCallback) {
