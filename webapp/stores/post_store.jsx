@@ -440,7 +440,7 @@ class PostStoreClass extends EventEmitter {
         const postList = makePostListNonNull(this.getPendingPosts(copyPost.channel_id));
 
         console.log("storePendingPost copyPost: ", copyPost);
-        console.log("storePendingPost copyPost: ", postList);
+        console.log("storePendingPost postList: ", postList);
 
         postList.posts[copyPost.pending_post_id] = copyPost;
         postList.order.unshift(copyPost.pending_post_id);

@@ -30,10 +30,11 @@ export default class PendingPostOptions extends React.Component {
         //     return;
         // }
 
-        if (this.submitting) {
-            console.log("retryPost SUBMITTING this.props.post: ", this.props.post);
-            return;
-        }
+        // not needed for Chrome
+        // if (this.submitting) {
+        //     console.log("retryPost SUBMITTING this.props.post: ", this.props.post);
+        //     return;
+        // }
 
         console.log("retryPost WebSocketClient.isClosed(): ", WebSocketClient.isClosed());
         // if (!WebSocketClient.isClosed()) {
