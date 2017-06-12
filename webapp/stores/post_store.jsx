@@ -309,6 +309,7 @@ class PostStoreClass extends EventEmitter {
         ids.forEach((id) => {
             const postList = makePostListNonNull(this.getAllPosts(id));
             if (post.pending_post_id !== '') {
+                console.log("STOREPOST removePendingPost ===>>>");
                 this.removePendingPost(post.channel_id, post.pending_post_id);
             }
 
@@ -488,7 +489,7 @@ class PostStoreClass extends EventEmitter {
 
         postList.posts[copyPost.pending_post_id] = copyPost;
         this.postsInfo[copyPost.channel_id].pendingPosts = postList;
-        console.log("REMOVEPENDINGPOST this.postsInfo[copyPost.channel_id].pendingPosts: ", this.postsInfo[copyPost.channel_id].pendingPosts);
+        console.log("UPDATEPENDINGPOST this.postsInfo[copyPost.channel_id].pendingPosts: ", this.postsInfo[copyPost.channel_id].pendingPosts);
         this.emitChange();
     }
 

@@ -280,6 +280,7 @@ export default class CreateComment extends React.Component {
             (err) => {
                 if (err.id === 'api.post.create_post.root_id.app_error') {
                     this.showPostDeletedModal();
+                    console.log("CREATECOMMENT HANDLESUBMITPOST removePendingPost ===>>>");
                     PostStore.removePendingPost(post.channel_id, post.pending_post_id);
                     this.setState({message: post.message});
                 } else {

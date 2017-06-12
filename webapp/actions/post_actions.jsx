@@ -398,10 +398,10 @@ export function createPost(post, doLoadPost, success, error) {
     Client.createPost(post,
         (data) => {
             if (doLoadPost) {
-                console.log("CREATEPOST loadPosts");
+                console.log("CREATEPOST loadPosts ===>>>");
                 loadPosts(post.channel_id);
             } else {
-                console.log("CREATEPOST removePendingPost");
+                console.log("CREATEPOST removePendingPost ===>>>");
                 PostStore.removePendingPost(post.pending_post_id);
             }
 
@@ -418,12 +418,14 @@ export function createPost(post, doLoadPost, success, error) {
 
         (err) => {
             if (err.id === 'api.post.create_post.root_id.app_error') {
-                console.log("CREATEPOST removePendingPost err.id");
+                console.log("CREATEPOST err.id");
+                console.log("CREATEPOST removePendingPost ===>>>");
                 PostStore.removePendingPost(post.pending_post_id);
             } else {
                 post.state = Constants.POST_FAILED;
+                console.log("CREATEPOST Constants.POST_FAILED post:", post);
+                console.log("CREATEPOST updatePendingPost ===>>>");
                 PostStore.updatePendingPost(post);
-                console.log("CREATEPOST updatePendingPost Constants.POST_FAILED post:", post);
             }
 
             if (error) {

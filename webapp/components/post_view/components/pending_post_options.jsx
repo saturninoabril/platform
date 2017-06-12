@@ -51,6 +51,7 @@ export default class PendingPostOptions extends React.Component {
 
         post.state = Constants.POST_LOADING;
         console.log("PendingPostOptions RETRYPOST after queuePost Constants.POST_LOADING post: ", post);
+        console.log("PendingPostOptions RETRYPOST updatePendingPost ===>>>");
         PostStore.updatePendingPost(post);
         this.forceUpdate();
     }
@@ -58,6 +59,7 @@ export default class PendingPostOptions extends React.Component {
         e.preventDefault();
 
         var post = this.props.post;
+        console.log("PendingPostOptions CANCELPOST removePendingPost ===>>>");
         PostStore.removePendingPost(post.channel_id, post.pending_post_id);
         this.forceUpdate();
     }
