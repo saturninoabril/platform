@@ -7,6 +7,7 @@ import UserProfile from './user_profile.jsx';
 import FileAttachmentListContainer from './file_attachment_list_container.jsx';
 import ProfilePicture from './profile_picture.jsx';
 import CommentIcon from 'components/common/comment_icon.jsx';
+import DotMenu from 'components/dot_menu/dot_menu.jsx';
 
 import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
@@ -33,6 +34,8 @@ export default class SearchResultsItem extends React.Component {
         super(props);
 
         this.handleFocusRHSClick = this.handleFocusRHSClick.bind(this);
+        this.handleJumplick = this.handleJumplick.bind(this);
+        this.handleDropdownOpened = this.handleDropdownOpened.bind(this);
         this.shrinkSidebar = this.shrinkSidebar.bind(this);
         this.unflagPost = this.unflagPost.bind(this);
         this.flagPost = this.flagPost.bind(this);
@@ -40,8 +43,25 @@ export default class SearchResultsItem extends React.Component {
         this.state = {
             currentTeamDisplayName: TeamStore.getCurrent().name,
             width: '',
-            height: ''
+            height: '',
+            dropdownOpened: false
         };
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.post.is_pinned !== this.props.post.is_pinned) {
+            return true;
+        }
+
+        if (nextProps.isFlagged !== this.props.isFlagged) {
+            return true;
+        }
+
+        if (nextState.dropdownOpened !== this.state.dropdownOpened) {
+            return true;
+        }
+
+        return false;
     }
 
     componentDidMount() {
@@ -69,6 +89,37 @@ export default class SearchResultsItem extends React.Component {
     handleFocusRHSClick(e) {
         e.preventDefault();
         GlobalActions.emitPostFocusRightHandSideFromSearch(this.props.post, this.props.isMentionSearch);
+    }
+
+    handleJumpClick(postId) {
+        if (Utils.isMobile()) {
+            AppDispatcher.handleServerAction({
+                type: ActionTypes.RECEIVED_SEARCH,
+                results: null
+            });
+
+            AppDispatcher.handleServerAction({
+                type: ActionTypes.RECEIVED_SEARCH_TERM,
+                term: null,
+                do_search: false,
+                is_mention_search: false
+            });
+
+            AppDispatcher.handleServerAction({
+                type: ActionTypes.RECEIVED_POST_SELECTED,
+                postId: null
+            });
+
+            this.hideSidebar();
+        }
+        this.shrinkSidebar();
+        browserHistory.push(TeamStore.getCurrentTeamRelativeUrl() + '/pl/' + postId);
+    }
+
+    handleDropdownOpened = (isOpened) => {
+        this.setState({
+            dropdownOpened: isOpened
+        });
     }
 
     flagPost(e) {
@@ -109,6 +160,20 @@ export default class SearchResultsItem extends React.Component {
                     {this.timeTag(post)}
                 </Link>
             );
+    }
+
+    getClassName = () => {
+        let className = 'post post--thread';
+
+        if (this.props.compactDisplay) {
+            className = ' post--compact';
+        }
+
+        if (this.state.dropdownOpened) {
+            className += ' post--hovered';
+        }
+
+        return className;
     }
 
     render() {
@@ -163,11 +228,7 @@ export default class SearchResultsItem extends React.Component {
 
         );
 
-        let compactClass = '';
         const profilePicContainer = (<div className='post__img'>{profilePic}</div>);
-        if (this.props.compactDisplay) {
-            compactClass = ' post--compact';
-        }
 
         let postClass = '';
         if (PostUtils.isEdited(this.props.post)) {
@@ -208,6 +269,13 @@ export default class SearchResultsItem extends React.Component {
 
             rhsControls = (
                 <div className='col__controls'>
+                    <DotMenu
+                        idPrefix={Constants.SEARCH_POST}
+                        idCount={idCount}
+                        post={post}
+                        isFlagged={this.props.isFlagged}
+                        handleDropdownOpened={this.handleDropdownOpened}
+                    />
                     <CommentIcon
                         idPrefix={'searchCommentIcon'}
                         idCount={idCount}
@@ -215,32 +283,7 @@ export default class SearchResultsItem extends React.Component {
                         searchStyle={'search-item__comment'}
                     />
                     <a
-                        onClick={
-                            () => {
-                                if (Utils.isMobile()) {
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_SEARCH,
-                                        results: null
-                                    });
-
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_SEARCH_TERM,
-                                        term: null,
-                                        do_search: false,
-                                        is_mention_search: false
-                                    });
-
-                                    AppDispatcher.handleServerAction({
-                                        type: ActionTypes.RECEIVED_POST_SELECTED,
-                                        postId: null
-                                    });
-
-                                    this.hideSidebar();
-                                }
-                                this.shrinkSidebar();
-                                browserHistory.push(TeamStore.getCurrentTeamRelativeUrl() + '/pl/' + post.id);
-                            }
-                        }
+                        onClick={this.handleJumpClick(post.id)}
                         className='search-item__jump'
                     >
                         <FormattedMessage
@@ -287,23 +330,23 @@ export default class SearchResultsItem extends React.Component {
                         />
                     </div>
                 </div>
-                <div
-                    className={'post post--thread ' + compactClass}
-                >
+                <div className={this.getClassName()}>
                     <div className='search-channel__name'>{channelName}</div>
                     <div className='post__content'>
                         {profilePicContainer}
                         <div>
                             <div className='post__header'>
-                                <div className='col col__name'><strong>
-                                    <UserProfile
-                                        user={user}
-                                        overwriteName={overrideUsername}
-                                        disablePopover={disableProfilePopover}
-                                        status={this.props.status}
-                                        isBusy={this.props.isBusy}
-                                    />
-                                </strong></div>
+                                <div className='col col__name'>
+                                    <strong>
+                                        <UserProfile
+                                            user={user}
+                                            overwriteName={overrideUsername}
+                                            disablePopover={disableProfilePopover}
+                                            status={this.props.status}
+                                            isBusy={this.props.isBusy}
+                                        />
+                                    </strong>
+                                </div>
                                 {botIndicator}
                                 <div className='col'>
                                     {this.renderTimeTag(post)}

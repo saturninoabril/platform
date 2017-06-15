@@ -959,7 +959,8 @@ export const Constants = {
     TEST_ID_COUNT: 10,
     CENTER: 'center',
     RHS: 'rhs',
-    RHS_ROOT: 'rhsroot'
+    RHS_ROOT: 'rhsroot',
+    SEARCH_POST: 'searchpost'
 };
 
 export default Constants;
