@@ -15,7 +15,7 @@ const NotificationPrefs = Constants.NotificationPrefs;
 
 const CHANGE_EVENT = 'change';
 const STATS_EVENT = 'stats';
-const LAST_VIEVED_EVENT = 'last_viewed';
+const LAST_VIEWED_EVENT = 'last_viewed';
 
 import store from 'stores/redux_store.jsx';
 import * as Selectors from 'mattermost-redux/selectors/entities/channels';
@@ -99,15 +99,15 @@ class ChannelStoreClass extends EventEmitter {
     }
 
     emitLastViewed() {
-        this.emit(LAST_VIEVED_EVENT);
+        this.emit(LAST_VIEWED_EVENT);
     }
 
     addLastViewedListener(callback) {
-        this.on(LAST_VIEVED_EVENT, callback);
+        this.on(LAST_VIEWED_EVENT, callback);
     }
 
     removeLastViewedListener(callback) {
-        this.removeListener(LAST_VIEVED_EVENT, callback);
+        this.removeListener(LAST_VIEWED_EVENT, callback);
     }
 
     findFirstBy(field, value) {
