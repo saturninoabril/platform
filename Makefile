@@ -450,6 +450,61 @@ nuke: clean clean-docker
 setup-mac:
 	echo $$(boot2docker ip 2> /dev/null) dockerhost | sudo tee -a /etc/hosts
 
+start-docker-selenium:
+	@echo Starting selenium docker container
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub) -eq 0 ]; then \
+		echo starting mattermost-selenium-hub; \
+		docker run --name mattermost-selenium-hub -p 4444:4444 -e GRID_TIMEOUT=10 selenium/hub:3.5.3-astatine > /dev/null; \
+		sleep 10; \
+	elif [ $(shell docker ps | grep -ci mattermost-selenium-hub) -eq 0 ]; then \
+		echo restarting mattermost-selenium-hub; \
+		docker start mattermost-selenium-hub > /dev/null; \
+		sleep 10; \
+	fi
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub-chrome) -eq 0 ]; then \
+		echo starting mattermost-selenium-hub-chrome; \
+		docker run --name mattermost-selenium-hub-chrome -d --link mattermost-selenium-hub:hub selenium/node-chrome:3.5.3-astatine; \
+		sleep 10; \
+	elif [ $(shell docker ps | grep -ci mattermost-selenium-hub-chrome) -eq 0 ]; then \
+		echo restarting mattermost-selenium-hub-chrome; \
+		docker start mattermost-selenium-hub-chrome > /dev/null; \
+		sleep 10; \
+	fi
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub-firefox) -eq 0 ]; then \
+		echo starting mattermost-selenium-hub-firefox; \
+		docker run --name mattermost-selenium-hub-firefox -d --link mattermost-selenium-hub:hub selenium/node-firefox:3.5.3-astatine; \
+		sleep 10; \
+	elif [ $(shell docker ps | grep -ci mattermost-selenium-hub-firefox) -eq 0 ]; then \
+		echo restarting mattermost-selenium-hub-firefox; \
+		docker start mattermost-selenium-hub-firefox > /dev/null; \
+		sleep 10; \
+	fi
+
+stop-docker-selenium:
+	@echo Stopping selenium docker container
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub) -eq 1 ]; then \
+		echo stopping mattermost-selenium-hub; \
+		docker stop mattermost-selenium-hub > /dev/null; \
+	fi
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub-chrome) -eq 1 ]; then \
+		echo stopping mattermost-selenium-hub-chrome; \
+		docker stop mattermost-selenium-hub-chrome > /dev/null; \
+	fi
+
+	@if [ $(shell docker ps -a | grep -ci mattermost-selenium-hub-firefox) -eq 1 ]; then \
+		echo stopping mattermost-selenium-hub-firefox; \
+		docker stop mattermost-selenium-hub-firefox > /dev/null; \
+	fi
+
+test-e2e: run start-docker-selenium
+	@echo Running end-to-end tests
+
+	cd $(BUILD_WEBAPP_DIR) && $(MAKE) test-e2e
 
 todo:
 	@! ag --ignore Makefile --ignore-dir vendor --ignore-dir runtime TODO
