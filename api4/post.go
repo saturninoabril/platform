@@ -180,7 +180,7 @@ func getPostsForChannel(c *Context, w http.ResponseWriter, r *http.Request) {
 		w.Header().Set(model.HEADER_ETAG_SERVER, etag)
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(list)
+	clientPostList, err := c.App.PreparePostListForClient(list, c.Params.ChannelId)
 	if err != nil {
 		mlog.Error("Failed to prepare posts for getPostsForChannel response", mlog.Any("err", err))
 	}
@@ -223,7 +223,7 @@ func getPostsForChannelAroundLastUnread(c *Context, w http.ResponseWriter, r *ht
 		postList, err = c.App.GetPostsPage(channelId, app.PAGE_DEFAULT, c.Params.LimitBefore)
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(postList)
+	clientPostList, err := c.App.PreparePostListForClient(postList, channelId)
 	if err != nil {
 		mlog.Error("Failed to prepare posts for getPostsForChannelAroundLastUnread response", mlog.Any("err", err))
 	}
@@ -264,7 +264,7 @@ func getFlaggedPostsForUser(c *Context, w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(posts)
+	clientPostList, err := c.App.PreparePostListForClient(posts, "")
 	if err != nil {
 		mlog.Error("Failed to prepare posts for getFlaggedPostsForUser response", mlog.Any("err", err))
 	}
@@ -391,7 +391,7 @@ func getPostThread(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(list)
+	clientPostList, err := c.App.PreparePostListForClient(list, "")
 	if err != nil {
 		mlog.Error("Failed to prepare posts for getFlaggedPostsForUser response", mlog.Any("err", err))
 	}
@@ -445,7 +445,7 @@ func searchPosts(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(results.PostList)
+	clientPostList, err := c.App.PreparePostListForClient(results.PostList, "")
 	if err != nil {
 		mlog.Error("Failed to prepare posts for searchPosts response", mlog.Any("err", err))
 	}

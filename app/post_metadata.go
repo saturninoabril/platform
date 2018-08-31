@@ -7,10 +7,11 @@ import (
 	"strings"
 
 	"github.com/dyatlov/go-opengraph/opengraph"
+	"github.com/mattermost/mattermost-server/mlog"
 	"github.com/mattermost/mattermost-server/model"
 )
 
-func (a *App) PreparePostListForClient(originalList *model.PostList) (*model.PostList, *model.AppError) {
+func (a *App) PreparePostListForClient(originalList *model.PostList, channelId string) (*model.PostList, *model.AppError) {
 	list := &model.PostList{
 		Posts: make(map[string]*model.Post),
 		Order: originalList.Order,
@@ -23,6 +24,28 @@ func (a *App) PreparePostListForClient(originalList *model.PostList) (*model.Pos
 		}
 
 		list.Posts[id] = post
+	}
+
+	if channelId != "" && len(list.Order) > 0 {
+		firstPostId := list.Order[0]
+		nextPost, err := a.GetPostAfter(channelId, firstPostId)
+
+		if err != nil {
+			mlog.Error("Failed in getting next post", mlog.Any("err", err))
+		}
+		if nextPost != nil {
+			list.NextPostId = nextPost.Id
+		}
+
+		lastPostId := list.Order[len(list.Order)-1]
+		previousPost, err := a.GetPostBefore(channelId, lastPostId)
+
+		if err != nil {
+			mlog.Error("Failed in getting previous post", mlog.Any("err", err))
+		}
+		if previousPost != nil {
+			list.PreviousPostId = previousPost.Id
+		}
 	}
 
 	return list, nil

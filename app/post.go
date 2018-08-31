@@ -609,6 +609,24 @@ func (a *App) GetPostsAroundPost(postId, channelId string, offset, limit int, be
 	}
 }
 
+func (a *App) GetPostAfter(channelId, postId string) (*model.Post, *model.AppError) {
+	result := <-a.Srv.Store.Post().GetPostAfter(channelId, postId)
+	if result.Err != nil {
+		return nil, result.Err
+	}
+
+	return result.Data.(*model.Post), nil
+}
+
+func (a *App) GetPostBefore(channelId, postId string) (*model.Post, *model.AppError) {
+	result := <-a.Srv.Store.Post().GetPostBefore(channelId, postId)
+	if result.Err != nil {
+		return nil, result.Err
+	}
+
+	return result.Data.(*model.Post), nil
+}
+
 func (a *App) GetPostsForChannelAroundLastUnread(channelId, userId string, limitBefore, limitAfter int) (*model.PostList, *model.AppError) {
 	var member *model.ChannelMember
 	var err *model.AppError
