@@ -484,7 +484,7 @@ func getPinnedPosts(c *Context, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	clientPostList, err := c.App.PreparePostListForClient(posts, "")
+	clientPostList, err := c.App.PreparePostListForClient(posts)
 	if err != nil {
 		mlog.Error("Failed to prepare posts for getFlaggedPostsForUser response", mlog.Any("err", err))
 	}

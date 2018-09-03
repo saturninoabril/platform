@@ -627,6 +627,40 @@ func (a *App) GetPostBefore(channelId, postId string) (*model.Post, *model.AppEr
 	return result.Data.(*model.Post), nil
 }
 
+func (a *App) GetNextPostFromPostList(postList *model.PostList) string {
+	if len(postList.Order) > 0 {
+		firstPostId := postList.Order[0]
+		firstPost := postList.Posts[firstPostId]
+		nextPost, err := a.GetPostAfter(firstPost.ChannelId, firstPost.Id)
+		if err != nil {
+			mlog.Error("GetNextPostFromPostList: failed in getting next post", mlog.Any("err", err))
+		}
+
+		if nextPost != nil {
+			return nextPost.Id
+		}
+	}
+
+	return ""
+}
+
+func (a *App) GetPreviousPostFromPostList(postList *model.PostList) string {
+	if len(postList.Order) > 0 {
+		lastPostId := postList.Order[len(postList.Order)-1]
+		lastPost := postList.Posts[lastPostId]
+		previousPost, err := a.GetPostBefore(lastPost.ChannelId, lastPost.Id)
+		if err != nil {
+			mlog.Error("GetPreviousPostFromPostList: failed in getting previous post", mlog.Any("err", err))
+		}
+
+		if previousPost != nil {
+			return previousPost.Id
+		}
+	}
+
+	return ""
+}
+
 func (a *App) GetPostsForChannelAroundLastUnread(channelId, userId string, limitBefore, limitAfter int) (*model.PostList, *model.AppError) {
 	var member *model.ChannelMember
 	var err *model.AppError

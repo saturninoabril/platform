@@ -365,6 +365,14 @@ func (a *App) SendNotifications(post *model.Post, team *model.Team, channel *mod
 	message.Add("sender_name", senderUsername)
 	message.Add("team_id", team.Id)
 
+	previousPost, err := a.GetPostBefore(post.ChannelId, post.Id)
+	if err != nil {
+		mlog.Error("SendNotifications: failed in getting previous post", mlog.Any("err", err))
+	}
+	if previousPost != nil {
+		message.Add("previous_post_id", previousPost.Id)
+	}
+
 	if len(post.FileIds) != 0 && fchan != nil {
 		message.Add("otherFile", "true")
 
