@@ -303,11 +303,17 @@ func getAnalytics(c *Context, w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(rows.ToJson()))
 }
 
+type Timezone struct {
+	Value string `json:"value"`
+	IsDST bool   `json:"is_dst"`
+	Text  string `json:"text"`
+}
+
 func getSupportedTimezones(c *Context, w http.ResponseWriter, r *http.Request) {
 	supportedTimezones := c.App.Timezones.GetSupported()
-	if supportedTimezones == nil {
-		supportedTimezones = make([]string, 0)
-	}
+	// if supportedTimezones == nil {
+	// 	supportedTimezones = make([]string, 0)
+	// }
 
 	b, err := json.Marshal(supportedTimezones)
 	if err != nil {
